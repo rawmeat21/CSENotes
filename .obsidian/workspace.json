@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Python- OOPs.md",
+                "file": "Python/Python- Exceptions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python- OOPs"
+              "title": "Python- Exceptions"
             }
           },
           {
@@ -197,15 +197,16 @@
   },
   "active": "17b8a03f799e447d",
   "lastOpenFiles": [
+    "Python/Some methods- map, filter, reduce ✓.md",
+    "Python/Python- OOPs ✓.md",
+    "Python/Python- Lists ✓.md",
     "Java/Threads.md",
     "Java/Collections-1.md",
     "Python/Python- Iterators and Generators ✓.md",
     "Python/Python- GUI.md",
     "Python/Python- Multithreading.md",
-    "Python/Python- OOPs.md",
     "Python/Python- Sets ✓.md",
     "Python/Python- Functions ✓.md",
-    "Python/Python- Lists ✓.md",
     "Python/Python- File handling.md",
     "Python/Python- Exceptions.md",
     "Python/Python- Dunder Methods.md",
@@ -215,7 +216,6 @@
     "Python/Python- Some important codes ✓.md",
     "Python/Python- Strings ✓.md",
     "Python/Python- Decorators.md",
-    "Python/Some methods- map, filter, reduce.md",
     "2026-05-01.md",
     "OS/OS-4.md",
     "OS/OS-3.md",

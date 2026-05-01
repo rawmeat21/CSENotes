@@ -314,7 +314,7 @@ class Dog(Animal):
         self.breed = breed
 ```
 
-`super()` returns a proxy object that delegates method calls to the parent class. In C++ you'd write `Animal::Animal(name)`. In Python it's `super().__init__(name)`.
+`super()` returns a proxy object that delegates method calls to the parent class.
 
 If you don't call `super().__init__()`, the parent's initialization code doesn't run — the parent's attributes won't be set on the instance.
 

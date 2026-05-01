@@ -64,7 +64,7 @@ def on_click():
     print("clicked")
 
 btn = tk.Button(root, text="Click Me", command=on_click)
-	btn.pack()
+btn.pack()
 ```
 
 `command` takes a **callable with no arguments**. Do not call it — `command=on_click`, not `command=on_click()`.
@@ -340,7 +340,7 @@ Frames let you apply different geometry managers to different sections of the wi
 
 ---
 
-### The Exam Question — GUI App to Read and Display a File
+### GUI App to Read and Display a File
 
 The question asks for: Entry field for filename → open and read the file → display in a Label. Optionally replace Entry with a Menu with File Open option and Exit option.
 

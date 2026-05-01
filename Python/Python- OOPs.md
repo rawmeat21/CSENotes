@@ -432,6 +432,8 @@ class Dog(Animal):
 
 Python's polymorphism is **duck typing** — if an object has the required method, it works, regardless of its type. There is no need for a common base class or interface declaration.
 
+Duck typing is a concept in Python's dynamic type system where an object's suitability for a task is determined by the presence of certain methods and attributes, rather than its actual type or class
+
 python
 
 ```python
@@ -461,7 +463,7 @@ make_speak(Robot())   # beep boop
 
 ### Operator Overloading
 
-Yes, Python supports operator overloading via **dunder methods** (double underscore methods, also called magic methods).
+Python supports operator overloading via **dunder methods** (double underscore methods, also called magic methods).
 
 python
 

@@ -64,7 +64,7 @@ def on_click():
     print("clicked")
 
 btn = tk.Button(root, text="Click Me", command=on_click)
-btn.pack()
+	btn.pack()
 ```
 
 `command` takes a **callable with no arguments**. Do not call it — `command=on_click`, not `command=on_click()`.

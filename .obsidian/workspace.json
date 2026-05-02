@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Python- File handling.md",
+                "file": "Python/Python- Multithreading.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python- File handling"
+              "title": "Python- Multithreading"
             }
           },
           {
@@ -212,15 +212,24 @@
   },
   "active": "58417039619fe6c1",
   "lastOpenFiles": [
+    "Pasted image 20260502115704.png",
+    "Pasted image 20260502115341.png",
+    "Pasted image 20260502115106.png",
+    "Pasted image 20260502115056.png",
+    "Pasted image 20260502114939.png",
+    "Pasted image 20260502114926.png",
+    "Pasted image 20260502114524.png",
+    "Pasted image 20260502114344.png",
+    "Pasted image 20260502114325.png",
+    "Python/Python- GUI ✓.md",
+    "Python/Python- File handling ✓.md",
+    "Python/Python- Lists ✓.md",
     "Java/Swing.md",
     "Java/Collections-1.md",
     "Java/Threads.md",
-    "Python/Python- File handling.md",
-    "Python/Python- GUI.md",
     "Python/Python- Exceptions ✓.md",
     "Python/Some methods- map, filter, reduce ✓.md",
     "Python/Python- OOPs ✓.md",
-    "Python/Python- Lists ✓.md",
     "Python/Python- Iterators and Generators ✓.md",
     "Python/Python- Multithreading.md",
     "Python/Python- Sets ✓.md",
@@ -244,16 +253,7 @@
     "Files-1.md",
     "Pasted image 20260430192000.png",
     "Pasted image 20260430190906.png",
-    "Pasted image 20260430190729.png",
-    "Pasted image 20260430190637.png",
-    "Pasted image 20260430190624.png",
-    "Pasted image 20260430190534.png",
-    "Pasted image 20260430190325.png",
-    "Pasted image 20260430190143.png",
-    "Pasted image 20260430190120.png",
-    "Pasted image 20260430185925.png",
     "Java",
-    "OS/OS-2.md",
     "Python",
     "DBMS",
     "OS"

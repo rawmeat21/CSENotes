@@ -4,8 +4,6 @@
 
 ### The GIL — Global Interpreter Lock
 
-Before anything else, you need to understand this because it defines what threading in Python actually means.
-
 CPython (the standard Python interpreter) has a **Global Interpreter Lock** — a mutex that allows only **one thread to execute Python bytecode at a time**. Even on a multi-core machine, Python threads do not run Python code in parallel.
 
 This means:
@@ -34,7 +32,37 @@ import threading
 ```
 
 ---
+![[Pasted image 20260502114325.png]]
+(There are actually 2 do_something() functions here, the other one was written but I couldn't include it in the screenshot)
 
+![[Pasted image 20260502114344.png]]
+
+(Without threading, no concurrency, 2s to run)
+
+![[Pasted image 20260502114524.png]]
+
+(With threading, IO concurrency acheived, 1.2s to run)
+
+Some IO bound tasks- Read/ Write files, Download files from internet
+
+![[Pasted image 20260502114926.png]]
+
+![[Pasted image 20260502114939.png]]
+(Notice that main thread is finished before t1 and t2)
+
+![[Pasted image 20260502115056.png]]
+
+![[Pasted image 20260502115106.png]]
+
+(Added .join() so parent thread waits until t1 and t2 are finished)
+
+![[Pasted image 20260502115341.png]]
+
+What if you add t.join() after t.start()? After the first t.start(), main thread calls t.join(), and main waits for the first thread to finish, so it creates the second thread just after first thread finishes! Then again 3rd thread would start after 2nd one finishes, so your code would never acheive concurrency and the runtime would be 10s.
+
+![[Pasted image 20260502115704.png]]
+
+join them one by one after starting all of them
 ### Creating and Starting Threads
 
 python
@@ -53,7 +81,6 @@ t.join()     # blocks the calling thread until t finishes
 
 - `target` — the callable to run in the thread
 - `args` — tuple of positional arguments
-- `kwargs` — dict of keyword arguments
 
 `t.start()` returns immediately — the thread runs concurrently. `t.join()` blocks the calling thread (usually the main thread) until `t` completes.
 

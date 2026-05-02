@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Python- GUI.md",
+                "file": "Python/Python- File handling.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python- GUI"
+              "title": "Python- File handling"
             }
           },
           {
@@ -197,6 +197,7 @@
   },
   "active": "17b8a03f799e447d",
   "lastOpenFiles": [
+    "Python/Python- GUI.md",
     "Python/Python- Exceptions ✓.md",
     "Python/Some methods- map, filter, reduce ✓.md",
     "Python/Python- OOPs ✓.md",
@@ -204,7 +205,6 @@
     "Java/Threads.md",
     "Java/Collections-1.md",
     "Python/Python- Iterators and Generators ✓.md",
-    "Python/Python- GUI.md",
     "Python/Python- Multithreading.md",
     "Python/Python- Sets ✓.md",
     "Python/Python- Functions ✓.md",

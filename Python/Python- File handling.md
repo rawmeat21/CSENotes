@@ -129,6 +129,7 @@ In binary mode, `read()` returns `bytes`, `write()` expects `bytes`.
 python
 
 ```python
+file.seek(offset, from_what) # syntax
 f.tell()         # returns current cursor position as byte offset from start
 f.seek(offset)   # move cursor to byte offset from start
 f.seek(0, 0)     # seek to offset 0 from start  (same as seek(0))
@@ -426,3 +427,337 @@ data   = json.loads(s_json)       # dict
 ```
 
 ---
+
+
+### `os` Module
+
+python
+
+```python
+import os
+```
+
+`os` gives you access to operating system functionality — file system, environment, process info.
+
+---
+
+### Checking Files and Directories
+
+python
+
+```python
+os.path.exists("file.txt")        # True if path exists — file OR directory
+os.path.isfile("file.txt")        # True only if it's a file
+os.path.isdir("myfolder")         # True only if it's a directory
+os.path.isabs("/home/user/file")  # True if path is absolute
+```
+
+Always check before operating to avoid exceptions:
+
+python
+
+```python
+path = "data.txt"
+
+if os.path.exists(path):
+    with open(path, "r") as f:
+        print(f.read())
+else:
+    print("file does not exist")
+```
+
+---
+
+### Path Operations — `os.path`
+
+python
+
+```python
+os.path.join("folder", "subfolder", "file.txt")
+# "folder/subfolder/file.txt" on Linux
+# "folder\\subfolder\\file.txt" on Windows
+# always use join — never manually concatenate paths with "/"
+```
+
+python
+
+```python
+os.path.basename("/home/user/file.txt")   # "file.txt"
+os.path.dirname("/home/user/file.txt")    # "/home/user"
+os.path.split("/home/user/file.txt")      # ("/home/user", "file.txt")
+os.path.splitext("file.txt")             # ("file", ".txt") — splits extension
+os.path.abspath("file.txt")              # full absolute path from relative
+os.path.getsize("file.txt")              # file size in bytes
+```
+
+---
+
+### Working Directory
+
+python
+
+```python
+os.getcwd()               # get current working directory
+os.chdir("/home/user")    # change current working directory
+```
+
+---
+
+### Creating and Removing Directories
+
+python
+
+```python
+os.mkdir("new_folder")              # create one directory — fails if exists
+os.makedirs("a/b/c")                # create full path recursively
+os.makedirs("a/b/c", exist_ok=True) # no error if already exists — use this
+
+os.rmdir("empty_folder")            # remove empty directory only
+os.removedirs("a/b/c")             # remove recursively — only if all empty
+```
+
+For removing non-empty directories:
+
+python
+
+```python
+import shutil
+shutil.rmtree("folder")             # deletes folder and everything inside it
+```
+
+---
+
+### Listing Directory Contents
+
+python
+
+```python
+os.listdir(".")              # list all files and folders in current directory
+os.listdir("/home/user")     # list specific directory
+
+for item in os.listdir("."):
+    print(item)
+
+# filter only files
+files = [f for f in os.listdir(".") if os.path.isfile(f)]
+
+# filter only directories
+dirs = [d for d in os.listdir(".") if os.path.isdir(d)]
+```
+
+---
+
+### Renaming and Deleting Files
+
+python
+
+```python
+os.rename("old.txt", "new.txt")          # rename file or directory
+os.replace("old.txt", "new.txt")         # rename — overwrites destination if exists
+
+os.remove("file.txt")                    # delete a file
+# os.remove on a directory raises IsADirectoryError
+```
+
+---
+
+### Copying and Moving — `shutil`
+
+`os` does not have copy/move. Use `shutil`:
+
+python
+
+```python
+import shutil
+
+shutil.copy("source.txt", "dest.txt")         # copy file — dest can be file or directory
+shutil.copy2("source.txt", "dest.txt")        # copy file + preserve metadata
+shutil.copytree("src_folder", "dst_folder")   # copy entire directory tree
+shutil.move("source.txt", "dest/")            # move file or directory
+```
+
+---
+
+### Walking Directory Trees — `os.walk()`
+
+`os.walk()` traverses a directory tree recursively. For each directory it visits, it yields a tuple of `(dirpath, dirnames, filenames)`:
+
+python
+
+```python
+for dirpath, dirnames, filenames in os.walk("."):
+    print(f"directory: {dirpath}")
+    for f in filenames:
+        full_path = os.path.join(dirpath, f)
+        print(f"  file: {full_path}")
+```
+
+```
+directory: .
+  file: ./main.py
+  file: ./data.txt
+directory: ./subfolder
+  file: ./subfolder/notes.txt
+```
+
+Common use — find all files with a specific extension:
+
+python
+
+```python
+for dirpath, dirnames, filenames in os.walk("."):
+    for f in filenames:
+        if f.endswith(".txt"):
+            print(os.path.join(dirpath, f))
+```
+
+---
+
+### Flushing and Saving
+
+When you write to a file, data goes to an **OS buffer** first — not necessarily to disk immediately. Python flushes when:
+
+- The file is closed
+- The buffer fills up
+- You call `flush()` explicitly
+
+python
+
+```python
+with open("log.txt", "w") as f:
+    f.write("line 1\n")
+    f.flush()              # force write to OS — useful for logs you want to see immediately
+```
+
+`flush()` pushes data from Python's buffer to the OS. To force all the way to physical disk:
+
+python
+
+```python
+import os
+
+with open("critical.txt", "w") as f:
+    f.write("important data\n")
+    f.flush()
+    os.fsync(f.fileno())   # forces OS to flush its buffer to disk
+```
+
+`os.fsync()` is needed for critical data — crash recovery, databases, etc. For normal file writing, closing the file (or using `with`) is sufficient.
+
+---
+
+### `pathlib` — Modern Alternative to `os.path`
+
+Python 3.4+ has `pathlib` — an object-oriented approach to paths. Cleaner than `os.path` string operations:
+
+python
+
+```python
+from pathlib import Path
+
+p = Path("folder/file.txt")
+
+p.exists()          # True/False
+p.is_file()         # True/False
+p.is_dir()          # True/False
+
+p.name              # "file.txt"
+p.stem              # "file"
+p.suffix            # ".txt"
+p.parent            # Path("folder")
+
+p.stat().st_size    # file size in bytes
+```
+
+#### Building paths — `/` operator
+
+python
+
+```python
+base = Path("/home/user")
+full = base / "documents" / "file.txt"
+# Path("/home/user/documents/file.txt")
+```
+
+The `/` operator joins paths — much cleaner than `os.path.join`.
+
+#### Reading and writing directly
+
+python
+
+```python
+p = Path("file.txt")
+content = p.read_text(encoding="utf-8")    # read entire file as string
+p.write_text("hello", encoding="utf-8")   # write string to file
+
+data = p.read_bytes()                      # read as bytes
+p.write_bytes(b"hello")                    # write bytes
+```
+
+#### Creating directories
+
+python
+
+```python
+Path("a/b/c").mkdir(parents=True, exist_ok=True)
+```
+
+#### Listing contents
+
+python
+
+```python
+p = Path(".")
+for item in p.iterdir():          # like os.listdir
+    print(item)
+
+# recursive glob — find all .txt files
+for txt_file in p.rglob("*.txt"):
+    print(txt_file)
+
+# non-recursive glob
+for txt_file in p.glob("*.txt"):
+    print(txt_file)
+```
+
+---
+
+### `os` vs `pathlib` — When to Use Which
+
+||`os` / `os.path`|`pathlib`|
+|---|---|---|
+|Style|functional, string-based|object-oriented|
+|Python version|always available|3.4+|
+|Path joining|`os.path.join(a, b)`|`Path(a) / b`|
+|Readability|verbose|cleaner|
+|Common in exams|yes|increasingly yes|
+
+Both are valid. `pathlib` is the modern preference. `os` is still everywhere in existing code.
+
+---
+
+### Practical Pattern — Safe File Operations
+
+python
+
+```python
+import os
+import shutil
+from pathlib import Path
+
+def safe_write(path, content):
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)  # create dirs if needed
+    p.write_text(content, encoding="utf-8")
+
+def safe_read(path):
+    p = Path(path)
+    if not p.exists():
+        return None
+    return p.read_text(encoding="utf-8")
+
+def backup(path):
+    p = Path(path)
+    if p.exists():
+        shutil.copy2(path, str(path) + ".bak")
+```

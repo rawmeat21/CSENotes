@@ -2,6 +2,8 @@
 
 ### The Problem
 
+![[Pasted image 20260503120106.png]]
+
 In a shared memory multiprocessor, each processor has its own local cache. When multiple processors maintain locally cached copies of a unique shared-memory location, any local modification of that location can result in a globally inconsistent view of memory. Cache coherence schemes prevent this problem by maintaining a uniform state for each cached block of data.
 
 To understand the inconsistency, consider two processors P1 and P2 both caching a block X from shared memory. Before any update, all three copies — P1's cache, P2's cache, and shared memory — hold the value X. Now P1 writes X' to its cache:
@@ -14,6 +16,9 @@ In both cases, P2 is reading incorrect data. This is the cache coherence problem
 ---
 
 ### Snoopy Protocols
+
+![[Pasted image 20260503120130.png]]
+
 
 Snoopy protocols achieve data consistency among caches and shared memory through a **bus-watching mechanism**. Every cache controller monitors (snoops) all bus transactions. Since all caches see every bus transaction, each controller can update its own state accordingly — either invalidating or updating its local copy.
 
@@ -77,6 +82,9 @@ Replacements and the write-backs they may cause are not shown in the diagram.
         /  BusRd/—\
        (I)<---------
 ```
+
+![[Pasted image 20260503120150.png]]
+
 
 More precisely, the complete transitions are:
 
@@ -151,6 +159,9 @@ MESI places a new requirement on the physical interconnect of the bus. An additi
 
 #### MESI State Transitions
 
+![[Pasted image 20260503120224.png]]
+
+
 |Current State|Event|New State|Action|
 |---|---|---|---|
 |I|PrRd (S signal inactive)|E|BusRd|
@@ -205,6 +216,9 @@ MESI places a new requirement on the physical interconnect of the bus. An additi
 
 ### Directory-Based Cache Coherence
 
+![[Pasted image 20260503120240.png]]
+
+
 Snoopy protocols rely on a shared bus — every cache sees every bus transaction. This does not scale to large multiprocessors because the bus becomes a bottleneck. **Directory-based cache coherence** is used in scalable multiprocessors. Instead of broadcasting transactions to all caches, a **directory** tracks which caches hold copies of each block, and transactions are sent only to the relevant caches using point-to-point network messages.
 
 Each node in the system consists of a processor, a cache, local memory, a directory, and a **communication assist (CA)** — the hardware/firmware that handles network transactions on behalf of the processor.
@@ -228,6 +242,8 @@ Directory entry for one block:
 When the dirty bit is ON, only one presence bit is ON (the dirty/owner node). When the dirty bit is OFF, multiple presence bits may be ON (multiple clean shared copies are allowed).
 
 #### Node Terminology
+
+![[Pasted image 20260503120333.png]]
 
 |Term|Meaning|
 |---|---|
@@ -275,3 +291,5 @@ When node ii incurs a cache miss (read or write), it first **communicates with t
 > **PYQ (2022 Q24, 2024 Q26):** A cache read-miss occurs at node-i. The home node is a remote node. At the home node, the dirty bit for the block is ON. **(d) both (b) and (c)** — node-i sends a request to node-j, and if dirty, node-j sends to node-i the identity of the owner node.
 
 > **PYQ (2022 Q25):** When a dirty node provides data to a requestor node on a read miss, the state of the block **(a) changes to "shared"** at both the dirty node and the requestor.
+
+![[Pasted image 20260503120415.png]]

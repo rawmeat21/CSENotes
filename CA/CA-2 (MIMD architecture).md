@@ -12,6 +12,8 @@ The threads need to **exchange information** with each other to cooperate toward
 
 Every MIMD machine is built around one of two memory models. This is the most important classification.
 
+![[Pasted image 20260503115406.png]]
+
 #### (1) Distributed Memory (Message-Passing)
 
 Each processing element (PE) consists of a processor and its own **local memory**. No PE can directly access the memory of another PE. Whenever interaction among PEs is necessary, they **send messages** to each other over an interconnection network.
@@ -125,6 +127,9 @@ When logically shared memory is physically implemented as local memories at each
 
 #### (i) NUMA — Non-Uniform Memory Access
 
+![[Pasted image 20260503115439.png]]
+
+
 The shared memory is divided into as many blocks as there are processors. Each block is attached to a processor as local memory with a direct bus connection. Whenever a processor addresses the part of the shared memory that is its local memory, access is fast. Accessing a remote memory block is slower — hence **non-uniform**.
 
 ```
@@ -135,6 +140,9 @@ P0  PE0    P1  PE1       Pn  PEn
 ```
 
 #### (ii) CC-NUMA — Cache-Coherent Non-Uniform Memory Access
+
+![[Pasted image 20260503115528.png]]
+
 
 CC-NUMA is a compromise between NUMA and COMA. Like NUMA, the shared memory is constructed as a set of local memory blocks. However, to reduce traffic on the interconnection network, each processor node is supplied with a **large cache memory block**. Because multiple caches now hold copies of the same memory block, a **cache coherence protocol** is needed — hence the "CC" prefix.
 
@@ -151,6 +159,9 @@ Cluster 1                    Cluster n
 
 #### (iii) COMA — Cache-Only Memory Access
 
+![[Pasted image 20260503115513.png]]
+
+
 COMA is a special case of NUMA in which the distributed main memories are **converted entirely to caches** at each processor node. There is no conventional memory hierarchy at each node — just a cache and a directory. All the caches together form a global address space. Remote cache access is assisted by the distributed cache directories.
 
 ```
@@ -162,6 +173,9 @@ D0       D1           Dn    (Directory)
 
 ---
 
+![[Pasted image 20260503115720.png]]
+
+---
 ### Shared Memory MIMD: Design Issues
 
 The distinguishing feature of shared memory systems is that no matter how many memory blocks are used and how those memory blocks are connected to the processors, the address spaces of all memory blocks are **unified into a global address space completely visible to all processors**.

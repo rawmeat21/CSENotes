@@ -1,5 +1,8 @@
 ## Interconnection Networks
 
+![[Pasted image 20260503120456.png]]
+
+
 ### What is an Interconnection Network?
 
 An interconnection network is a **programmable system** that transports data between terminals. Terminals T1,T2,…,T6T1​,T2​,…,T6​ are connected to the network using channels. When terminal T3T3​ wishes to communicate some data with terminal T5T5​, it sends a message containing the data into the network and the network delivers the message to T5T5​. The network is programmable in the sense that it makes different connections at different points in time — it may deliver a message from T3T3​ to T5T5​ in one cycle and then use the same resources to deliver a message from T3T3​ to T1T1​ in the next cycle.
@@ -44,6 +47,9 @@ A **rearrangeably non-blocking** (or rearrangeable) network is one where the net
 
 ### Crossbar Networks
 
+![[Pasted image 20260503120518.png]]
+
+
 An n×mn×m crossbar (or crosspoint switch) directly connects nn inputs to mm outputs with no intermediate stages. Each output may be connected to at most one input at a time, while each input may be connected to any number of outputs. Such a switch consists of mm nn-to-1 multiplexers, one for each output.
 
 For example, a 4×54×5 crossbar has 4 input lines, 5 output lines, and 20 crosspoints. It consists of **5 four-to-one multiplexers**, one per output. Each multiplexer selects which of the 4 inputs to connect to its corresponding output. If the connection is {1,0,3,1,2}→{0,1,2,3,4}{1,0,3,1,2}→{0,1,2,3,4}, then output 0 is connected to input 1, output 1 to input 0, output 2 to input 3, output 3 to input 1, and output 4 to input 2.
@@ -56,6 +62,9 @@ In an n×mn×m crossbar:
 - Each input connects to one input pin on each of the mm multiplexers.
 - Each output is driven by exactly one multiplexer.
 
+![[Pasted image 20260503120555.png]]
+
+
 > **PYQ (2018 Q14):** A 4×54×5 crossbar switch can be implemented with **(a) 5 four-to-one multiplexers** — one per output, each selecting among the 4 inputs.
 
 > **PYQ (2022 Q28):** In an n×mn×m crossbar, **(b) there are mm number of nn-to-1 multiplexers.**
@@ -65,6 +74,9 @@ In an n×mn×m crossbar:
 ---
 
 ### Clos Networks
+
+![[Pasted image 20260503120610.png]]
+
 
 A Clos network is a **three-stage network** in which each stage is composed of a number of crossbar switches. A symmetric Clos network is characterized by a triple (m,n,r)(m,n,r) where:
 
@@ -82,16 +94,19 @@ Each input switch is an n×mn×m crossbar, each middle-stage switch is an r×rr�
 
 ### Butterfly Networks
 
-A **kk-ary nn-fly** butterfly network consists of:
+![[Pasted image 20260503120626.png]]
 
-- knkn source terminal nodes
-- nn stages of switch nodes
-- kn−1kn−1 switch nodes per stage, each of which is a k×kk×k crossbar
-- knkn destination terminal nodes
+
+A **k-ary n-fly** butterfly network consists of:
+
+- k^n source terminal nodes
+- n stages of switch nodes
+- k^(n−1) switch nodes per stage, each of which is a k×kk×k crossbar
+- k^n destination terminal nodes
 
 So the total number of k×kk×k switch nodes in the entire network is n⋅kn−1n⋅kn−1.
 
-The number of crossbar switch nodes in **each stage** of a kk-ary nn-fly butterfly network is kn−1kn−1.
+The number of crossbar switch nodes in **each stage** of a k-ary n-fly butterfly network is k^(n−1)
 
 Switch nodes are labeled s.ps.p where ss is the stage number (00 to n−1n−1) and pp is the position within that stage (00 to kn−1−1kn−1−1).
 

@@ -232,6 +232,14 @@ DADDUI: Doubleword Add Immediate Unsigned. It adds a constant value (an "immedia
 
 BNE: Branch if Not Equal. It compares two registers and jumps (branches) back to the "Loop" label if they are not equal.
 
+F0, F2, F4: These are Floating-Point Registers. They hold the decimal/scientific data being processed.
+
+R1, R2: These are General Purpose Registers. In this context, they are used as pointers (addresses) or counters for the loop.
+
+0(R1): This is Offset Addressing. It means "the memory address stored in register R1, plus an offset of 0."
+
+#-8: This is an Immediate Value. The # symbol indicates a literal number (a constant) used in the calculation.
+
 
 
 Total: **9 cycles** per iteration.

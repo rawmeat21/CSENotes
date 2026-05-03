@@ -513,7 +513,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 270.5
+    "width": 285.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -527,7 +527,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "210207eec7130e44",
+  "active": "4f13ed87e3a1f4d2",
   "lastOpenFiles": [
     "CA/CA-8 (Vector processors).md",
     "CA/CA- PYQs.md",

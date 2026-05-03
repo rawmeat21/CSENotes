@@ -85,7 +85,7 @@ Replacements and the write-backs they may cause are not shown in the diagram.
 
 ![[Pasted image 20260503120150.png]]
 
-
+Note that S is always a good copy. That means its up to date.
 More precisely, the complete transitions are:
 
 |Current State|Event|New State|Action|
@@ -229,7 +229,7 @@ A natural way to organize a directory is to maintain the directory information f
 
 For each cache-line-sized block of main memory, there is a directory entry containing:
 
-- A **presence bit vector** of PP bits (one per node/processor), where presence[i]=1presence[i]=1 means node ii currently has a cached copy of the block.
+- A **presence bit vector** of P bits (one per node/processor), where presence[i]=1 means node ii currently has a cached copy of the block.
 - A **dirty bit**, which indicates if the block is dirty (modified) in one of the node caches. If the dirty bit is ON, then only one node should be caching that block, and only that node's presence bit should be ON.
 
 ```

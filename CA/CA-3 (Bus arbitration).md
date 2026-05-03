@@ -1,5 +1,6 @@
 ## Bus Arbitration
 
+Bus arbiter decides who will have access to the bus at any given time.
 ### The Single Shared Bus
 
 ![[Pasted image 20260503115913.png]]

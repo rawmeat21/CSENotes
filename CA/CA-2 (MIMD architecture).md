@@ -144,7 +144,8 @@ P0  PE0    P1  PE1       Pn  PEn
 ![[Pasted image 20260503115528.png]]
 
 
-CC-NUMA is a compromise between NUMA and COMA. Like NUMA, the shared memory is constructed as a set of local memory blocks. However, to reduce traffic on the interconnection network, each processor node is supplied with a **large cache memory block**. Because multiple caches now hold copies of the same memory block, a **cache coherence protocol** is needed — hence the "CC" prefix.
+CC-NUMA is a compromise between NUMA and COMA. Like NUMA, the shared memory is constructed as a set of local memory blocks. However, to reduce traffic on the interconnection network, each processor node is supplied with a **large cache memory block (remote cache)**.
+Because multiple caches now hold copies of the same memory block, a **cache coherence protocol** is needed — hence the "CC" prefix.
 
 The **Stanford DASH** architecture is the canonical example of CC-NUMA. It consists of multiple microprocessor clusters connected through a scalable, low-latency interconnection network. Physical memory is distributed among the processing nodes in various clusters. The distributed memory forms a global address space. For each memory block, the **directory** keeps track of which remote nodes are caching it. The directory memory and remote access cache facilitate prefetching and the directory-based coherence protocol.
 
@@ -156,6 +157,9 @@ Cluster 1                    Cluster n
               \                      /
                Interconnection Network
 ```
+
+Directory of cluster i tracks which processors (anywhere in the system) have cached copies of data that belongs to cluster i’s local memory.
+
 
 #### (iii) COMA — Cache-Only Memory Access
 

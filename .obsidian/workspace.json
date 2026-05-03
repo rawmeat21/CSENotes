@@ -334,12 +334,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CA/CA-8 (Vector processors).md",
+                "file": "Python/Python- OOPs ✓.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CA-8 (Vector processors)"
+              "title": "Python- OOPs ✓"
             }
           },
           {
@@ -529,6 +529,14 @@
   },
   "active": "210207eec7130e44",
   "lastOpenFiles": [
+    "Python/Python- Dunder Methods.md",
+    "Python/Python- File handling ✓.md",
+    "CA/CA-4 (Cache coherence).md",
+    "CA/CA-3 (Bus arbitration).md",
+    "CA/CA-2 (MIMD architecture).md",
+    "CA/CA-1 (Pipelining).md",
+    "CA/CA-8 (Vector processors).md",
+    "Python/Python- Multithreading ✓.md",
     "Pasted image 20260503123244.png",
     "Pasted image 20260503123228.png",
     "Pasted image 20260503123216.png",
@@ -541,14 +549,7 @@
     "Pasted image 20260503122845.png",
     "CA/CA-6 (Loop unrolling).md",
     "Pasted image 20260503122758.png",
-    "Pasted image 20260503122738.png",
     "CA/CA-5 (Interconnection networks).md",
-    "CA/CA-1 (Pipelining).md",
-    "CA/CA-2 (MIMD architecture).md",
-    "CA/CA-3 (Bus arbitration).md",
-    "CA/CA-4 (Cache coherence).md",
-    "Python/Python- Dunder Methods.md",
-    "CA/CA-8 (Vector processors).md",
     "CA/CA- PYQs.md",
     "Untitled",
     "Files-1.md",
@@ -571,7 +572,6 @@
     "Untitled.base",
     "Python/Python- Threads advanced (Part 2).md",
     "Python/Python- Threads Advanced (Part 1).md",
-    "Python/Python- Multithreading.md",
     "Java",
     "Python",
     "DBMS",

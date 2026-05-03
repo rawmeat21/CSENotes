@@ -99,14 +99,15 @@ Each input switch is an n×mn×m crossbar, each middle-stage switch is an r×rr�
 
 A **k-ary n-fly** butterfly network consists of:
 
-- k^n source terminal nodes
-- n stages of switch nodes
-- k^(n−1) switch nodes per stage, each of which is a k×kk×k crossbar
-- k^n destination terminal nodes
+- $k^{n}$ source terminal nodes
+- $n$ stages of switch nodes
+- $k^{n-1}$ switch nodes per stage, each of which is a $k \times k$ crossbar
+- $k^{n}$ destination terminal nodes
 
-So the total number of k×kk×k switch nodes in the entire network is n⋅kn−1n⋅kn−1.
+So the total number of $k \times k$ switch nodes in the entire network is $n \cdot k^{n-1}$
 
-The number of crossbar switch nodes in **each stage** of a k-ary n-fly butterfly network is k^(n−1)
+The number of crossbar switch nodes in **each stage** of a k-ary n-fly butterfly network is 
+$k^{n-1}$.
 
 Switch nodes are labeled s.ps.p where ss is the stage number (00 to n−1n−1) and pp is the position within that stage (00 to kn−1−1kn−1−1).
 
@@ -117,6 +118,16 @@ Switch nodes are labeled s.ps.p where ss is the stage number (00 to n−1n−1) 
 - kn−1=22=4kn−1=22=4 switch nodes per stage (labeled s.0,s.1,s.2,s.3s.0,s.1,s.2,s.3 for each stage ss)
 - Each switch node is a 2×22×2 crossbar
 - kn=8kn=8 destination terminals
+
+Switch nodes are labeled $s_{s,p}$ where $s$ is the stage number ($0$ to $n-1$) and $p$ is the position within that stage ($0$ to $k^{n-1}-1$).
+
+Example — $k$-ary $n$-fly network ($k=2, n=3$):
+
+- $k^n = 2^3 = 8$ source terminals (labeled $0$ through $7$)
+- $n = 3$ stages of switch nodes
+- $k^{n-1} = 2^2 = 4$ switch nodes per stage (labeled $s_0, s_1, s_2, s_3$ for each stage $s$)
+- Each switch node is a $2 \times 2$ crossbar
+- $k^n = 8$ destination terminals
 
 The structure is:
 
@@ -155,7 +166,12 @@ Path: terminal 6→0.3→1.1→2.0→6→0.3→1.1→2.0→ terminal 11.
 
 ---
 
+![[Pasted image 20260503122244.png]]
+
 ### Allocation Units: Messages, Packets, Flits, and Phits
+
+![[Pasted image 20260503122218.png]]
+
 
 There is a hierarchy of allocation units in an interconnection network. Understanding what each unit is, what it is used for, and its typical size is essential.
 
@@ -203,6 +219,9 @@ A flit is itself subdivided into one or more **physical transfer digits or phits
 
 #### Bufferless Flow Control
 
+![[Pasted image 20260503122341.png]]
+
+
 In bufferless flow control there are no buffers at the nodes. When two packets arrive at a router simultaneously and both request the same output channel, there is no buffer to hold the loser. The flow control mechanism must immediately resolve the contention. **Dropping flow control** is one such technique — one packet (A) acquires the channel and the other (B) is dropped. B must be retransmitted from the source. A negative acknowledgment (NACK) triggers this retransmission.
 
 **Example:** A five-flit packet is sent along a four-hop route. The first transmission is unable to allocate channel 3 and is dropped. A NACK triggers a retransmission of the packet which succeeds.
@@ -210,6 +229,8 @@ In bufferless flow control there are no buffers at the nodes. When two packets a
 > **PYQ (2023 Q13):** Dropping flow control is a technique of **(b) bufferless flow control.**
 
 #### Buffered Flow Control — Packet-Buffer Methods
+
+![[Pasted image 20260503122437.png]]
 
 Buffered flow control is more efficient than bufferless flow control. A buffer **decouples the allocation of adjacent channels** — it gives a place to store the packet (or flit) while waiting for the second channel to be allocated, allowing the allocation of the second channel to be delayed without complications.
 
@@ -224,6 +245,9 @@ While waiting to acquire resources, no channels are being held idle and only a s
 > **PYQ (2023 Q14):** In store-and-forward flow control, a node **(a) waits for a complete packet to be received before forwarding it.**
 
 ##### Cut-Through Flow Control
+
+![[Pasted image 20260503122458.png]]
+
 
 Cut-through flow control **forwards a packet as soon as the header is received** and resources (buffer and channel) are acquired, without waiting for the entire packet to be received. This significantly reduces latency compared to store-and-forward.
 
@@ -244,6 +268,9 @@ If the packet encounters contention — it cannot immediately acquire the next c
 > **PYQ (2019 Q18):** Packet-buffer flow control is inefficient because **(c) both (a) and (b)** — buffers are allocated in units of packets (wasteful), AND contention latency is increased.
 
 #### Flit-Buffer (Wormhole) Flow Control
+
+![[Pasted image 20260503122608.png]]
+
 
 Flit-buffer flow control, also called **wormhole flow control**, operates like cut-through but with channels and buffers allocated to **flits rather than packets**. When the head flit of a packet arrives at a node, it must acquire three resources before it can be forwarded to the next node along the route:
 
@@ -271,6 +298,9 @@ A **virtual channel** holds the state needed to coordinate the handling of the f
 
 #### Virtual-Channel Flow Control
 
+![[Pasted image 20260503122631.png]]
+
+
 The key problem with wormhole flow control is **blocking**. When a packet B blocks while holding the sole virtual channel associated with physical channel pp, channels pp and qq are idled even though packet A requires the use of these idle channels.
 
 **Virtual-channel flow control** overcomes the blocking problems of wormhole flow control by **associating several virtual channels with a single physical channel**. Each virtual channel has its own channel state and flit buffers. When packet B blocks, packet A is able to proceed over channels pp and qq using a second virtual channel associated with channel pp on node 2, using the channel bandwidth that would otherwise be left idle.
@@ -290,3 +320,5 @@ Three common low-level flow control mechanisms that provide backpressure:
 1. **Credit-based** — the upstream router keeps a count of the number of free flit buffers in each virtual channel downstream. Each time the upstream router forwards a flit, it decrements the appropriate count. If the count reaches zero, all downstream buffers are full and no further flits can be forwarded until a buffer becomes available. Once the downstream router forwards a flit and frees the associated buffer, it sends a **credit** to the upstream router, causing the buffer count to be incremented.
 2. **On/off** — the downstream node signals the upstream node with an on/off signal indicating whether it can accept more flits.
 3. **Ack/nack** — the downstream node sends an acknowledgment (ack) or negative acknowledgment (nack) for each flit, indicating success or failure of reception.
+4. 
+![[Pasted image 20260503122700.png]]

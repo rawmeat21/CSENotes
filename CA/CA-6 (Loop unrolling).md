@@ -1,5 +1,7 @@
 ### Loop Unrolling
 
+![[Pasted image 20260503122758.png]]
+
 #### The Problem: Loop Overhead
 
 Consider any loop. Every iteration, you execute the actual computation AND the loop control code — the counter update and the branch check. That branch + counter update is pure overhead; it contributes nothing to the computation itself.
@@ -40,6 +42,9 @@ The note says: "can be improved by scheduling." That's the next step.
 ---
 
 #### Slide 9.2 — Scheduling the Unrolled Loop
+
+![[Pasted image 20260503122738.png]]
+
 
 After unrolling, you have 4 independent L.D instructions loading into F0, F6, F10, F14. These are independent of each other. So you can **reorder instructions** to fill the stall slots.
 

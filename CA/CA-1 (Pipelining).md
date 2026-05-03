@@ -224,6 +224,14 @@ Loop: L.D    F0, 0(R1)      ; cycle 1
 
 L.D: Load Double. It fetches an 8-byte (64-bit) floating-point value from memory into a register.
 
+ADD.D: Add Double. It performs floating-point addition on two double-precision numbers.
+
+S.D: Store Double. It takes a double-precision value from a register and saves it back into memory.
+
+DADDUI: Doubleword Add Immediate Unsigned. It adds a constant value (an "immediate") to a register. In this code, it is used to decrement the memory pointer.
+
+BNE: Branch if Not Equal. It compares two registers and jumps (branches) back to the "Loop" label if they are not equal.
+
 
 
 Total: **9 cycles** per iteration.

@@ -2,11 +2,11 @@
 
 ### What is Pipelining?
 
-The traditional execution model is: instruction i+1i+1 begins only after instruction ii has **completely finished**. This is sequential execution.
+The traditional execution model is: instruction i+1 begins only after instruction i has **completely finished**. This is sequential execution.
 
-Pipelining breaks this. It allows **overlapped execution** — instruction i+1i+1 is allowed to begin before instruction ii has finished. This is possible because an instruction is broken into **independent stages**, and while instruction ii is in stage s2s2, instruction i+1i+1 can already be in stage s1s1.
+Pipelining breaks this. It allows **overlapped execution** — instruction i+1 is allowed to begin before instruction ii has finished. This is possible because an instruction is broken into **independent stages**, and while instruction ii is in stage s2, instruction i+1 can already be in stage s1.
 
-Consider a 2-stage instruction (stages s1s1, s2s2):
+Consider a 2-stage instruction (stages s1, s2):
 
 ||Cycle 1|Cycle 2|Cycle 3|
 |---|---|---|---|
@@ -67,11 +67,11 @@ From cycle 5 onwards the pipeline is full — one instruction completes every cy
 
 **1. Separate Instruction and Data Memories:**
 
-Look at the pipeline diagram at cycle CC4: instruction ii is in MEM (accessing **data memory**), while instruction i+3i+3 is in IF (accessing **instruction memory**). If there is only a single memory port, these two accesses **conflict**. The solution is to use **separate instruction memory (IM) and data memory (DM)** — in practice, separate instruction and data caches.
+Look at the pipeline diagram at cycle C4: instruction i is in MEM (accessing **data memory**), while instruction i+3 is in IF (accessing **instruction memory**). If there is only a single memory port, these two accesses **conflict**. The solution is to use **separate instruction memory (IM) and data memory (DM)** — in practice, separate instruction and data caches.
 
 **2. Register Write-Before-Read:**
 
-At cycle CC5: instruction ii is in WB (writing to register file) while instruction i+3i+3 is in ID (reading from register file). Both access the register file in the same cycle. The solution: **register writes are done in the FIRST HALF of the cycle**, and **register reads are done in the SECOND HALF**. So instruction ii's write completes before instruction i+3i+3 reads.
+At cycle C5: instruction ii is in WB (writing to register file) while instruction i+3 is in ID (reading from register file). Both access the register file in the same cycle. The solution: **register writes are done in the FIRST HALF of the cycle**, and **register reads are done in the SECOND HALF**. So instruction ii's write completes before instruction i+3 reads.
 
 **Pipeline Registers:**
 
@@ -85,11 +85,11 @@ A hazard is a situation where the pipeline **cannot proceed as normal** — it p
 
 **1. Structural Hazards** — arise from **resource conflicts**: two instructions need the same hardware resource in the same cycle.
 
-Example: a single memory port (no separate IM/DM). At CC4, a load instruction accesses data memory while a subsequent instruction tries to fetch from instruction memory. These collide on the same memory unit.
+Example: a single memory port (no separate IM/DM). At C4, a load instruction accesses data memory while a subsequent instruction tries to fetch from instruction memory. These collide on the same memory unit.
 
 Solution: insert a **stall** (also called a **pipeline bubble**). A stall is a cycle where no new instruction is initiated — the bubble propagates through the pipeline stages doing no useful work, but it separates the conflicting accesses.
 
-In the notes' Figure C.5, instruction i+3i+3 is held back and enters the pipeline in cycle 5 instead of cycle 4. This prevents the memory conflict.
+In the notes' Figure C.5, instruction i+3 is held back and enters the pipeline in cycle 5 instead of cycle 4. This prevents the memory conflict.
 
 **2. Data Hazards** — arise because one instruction depends on the result of a previous instruction that hasn't finished yet.
 
@@ -183,9 +183,9 @@ This is introduced here; the next topic (Notes-04) covers **how to handle this e
 
 A **dependence** is a property of the **program**, not of how it executes. When executed in a pipeline, a dependence can cause a **hazard** — a potential violation of sequential semantics. There are three types:
 
-- **RAW (Read After Write):** instruction jj reads a register before instruction ii has written it. This is a **true dependence** — jj actually needs ii's result. This is the only one that causes real correctness problems in forward-only pipelines.
-- **WAW (Write After Write):** instruction jj writes a register before instruction ii writes it. The writes happen in the wrong order. This is a **false dependence** (also called an **output dependence**) — jj doesn't actually need ii's value, but if both write the same register out of order, the wrong value is left behind.
-- **WAR (Write After Read):** instruction jj writes a register before instruction ii reads it, so ii reads the wrong (new) value. Also a **false dependence** (also called an **anti-dependence**). Note: in a simple in-order pipeline, WAR rarely causes a hazard because reads happen before writes in pipeline order. WAR becomes important in out-of-order or dynamic scheduling.
+- **RAW (Read After Write):** instruction j reads a register before instruction i has written it. This is a **true dependence** — j actually needs ii's result. This is the only one that causes real correctness problems in forward-only pipelines.
+- **WAW (Write After Write):** instruction j writes a register before instruction i writes it. The writes happen in the wrong order. This is a **false dependence** (also called an **output dependence**) — j doesn't actually need i's value, but if both write the same register out of order, the wrong value is left behind.
+- **WAR (Write After Read):** instruction j writes a register before instruction i reads it, so i reads the wrong (new) value. Also a **false dependence** (also called an **anti-dependence**). Note: in a simple in-order pipeline, WAR rarely causes a hazard because reads happen before writes in pipeline order. WAR becomes important in out-of-order or dynamic scheduling.
 
 False dependences (WAW, WAR) can be **eliminated by register renaming** — giving the destination a fresh register so the name conflict disappears.
 
@@ -240,7 +240,7 @@ Total: **7 cycles** per iteration.
 
 **Why is the address of S.D changed to 8(R1)?**
 
-In the original code, at the start of each iteration, R1 holds value xx. S.D wrote to address 0+x=x0+x=x. But in the scheduled code, DADDUI runs before S.D and decrements R1 to x−8x−8. So to still store at address xx, S.D must use offset 88: 8+(x−8)=x8+(x−8)=x. Sequential semantics is preserved.
+In the original code, at the start of each iteration, R1 holds value xx. S.D wrote to address 0+x=x0+x=x. But in the scheduled code, DADDUI runs before S.D and decrements R1 to x−8. So to still store at address xx, S.D must use offset 8: 8+(x−8)=x8+(x−8)=x. Sequential semantics is preserved.
 
 What we saved: the stall between L.D and ADD.D is filled by DADDUI (saves 1 cycle), and the latency between DADDUI and BNE is now 4 cycles (well above the required 1), so that stall also disappears (saves 1 more cycle). **2 stalls eliminated.**
 

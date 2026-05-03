@@ -205,6 +205,7 @@ The latency table (Figure 3.2):
 |FP ALU op|Store double|2|
 |Load double|FP ALU op|1|
 |Load double|Store double|0|
+(FP ALU = Floating point ALU)
 
 **Latency** = number of **intervening** cycles required between the two instructions to avoid a stall. So if latency = 1, there must be 1 instruction (or stall) between them.
 

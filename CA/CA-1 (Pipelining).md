@@ -222,6 +222,10 @@ Loop: L.D    F0, 0(R1)      ; cycle 1
       BNE    R1, R2, Loop   ; cycle 9
 ```
 
+L.D: Load Double. It fetches an 8-byte (64-bit) floating-point value from memory into a register.
+
+
+
 Total: **9 cycles** per iteration.
 
 After scheduling — move DADDUI up between L.D and ADD.D:

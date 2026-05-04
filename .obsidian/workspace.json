@@ -41,7 +41,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python- Iterator example.md",
+                "file": "Python/Python- Iterator example.md",
                 "mode": "source",
                 "source": false
               },
@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python- Iterator example.md",
-                "mode": "source",
+                "file": "Java/Threads.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python- Iterator example"
+              "title": "Threads"
             }
           }
         ],
@@ -236,8 +236,12 @@
   },
   "active": "3eca746085922735",
   "lastOpenFiles": [
-    "Python- Code Examples.md",
-    "Python- Iterator example.md",
+    "Java/Java- OOPs (PYQs).md",
+    "Java/Java All PYQs List.md",
+    "2026-05-01.md",
+    "Files-1.md",
+    "Python/Python- Iterator example.md",
+    "Python/Python- Code Examples.md",
     "Python/Python- Text editor example.md",
     "Python/Python- Multithreading ✓.md",
     "Python/Python- File handling ✓✓.md",
@@ -252,8 +256,6 @@
     "CA/CA-2 (MIMD architecture).md",
     "CA/CA-1 (Pipelining).md",
     "Java/Swing.md",
-    "Java/Java All PYQs List.md",
-    "Java/Java- OOPs (PYQs).md",
     "Java/Java- PYQs.md",
     "Python/Python- Web sockets.md",
     "Untitled 2.base",
@@ -261,8 +263,6 @@
     "Python/Python- REST APIs.md",
     "Python/Python- requests module.md",
     "Java/Collections-1.md",
-    "Python/Python- PYQs.md",
-    "Python/Some methods- map, filter, reduce ✓✓.md",
     "Pasted image 20260503123244.png",
     "Pasted image 20260503123228.png",
     "Pasted image 20260503123216.png",

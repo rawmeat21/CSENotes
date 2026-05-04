@@ -169,6 +169,9 @@ class Dog:
 
 `cls` refers to the class — like `self` but for the class object. Equivalent to `static` methods in C++ that access class-level state.
 
+Example:
+
+
 #### Static method
 
 Decorated with `@staticmethod`. Takes no `self` or `cls`. It is a plain function that lives in the class namespace for organizational purposes. Cannot access instance or class data without explicit reference.

@@ -87,7 +87,7 @@ For **LOADs and STOREs**, execution is two steps:
 
 When execution completes, broadcast the result on the **CDB**. Every reservation station and every register that is waiting for this result captures it simultaneously. The reservation station is freed.
 
-STOREs also complete here — when both address and data are available, they're sent to the memory unit.
+STOREs also writes to memory in this in this ste
 
 ---
 

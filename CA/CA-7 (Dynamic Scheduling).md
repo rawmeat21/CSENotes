@@ -81,7 +81,7 @@ When **both** VjVj​ and VkVk​ are filled (both Q fields are empty), the inst
 For **LOADs and STOREs**, execution is two steps:
 
 1. Compute effective address (when base register is available)
-2. Access memory (LOADs execute as soon as memory unit is free; STOREs wait for value to be stored before sending to )
+2. Access memory (LOADs execute as soon as memory unit is free; STOREs wait for value to be stored before sending to memory unit)
 
 **Step 3: Write Result**
 

@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java- Some IMP examples.md",
+                "file": "CA-9.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java- Some IMP examples"
+              "title": "CA-9"
             }
           }
         ],
@@ -264,8 +264,9 @@
   },
   "active": "13852c493e4b0bd7",
   "lastOpenFiles": [
-    "Java- Threads examples.md",
     "Java- Some IMP examples.md",
+    "CA-9.md",
+    "Java- Threads examples.md",
     "Java/Collections-1.md",
     "Java/Java All PYQs List.md",
     "Java/Java- OOPs (PYQs).md",
@@ -290,7 +291,6 @@
     "Java/Swing.md",
     "Python/Python- Web sockets.md",
     "Untitled 2.base",
-    "Python/Python- Threads Advanced (Part 1).md",
     "Pasted image 20260503123244.png",
     "Pasted image 20260503123228.png",
     "Pasted image 20260503123216.png",

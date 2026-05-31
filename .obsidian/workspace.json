@@ -237,12 +237,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OS-6.md",
+                "file": "OS/OS-1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OS-6"
+              "title": "OS-1"
             }
           }
         ],
@@ -418,13 +418,14 @@
   },
   "active": "7a3ba6082196833a",
   "lastOpenFiles": [
+    "Pasted image 20260531190950.png",
+    "OS-6.md",
     "Pasted image 20260531185949.png",
     "Pasted image 20260531184638.png",
     "Pasted image 20260531184401.png",
     "Pasted image 20260531184109.png",
     "Pasted image 20260531183612.png",
     "OS/OS-5.md",
-    "OS-6.md",
     "OS-1.md",
     "CN-1.md",
     "OS_",
@@ -435,7 +436,6 @@
     "DBMS/DBMS-2.md",
     "CN",
     "Pasted image 20260531154414.png",
-    "Pasted image 20260531154340.png",
     "DBMS/DBMS-1.md",
     "Java/Threads.md",
     "Java- Threads examples.md",

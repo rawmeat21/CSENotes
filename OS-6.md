@@ -13,3 +13,4 @@ Note: for the scheduling algos, it is assumed that there will be no IO. So a pro
 
 ![[Pasted image 20260531185949.png]]
 
+Convoy effect: When a slow process which takes a lot of time, is scheduled before a faster process, then the system cannot make use of the fast process and the processing becomes slow

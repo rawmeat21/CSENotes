@@ -29,3 +29,5 @@ But a process cannot do whatever tf it wants, in other words, we need protection
 ![[Pasted image 20260424003831.png]]
 
 ![[Pasted image 20260424003924.png]]
+
+![[Pasted image 20260531190950.png]]

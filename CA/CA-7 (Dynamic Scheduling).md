@@ -81,13 +81,13 @@ When **both** VjVj​ and VkVk​ are filled (both Q fields are empty), the inst
 For **LOADs and STOREs**, execution is two steps:
 
 1. Compute effective address (when base register is available)
-2. Access memory (LOADs execute as soon as memory unit is free; STOREs wait until both address and value are available)
+2. Access memory (LOADs execute as soon as memory unit is free; STOREs wait for value to be stored before sending to memory unit)
 
 **Step 3: Write Result**
 
 When execution completes, broadcast the result on the **CDB**. Every reservation station and every register that is waiting for this result captures it simultaneously. The reservation station is freed.
 
-STOREs also complete here — when both address and data are available, they're sent to the memory unit.
+STOREs also writes to memory in this in this step, when data is available 
 
 ---
 

@@ -235,12 +235,14 @@
             "id": "7a3ba6082196833a",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "OS/Lec-2.pdf"
+                "file": "OS/OS-2.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Lec-2"
+              "icon": "lucide-file",
+              "title": "OS-2"
             }
           }
         ],
@@ -416,6 +418,9 @@
   },
   "active": "7a3ba6082196833a",
   "lastOpenFiles": [
+    "OS/OS-3.md",
+    "OS/OS-2.md",
+    "OS/Lec2.pdf",
     "OS/Pasted image 20260424021614.png",
     "OS/Pasted image 20260424020952.png",
     "OS/Pasted image 20260424020928.png",
@@ -426,11 +431,7 @@
     "OS/Pasted image 20260424013706.png",
     "OS/Pasted image 20260424003924.png",
     "OS/Pasted image 20260424011444.png",
-    "OS/Pasted image 20260424003831.png",
-    "OS/OS-2.md",
-    "OS/Lec-2.pdf",
     "Lec-2.pdf",
-    "OS/OS-3.md",
     "OS/OS-1.md",
     "OS-6.md",
     "OS/OS-5.md",

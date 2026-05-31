@@ -11,3 +11,5 @@ Note: for the scheduling algos, it is assumed that there will be no IO. So a pro
 
 ![[Pasted image 20260531184638.png]]
 
+![[Pasted image 20260531185949.png]]
+

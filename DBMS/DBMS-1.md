@@ -65,14 +65,55 @@ For example, There could be a Logistics dept, Customers service dept, etc. They 
     
 - **iv.** **Goal:** ease to use.
     
-
+Contains- attributes of tables, consistency constraints, relationships
+Logical schema is the most important for programmers
 ### View level / External level:
 
 - **i.** Highest level of abstraction, aims to simplify users' interaction with the system by providing different view to different **end-user**s.
     
 - **ii.** Each **view schema** describes the database part that a particular user group is interested and hides the remaining database from that user group.
     
-- **iii.** At the external level, a database contains several schemas that sometimes called as **subschema**. The subschema is used to describe the different view of the database.
+- **iii.** At the external level, a database contains several schemas that sometimes called as **subschema**. The subschema is used to describe the different view of the database. (Like one for Logistics and one for Customer service)
     
 - **iv.** Views also provide a **security** mechanism to prevent users from accessing certain parts of DB.
+
+![[Pasted image 20260531141433.png]]
+
+## Instance of DB
+
+Describes the data in a DB at a point of time (snapshot of DB)
+
+## Data Models (design at the logical level)
+
+![[Pasted image 20260531142150.png]]
+
+## DBMS languages (How to use DBMS)
+
+![[Pasted image 20260531142444.png]]
+
+DDL- schema (design) of different tables of a DB (ex- HOW a student looks like, what attributes they have)
+DML- modify the data (Insert, Delete, Update, Retrieval- RUDI)
+
+![[Pasted image 20260531143053.png]]
+
+![[Pasted image 20260531143115.png]]
+
+![[Pasted image 20260531143324.png]]
+
+**DBA works at the logical level
+
+## DBMS application architecture
+
+![[Pasted image 20260531143738.png]]
+![[Pasted image 20260531143905.png]]
+
+T1 example- localhost, where DB and server are both present
+
+T2
+
+![[Pasted image 20260531144052.png]]
+
+problem- What if client sends a stupid query that fucks up the DB?
+
+T3- Client communicates thru an application server
 

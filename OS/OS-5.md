@@ -40,7 +40,7 @@ This are basically 'queue selectors'. They are named according to how frequently
 	There are 2 types of suspended: suspended blocked and suspended ready.
 	There also may be a scenario where the IO operation is done when process is suspended, in that case it goes from suspended blocked -> suspended ready
 
-	Question- Do new processes have a pcb? if yes, where are they stored? 
+	Question- Do new processes have a PCB? if yes, where are they stored? 
 
 
 ![[Pasted image 20260425004709.png]]
@@ -48,4 +48,5 @@ This are basically 'queue selectors'. They are named according to how frequently
 IMP: 
  Long term scheduler controls max degree of multiprogramming
  Mid term scheduler reduces degree of mp
+ Short term scheduler does CPU scheduling
  

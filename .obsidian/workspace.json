@@ -235,14 +235,12 @@
             "id": "7a3ba6082196833a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "OS/OS-1.md",
-                "mode": "source",
-                "source": false
+                "file": "OS/Lec-2.pdf"
               },
-              "icon": "lucide-file",
-              "title": "OS-1"
+              "icon": "lucide-file-text",
+              "title": "Lec-2"
             }
           }
         ],
@@ -303,7 +301,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "1b88c025d2186a29",
@@ -418,22 +416,27 @@
   },
   "active": "7a3ba6082196833a",
   "lastOpenFiles": [
-    "Pasted image 20260531191902.png",
-    "Pasted image 20260531190950.png",
+    "OS/Pasted image 20260424021614.png",
+    "OS/Pasted image 20260424020952.png",
+    "OS/Pasted image 20260424020928.png",
+    "OS/Pasted image 20260424020848.png",
+    "OS/Pasted image 20260424020810.png",
+    "OS/Pasted image 20260424014134.png",
+    "OS/Pasted image 20260424014129.png",
+    "OS/Pasted image 20260424013706.png",
+    "OS/Pasted image 20260424003924.png",
+    "OS/Pasted image 20260424011444.png",
+    "OS/Pasted image 20260424003831.png",
+    "OS/OS-2.md",
+    "OS/Lec-2.pdf",
+    "Lec-2.pdf",
+    "OS/OS-3.md",
+    "OS/OS-1.md",
     "OS-6.md",
-    "Pasted image 20260531185949.png",
-    "Pasted image 20260531184638.png",
-    "Pasted image 20260531184401.png",
-    "Pasted image 20260531184109.png",
-    "Pasted image 20260531183612.png",
     "OS/OS-5.md",
     "OS-1.md",
     "CN-1.md",
     "OS_",
-    "Pasted image 20260531175504.png",
-    "Pasted image 20260531174007.png",
-    "Pasted image 20260531173224.png",
-    "Pasted image 20260531173050.png",
     "DBMS/DBMS-2.md",
     "CN",
     "DBMS/DBMS-1.md",
@@ -454,17 +457,12 @@
     "CA/CA-13.md",
     "CA/CA-12.md",
     "CA/CA-11 (Multithreading).md",
-    "CA/CA-10 (DHSA).md",
-    "Java- Some IMP examples.md",
-    "Java/Collections-1.md",
     "Untitled 2.base",
     "Untitled",
     "CA",
     "Untitled 1.canvas",
     "Untitled 1.base",
     "Untitled.canvas",
-    "Untitled.base",
-    "Java",
-    "Python"
+    "Untitled.base"
   ]
 }

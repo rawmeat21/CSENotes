@@ -32,3 +32,7 @@ But a process cannot do whatever tf it wants, in other words, we need protection
 
 ![[Pasted image 20260531190950.png]]
 ![[Pasted image 20260531191902.png]]
+
+Goals of OS
+![[Pasted image 20260531192223.png]]
+

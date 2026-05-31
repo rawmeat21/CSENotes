@@ -1,7 +1,7 @@
 
 ![[Pasted image 20260424011444.png]]
 
-1. Uniprogramming OS- ONLY 1 process in RAM
+1. Uniprogramming OS- ONLY 1 process in RAM, CPU utilization is not there. Also processes may starve. Ex- MSDOS
 	a process cannot keep both IO and CPU busy at a time
 2. Mulitprogramming OS- >1 process allowed
 	the CPU and IO can both be busy (good)
@@ -28,3 +28,6 @@
 
 6. Embedded OS: for embedded computer systems (cars, AC, fridge etc)
 7. Real time OS: for large number of events
+
+Batch processing OS
+![[Pasted image 20260531192706.png]]

@@ -4,3 +4,7 @@
 
 ![[Pasted image 20260531174007.png]]
 
+![[Pasted image 20260531175504.png]]
+
+# Cables
+

@@ -237,12 +237,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OS/OS-2.md",
+                "file": "DBMS/DBMS-2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OS-2"
+              "title": "DBMS-2"
             }
           }
         ],
@@ -418,8 +418,8 @@
   },
   "active": "7a3ba6082196833a",
   "lastOpenFiles": [
-    "OS/OS-3.md",
     "OS/OS-2.md",
+    "OS/OS-3.md",
     "OS/Lec2.pdf",
     "OS/Pasted image 20260424021614.png",
     "OS/Pasted image 20260424020952.png",

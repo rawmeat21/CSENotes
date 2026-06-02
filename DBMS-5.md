@@ -28,6 +28,10 @@ Name here is redundant, it doesn't uniquely identify any enitity
 
 ![[Pasted image 20260602185204.png]]
 
+Only CustID is CK (min size)
+**(CK can contain null values)
+
+
 Primary Key- CK of min size
 
 Alternate Key= CK - PK 
@@ -100,4 +104,22 @@ Can FK be null? Yes if we use ON delete Null when removing a tuple from Parent. 
 1. Not Null (default is NULL)- Any CRUD operation violating this is invalid
 2. Unique
 ![[Pasted image 20260602191843.png]]
+
+PK is unique by default
+
+3. Default- default value of constraint
+![[Pasted image 20260602192030.png]]
+
+Consider this Amazon system, by default Prime_status (does user has Amazon prime) is 0 
+
+4. Check- limit value range
+![[Pasted image 20260602192144.png]]
+
+5. PK constraint
+![[Pasted image 20260602192222.png]]
+
+ There can only be 1 PK constraint per table
+
+6. FK constraint
+![[Pasted image 20260602192322.png]]
 

@@ -14,3 +14,8 @@ promote the illusion that many virtual CPUs exist when in fact there is only one
 
 The counterpart of time  sharing is **space sharing**, where a resource is divided (in space) among those who wish to use it. For example, disk space is naturally a space-  
 shared resource; once a block is assigned to a ﬁle, it is normally not assigned to another ﬁle until the user deletes the original ﬁle.
+
+![[Pasted image 20260603233018.png]]
+
+![[Pasted image 20260603233043.png]]
+

@@ -307,16 +307,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ML.md",
+                "file": "DBMS-6.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ML"
+              "title": "DBMS-6"
+            }
+          },
+          {
+            "id": "0dafb1a1cf449d75",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DBMS-7.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "DBMS-7"
             }
           }
         ],
-        "currentTab": 21
+        "currentTab": 22
       }
     ],
     "direction": "vertical"
@@ -486,12 +500,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "8c974fd76e09dec5",
+  "active": "0dafb1a1cf449d75",
   "lastOpenFiles": [
+    "Pasted image 20260603182903.png",
+    "Pasted image 20260603182533.png",
+    "DBMS-6.md",
+    "DBMS-7.md",
+    "ML.md",
     "Pasted image 20260602221719.png",
     "Pasted image 20260602215822.png",
-    "DBMS-6.md",
-    "ML.md",
     "Pasted image 20260602195841.png",
     "Pasted image 20260602195614.png",
     "Pasted image 20260602195356.png",
@@ -499,8 +516,6 @@
     "Pasted image 20260602194924.png",
     "Pasted image 20260602194839.png",
     "Pasted image 20260602194758.png",
-    "Pasted image 20260602194231.png",
-    "Pasted image 20260602194154.png",
     "DBMS-5.md",
     "DBMS-4.md",
     "DBMS-3.md",
@@ -528,7 +543,6 @@
     "CA/CA-12 (Energy Efficiency and Green computing).md",
     "CA/CA-9.md",
     "Untitled 1",
-    "CA/CA-17.md",
     "Untitled 2.base",
     "Untitled",
     "CA",

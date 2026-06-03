@@ -17,5 +17,10 @@ shared resource; once a block is assigned to a ﬁle, it is normally not assigne
 
 ![[Pasted image 20260603233018.png]]
 
+
+## How a process is created
+
 ![[Pasted image 20260603233043.png]]
 
+1. The ﬁrst thing that the OS must do to run a program is to load its code  and any static data (e.g., initialized variables) into memory, into the address space of the process
+2. 

@@ -38,5 +38,12 @@ shared resource; once a block is assigned to a ﬁle, it is normally not assigne
 A process list contains information about all processes in the system. Each entry is found in a process control block (PCB), which is really just a structure that contains information about a speciﬁc process.
 
 
-### fork() syscall
+### fork(), wait(), exec() syscalls
 
+check out the pdf! That part is very important for the project!
+
+How the shell launches a command?
+
+The shell is just a user program. It shows you a prompt and then waits for you to type something into it. You then type a command (i.e.,the name of an executable program, plus any arguments) into it; in most cases, the shell then ﬁgures out where in the ﬁle system the executable resides, calls fork() to create a new child process to run the command, calls some variant of exec() to run the command, and then waits for the command to complete by calling wait(). When the child completes, the shell returns from wait() and prints out a prompt again, ready for your next command.
+
+Imp syscalls- fork(), open(), exec(), wait(), kill, killall()

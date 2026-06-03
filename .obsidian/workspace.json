@@ -321,16 +321,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DBMS-7.md",
+                "file": "OS/OS-5.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DBMS-7"
+              "title": "OS-5"
+            }
+          },
+          {
+            "id": "7e9abb9b5a335d7e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "38bc87640b59d181",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSx1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "OSx1"
             }
           }
         ],
-        "currentTab": 22
+        "currentTab": 24
       }
     ],
     "direction": "vertical"
@@ -500,12 +528,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "0dafb1a1cf449d75",
+  "active": "38bc87640b59d181",
   "lastOpenFiles": [
+    "Pasted image 20260603230913.png",
+    "Pasted image 20260603230900.png",
+    "Pasted image 20260603230836.png",
+    "Untitled.md",
+    "OSx1.md",
+    "OSx",
+    "Untitled 2",
+    "OS/OS-5.md",
+    "DBMS-7.md",
     "Pasted image 20260603182903.png",
     "Pasted image 20260603182533.png",
     "DBMS-6.md",
-    "DBMS-7.md",
     "ML.md",
     "Pasted image 20260602221719.png",
     "Pasted image 20260602215822.png",
@@ -513,9 +549,6 @@
     "Pasted image 20260602195614.png",
     "Pasted image 20260602195356.png",
     "Pasted image 20260602195149.png",
-    "Pasted image 20260602194924.png",
-    "Pasted image 20260602194839.png",
-    "Pasted image 20260602194758.png",
     "DBMS-5.md",
     "DBMS-4.md",
     "DBMS-3.md",
@@ -526,7 +559,6 @@
     "Lec-2.pdf",
     "OS/OS-1.md",
     "OS-6.md",
-    "OS/OS-5.md",
     "OS-1.md",
     "CN-1.md",
     "OS_",
@@ -540,15 +572,11 @@
     "CA/CA-15 (Performance and Benchmarking).md",
     "CA/CA-14 (Carbon footprint).md",
     "CA/CA-13 (Quantum computers).md",
-    "CA/CA-12 (Energy Efficiency and Green computing).md",
-    "CA/CA-9.md",
     "Untitled 1",
     "Untitled 2.base",
     "Untitled",
     "CA",
     "Untitled 1.canvas",
-    "Untitled 1.base",
-    "Untitled.canvas",
-    "Untitled.base"
+    "Untitled.canvas"
   ]
 }

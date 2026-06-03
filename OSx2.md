@@ -30,3 +30,9 @@ shared resource; once a block is assigned to a ﬁle, it is normally not assigne
 
 ## Process states
 
+![[Pasted image 20260603234058.png]]
+
+**Being moved from ready to running means the process has been scheduled
+
+**Data structure of OS**
+A process list contains information about all processes in the system. Each entry is found in a process control block (PCB), which is really just a structure that contains information about a speciﬁc process.

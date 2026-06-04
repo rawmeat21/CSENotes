@@ -40,3 +40,4 @@ A process list contains information about all processes in the system. Each entr
 
 ### fork() syscall
 
+Check the pdf

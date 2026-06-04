@@ -361,18 +361,32 @@
             "id": "2230bac5a9d0695e",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "OSx2.md",
-                "bFile": "OSx2.md",
-                "aRef": ""
+                "file": "OSx2.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: OSx2  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "OSx2"
+            }
+          },
+          {
+            "id": "86772d2c22e3e304",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSx3.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "OSx3"
             }
           }
         ],
-        "currentTab": 25
+        "currentTab": 26
       }
     ],
     "direction": "vertical"
@@ -542,9 +556,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "2230bac5a9d0695e",
+  "active": "86772d2c22e3e304",
   "lastOpenFiles": [
+    "Pasted image 20260604151824.png",
+    "Pasted image 20260604151519.png",
+    "Pasted image 20260604145023.png",
+    "Pasted image 20260604141951.png",
     "OSx2.md",
+    "OSx3.md",
     "DBMS-7.md",
     "Pasted image 20260603234058.png",
     "Pasted image 20260603233043.png",
@@ -558,11 +577,8 @@
     "Untitled 2",
     "OS/OS-5.md",
     "Pasted image 20260603182903.png",
-    "Pasted image 20260603182533.png",
     "DBMS-6.md",
     "ML.md",
-    "Pasted image 20260602221719.png",
-    "Pasted image 20260602215822.png",
     "DBMS-5.md",
     "DBMS-4.md",
     "DBMS-3.md",
@@ -584,7 +600,6 @@
     "CA/CA-9 (Nehalem, Loihi).md",
     "CA/CA-17 (DHSA).md",
     "CA/CA-15 (Performance and Benchmarking).md",
-    "CA/CA-14 (Carbon footprint).md",
     "Untitled 1",
     "Untitled 2.base",
     "Untitled",

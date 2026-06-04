@@ -26,3 +26,5 @@ whats person_id_seq? - Its due to bigserial, its not a table, its a sequence
 
 ![[Pasted image 20260604214222.png]]
 
+![[Pasted image 20260604215021.png]]
+

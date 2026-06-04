@@ -361,14 +361,14 @@
             "id": "2230bac5a9d0695e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "OSx2.md",
-                "mode": "source",
-                "source": false
+                "aFile": "OSx2.md",
+                "bFile": "OSx2.md",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "OSx2"
+              "icon": "diff",
+              "title": "Diff: OSx2  (Working Tree)"
             }
           }
         ],
@@ -544,11 +544,12 @@
   },
   "active": "2230bac5a9d0695e",
   "lastOpenFiles": [
+    "OSx2.md",
+    "DBMS-7.md",
     "Pasted image 20260603234058.png",
     "Pasted image 20260603233043.png",
     "Pasted image 20260603233018.png",
     "OSx1.md",
-    "OSx2.md",
     "Pasted image 20260603230913.png",
     "Pasted image 20260603230900.png",
     "Pasted image 20260603230836.png",
@@ -556,14 +557,12 @@
     "OSx",
     "Untitled 2",
     "OS/OS-5.md",
-    "DBMS-7.md",
     "Pasted image 20260603182903.png",
     "Pasted image 20260603182533.png",
     "DBMS-6.md",
     "ML.md",
     "Pasted image 20260602221719.png",
     "Pasted image 20260602215822.png",
-    "Pasted image 20260602195841.png",
     "DBMS-5.md",
     "DBMS-4.md",
     "DBMS-3.md",

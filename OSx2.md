@@ -2,7 +2,7 @@
 
 It is a running program. 
 
-HOW TO PROVIDE THE ILLUSION OF MANY CPUS?  
+HOW TO PROVIDE THE ILLUSION OF MANY CPUs?  
 Although there are only a few physical CPUs available, how can the  OS provide the illusion of a nearly-endless supply of said CPUs?
 
 The OS creates this illusion by **virtualizing the CPU**

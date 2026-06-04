@@ -28,3 +28,20 @@ whats person_id_seq? - Its due to bigserial, its not a table, its a sequence
 
 ![[Pasted image 20260604215021.png]]
 
+![[Pasted image 20260604224405.png]]
+run from file
+
+![[Pasted image 20260604224456.png]]
+Select tuples
+
+![[Pasted image 20260604224544.png]]
+
+![[Pasted image 20260604224738.png]]
+
+ ![[Pasted image 20260604224756.png]]
+ (id decreasing)
+
+![[Pasted image 20260604225001.png]]
+
+![[Pasted image 20260604225013.png]]
+

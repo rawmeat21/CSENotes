@@ -178,11 +178,29 @@ Always add a health check!
 @RequestMapping adds an annotation to the whole class.
 If we added GetMapping("/abc") to getAll(), the function will live at /journal/abc
 
+How to send a json Journal entry to java code? - @RequestBody
 ![[Pasted image 20260605190459.png]]
 
+![[Pasted image 20260605190615.png]]
 
 **** Notes:** 
 
 ![[Pasted image 20260605190220.png]]
 
 Make the get/post functions public as Swing needs to access them
+
+
+![[Pasted image 20260605190736.png]]
+
+name is a Request parameter
+
+![[Pasted image 20260605190802.png]]
+
+'vip' is path variable
+
+![[Pasted image 20260605190922.png]]
+
+How to capture path variable ^^^
+
+![[Pasted image 20260605191021.png]]
+

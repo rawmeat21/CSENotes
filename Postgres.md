@@ -185,4 +185,142 @@ Now, SQL looks inside **each individual bucket** one by one. It looks at the pri
 
 Notice that the col names are 'round'
 
-![[Pasted image 20260605160931.png]]
+![[Pasted image 20260605161056.png]]
+
+![[Pasted image 20260605161124.png]]
+
+
+How to handle nulls
+![[Pasted image 20260605161236.png]]
+
+tries the first one, skip if null
+tries 2nd, skip if null,
+if not null then it takes that value
+
+![[Pasted image 20260605161341.png]]
+
+Notice that some emails are empty
+
+![[Pasted image 20260605161439.png]]
+
+![[Pasted image 20260605161427.png]]
+
+
+NULLIF
+
+![[Pasted image 20260605161705.png]]
+
+if 1st arg == 2nd arg -> null
+else 1st arg
+
+How to handle div by 0:
+![[Pasted image 20260605161835.png]]
+
+
+![[Pasted image 20260605162003.png]]
+
+(provide alt values)
+
+## Dates
+
+![[Pasted image 20260605162045.png]]
+
+![[Pasted image 20260605162108.png]]
+convert to date by casting (::)
+
+![[Pasted image 20260605162129.png]]
+
+### Adding and subtracting dates
+
+![[Pasted image 20260605162325.png]]
+![[Pasted image 20260605162542.png]]
+
+All these return Timestamp
+
+![[Pasted image 20260605162621.png]]
+
+Cast is to Date again
+
+### Extract things
+
+![[Pasted image 20260605162713.png]]
+
+
+
+## Age()
+
+![[Pasted image 20260605162839.png]]
+
+![[Pasted image 20260605162849.png]]
+
+
+
+
+## Primary keys
+
+![[Pasted image 20260605163135.png]]
+
+![[Pasted image 20260605163304.png]]
+
+Entering a tuple with same primary key is not allowed 
+
+You can drop the pkey constraint
+
+![[Pasted image 20260605163437.png]]
+
+![[Pasted image 20260605163505.png]]
+Now it works (bad)
+
+### How to add primary Key?
+
+![[Pasted image 20260605163843.png]]
+
+You see that (id) is passed (single element array). We may also require multiple cols
+
+### How to add unique constraint?
+
+Unique constraint means all entries are distinct
+
+![[Pasted image 20260605164219.png]]
+
+unique_email_address is the name of the constraint 
+
+![[Pasted image 20260605164255.png]]
+
+![[Pasted image 20260605164450.png]]
+(Drop the constraint because why not)
+
+#### Method2 to add a unique constraint
+![[Pasted image 20260605164602.png]]
+Now psql will decide the name
+
+![[Pasted image 20260605164624.png]]
+
+See?
+
+
+## Check constraint
+
+Maybe you're a fucking transphobe and you don't want to allow genders other than Male and Female. How would u do that?
+
+![[Pasted image 20260605165040.png]]
+
+Check() takes in a condition to check
+
+![[Pasted image 20260605165143.png]]
+
+No faggots allowed in our database. 
+
+
+## How to delete tuples?
+
+![[Pasted image 20260605165717.png]]
+ You should basically want to delete using the PK
+
+DON'T FUCKING DO THIS:
+![[Pasted image 20260605165845.png]]
+All your data gone
+
+
+## Update Columns
+

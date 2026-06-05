@@ -454,9 +454,37 @@
               "icon": "lucide-file",
               "title": "Postgres"
             }
+          },
+          {
+            "id": "a8bb24a0f2b5d904",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Postgres.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Postgres"
+            }
+          },
+          {
+            "id": "698ed0ff6ae9f85b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Postgres.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Postgres"
+            }
           }
         ],
-        "currentTab": 31
+        "currentTab": 33
       }
     ],
     "direction": "vertical"
@@ -626,20 +654,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "d81f3e71a6929eaa",
+  "active": "698ed0ff6ae9f85b",
   "lastOpenFiles": [
-    "Pasted image 20260605160931.png",
-    "Pasted image 20260605160739.png",
-    "Pasted image 20260605160723.png",
-    "Pasted image 20260605160627.png",
-    "Pasted image 20260605160556.png",
-    "Pasted image 20260605160334.png",
-    "Pasted image 20260605160157.png",
-    "Pasted image 20260605160134.png",
-    "Pasted image 20260605155716.png",
-    "Pasted image 20260605155702.png",
-    "Pasted image 20260605155023.png",
+    "Pasted image 20260605165845.png",
+    "Pasted image 20260605165717.png",
+    "Pasted image 20260605165143.png",
+    "Pasted image 20260605165040.png",
+    "Pasted image 20260605164624.png",
+    "Pasted image 20260605164602.png",
+    "Pasted image 20260605164450.png",
+    "Pasted image 20260605164255.png",
     "Postgres.md",
+    "Pasted image 20260605164219.png",
+    "Pasted image 20260605163843.png",
+    "Pasted image 20260605163505.png",
     "OSx4.md",
     "OSx3.md",
     "OSx2.md",

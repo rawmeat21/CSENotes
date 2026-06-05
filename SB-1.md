@@ -167,7 +167,16 @@ To communicate with netflix server at  172.17.18.19:8080, you need URL + HTTP ve
 ![[Pasted image 20260605185440.png]]
 (project structure)
 
-![[Pasted image 20260605185508.png]]
+![[Pasted image 20260605185559.png]]
+
 Always add a health check!
+
+![[Pasted image 20260605185718.png]]
+
+![[Pasted image 20260605185928.png]]
+
+@RequestMapping adds an annotation to the whole class.
+If we added 
+
 
 

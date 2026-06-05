@@ -32,4 +32,14 @@ ex- hibernate, eclipselink, openjpa
 these implement jpa interfaces, and provide the actual functionality
 
 ![[Pasted image 20260605192453.png]]
+![[Pasted image 20260605192609.png]]
+![[Pasted image 20260605192656.png]]
+![[Pasted image 20260605192721.png]]
+
+![[Pasted image 20260605192735.png]]
+
+![[Pasted image 20260605192751.png]]
+
+![[Pasted image 20260605192814.png]]
+
 

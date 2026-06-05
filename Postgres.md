@@ -125,4 +125,64 @@ Aggregrates
 ![[Pasted image 20260605155023.png]]
 
 
+![[Pasted image 20260605155702.png]]
+![[Pasted image 20260605155716.png]]
 
+Adding `GROUP BY make, model` completely changes how `MIN(price)` behaves. Instead of finding the minimum price for the **whole table**, SQL finds the minimum price for **each unique combination of make and model**.
+
+SQL syntax forces you to write `SELECT` first, but the database actually executes `GROUP BY` _before_ it calculates `MIN(price)`.
+
+### Step 1: `FROM car`
+
+The database grabs the raw car dataset.
+
+### Step 2: `GROUP BY make, model`
+
+Instead of one big list, SQL sorts the cars into "buckets" based on **both** the manufacturer and the car model.
+
+|Make|Model|Price|
+|---|---|---|
+|**Toyota**|**Corolla**|$22,000|
+|**Toyota**|**Corolla**|$19,500|
+|_Toyota_|_Camry_|$26,000|
+|_Toyota_|_Camry_|$28,500|
+|**Ford**|**Mustang**|$35,000|
+|**Ford**|**Mustang**|$42,000|
+
+Behind the scenes, SQL groups them into 3 distinct buckets:
+
+1. **[Toyota, Corolla]** bucket (contains 2 cars)
+    
+2. **[Toyota, Camry]** bucket (contains 2 cars)
+    
+3. **[Ford, Mustang]** bucket (contains 2 cars)
+    
+
+### Step 3: `SELECT make, model, MIN(price)`
+
+Now, SQL looks inside **each individual bucket** one by one. It looks at the prices inside that specific bucket, picks the lowest one (`MIN`), and outputs exactly **one row per bucket**.
+
+- From the **[Toyota, Corolla]** bucket, the lowest price is **$19,500**.
+    
+- From the **[Toyota, Camry]** bucket, the lowest price is **$26,000**.
+    
+- From the **[Ford, Mustang]** bucket, the lowest price is **$35,000**.
+
+
+![[Pasted image 20260605160134.png]]
+![[Pasted image 20260605160157.png]]
+
+## Arithmetic operations
+
+![[Pasted image 20260605160334.png]]
+
+![[Pasted image 20260605160556.png]]
+(get 10% discounted price column)
+![[Pasted image 20260605160627.png]]
+
+![[Pasted image 20260605160723.png]]
+![[Pasted image 20260605160739.png]]
+
+Notice that the col names are 'round'
+
+![[Pasted image 20260605160931.png]]

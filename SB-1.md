@@ -154,3 +154,20 @@ advantage: if many classes want to use Dog, they can do so easily
 
 
 3) **Annotation**- can be attached to classes, functions, interfaces, etc. tells some information about the thing 
+
+
+## REST API (Representational State transfer API)
+
+![[Pasted image 20260605185202.png]]
+
+To communicate with netflix server at  172.17.18.19:8080, you need URL + HTTP verb
+
+/netflix/plans is the API endpoint
+
+![[Pasted image 20260605185440.png]]
+(project structure)
+
+![[Pasted image 20260605185508.png]]
+Always add a health check!
+
+

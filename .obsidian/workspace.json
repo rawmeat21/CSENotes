@@ -482,9 +482,23 @@
               "icon": "lucide-file",
               "title": "Postgres"
             }
+          },
+          {
+            "id": "892fe0819fa743a3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SB-1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SB-1"
+            }
           }
         ],
-        "currentTab": 33
+        "currentTab": 34
       }
     ],
     "direction": "vertical"
@@ -654,8 +668,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "698ed0ff6ae9f85b",
+  "active": "892fe0819fa743a3",
   "lastOpenFiles": [
+    "Postgres.md",
+    "SB-1.md",
+    "SB",
     "Pasted image 20260605165845.png",
     "Pasted image 20260605165717.png",
     "Pasted image 20260605165143.png",
@@ -664,10 +681,8 @@
     "Pasted image 20260605164602.png",
     "Pasted image 20260605164450.png",
     "Pasted image 20260605164255.png",
-    "Postgres.md",
     "Pasted image 20260605164219.png",
     "Pasted image 20260605163843.png",
-    "Pasted image 20260605163505.png",
     "OSx4.md",
     "OSx3.md",
     "OSx2.md",
@@ -701,7 +716,6 @@
     "Untitled 1",
     "Untitled 2.base",
     "Untitled",
-    "CA",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

@@ -204,3 +204,9 @@ How to capture path variable ^^^
 
 ![[Pasted image 20260605191021.png]]
 
+![[Pasted image 20260605191157.png]]
+
+![[Pasted image 20260605191314.png]]
+
+
+

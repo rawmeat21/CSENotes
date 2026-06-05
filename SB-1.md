@@ -176,7 +176,13 @@ Always add a health check!
 ![[Pasted image 20260605185928.png]]
 
 @RequestMapping adds an annotation to the whole class.
-If we added 
+If we added GetMapping("/abc") to getAll(), the function will live at /journal/abc
+
+![[Pasted image 20260605190459.png]]
 
 
+**** Notes:** 
 
+![[Pasted image 20260605190220.png]]
+
+Make the get/post functions public as Swing needs to access them

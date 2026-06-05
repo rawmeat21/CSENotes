@@ -82,3 +82,47 @@ Use IN
 
 ![[Pasted image 20260604231527.png]]
 Between
+
+![[Pasted image 20260605153601.png]]
+![[Pasted image 20260605153642.png]]
+
+% - any number of chars
+_ - single char
+![[Pasted image 20260605153728.png]]
+
+![[Pasted image 20260605153739.png]]
+
+![[Pasted image 20260605153921.png]]
+
+ILIKE ignores case
+
+Group BY
+
+![[Pasted image 20260605154038.png]]
+![[Pasted image 20260605154054.png]]
+
+(doesnt work lol)
+
+![[Pasted image 20260605154151.png]]
+![[Pasted image 20260605154159.png]]
+
+![[Pasted image 20260605154220.png]]
+![[Pasted image 20260605154231.png]]
+
+
+![[Pasted image 20260605154500.png]]
+Having should come after groupby
+
+![[Pasted image 20260605154516.png]]
+
+![[Pasted image 20260605154552.png]]
+You can use <=, >=, < 
+
+Aggregrates
+
+![[Pasted image 20260605154950.png]]
+
+![[Pasted image 20260605155023.png]]
+
+
+

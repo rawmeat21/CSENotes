@@ -324,3 +324,48 @@ All your data gone
 
 ## Update Columns
 
+![[Pasted image 20260607022110.png]]
+
+What it do- makes the whole column have the same email. Don't do this dumbo.
+
+![[Pasted image 20260607022159.png]]
+![[Pasted image 20260607022209.png]]
+
+![[Pasted image 20260607022312.png]]
+
+
+## On conflict Do nothing
+
+![[Pasted image 20260607022536.png]]
+
+There should be a unique/exclusion constraint on the column you give as input
+
+## Do something (upsert- update + insert)
+
+![[Pasted image 20260607022935.png]]
+
+email- refers to email in table
+EXCLUDED.email- refers to email in INSERT statement
+
+![[Pasted image 20260607023041.png]]
+
+![[Pasted image 20260607023155.png]]
+(Update multiple)
+
+
+## Foreign keys
+
+![[Pasted image 20260607023358.png]]
+
+FK- column that refers the PK of another column
+
+## Adding relationships
+
+![[Pasted image 20260607024212.png]]
+
+How to add FK ^^^
+
+UNIQUE(car_id) adds unique constraint on car_id
+
+## How to update FK columns?
+

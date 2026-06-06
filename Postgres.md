@@ -369,3 +369,79 @@ UNIQUE(car_id) adds unique constraint on car_id
 
 ## How to update FK columns?
 
+![[Pasted image 20260607030420.png]]
+
+
+Can I insert car_ids which don't exist? - Fuck No
+![[Pasted image 20260607030534.png]]
+
+
+
+## Inner Joins
+
+![[Pasted image 20260607030707.png]]
+
+we want to combine tables A and B
+
+![[Pasted image 20260607030735.png]]
+
+![[Pasted image 20260607030857.png]]
+
+ON takes in a column which will be used for the join. 
+Here we join using the FK, person.car_id = car.id
+
+![[Pasted image 20260607031047.png]]
+
+You can see id, make, model, price from Car has been added
+
+![[Pasted image 20260607031159.png]]
+
+Adriana doesn't have a car (broke bitch), so she's not added
+
+![[Pasted image 20260607031311.png]]
+(select only cols u want and join)
+
+![[Pasted image 20260607031344.png]]
+(same shit)
+
+## Left joins
+
+![[Pasted image 20260607031436.png]]
+
+Full A but common from B
+
+![[Pasted image 20260607031649.png]]
+
+Adriana is here even tho she doesn't have a car. So all tuples from A are taken, but only tuples from B which are referred by some tuple in A are taken.
+
+Get all people who don't have a Car:
+
+![[Pasted image 20260607031924.png]]
+
+
+## Deleting records with FKs
+
+![[Pasted image 20260607032155.png]]
+
+You just can't delete a referenced tuple.
+
+Solution: Delete referencing (dependent) tuple first, then do the indepenedent one
+OR make car_id of the entry NULL
+
+![[Pasted image 20260607032449.png]]
+
+You can also use cascade (prolly don't tho)
+
+## Export to csv
+
+![[Pasted image 20260607032717.png]]
+
+
+## Serial and sequences
+
+![[Pasted image 20260607032821.png]]
+
+the id cols are managed by a sequence, while having types bigint
+
+![[Pasted image 20260607033037.png]]
+

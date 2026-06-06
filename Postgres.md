@@ -445,3 +445,40 @@ the id cols are managed by a sequence, while having types bigint
 
 ![[Pasted image 20260607033037.png]]
 
+![[Pasted image 20260607033752.png]]
+
+As it is incremented, John gets the incremented id
+
+How to restart:
+
+![[Pasted image 20260607033905.png]]
+
+Restart with value 10. next value is 11
+
+
+## Extensions
+
+### UUID (Universally unique identifier)
+
+![[Pasted image 20260607034156.png]]
+Install it
+
+![[Pasted image 20260607034250.png]]
+
+### UUID as PK
+
+![[Pasted image 20260607034511.png]]
+
+**Note- while inserting we have to specify the uuid to generate it.
+
+![[Pasted image 20260607034643.png]]
+
+
+![[Pasted image 20260607034814.png]]
+
+
+**Trick**
+
+![[Pasted image 20260607035009.png]]
+
+We can use this statement to join if the foreign key and primary key have same name

@@ -43,5 +43,7 @@ Why even use lottery scheduling then? - no global state
 
 **Note: The Linux kernel uses the ==EEVDF (Earliest Eligible Virtual Deadline First) scheduler== as its default CPU scheduler for normal processes, having replaced the long-standing CFS (Completely Fair Scheduler).**
 
+Read about CFS in chp9
+
 
 

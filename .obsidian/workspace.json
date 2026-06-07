@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Postgres.md",
+                "file": "OSx/OSx5.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Postgres"
+              "title": "OSx5"
             }
           }
         ],
@@ -236,9 +236,11 @@
   },
   "active": "1d1baa19315c6550",
   "lastOpenFiles": [
+    "OSx/OSx1.md",
+    "OSx/OSx5.md",
+    "Postgres.md",
     "Pasted image 20260607035009.png",
     "Pasted image 20260607034814.png",
-    "Postgres.md",
     "Pasted image 20260607034643.png",
     "Pasted image 20260607034511.png",
     "Pasted image 20260607034250.png",
@@ -247,13 +249,11 @@
     "Pasted image 20260607033752.png",
     "Pasted image 20260607033037.png",
     "Pasted image 20260607032821.png",
-    "Pasted image 20260607032717.png",
     "SB-2.md",
     "SB-1.md",
-    "OSx4.md",
-    "OSx3.md",
-    "OSx2.md",
-    "OSx1.md",
+    "OSx/OSx4.md",
+    "OSx/OSx3.md",
+    "OSx/OSx2.md",
     "Untitled.md",
     "OS/OS-5.md",
     "DBMS-6.md",

@@ -8,31 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "892fe0819fa743a3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "PSQL/Postgres.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Postgres"
-            }
-          },
-          {
             "id": "79b13b422f1fb7af",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Postgres.md",
+                "file": "SB/SB-4 (Lombok).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Postgres"
+              "title": "SB-4 (Lombok)"
             }
           },
           {
@@ -217,55 +203,56 @@
       "bases:Create new base": false
     }
   },
-  "active": "04c09b981dedc9df",
+  "active": "79b13b422f1fb7af",
   "lastOpenFiles": [
-    "PSQL",
-    "DBMS/DBMS-7.md",
-    "OSx/OSx6.md",
-    "SB/SB-2.md",
-    "2026-06-05_19-28-00.png",
-    "2026-06-05_19-27-39.png",
-    "2026-06-05_19-27-32.png",
-    "2026-06-05_19-27-06.png",
-    "2026-06-05_19-26-48.png",
-    "2026-06-05_19-25-42.png",
-    "2026-06-05_19-24-50.png",
-    "2026-06-05_19-23-29.png",
-    "2026-06-05_19-21-33.png",
-    "2026-06-05_19-20-46.png",
-    "SB/SB-1.md",
-    "Java/Java- Some IMP examples.md",
-    "2026-05-01.md",
-    "Lec-2.pdf",
-    "ML/ML.md",
-    "Files-1.md",
-    "ML",
-    "OS/OS-1 1.md",
+    "SB/SB-4 (Handling status codes).md",
+    "SB/SB-3 (Work with databases).md",
+    "SB/SB-2 (Databases).md",
+    "SB/SB-1 (Basics).md",
+    "SB/SB-4 (Lombok).md",
+    "Pasted image 20260608181423.png",
+    "Pasted image 20260608181241.png",
+    "Pasted image 20260608181050.png",
+    "Pasted image 20260608180900.png",
+    "Pasted image 20260608180728.png",
+    "Pasted image 20260608180716.png",
+    "Pasted image 20260608180703.png",
+    "Pasted image 20260608180654.png",
+    "Pasted image 20260608180612.png",
+    "Pasted image 20260608180530.png",
+    "Untitled 4.base",
+    "2026-06-08.md",
+    "Untitled 2.canvas",
     "Untitled 3.base",
     "Untitled 2.base",
     "Untitled 1.canvas",
     "Untitled 1.base",
-    "Untitled.md",
     "Untitled.canvas",
     "Untitled.base",
+    "ML/ML.md",
+    "PSQL/Postgres.md",
+    "PSQL",
+    "DBMS/DBMS-7.md",
+    "OSx/OSx6.md",
+    "Java/Java- Some IMP examples.md",
+    "2026-05-01.md",
+    "Lec-2.pdf",
+    "Files-1.md",
+    "ML",
+    "OS/OS-1 1.md",
+    "Untitled.md",
     "OS/OS-6.md",
     "DBMS/DBMS-3.md",
     "CN/CN-1.md",
     "DBMS/DBMS-2.md",
     "Java/Java- Threads examples.md",
-    "PSQL/Postgres.md",
     "OSx/OSx5.md",
     "OSx/OSx1.md",
     "OSx/OSx4.md",
     "OSx/OSx3.md",
     "OSx/OSx2.md",
     "OS/OS-5.md",
-    "DBMS/DBMS-6.md",
-    "DBMS/DBMS-5.md",
-    "DBMS/DBMS-4.md",
     "SB",
-    "OSx",
-    "Untitled 2",
-    "OS/Lec2.pdf"
+    "OSx"
   ]
 }

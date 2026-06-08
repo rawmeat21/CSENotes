@@ -8,31 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6b3f68709f66d431",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SB-1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "SB-1"
-            }
-          },
-          {
             "id": "892fe0819fa743a3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Postgres.md",
+                "file": "SB/SB-2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Postgres"
+              "title": "SB-2"
             }
           },
           {
@@ -53,18 +39,15 @@
             "id": "1d1baa19315c6550",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Postgres.md",
-                "mode": "source",
-                "source": false
+                "file": "Pasted image 20260604155557.png"
               },
-              "icon": "lucide-file",
-              "title": "Postgres"
+              "icon": "lucide-image",
+              "title": "Pasted image 20260604155557"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -234,54 +217,54 @@
       "bases:Create new base": false
     }
   },
-  "active": "1d1baa19315c6550",
+  "active": "892fe0819fa743a3",
   "lastOpenFiles": [
+    "SB/SB-1.md",
+    "2026-06-05_19-12-55.png",
+    "2026-06-05_19-10-49.png",
+    "2026-06-05_19-10-17.png",
+    "2026-06-05_19-10-07.png",
+    "2026-06-05_19-09-17.png",
+    "2026-06-05_19-07-57.png",
+    "2026-06-05_19-07-24.png",
+    "2026-06-05_19-04-17.png",
+    "2026-06-05_19-02-04.png",
+    "2026-06-05_18-59-19.png",
+    "Java/Java- Some IMP examples.md",
+    "2026-05-01.md",
+    "Lec-2.pdf",
+    "ML/ML.md",
+    "Files-1.md",
+    "ML",
+    "OS/OS-1 1.md",
+    "Untitled 3.base",
+    "Untitled 2.base",
+    "Untitled 1.canvas",
+    "Untitled 1.base",
+    "Untitled.md",
+    "Untitled.canvas",
+    "Untitled.base",
+    "OS/OS-6.md",
+    "DBMS/DBMS-3.md",
+    "CN/CN-1.md",
+    "DBMS/DBMS-2.md",
+    "SB/SB-2.md",
+    "Java/Java- Threads examples.md",
+    "Postgres.md",
     "OSx/OSx6.md",
-    "Pasted image 20260607115951.png",
-    "Pasted image 20260607115728.png",
-    "Pasted image 20260607115705.png",
-    "Pasted image 20260607115650.png",
-    "Pasted image 20260607115301.png",
-    "Pasted image 20260607114945.png",
-    "Pasted image 20260607114937.png",
-    "Pasted image 20260607114641.png",
-    "Pasted image 20260607114557.png",
-    "Pasted image 20260607114230.png",
     "OSx/OSx5.md",
     "OSx/OSx1.md",
-    "Postgres.md",
-    "SB-2.md",
-    "SB-1.md",
     "OSx/OSx4.md",
     "OSx/OSx3.md",
     "OSx/OSx2.md",
-    "Untitled.md",
     "OS/OS-5.md",
-    "DBMS-6.md",
-    "DBMS-5.md",
-    "DBMS-4.md",
-    "DBMS-3.md",
-    "DBMS/DBMS-2.md",
-    "CN-1.md",
+    "DBMS/DBMS-6.md",
+    "DBMS/DBMS-5.md",
+    "DBMS/DBMS-4.md",
     "DBMS/DBMS-1.md",
-    "Java- Threads examples.md",
-    "Java/Collections-1.md",
-    "Python/Python- Iterator example.md",
-    "Python/Python- Text editor example.md",
-    "Python/Python- Multithreading ✓.md",
     "SB",
-    "DBMS-7.md",
     "OSx",
     "Untitled 2",
-    "ML.md",
-    "OS/Lec2.pdf",
-    "Lec-2.pdf",
-    "OS_",
-    "CN",
-    "Untitled 1",
-    "Untitled 2.base",
-    "Untitled",
-    "Untitled 1.canvas",
-    "Untitled.canvas"
+    "OS/Lec2.pdf"
   ]
 }

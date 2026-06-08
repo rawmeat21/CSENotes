@@ -84,3 +84,4 @@ MongoRepository also comes with a findById() method
 ![[Pasted image 20260608175131.png]]
 
 ![[Pasted image 20260608175409.png]]
+

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Postgres.md",
+                "file": "PSQL/Postgres.md",
                 "mode": "source",
                 "source": false
               },
@@ -217,8 +217,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "892fe0819fa743a3",
+  "active": "04c09b981dedc9df",
   "lastOpenFiles": [
+    "PSQL",
     "DBMS/DBMS-7.md",
     "OSx/OSx6.md",
     "SB/SB-2.md",
@@ -252,7 +253,7 @@
     "CN/CN-1.md",
     "DBMS/DBMS-2.md",
     "Java/Java- Threads examples.md",
-    "Postgres.md",
+    "PSQL/Postgres.md",
     "OSx/OSx5.md",
     "OSx/OSx1.md",
     "OSx/OSx4.md",
@@ -262,7 +263,6 @@
     "DBMS/DBMS-6.md",
     "DBMS/DBMS-5.md",
     "DBMS/DBMS-4.md",
-    "DBMS/DBMS-1.md",
     "SB",
     "OSx",
     "Untitled 2",

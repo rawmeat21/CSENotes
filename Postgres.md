@@ -482,3 +482,8 @@ Install it
 ![[Pasted image 20260607035009.png]]
 
 We can use this statement to join if the foreign key and primary key have same name
+
+
+~~And we're done!~~
+
+Now go code!!

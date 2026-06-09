@@ -19,7 +19,7 @@ Rows become documents
 ![[2026-06-05_19-20-46.png]]
 ![[2026-06-05_19-21-33.png]]
 
-## JPA (Java Persistence API)
+## JPA (Jakarta Persistence API)
 
 **persistence -> permanent storage
 

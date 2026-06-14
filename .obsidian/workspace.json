@@ -55,28 +55,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/R2.md",
+                "file": "React/R3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "R2"
+              "title": "R3"
             }
           },
           {
             "id": "1d1baa19315c6550",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Pasted image 20260604155557.png"
+                "file": "React/R3.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260604155557"
+              "icon": "lucide-file",
+              "title": "R3"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -246,21 +248,22 @@
       "bases:Create new base": false
     }
   },
-  "active": "9878ac56cd779436",
+  "active": "1d1baa19315c6550",
   "lastOpenFiles": [
-    "Pasted image 20260614231654.png",
-    "Pasted image 20260614231645.png",
-    "Pasted image 20260614231438.png",
-    "Pasted image 20260614231411.png",
-    "Pasted image 20260614231344.png",
-    "Pasted image 20260614231300.png",
-    "React/R1.md",
+    "Pasted image 20260614234557.png",
+    "Pasted image 20260614234437.png",
+    "Pasted image 20260614234331.png",
+    "Pasted image 20260614234301.png",
+    "Pasted image 20260614234218.png",
+    "Pasted image 20260614234131.png",
+    "Pasted image 20260614234040.png",
+    "Pasted image 20260614233959.png",
+    "Pasted image 20260614233924.png",
+    "Pasted image 20260614233834.png",
+    "Pasted image 20260614233754.png",
+    "React/R3.md",
     "React/R2.md",
-    "Pasted image 20260614230939.png",
-    "Pasted image 20260614230801.png",
-    "Pasted image 20260614230042.png",
-    "Pasted image 20260614225940.png",
-    "Pasted image 20260614225837.png",
+    "React/R1.md",
     "DBMS/DBMS-12.md",
     "React",
     "DBMS/DBMS-11.md",
@@ -294,7 +297,6 @@
     "Java/Java- Some IMP examples.md",
     "2026-05-01.md",
     "Lec-2.pdf",
-    "Files-1.md",
     "ML",
     "SB"
   ]

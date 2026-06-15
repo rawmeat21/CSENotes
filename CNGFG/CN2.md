@@ -2,7 +2,7 @@
 
 ![[Pasted image 20260615015036.png]]
 
-## Layer 1 Devices: Physical Layer
+## Layer 1 Devices: Physical Layer (Hub, repeater, modem)
 
 These devices deal with raw electrical or optical signals (bits). These devices do not understand IP addresses or MAC addresses.
 

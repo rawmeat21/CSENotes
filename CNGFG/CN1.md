@@ -48,11 +48,9 @@ Acts as a basic device that connects multiple devices within a network.
 
 ### 4. Bridge
 
-Connects two network segments and filters traffic between them.
+A bridge in a computer network is a device that connects multiple Local Area Networks (LANs) into a larger, single network. It manages traffic and improves performance by filtering and forwarding data frames based on their MAC (Media Access Control) addresses
 
-- Reduces unnecessary data transmission
-- Improves network performance
-- Works using MAC addresses
+![[Pasted image 20260615101415.png]]
 
 ### 5. Gateway
 

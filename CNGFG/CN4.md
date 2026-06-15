@@ -11,9 +11,9 @@ The OSI Model is a conceptual framework created by the International Organizatio
 
 ### Layer 1: The Physical Layer
 
-The [****Physical Layer****](https://www.geeksforgeeks.org/computer-networks/physical-layer-in-osi-model/) is the foundation of the OSI model, acting as the bridge for actual physical connections between devices. Its primary mission is the transmission of raw, unstructured bitstreams over a physical medium from one node to the next.
+The [**Physical Layer**](https://www.geeksforgeeks.org/computer-networks/physical-layer-in-osi-model/) is the foundation of the OSI model, acting as the bridge for actual physical connections between devices. Its primary mission is the transmission of raw, unstructured bitstreams over a physical medium from one node to the next.
 
-- ****Core Responsibility:**** It manages the hardware-level transmission of individual bits. When receiving data, it translates incoming physical signals back into digital 0s and 1s to be processed by the Data Link layer.
+- **Core Responsibility:** It manages the hardware-level transmission of individual bits. When receiving data, it translates incoming physical signals back into digital 0s and 1s to be processed by the Data Link layer.
 - ****Essential Hardware:**** Common devices operating at this level include [Hubs](https://www.geeksforgeeks.org/computer-networks/what-is-network-hub-and-how-it-works/), [Repeaters](https://www.geeksforgeeks.org/computer-networks/repeaters-in-computer-network/), [Modems](https://www.geeksforgeeks.org/computer-networks/what-is-modem/), and [Cables](https://www.geeksforgeeks.org/computer-networks/types-of-ethernet-cable/).
 - ****Bit Synchronization:**** It ensures the sender and receiver are "in sync" by providing a clock signal that controls the timing of bit transmission.
 - ****Bit Rate Control:**** It dictates the transmission speed, defined as the number of bits sent per second.

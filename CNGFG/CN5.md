@@ -57,3 +57,54 @@ Responsible for addressing, packaging, and routing data packets so they can trav
 
 Responsible for physically transmitting data over network hardware, including cables, switches, and wireless connections. It handles how data is formatted for the network medium and ensures it reaches the next device on the path.
 
+![[Pasted image 20260615090827.png]]
+
+- Sends and receives raw bits over physical media like Ethernet cables, fiber optics, or Wi-Fi.
+- Organizes data into frames for proper transmission and recognition by devices.
+- Detects transmission errors using checksums or CRC.
+- Uses hardware addresses to identify devices within the same network segment.
+- Determines how multiple devices share the same physical medium, avoiding collisions
+
+## Working
+
+![[Pasted image 20260615090856.png]]
+
+### When Sending Data (From Sender to Receiver)
+
+- **Application Layer:** The user’s software (like a web browser or email client) creates the data and passes it to the next layer.
+- **Transport Layer:** The data is broken into segments, and TCP or UDP adds control information to ensure reliable delivery or fast transmission.
+- **Internet Layer:** Each segment is encapsulated into packets with IP addresses so it can be routed across networks to the destination device.
+- **Network Access (Link) Layer:** The packets are converted into frames suitable for the physical network (Ethernet, Wi-Fi) and transmitted over cables or wireless signals.
+
+### When Receiving Data (At the Destination)
+
+- **Network Access Layer:** The frames are received from the physical medium and checked for errors.
+- **Internet Layer:** Frames are unpacked to extract packets and use the IP address to ensure it reaches the correct device.
+- **Transport Layer:** Segments are reassembled into the original message, and any missing or corrupted data is corrected (if TCP is used).
+- **Application Layer:** The complete data is delivered to the user application (like the browser displaying a webpage or the email client showing a message).
+
+### Advantages
+
+- **Platform Independent:** Works on different hardware and operating systems.
+- **Reliable Communication:** TCP ensures error checking, delivery confirmation, and data integrity.
+- **Scalable:** Can support small networks to global Internet-scale networks.
+- **Open Standard:** Free to use and not controlled by a single organization.
+
+### Disadvantages
+
+- **No Strict Layer Enforcement:** Unlike OSI, layer boundaries are not rigid, which may cause implementation variations.
+- **Overhead:** TCP’s error checking and reliability features can add extra data overhead.
+- **Security Limitations:** Basic TCP/IP was not designed with strong built-in security; additional protocols like TLS/SSL are needed.
+- **Limited Multimedia Support:** Original design focused on data, not optimized for real-time audio/video (needs extra protocols).
+
+
+
+## Why was TCP/IP chosen Over the OSI Model
+
+TCP/IP is preferred over the OSI model because it is simpler, practical, and widely implemented in real-world networks and the Internet. Unlike OSI, which is mostly theoretical, TCP/IP is protocol-driven and focuses on actual communication needs.
+
+
+- **Simpler Structure:** TCP/IP has only 4 layers, compared to 7 in OSI, making it easier to implement and understand in real systems.
+- **Protocol-Driven Design:** TCP/IP was designed based on working protocols, while OSI is mostly a theoretical framework.
+- **Flexibility and Robustness:** TCP/IP adapts well to different hardware and networks and includes error handling, routing, and congestion control.
+- **Open Standard:** TCP/IP is open, free to use, and not controlled by any single organization, which helped it gain universal acceptance.

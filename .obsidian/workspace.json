@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CNGFG/CN5.md",
+                "file": "CNGFG/CN7.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CN5"
+              "title": "CN7"
             }
           }
         ],
@@ -264,19 +264,21 @@
   },
   "active": "4a067791bd994a8e",
   "lastOpenFiles": [
-    "Pasted image 20260615085631.png",
-    "Pasted image 20260615085556.png",
-    "Pasted image 20260615085504.png",
-    "CNGFG/CN4.md",
+    "Pasted image 20260615092014.png",
+    "Pasted image 20260615091931.png",
+    "Pasted image 20260615091838.png",
+    "Pasted image 20260615091718.png",
+    "CNGFG/CN6.md",
+    "CNGFG/CN7.md",
+    "Pasted image 20260615091356.png",
+    "Pasted image 20260615091348.png",
+    "Pasted image 20260615091333.png",
+    "Pasted image 20260615091324.png",
     "CNGFG/CN5.md",
-    "Pasted image 20260615015915.png",
-    "Pasted image 20260615015901.png",
-    "Pasted image 20260615015847.png",
-    "Pasted image 20260615015836.png",
-    "Pasted image 20260615015825.png",
-    "Pasted image 20260615015813.png",
-    "Pasted image 20260615015720.png",
-    "Pasted image 20260615015642.png",
+    "Pasted image 20260615090856.png",
+    "Pasted image 20260615090827.png",
+    "Pasted image 20260615085631.png",
+    "CNGFG/CN4.md",
     "CNGFG/CN3.md",
     "CNGFG/CN2.md",
     "CNGFG/CN1.md",
@@ -300,8 +302,6 @@
     "SB/SB-4 (Lombok).md",
     "SB/SB-2 (Databases).md",
     "SB/SB-3 (Work with databases).md",
-    "SB/SB-1 (Basics).md",
-    "SB/SB-5 (Adding users).md",
     "Untitled 4.base",
     "Untitled 2.canvas",
     "Untitled 3.base",

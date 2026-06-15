@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CNGFG/HTTP and HTTPs(ecure).md",
+                "file": "CNGFG/AppLayer Working.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HTTP and HTTPs(ecure)"
+              "title": "AppLayer Working"
             }
           }
         ],
@@ -278,17 +278,17 @@
   },
   "active": "bb3ac76c539ea8d5",
   "lastOpenFiles": [
+    "CNGFG/Client server model.md",
+    "CNGFG/DNS.md",
+    "CNGFG/How the Browser works.md",
+    "CNGFG/WebServer.md",
+    "CNGFG/HTTP and HTTPs(ecure).md",
     "Pasted image 20260615134008.png",
     "Pasted image 20260615133149.png",
-    "CNGFG/How the Browser works.md",
     "Pasted image 20260615130016.png",
     "Pasted image 20260615125741.png",
     "HowInternetWorks/Chp1.md",
-    "CNGFG/Client server model.md",
-    "CNGFG/DNS.md",
     "Pasted image 20260615123748.png",
-    "CNGFG/WebServer.md",
-    "CNGFG/HTTP and HTTPs(ecure).md",
     "CNGFG/AppLayer Working.md",
     "CNGFG/CN7.md",
     "CNGFG/CN6.md",
@@ -303,7 +303,6 @@
     "Pasted image 20260615092014.png",
     "Pasted image 20260615091931.png",
     "Pasted image 20260615091838.png",
-    "Pasted image 20260615091718.png",
     "CN/CN-1.md",
     "CNGFG",
     "React/R3.md",

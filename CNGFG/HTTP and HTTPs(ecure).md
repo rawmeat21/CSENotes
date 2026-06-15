@@ -79,5 +79,9 @@ The CA does their own checks and finally issue me a **digital certificate** whic
 
 
 
+References:
 
+https://medium.com/@mohithmarisetti_58912/https-made-easy-df1b88dc2a0e
+https://www.cloudflare.com/learning/ssl/what-is-https/
+https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/
 

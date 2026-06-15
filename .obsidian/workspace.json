@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSx/OSx7.md",
+                "file": "OSx/OSx9.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OSx7"
+              "title": "OSx9"
             }
           }
         ]
@@ -193,19 +193,26 @@
   },
   "active": "79b13b422f1fb7af",
   "lastOpenFiles": [
+    "Pasted image 20260615190304.png",
+    "Pasted image 20260615185629.png",
+    "OSx/OSx8.md",
+    "OSx/OSx9.md",
+    "Pasted image 20260615183657.png",
+    "Pasted image 20260615182501.png",
+    "Pasted image 20260615180845.png",
+    "Pasted image 20260615180833.png",
+    "Pasted image 20260615180815.png",
+    "Pasted image 20260615180753.png",
+    "OSx/OSx7.md",
     "Pasted image 20260615154916.png",
     "Pasted image 20260615154625.png",
     "OSx/OSx6.md",
     "OSx/OSx5.md",
-    "OSx/OSx7.md",
     "CNGFG/UDP.md",
     "CNGFG/TCP.md",
     "CNGFG/AppLayer Working.md",
     "CNGFG/IP.md",
     "Pasted image 20260615143001.png",
-    "Pasted image 20260615142940.png",
-    "Pasted image 20260615142644.png",
-    "Pasted image 20260615142337.png",
     "CNGFG/WWW.md",
     "CNGFG/FTP.md",
     "CNGFG/Client server model.md",
@@ -213,12 +220,7 @@
     "CNGFG/How the Browser works.md",
     "CNGFG/WebServer.md",
     "CNGFG/HTTP and HTTPs(ecure).md",
-    "Pasted image 20260615134008.png",
-    "Pasted image 20260615133149.png",
-    "Pasted image 20260615130016.png",
-    "Pasted image 20260615125741.png",
     "HowInternetWorks/Chp1.md",
-    "Pasted image 20260615123748.png",
     "CNGFG/CN7.md",
     "CNGFG/CN6.md",
     "CNGFG/CN5.md",
@@ -229,8 +231,6 @@
     "HowInternetWorks",
     "CN/CN-1.md",
     "CNGFG",
-    "React/R3.md",
-    "React/R2.md",
     "React",
     "Untitled 4.base",
     "Untitled 2.canvas",

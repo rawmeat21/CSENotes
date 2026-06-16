@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSx/OSx6.md",
+                "file": "OSNotes/Processes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OSx6"
+              "title": "Processes"
             }
           }
         ]
@@ -193,10 +193,16 @@
   },
   "active": "aeda1239614486e3",
   "lastOpenFiles": [
+    "Pasted image 20260616213917.png",
+    "OSx/Processes.md",
+    "OSx/OSx10.md",
+    "OSx/OSx9.md",
+    "OSx/OSx8.md",
+    "OSx/OSx7.md",
+    "OSx/OSx6.md",
     "OSx/OSx1.md",
     "OSx/MLFQ.md",
     "OSx/Handling processes.md",
-    "OSx/Processes.md",
     "OSx/Scheduling Processes.md",
     "OSNotes/Processes.md",
     "OSNotes/What happens when you turn on the computer?.md",
@@ -206,7 +212,6 @@
     "Pasted image 20260616210454.png",
     "Pasted image 20260616210427.png",
     "Pasted image 20260616210410.png",
-    "OSx/OSx10.md",
     "OSNotes",
     "Pasted image 20260616204627.png",
     "Pasted image 20260616204137.png",
@@ -214,10 +219,6 @@
     "Pasted image 20260616204002.png",
     "Pasted image 20260616203817.png",
     "Pasted image 20260616202532.png",
-    "OSx/OSx9.md",
-    "OSx/OSx6.md",
-    "OSx/OSx7.md",
-    "OSx/OSx8.md",
     "CNGFG/UDP.md",
     "CNGFG/TCP.md",
     "CNGFG/AppLayer Working.md",
@@ -229,7 +230,6 @@
     "CNGFG/How the Browser works.md",
     "CNGFG/WebServer.md",
     "CNGFG/HTTP and HTTPs(ecure).md",
-    "HowInternetWorks/Chp1.md",
     "HowInternetWorks",
     "CNGFG",
     "React",

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TEST/This is a test.md",
+                "file": "OSNotes/What happens when you turn on the computer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "This is a test"
+              "title": "What happens when you turn on the computer"
             }
           }
         ]
@@ -193,11 +193,12 @@
   },
   "active": "aeda1239614486e3",
   "lastOpenFiles": [
-    "OSNotes/What happens when you turn on the computer?.md",
-    "TEST/This is a test.md",
-    "TEST",
     "OSNotes/Kernel.md",
     "OSNotes/Processes.md",
+    "OSNotes/System calls.md",
+    "OSNotes/What happens when you turn on the computer.md",
+    "TEST/This is a test.md",
+    "TEST",
     "Pasted image 20260616213917.png",
     "OSx/Processes.md",
     "OSx/OSx10.md",
@@ -209,7 +210,6 @@
     "OSx/MLFQ.md",
     "OSx/Handling processes.md",
     "OSx/Scheduling Processes.md",
-    "OSNotes/System calls.md",
     "Pasted image 20260616213054.png",
     "Pasted image 20260616210454.png",
     "Pasted image 20260616210427.png",

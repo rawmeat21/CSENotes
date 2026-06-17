@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSNotes/Kernel.md",
+                "file": "OSNotes/What happens when you turn on the computer?.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kernel"
+              "title": "What happens when you turn on the computer?"
             }
           }
         ]
@@ -191,8 +191,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "aeda1239614486e3",
+  "active": "04c09b981dedc9df",
   "lastOpenFiles": [
+    "TEST",
+    "OSNotes/Kernel.md",
     "OSNotes/Processes.md",
     "Pasted image 20260616213917.png",
     "OSx/Processes.md",
@@ -207,7 +209,6 @@
     "OSx/Scheduling Processes.md",
     "OSNotes/What happens when you turn on the computer?.md",
     "OSNotes/System calls.md",
-    "OSNotes/Kernel.md",
     "Pasted image 20260616213054.png",
     "Pasted image 20260616210454.png",
     "Pasted image 20260616210427.png",

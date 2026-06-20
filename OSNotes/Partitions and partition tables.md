@@ -30,7 +30,7 @@ Partition tables are MBR and GPT
 
 The 512-byte structure of the Master Boot Record is precise and consists of three essential data structures.
 
-- **Master Boot Code (Bootstrap Code)** – First 446 bytes, executable code that scans the partition table for the active partition. Corruption can cause startup errors like _“Error loading operating system.”_
+- **Master Boot Code (Bootstrap Code)** – First 446 bytes, executable code that scans the partition table for the active partition. Corruption can cause startup errors like _“Error loading operating system.”_. Primary bootloader that searches the partition table, locates the active partition, and loads the secondary bootloader (like GRUB for Linux or Windows Boot Manager)
     
 - **Disk Partition Table (DPT)** – Next 64 bytes, contains four entries describing partition size, type, and location. Limits MBR disks to four primary partitions.
     

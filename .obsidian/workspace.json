@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSNotes/What happens when you turn on the computer.md",
+                "file": "OSNotes/Types of OS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "What happens when you turn on the computer"
+              "title": "Types of OS"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 257.5026054382324
   },
   "right": {
     "id": "1b88c025d2186a29",
@@ -193,13 +193,31 @@
   },
   "active": "aeda1239614486e3",
   "lastOpenFiles": [
+    "Pasted image 20260620104639.png",
+    "Pasted image 20260620104102.png",
+    "Pasted image 20260620103734.png",
+    "Pasted image 20260620103725.png",
+    "Pasted image 20260620103350.png",
+    "Pasted image 20260620100327.png",
+    "CNGFG/VPN.md",
+    "OSNotes/Types of OS.md",
+    "CNGFG/TCP.md",
+    "CNGFG/Addresses in TCP_IP.md",
+    "Pasted image 20260617214739.png",
+    "Pasted image 20260617214721.png",
+    "Pasted image 20260617214629.png",
+    "Pasted image 20260617214519.png",
+    "Pasted image 20260617214452.png",
+    "CNGFG/WebServer.md",
+    "CNGFG/UDP.md",
+    "CNGFG/IP.md",
+    "CNGFG/How the Browser works.md",
+    "OSNotes/What happens when you turn on the computer.md",
     "OSNotes/Kernel.md",
     "OSNotes/Processes.md",
     "OSNotes/System calls.md",
-    "OSNotes/What happens when you turn on the computer.md",
     "TEST/This is a test.md",
     "TEST",
-    "Pasted image 20260616213917.png",
     "OSx/Processes.md",
     "OSx/OSx10.md",
     "OSx/OSx9.md",
@@ -210,27 +228,9 @@
     "OSx/MLFQ.md",
     "OSx/Handling processes.md",
     "OSx/Scheduling Processes.md",
-    "Pasted image 20260616213054.png",
-    "Pasted image 20260616210454.png",
-    "Pasted image 20260616210427.png",
-    "Pasted image 20260616210410.png",
     "OSNotes",
-    "Pasted image 20260616204627.png",
-    "Pasted image 20260616204137.png",
-    "Pasted image 20260616204110.png",
-    "Pasted image 20260616204002.png",
-    "Pasted image 20260616203817.png",
-    "CNGFG/UDP.md",
-    "CNGFG/TCP.md",
     "CNGFG/AppLayer Working.md",
-    "CNGFG/IP.md",
     "CNGFG/WWW.md",
-    "CNGFG/FTP.md",
-    "CNGFG/Client server model.md",
-    "CNGFG/DNS.md",
-    "CNGFG/How the Browser works.md",
-    "CNGFG/WebServer.md",
-    "CNGFG/HTTP and HTTPs(ecure).md",
     "HowInternetWorks",
     "CNGFG",
     "React",

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DBMS/Transactions in SQL.md",
+                "file": "DBMS/Indexing.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Transactions in SQL"
+              "title": "Indexing"
             }
           }
         ]
@@ -193,14 +193,24 @@
   },
   "active": "aeda1239614486e3",
   "lastOpenFiles": [
+    "DBMS/Transactions in SQL.md",
+    "DBMS/DBMS-10.md",
+    "DBMS/DBMS-11.md",
+    "DBMS/DBMS-12.md",
+    "DBMS/Indexing.md",
+    "Pasted image 20260623142619.png",
+    "Pasted image 20260623142542.png",
+    "Pasted image 20260623142440.png",
+    "Pasted image 20260623142434.png",
+    "Pasted image 20260623142217.png",
+    "Pasted image 20260623142152.png",
+    "Pasted image 20260623141903.png",
+    "DBMS/How Postgres implements ACID.md",
+    "DBMS/DBMS-1.md",
+    "Pasted image 20260623134737.png",
     "Pasted image 20260623131014.png",
     "Pasted image 20260623130825.png",
-    "Pasted image 20260623130708.png",
-    "Pasted image 20260623130700.png",
-    "Pasted image 20260623130459.png",
-    "Pasted image 20260623125407.png",
     "CNGFG/WebServer.md",
-    "DBMS/Transactions in SQL.md",
     "CNGFG/VPN.md",
     "CNGFG/UDP.md",
     "CNGFG/TCP.md",
@@ -220,16 +230,6 @@
     "SB/SB-5 (Adding users).md",
     "SB/SB-2 (Databases).md",
     "SB/SB-1 (Basics).md",
-    "OSNotes/Processes.md",
-    "OSNotes/System calls.md",
-    "OSNotes/Partitions and partition tables.md",
-    "OSNotes/Kernel.md",
-    "OSNotes/Filesystems.md",
-    "Pasted image 20260620130317.png",
-    "Pasted image 20260620125537.png",
-    "Pasted image 20260620125103.png",
-    "Pasted image 20260620125048.png",
-    "Pasted image 20260620122207.png",
     "TEST",
     "OSNotes",
     "HowInternetWorks",

@@ -289,6 +289,21 @@ If you set the Isolation Level to `Serializable`:
 ERROR:  could not serialize access due to concurrent update
 ```
 
+#### Choosing the Right Isolation Level
+
+The choice of isolation level depends on your specific requirements:
+
+**Use Read Uncommitted** when you need maximum performance and can tolerate reading potentially invalid data (like for reporting queries where approximate results are acceptable).
+
+**Use Read Committed** for most general-purpose applications where you need a balance of consistency and performance.
+
+**Use Repeatable Read** when you need to ensure that data doesn’t change during your transaction (like financial calculations).
+
+**Use Serializable** when data integrity is absolutely critical and you can accept lower performance (like in banking or medical systems).
+
+
+![[Pasted image 20260623134737.png]]
+
 
 ### Durability
 
@@ -316,5 +331,85 @@ Flow:
 Even if the server crashes, WAL replays.
 
 
+### Consistency
 
+Consistency ensures that **every transaction takes the database from one valid state to another valid state**, following all rules, constraints, and schemas defined in the database.
+
+
+**Constraints include:**
+
+- Primary key and unique constraints
+- Foreign key constraints
+- Check constraints
+- Data types
+- Triggers and rules
+
+
+Example 1 (constraints):
+
+
+```sql
+CREATE TABLE accounts (  
+    id SERIAL PRIMARY KEY,  
+    balance INT CHECK (balance >= 0)  
+);  
+  
+INSERT INTO accounts (balance) VALUES (100); -- (executed successfully)  
+INSERT INTO accounts (balance) VALUES (-50); -- (gives error) violates CHECK constraint
+```
+
+Example 2 (triggers):
+
+Triggers allow **custom logic to enforce complex business rules** that constraints alone cannot capture.
+
+```sql
+CREATE FUNCTION ensure_balance() RETURNS trigger AS $$  
+BEGIN  
+    IF NEW.balance < 0 THEN  
+        RAISE EXCEPTION 'Balance cannot be negative';  
+    END IF;  
+    RETURN NEW;  
+END;  
+$$ LANGUAGE plpgsql;  
+  
+CREATE TRIGGER check_balance  
+BEFORE INSERT OR UPDATE ON accounts  
+FOR EACH ROW EXECUTE FUNCTION ensure_balance();
+```
+
+
+```sql
+INSERT INTO accounts (name, balance) VALUES ('Mohit', 100);  
+-- Works fine  
+  
+INSERT INTO accounts (name, balance) VALUES ('Messi', -50);  
+-- ERROR: Balance cannot be negative
+```
+
+```sql
+UPDATE accounts SET balance = -20 WHERE id = 1;  
+-- ERROR: Balance cannot be negative
+```
+
+Example 3 (Referential integrity):
+
+```sql
+-- Orders table references customers table  
+CREATE TABLE customers (  
+  customer_id INT PRIMARY KEY,  
+  name VARCHAR(100),  
+  email VARCHAR(100)  
+);  
+  
+CREATE TABLE orders (  
+  order_id INT PRIMARY KEY,  
+  customer_id INT,  
+  order_total DECIMAL(10,2),  
+    
+  -- Foreign key constraint ensures referential integrity  
+  FOREIGN KEY (customer_id) REFERENCES customers(customer_id)  
+);
+```
+
+With this setup, you can’t create an order for a customer that doesn’t exist, and you can’t delete a customer who has existing orders (unless you handle it properly). This maintains consistency across related data.
 

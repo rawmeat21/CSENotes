@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PSQL/What are Joins.md",
+                "file": "DBMS/DISTINCT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "What are Joins"
+              "title": "DISTINCT"
             }
           }
         ]
@@ -193,25 +193,28 @@
   },
   "active": "aeda1239614486e3",
   "lastOpenFiles": [
+    "DBMS/Execution order in SQL.md",
+    "DBMS/Transactions in SQL.md",
+    "DBMS/Set Operations.md",
+    "DBMS/Indexing.md",
+    "DBMS/DISTINCT.md",
+    "DBMS/Aggregation and GROUP BY in SQL.md",
+    "DBMS/How Postgres implements ACID.md",
+    "PSQL/Postgres.md",
+    "PSQL/What are Joins.md",
     "Pasted image 20260624135733.png",
     "Pasted image 20260624135445.png",
     "Pasted image 20260624135219.png",
     "Pasted image 20260624134906.png",
     "Pasted image 20260624134428.png",
-    "PSQL/Postgres.md",
-    "PSQL/What are Joins.md",
     "Pasted image 20260624130636.png",
     "Pasted image 20260624125829.png",
-    "DBMS/Transactions in SQL.md",
-    "DBMS/Indexing.md",
     "Pasted image 20260624114121.png",
     "Pasted image 20260624114110.png",
     "Pasted image 20260624114055.png",
-    "Pasted image 20260624114037.png",
     "DBMS/DBMS-10.md",
     "DBMS/DBMS-11.md",
     "DBMS/DBMS-12.md",
-    "DBMS/How Postgres implements ACID.md",
     "DBMS/DBMS-1.md",
     "CNGFG/WebServer.md",
     "CNGFG/VPN.md",
@@ -227,9 +230,6 @@
     "CNGFG/AppLayer Working.md",
     "CNGFG/Addresses in TCP_IP.md",
     "Untitled 4.base",
-    "SB/SB-3 (Work with databases).md",
-    "SB/SB-4 (Handling status codes).md",
-    "SB/SB-4 (Lombok).md",
     "TEST",
     "OSNotes",
     "HowInternetWorks",

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Symbolic links and Hard links.md",
+                "file": "Linux/Misacellaneous.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Symbolic links and Hard links"
+              "title": "Misacellaneous"
             }
           }
         ]
@@ -193,10 +193,17 @@
   },
   "active": "578ef96068058ac9",
   "lastOpenFiles": [
+    "Pasted image 20260625001149.png",
+    "Pasted image 20260625001124.png",
+    "Pasted image 20260625001050.png",
+    "Linux/Are commands always executables.md",
+    "Linux/Misacellaneous.md",
+    "Pasted image 20260625000902.png",
+    "Pasted image 20260625000840.png",
+    "Linux/Symbolic links and Hard links.md",
     "Linux/What are virtual terminals.md",
     "Linux/Shell and Terminal emulator.md",
     "Linux/ls.md",
-    "Linux/Symbolic links and Hard links.md",
     "Pasted image 20260624235732.png",
     "Pasted image 20260624235654.png",
     "Linux/File stuff.md",
@@ -204,10 +211,6 @@
     "Pasted image 20260624234610.png",
     "Pasted image 20260624234536.png",
     "Pasted image 20260624234508.png",
-    "Pasted image 20260624234459.png",
-    "Pasted image 20260624234345.png",
-    "Pasted image 20260624234315.png",
-    "Pasted image 20260624234241.png",
     "Linux/Wildcards.md",
     "Linux/Linux directories.md",
     "Linux/file.md",
@@ -227,8 +230,6 @@
     "Python/Python- requests module.md",
     "Python/Python- Regex.md",
     "Python/Python- PYQs.md",
-    "Python/Python- OOPs ✓.md",
-    "OSNotes/Wtf are user-level and kernel-level threads.md",
     "Untitled 4.base",
     "TEST",
     "OSNotes",

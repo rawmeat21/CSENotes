@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DBMS/DISTINCT.md",
+                "file": "DBMS/What are Joins.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DISTINCT"
+              "title": "What are Joins"
             }
           }
         ]
@@ -193,15 +193,15 @@
   },
   "active": "aeda1239614486e3",
   "lastOpenFiles": [
-    "DBMS/Execution order in SQL.md",
+    "DBMS/Indexing.md",
     "DBMS/Transactions in SQL.md",
     "DBMS/Set Operations.md",
-    "DBMS/Indexing.md",
-    "DBMS/DISTINCT.md",
+    "DBMS/Execution order in SQL.md",
     "DBMS/Aggregation and GROUP BY in SQL.md",
     "DBMS/How Postgres implements ACID.md",
+    "DBMS/DISTINCT.md",
     "PSQL/Postgres.md",
-    "PSQL/What are Joins.md",
+    "DBMS/What are Joins.md",
     "Pasted image 20260624135733.png",
     "Pasted image 20260624135445.png",
     "Pasted image 20260624135219.png",

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DBMS/Indexing.md",
+                "file": "PSQL/What are Joins.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Indexing"
+              "title": "What are Joins"
             }
           }
         ]
@@ -193,22 +193,24 @@
   },
   "active": "aeda1239614486e3",
   "lastOpenFiles": [
+    "Pasted image 20260624135733.png",
+    "Pasted image 20260624135445.png",
+    "Pasted image 20260624135219.png",
+    "Pasted image 20260624134906.png",
+    "Pasted image 20260624134428.png",
+    "PSQL/Postgres.md",
+    "PSQL/What are Joins.md",
+    "Pasted image 20260624130636.png",
+    "Pasted image 20260624125829.png",
+    "DBMS/Transactions in SQL.md",
+    "DBMS/Indexing.md",
     "Pasted image 20260624114121.png",
     "Pasted image 20260624114110.png",
     "Pasted image 20260624114055.png",
     "Pasted image 20260624114037.png",
-    "Pasted image 20260624114016.png",
-    "Pasted image 20260624113958.png",
-    "Pasted image 20260624110405.png",
-    "Pasted image 20260624110037.png",
-    "DBMS/Transactions in SQL.md",
     "DBMS/DBMS-10.md",
     "DBMS/DBMS-11.md",
     "DBMS/DBMS-12.md",
-    "DBMS/Indexing.md",
-    "Pasted image 20260623142619.png",
-    "Pasted image 20260623142542.png",
-    "Pasted image 20260623142440.png",
     "DBMS/How Postgres implements ACID.md",
     "DBMS/DBMS-1.md",
     "CNGFG/WebServer.md",
@@ -228,8 +230,6 @@
     "SB/SB-3 (Work with databases).md",
     "SB/SB-4 (Handling status codes).md",
     "SB/SB-4 (Lombok).md",
-    "SB/SB-5 (Adding users).md",
-    "SB/SB-2 (Databases).md",
     "TEST",
     "OSNotes",
     "HowInternetWorks",

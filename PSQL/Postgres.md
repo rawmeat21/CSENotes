@@ -1,3 +1,6 @@
+
+CREATE DATABASE dbname;
+
 # Connect to database
 
 \c dbname
@@ -79,6 +82,9 @@ This is too much work
 
 ![[Pasted image 20260604231300.png]]
 Use IN
+
+![[Pasted image 20260624125829.png]]
+
 
 ![[Pasted image 20260604231527.png]]
 Between
@@ -487,3 +493,9 @@ We can use this statement to join if the foreign key and primary key have same n
 ~~And we're done!~~
 
 Now go code!!
+
+
+### More stuff
+
+![[Pasted image 20260624130636.png]]
+

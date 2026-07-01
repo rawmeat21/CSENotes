@@ -880,25 +880,6 @@ async def outer():
 
 ---
 
-### asyncio vs threading — when to use which
-
-||`threading`|`asyncio`|
-|---|---|---|
-|Execution model|Multiple OS threads, preemptive scheduling|Single thread, cooperative scheduling|
-|Switching|OS decides when to switch (preemptive)|You decide when to yield (cooperative, via `await`)|
-|Race conditions|Yes — need locks|No — only one coroutine runs at a time|
-|I/O bound work|Good|Excellent — lower overhead, more scalable|
-|CPU bound work|Limited by GIL|No benefit — still single-threaded|
-|Existing sync libraries|Use directly|Need async versions (aiohttp instead of requests)|
-|Code complexity|Familiar sync style|Requires async/await throughout|
-
-For your CP tool:
-
-- **`SolveTracker`** stays as a thread — it runs a long-lived background loop and the threading model is clean and already working
-- **Fetchers** are the right candidate for async — they make many independent I/O calls that are currently sequential and would benefit enormously from concurrency
-
----
-
 ### Full working example — async batch fetch
 
 This is a complete, runnable example showing the entire pattern end to end:

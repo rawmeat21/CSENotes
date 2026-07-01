@@ -1,3 +1,30 @@
+
+Python supports treating functions as [first-class objects](https://dbader.org/blog/python-first-class-functions). This means that _functions can be passed around and used as arguments_, just like [any other object like `str`, `int`, `float`, `list`, and so on](https://realpython.com/python-data-types/)
+
+### Inner Functions[](https://realpython.com/primer-on-python-decorators/#inner-functions "Permanent link")
+
+It’s possible to [define functions](https://realpython.com/defining-your-own-python-function/) _inside other functions_. Such functions are called [inner functions](https://realpython.com/inner-functions-what-are-they-good-for/). Here’s an example of a function with two inner functions:
+
+
+```python
+def parent():  
+   
+	print("Printing from parent()")   
+	   
+	def first_child():         
+		print("Printing from first_child()")      
+	def second_child():         
+		print("Printing from second_child()")      
+		
+	second_child()     
+	first_child()
+```
+
+
+## What are decorators?
+
+A decorator in Python is a function that takes another function and extends its behavior without explicitly modifying it. Decorators are often used to add “wrapping” functionality to existing code in a concise and reusable manner.
+
 ### The Long Way First
 
 python
@@ -15,15 +42,6 @@ def greet():
 greet = shout(greet)    # manually decorating
 greet()                 # "HELLO"
 ```
-
-Step by step what happens:
-
-- `shout` takes `greet` as argument
-- defines `wrapper` inside — a new function that calls `greet` and modifies its result
-- returns `wrapper`
-- `greet` is now rebound to `wrapper`
-
-When you call `greet()`, you are actually calling `wrapper()`, which internally calls the original `greet()`.
 
 ---
 
@@ -45,7 +63,7 @@ def greet():
 greet()   # "HELLO"
 ```
 
-`@shout` above `greet` is **exactly** equivalent to writing `greet = shout(greet)` after the definition. That's it. Nothing more. The `@` is pure syntax sugar.
+`@shout` above `greet` is **exactly** equivalent to writing `greet = shout(greet)` after the definition. 
 
 ---
 
@@ -121,8 +139,6 @@ Always use `@functools.wraps` in decorators you write. It is the correct practic
 ---
 
 ### Decorators With Arguments
-
-Your current mental model: decorator takes a function, returns a function.
 
 Now: what if you want to pass arguments to the decorator itself?
 

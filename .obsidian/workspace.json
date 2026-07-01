@@ -40,12 +40,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CNGFG/More about HTTP requests.md",
+                "file": "Python/Python- asyncio and aiohttp.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "More about HTTP requests"
+              "title": "Python- asyncio and aiohttp"
             }
           }
         ],
@@ -221,9 +221,18 @@
   },
   "active": "aeba5a2aeb2ae312",
   "lastOpenFiles": [
+    "Pasted image 20260701220421.png",
+    "Pasted image 20260701210907.png",
+    "Pasted image 20260701210615.png",
+    "Pasted image 20260701202656.png",
+    "Pasted image 20260701202624.png",
+    "Pasted image 20260701202551.png",
+    "Pasted image 20260701202420.png",
+    "Pasted image 20260701202156.png",
+    "Pasted image 20260701202026.png",
+    "CNGFG/More about HTTP requests.md",
     "Pasted image 20260701194419.png",
     "CNGFG/How the Browser works.md",
-    "CNGFG/More about HTTP requests.md",
     "CNGFG/HTTP and HTTPs(ecure).md",
     "Python/Python- requests module.md",
     "Python/Python- OOPs ✓.md",
@@ -248,16 +257,7 @@
     "Linux/Permissions.md",
     "Linux/Expansion and Quoting.md",
     "Pasted image 20260625022626.png",
-    "Pasted image 20260625022544.png",
-    "Pasted image 20260625022010.png",
     "Linux/Misacellaneous.md",
-    "Pasted image 20260625021935.png",
-    "Pasted image 20260625021918.png",
-    "Pasted image 20260625021906.png",
-    "Pasted image 20260625021801.png",
-    "Pasted image 20260625021753.png",
-    "Pasted image 20260625021744.png",
-    "Pasted image 20260625021734.png",
     "Linux/Standard IOE and Redirection.md",
     "Linux",
     "TEST",

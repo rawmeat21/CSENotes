@@ -6,10 +6,18 @@ Before anything else, these two words need to be precisely defined because they'
 
 **Concurrency** — multiple operations are in progress at the same time, but not necessarily executing simultaneously. One operation starts, hits a waiting point, gets suspended, and another operation runs while the first is waiting. When the first operation's wait is over, it resumes. Only one thing is actually executing at any given instant, but many things are making progress.
 
-`asyncio` is a concurrency model, not a parallelism model. It runs in a single thread. Multiple operations make progress by yielding control to each other at waiting points.
+![[Pasted image 20260701202026.png]]
+
+![[Pasted image 20260701202156.png]]
+
+`asyncio` is a concurrency model. It runs in a single thread. Multiple operations make progress by yielding control to each other at waiting points.
 
 ---
 
+`asyncio` is a Python library for writing concurrent code.
+
+In syncronous code execution, one thing happens after another.
+In asynchronous code execution, the code doesn't wait for IO bound tasks, instead it executes other tasks when current task goes for IO.
 ### The Problem asyncio Solves
 
 Look at how your current fetchers work:
@@ -61,7 +69,58 @@ To understand it you need to understand three things in order: coroutines, the e
 
 ---
 
-### Coroutines
+![[Pasted image 20260701202420.png]]
+
+![[Pasted image 20260701202551.png]]
+![[Pasted image 20260701202624.png]]
+
+Multithreading means the OS gives you multiple threads of execution that can genuinely run **in parallel** (on multi-core CPUs) or be interleaved by the OS scheduler (preemptively, without your code's consent).
+
+- Each thread has its own call stack
+- The OS decides when to pause/resume a thread — **you don't control it**
+- True parallelism is possible: two threads can execute instructions on two different CPU cores at the exact same instant
+- The cost: shared memory + preemption = race conditions, need for locks/mutexes, deadlocks, etc.
+
+Async typically runs on a **single thread** with an event loop. There's no OS-level parallelism happening; instead, your code **cooperatively yields control** at specific points (usually `await`), letting the event loop run something else while waiting on I/O.
+
+- One call stack (per event loop), not many
+- Switches only happen at explicit `await`/yield points — **never mid-instruction**
+- No true parallelism
+- No race conditions in the same way, because only one piece of your code is ever actually running at a given instant
+
+### Why not just use threads? They seem to do the same thing.
+
+### Threads are expensive, tasks are cheap
+
+- Typically **1-8 MB of stack memory** reserved per thread
+- Creating one means a **system call into the kernel**
+- Switching between threads is a **context switch**
+
+### OS can preempt a thread **mid-instruction**
+
+At any point, without your code's permission. If two threads touch shared state, you need locks, or you get race conditions.
+
+For async tasks, control only switches at explicit `await` points, which _you_ put in your code. Nothing else runs until you hit one. So within a single event loop, you don't need locks for state shared between tasks — only one task's code is ever "live" at once.
+
+**Threads are actually better for CPU bound work.**
+
+
+### Why use threads even? Just use async?
+
+For CPU-bound work in Python, **neither** threads nor async help. 
+
+What you actually want there is `multiprocessing` — separate OS processes, each with its own Python interpreter and own GIL, giving you real parallelism across cores. 
+
+Also, **Legacy / blocking libraries that don't support async.** 
+
+Async requires the entire call chain to be non-blocking — every library you call has to be `async`-aware (`aiohttp` instead of `requests`, `asyncpg` instead of `psycopg2`, etc.). 
+
+If you're stuck with a blocking library that has no async equivalent, threads let you get concurrency anyway without rewriting the library.
+
+
+![[Pasted image 20260701202656.png]]
+
+### Coroutines (cooperative function)
 
 A coroutine is a function that can **suspend its own execution** at specific points and **resume later** from exactly where it left off. Normal functions run to completion without interruption. Coroutines can pause mid-execution.
 
@@ -90,6 +149,13 @@ print(result)      # <coroutine object greet at 0x...>
 
 Calling a coroutine function returns a **coroutine object** — a suspended computation that hasn't started yet. To actually run it, you either `await` it or pass it to the event loop.
 
+![[Pasted image 20260701210615.png]]
+
+How to create event loop object:
+
+![[Pasted image 20260701210907.png]]
+
+
 ---
 
 ### `await`
@@ -101,7 +167,6 @@ Calling a coroutine function returns a **coroutine object** — a suspended comp
 3. The event loop runs other coroutines
 4. When the awaited thing completes, the event loop resumes the suspended coroutine
 
-python
 
 ```python
 async def fetch():
@@ -110,14 +175,22 @@ async def fetch():
     print("resumed after 1 second")
 ```
 
+
 `await` can only be used inside `async def` functions. Using it outside is a `SyntaxError`.
 
-You can only `await` **awaitables** — objects that implement the `__await__` method. The main awaitables you'll work with are:
+You can't just slap `await` in front of anything:
 
-- Coroutine objects (result of calling an `async def` function)
-- `asyncio.Task` objects
-- `asyncio.Future` objects
-- Objects from async libraries like `aiohttp`
+python
+
+```python
+await print("hello")   # ❌ TypeError: not awaitable
+```
+
+`await` specifically works on an **awaitable object** — something that represents "an operation that will eventually produce a result, but isn't done yet." In practice, this is almost always one of:
+
+1. A **coroutine** — the result of calling an `async def` function
+2. A **Task** — a coroutine that's already been scheduled to run
+3. A **Future** — a lower-level "promise" that something will eventually complete
 
 ---
 
@@ -145,6 +218,16 @@ Event Loop:
 
 This is all single-threaded. There's no OS thread switching, no GIL contention, no race conditions on the event loop itself. You explicitly yield control with `await`.
 
+
+This is basically what the event loop thread does:
+```python
+while True:
+    task = ready_queue.pop_next()   # grab a task that's ready to run
+    task.run_until_next_await()      # run it until it hits an await or finishes
+    # if it awaited something, register what it's waiting for,
+    # then move on to the next ready task
+```
+
 #### Running the event loop
 
 python
@@ -160,6 +243,14 @@ asyncio.run(main())   # creates event loop, runs main(), closes loop
 ```
 
 `asyncio.run()` is the standard entry point. It creates a new event loop, runs the given coroutine until it completes, then closes the loop. You call it once, at the top level of your program.
+
+
+### What's actually happening when you call `asyncio.run()`?
+
+1. Your main thread calls `asyncio.run(main())`
+2. This creates an event loop **object** (just a Python object — a queue, a scheduler)
+3. Your main thread then enters that `while True`-style loop I described earlier
+4. Your main thread is now _busy running the loop itself_ — **it doesn't return control back to "regular" code until the loop finishes**
 
 ---
 
@@ -197,6 +288,97 @@ B: done after 2s
 This is still sequential because we `await` each task one at a time. To run them concurrently we need `asyncio.gather` or `asyncio.create_task`.
 
 ---
+
+### Example:
+
+```python
+async def get_movie_tickets():
+    await asyncio.sleep(7)
+    print('Got the movie tickets')
+
+async def like_ig():
+    await asyncio.sleep(3)
+    print('Finshed Instagram')
+
+async def main():
+    task1 = asyncio.create_task(get_movie_tickets())
+    task2 = asyncio.create_task(like_ig())
+    await task1
+
+asyncio.run(main())
+```
+
+### Timeline of what actually happens
+
+```
+t=0: main() starts
+t=0: task1 created & scheduled (get_movie_tickets queued to run)
+t=0: task2 created & scheduled (like_ig queued to run)
+t=0: main hits `await task1` → main suspends, hands control to the loop
+t=0: loop runs task1 → hits `await asyncio.sleep(7)` → task1 suspends, registers a 7s timer, loop moves on
+t=0: loop runs task2 → hits `await asyncio.sleep(3)` → task2 suspends, registers a 3s timer, loop moves on
+t=0: loop now has nothing ready to run; it blocks until a timer fires
+t=3: task2's timer fires → task2 resumes → prints 'Finshed Instagram' → task2 completes
+t=7: task1's timer fires → task1 resumes → prints 'Got the movie tickets' → task1 completes
+t=7: main was awaiting task1, so task1 completing makes main ready again → main resumes → main returns
+```
+
+Total time: **~7 seconds**
+
+#### What `await` does to the event loop's queue, precisely
+
+When `main` executes `await task1`:
+
+1. `main`'s coroutine is **paused** and removed from the "ready to run" set
+2. It's registered as **waiting on task1's completion** — specifically, task1 keeps a list of callbacks to fire when it's done, and this registers one that will re-add `main` to the ready queue
+3. Control returns to the event loop, which picks whatever else is ready (here: run task1, then task2, until each hits its own `await`)
+4. When task1 eventually finishes, the loop fires that registered callback, which pushes `main` back onto the ready queue
+5. Next time the loop gets to `main` in the queue, it resumes exactly where `await task1` left off
+
+### If you remove `await task1`
+
+```python
+async def main():
+    task1 = asyncio.create_task(get_movie_tickets())
+    task2 = asyncio.create_task(like_ig())
+    # no await
+```
+
+`main()` would now run to completion **immediately**, without ever yielding control back to the event loop (no `await` inside `main` means nothing ever suspends it). Since `main()` finishing is what makes `asyncio.run()` return, the loop closes right after `main` returns — **before task1 or task2 ever get a chance to run a single line**, since they were only _scheduled_, not yet executed.
+
+
+### Two different things `await` can be waiting on
+
+**1. Awaiting a bare coroutine** (no `create_task`):
+
+python
+
+```python
+async def main():
+    await get_movie_tickets()   # not scheduled until this line runs
+    await like_ig()
+```
+
+Here, nothing happens until `await` actually runs. `get_movie_tickets()` isn't executing in the background before that — it doesn't even start until you `await` it. So this is fully sequential: 7s, then 3s more = 10s total. `await` here means "start this now, and don't move past this line until it's done." Basically, here we actually don't do any concurrency.
+
+**2. Awaiting a Task** (created via `create_task`):
+
+python
+
+```python
+async def main():
+    task1 = asyncio.create_task(get_movie_tickets())  # starts running NOW
+    task2 = asyncio.create_task(like_ig())              # starts running NOW
+    await task1   # just wait for something already in progress
+```
+
+Here, the work already started the moment you called `create_task` — `await task1` isn't starting anything, it's just saying "pause me until this thing that's _already running_ finishes." That's why the two sleeps overlap here (7s total), but not in the first example.
+
+
+`await` means: **"suspend me until this awaitable reaches completion — starting it now if it hasn't started yet, or just waiting if it's already running."**
+
+---
+
 
 ### `asyncio.gather`
 
@@ -238,6 +420,15 @@ B: done        ← after 2s
 ```
 
 All three started almost simultaneously. Total time was ~2 seconds (the longest task), not ~4 seconds (the sum). This is exactly the speedup your fetchers would get.
+
+![[Pasted image 20260701220421.png]]
+
+gather() does this:
+
+- **Wraps each argument into a Task** if it isn't already one. So passing bare coroutines is fine.
+- **Schedules all of them to start running immediately**, concurrently.
+- **Awaits all of them**, suspending the calling coroutine until every single one completes.
+- **Returns results in the same order you passed the arguments in** — not the order they finished.
 
 #### `gather` with `return_exceptions=True`
 

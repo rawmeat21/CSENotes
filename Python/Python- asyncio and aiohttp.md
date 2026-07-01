@@ -919,5 +919,4 @@ data = asyncio.run(fetch_all())
 print(data.keys())
 # All 4 requests fired simultaneously — total time ~max(individual times)
 ```
-
 ---

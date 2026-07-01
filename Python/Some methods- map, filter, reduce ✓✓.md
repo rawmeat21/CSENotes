@@ -142,7 +142,7 @@ Applies a function **cumulatively** to elements, reducing the entire iterable to
 
 Unlike `map` and `filter`, `reduce` is not a built-in — it lives in `functools`:
 
-python
+
 
 ```python
 from functools import reduce
@@ -152,7 +152,7 @@ reduce(function, iterable, initial)
 
 The function takes **two arguments**: the accumulated value so far, and the current element. It returns the new accumulated value.
 
-python
+
 
 ```python
 from functools import reduce

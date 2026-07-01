@@ -40,12 +40,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/Python- asyncio and aiohttp.md",
+                "file": "Python/Python- Dict and Tuple ✓✓.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python- asyncio and aiohttp"
+              "title": "Python- Dict and Tuple ✓✓"
             }
           }
         ],
@@ -221,6 +221,16 @@
   },
   "active": "aeba5a2aeb2ae312",
   "lastOpenFiles": [
+    "Python/Python- Exceptions ✓.md",
+    "Python/Python- Decorators.md",
+    "Python/Some methods- map, filter, reduce ✓✓.md",
+    "Python/Python- GUI ✓.md",
+    "Python/Python- Functions ✓.md",
+    "Python/Python- File handling ✓✓.md",
+    "Python/Python- Dunder Methods.md",
+    "Python/Python- Dict and Tuple ✓✓.md",
+    "Python/Python- Code Examples.md",
+    "Python/Python- asyncio and aiohttp.md",
     "Pasted image 20260701220421.png",
     "Pasted image 20260701210907.png",
     "Pasted image 20260701210615.png",
@@ -237,9 +247,6 @@
     "Python/Python- requests module.md",
     "Python/Python- OOPs ✓.md",
     "Python/Python- Multithreading ✓.md",
-    "Python/Python- Exceptions ✓.md",
-    "Python/Python- Dunder Methods.md",
-    "Python/Python- Decorators.md",
     "DSA/Heap.md",
     "Untitled 1.md",
     "Java/Collections-1.md",
@@ -249,16 +256,9 @@
     "Java/Java- Some IMP examples.md",
     "Java/Java- Threads and Swing (Course Information).md",
     "Java/Java- Threads examples.md",
-    "Python/Python- GUI ✓.md",
     "Python/Python- Threads Advanced (Part 1).md",
-    "Python/Python- Code Examples.md",
     "test.md",
     "Untitled 4.base",
-    "Linux/Permissions.md",
-    "Linux/Expansion and Quoting.md",
-    "Pasted image 20260625022626.png",
-    "Linux/Misacellaneous.md",
-    "Linux/Standard IOE and Redirection.md",
     "Linux",
     "TEST",
     "OSNotes",

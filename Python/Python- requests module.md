@@ -20,7 +20,7 @@ Every HTTP request specifies a **method** — this is a verb that tells the serv
 
 #### GET
 
-A GET request means: _"give me this resource."_ You're asking the server to return some data at a given URL. You are not sending any input data — just the URL itself, and optionally some query parameters tacked onto the URL.
+A GET request means: _"give me this resource."_ You're asking the server to return some data at a given URL.
 
 GET requests are:
 
@@ -355,8 +355,6 @@ python
 ```
 
 This is exactly what the browser would do — you're just doing it manually. The server can't tell the difference.
-
-**How to get the cookie value:** Open LC in Chrome/Firefox → F12 → Application tab → Cookies → `leetcode.com` → find `LEETCODE_SESSION` → copy the value.
 
 ---
 

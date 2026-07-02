@@ -339,7 +339,6 @@ class DatabaseError(AppError):
     pass
 ```
 
-python
 
 ```python
 try:

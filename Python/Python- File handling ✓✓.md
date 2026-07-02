@@ -470,7 +470,7 @@ else:
 
 ### Path Operations — `os.path`
 
-python
+
 
 ```python
 os.path.join("folder", "subfolder", "file.txt")
@@ -479,7 +479,6 @@ os.path.join("folder", "subfolder", "file.txt")
 # always use join — never manually concatenate paths with "/"
 ```
 
-python
 
 ```python
 os.path.basename("/home/user/file.txt")   # "file.txt"

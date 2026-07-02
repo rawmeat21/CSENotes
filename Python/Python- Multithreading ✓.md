@@ -148,7 +148,7 @@ A **daemon thread** is a background thread that is automatically killed when all
 python
 
 ```python
-t = threading.Thread(target=background_task)
+t = threading.Thread(target=background_t[[Python- OOPs ✓]]ask)
 t.daemon = True    # must be set before t.start()
 t.start()
 # when main thread ends, t is killed automatically

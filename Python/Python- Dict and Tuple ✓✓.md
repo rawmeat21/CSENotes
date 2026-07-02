@@ -115,7 +115,6 @@ d.pop('x')         # KeyError
 
 Removes and returns the **last inserted** key-value pair as a tuple. Useful for iterative processing. Raises `KeyError` on empty dict:
 
-python
 
 ```python
 d = {'a': 1, 'b': 2, 'c': 3}
@@ -304,7 +303,7 @@ If `'alice'` doesn't exist, `.get()` returns `{}`, and calling `.get('role')` on
 
 From the `collections` module. A subclass of `dict` that automatically creates a default value for missing keys instead of raising `KeyError`:
 
-python
+
 
 ```python
 from collections import defaultdict
@@ -424,10 +423,6 @@ for k in sorted(d, key=lambda k: d[k], reverse=True):
 sorted(d.items(), key=lambda item: item[1])
 # [('cherry', 1), ('banana', 3), ('apple', 5)]
 ```
-
-
-
-
 
 ## Tuples in Python
 

@@ -21,6 +21,65 @@ Thread 2:        |───────run──|wait|─────
 
 For CPU-bound parallelism you use `multiprocessing` — separate processes, each with their own GIL. Threading in Python is specifically for IO-bound concurrency.
 
+### Why the GIL tho?
+
+CPython uses reference counting for memory management — every object has a counter tracking how many references point to it. When the counter hits zero, the object gets deallocated.
+
+python
+
+```python
+import sys
+x = []
+sys.getrefcount(x)  # tracks references to x
+```
+
+Incrementing/decrementing that counter is not atomic. If two threads modify the refcount of the same object simultaneously, you can get race conditions.
+
+In CPython, `Py_INCREF(obj)` is roughly:
+
+
+```c
+obj->refcount = obj->refcount + 1;
+```
+
+That single line is actually three separate machine steps:
+
+```
+1. LOAD  refcount from memory into a register
+2. ADD   1 to the register
+3. STORE the register back to memory
+```
+
+That's not atomic — a thread can get interrupted between any of those steps.
+
+**The race**
+
+Say some object `x` has `refcount = 1`, and two threads both hold a reference and are about to increment it (e.g., both just assigned a new variable pointing to `x`).
+
+```
+Thread A                          Thread B
+--------                          --------
+LOAD refcount (1) → reg_A
+                                   LOAD refcount (1) → reg_B
+ADD 1 → reg_A = 2
+                                   ADD 1 → reg_B = 2
+STORE reg_A → refcount = 2
+                                   STORE reg_B → refcount = 2
+```
+
+Both threads read `1` _before_ either one wrote back. Two increments happened, but the refcount only went from 1 → 2, not 1 → 3. One increment was silently lost.
+
+
+#### Solution
+
+**1. Don't use refcounting — use tracing garbage collection instead**
+
+This is the big one. Java, Go, and C# don't use reference counting at all. Instead they use tracing GC — periodically pausing to walk the object graph from root references and reclaim anything unreachable.
+
+**2. Make the refcount operations atomic in hardware**
+
+An atomic instruction can't be interrupted mid-operation by another core.
+
 ---
 
 ### `threading` Module
@@ -33,7 +92,11 @@ import threading
 
 ---
 ![[Pasted image 20260502114325.png]]
+
 (There are actually 2 do_something() functions here, the other one was written but I couldn't include it in the screenshot)
+
+A **performance counter** is ==a high-resolution, internal timer or a system-level metric used to measure how long a process takes to execute or to track system health==
+
 
 ![[Pasted image 20260502114344.png]]
 

@@ -169,8 +169,6 @@ class Dog:
 
 `cls` refers to the class — like `self` but for the class object. Equivalent to `static` methods in C++ that access class-level state.
 
-Example:
-
 
 #### Static method
 

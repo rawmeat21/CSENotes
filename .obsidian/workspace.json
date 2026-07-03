@@ -40,12 +40,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/classpath and packages.md",
+                "file": "Java/Threads.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "classpath and packages"
+              "title": "Threads"
             }
           }
         ],
@@ -221,10 +221,15 @@
   },
   "active": "aeba5a2aeb2ae312",
   "lastOpenFiles": [
-    "Java/Java- OOPs (PYQs).md",
-    "Java/classpath and packages.md",
+    "Java/Java- Threads examples.md",
+    "Java/Swing.md",
+    "Java/Java- Some IMP examples.md",
+    "Java/Java- Threads and Swing (Course Information).md",
+    "Java/Java All PYQs List.md",
     "Java/Java- PYQs.md",
+    "Java/Java- OOPs (PYQs).md",
     "Java/Collections-1.md",
+    "Java/classpath and packages.md",
     "Python/Python- Iterators and Generators ✓.md",
     "Python/Python- Iterator example.md",
     "Python/Python- OOPs ✓.md",
@@ -242,11 +247,6 @@
     "Python/Python- Threads advanced (Part 2).md",
     "Python/Python- Threads Advanced (Part 1).md",
     "Python/Python- Text editor example.md",
-    "Python/Python- Strings ✓✓.md",
-    "Python/Python- Sets ✓✓.md",
-    "Python/Python- REST APIs.md",
-    "Python/Python- requests module.md",
-    "Python/Python- GUI ✓.md",
     "Pasted image 20260701220421.png",
     "Pasted image 20260701210907.png",
     "Pasted image 20260701210615.png",

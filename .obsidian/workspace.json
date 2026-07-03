@@ -40,12 +40,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Collections-1.md",
+                "file": "Java/classpath and packages.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Collections-1"
+              "title": "classpath and packages"
             }
           }
         ],
@@ -221,6 +221,10 @@
   },
   "active": "aeba5a2aeb2ae312",
   "lastOpenFiles": [
+    "Java/Java- OOPs (PYQs).md",
+    "Java/classpath and packages.md",
+    "Java/Java- PYQs.md",
+    "Java/Collections-1.md",
     "Python/Python- Iterators and Generators ✓.md",
     "Python/Python- Iterator example.md",
     "Python/Python- OOPs ✓.md",
@@ -252,11 +256,7 @@
     "Pasted image 20260701202420.png",
     "Pasted image 20260701202156.png",
     "Pasted image 20260701202026.png",
-    "CNGFG/More about HTTP requests.md",
     "Pasted image 20260701194419.png",
-    "CNGFG/How the Browser works.md",
-    "CNGFG/HTTP and HTTPs(ecure).md",
-    "DSA/Heap.md",
     "DSA",
     "Untitled 4.base",
     "Linux",

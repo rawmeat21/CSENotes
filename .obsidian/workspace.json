@@ -40,12 +40,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Generics and how to use them.md",
+                "file": "Java/Lambdas.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Generics and how to use them"
+              "title": "Lambdas"
             }
           }
         ],
@@ -221,19 +221,20 @@
   },
   "active": "aeba5a2aeb2ae312",
   "lastOpenFiles": [
-    "Pasted image 20260703142819.png",
-    "Pasted image 20260703142702.png",
-    "Pasted image 20260703142623.png",
-    "Pasted image 20260703142109.png",
-    "Pasted image 20260703141934.png",
-    "Pasted image 20260703140651.png",
-    "Pasted image 20260703140610.png",
-    "Pasted image 20260703140412.png",
-    "Pasted image 20260703140254.png",
-    "Pasted image 20260703135854.png",
-    "Pasted image 20260703135628.png",
-    "Java/classpath and packages.md",
+    "Pasted image 20260703155011.png",
+    "Pasted image 20260703154403.png",
+    "Pasted image 20260703154316.png",
+    "Pasted image 20260703154210.png",
+    "Pasted image 20260703152940.png",
+    "Pasted image 20260703152626.png",
+    "Pasted image 20260703152547.png",
+    "Pasted image 20260703152235.png",
+    "Pasted image 20260703151800.png",
+    "Pasted image 20260703151348.png",
+    "Pasted image 20260703151047.png",
     "Java/Generics and how to use them.md",
+    "Java/Lambdas.md",
+    "Java/classpath and packages.md",
     "Java/Java- Threads examples.md",
     "Java/Java- Some IMP examples.md",
     "Java/Threads.md",
@@ -256,7 +257,6 @@
     "Python/Python- Decorators.md",
     "Python/Python- Code Examples.md",
     "Python/Python- asyncio and aiohttp.md",
-    "Python/Some methods- map, filter, reduce ✓✓.md",
     "DSA",
     "Untitled 4.base",
     "Linux",

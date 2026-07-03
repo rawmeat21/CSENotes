@@ -21,35 +21,21 @@
             }
           },
           {
-            "id": "c66c185125418e0e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Java/Collections-1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Collections-1"
-            }
-          },
-          {
             "id": "aeba5a2aeb2ae312",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Lambdas.md",
+                "file": "Java/Java- Some IMP examples.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lambdas"
+              "title": "Java- Some IMP examples"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -221,6 +207,12 @@
   },
   "active": "aeba5a2aeb2ae312",
   "lastOpenFiles": [
+    "Java/Java All PYQs List.md",
+    "Java/Java- Some IMP examples.md",
+    "Java/Java- Threads examples.md",
+    "Java/Lambdas.md",
+    "Java/Threads.md",
+    "OSNotes/Threads.md",
     "Pasted image 20260703155011.png",
     "Pasted image 20260703154403.png",
     "Pasted image 20260703154316.png",
@@ -231,16 +223,10 @@
     "Pasted image 20260703152235.png",
     "Pasted image 20260703151800.png",
     "Pasted image 20260703151348.png",
-    "Pasted image 20260703151047.png",
     "Java/Generics and how to use them.md",
-    "Java/Lambdas.md",
     "Java/classpath and packages.md",
-    "Java/Java- Threads examples.md",
-    "Java/Java- Some IMP examples.md",
-    "Java/Threads.md",
     "Java/Swing.md",
     "Java/Java- Threads and Swing (Course Information).md",
-    "Java/Java All PYQs List.md",
     "Java/Java- PYQs.md",
     "Java/Java- OOPs (PYQs).md",
     "Java/Collections-1.md",

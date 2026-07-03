@@ -81,23 +81,6 @@
 
 ---
 
-**Swing / GUI / Event-Driven Programming**
-
-- What is a frame in Java? _(2020 CT)_
-- Write down the steps for event handling. _(2020 CT)_
-- Differentiate between sequential and event-driven programming in Java. _(2023 CT Set I)_
-- Differentiate between event loop and concurrent programming in Java. _(2023 CT Set II)_
-- An exception in Java denotes an event. A mouse click is also represented as an event. Why are the two not handled similarly in Java? _(2023 CT Set III, 2024 Exam)_
-- When would you invoke a GUI event handler on an event dispatch thread rather than a worker thread? Justify. _(2024 Exam)_
-- An array contains student objects with roll, name, and scores in five subjects. Write a GUI application that accepts a roll number, and if the 'search' button is clicked, displays the total score. If roll is not found, display a suitable message. Program stops on 'exit' button. _(2022 Exam)_
-- Write a code snippet to display a set of options where the user can select only one. Once 'done' is clicked, show the selected options. _(2022 Exam)_
-- In a GUI program in Java, how can you make a text field read-only? In that case, how do you put content in it? _(2021 Exam)_
-- Consider a list-type GUI element that allows multi-selection. Write a code snippet to add a scrollbar to it and find the selected items. _(2021 Exam)_
-- Compare panel and frame. _(2021 Exam)_
-- Take input from command line for items to buy (repetitions allowed). Construct a frequency table. Display items repeated at least twice. Select a suitable collection class. _(2024 Exam)_
-
----
-
 **IO (File Handling / Collections / Serialization)**
 
 - How can you find the length of an array object and a String object? _(2020 CT)_

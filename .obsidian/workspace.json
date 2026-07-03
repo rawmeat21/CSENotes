@@ -26,12 +26,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Java- Some IMP examples.md",
+                "file": "Java/Java DSA reference by Claude.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java- Some IMP examples"
+              "title": "Java DSA reference by Claude"
             }
           }
         ],
@@ -207,8 +207,12 @@
   },
   "active": "aeba5a2aeb2ae312",
   "lastOpenFiles": [
-    "Java/Java All PYQs List.md",
+    "Java/Java DSA reference by Gemini.md",
+    "Java/Java DSA reference by Claude.md",
+    "Java/Class Inception.md",
+    "Java/static.md",
     "Java/Java- Some IMP examples.md",
+    "Java/Java All PYQs List.md",
     "Java/Java- Threads examples.md",
     "Java/Lambdas.md",
     "Java/Threads.md",
@@ -239,10 +243,6 @@
     "Python/Python- File handling ✓✓.md",
     "Python/Python- Exceptions ✓.md",
     "Python/Python- Dunder Methods.md",
-    "Python/Python- Dict and Tuple ✓✓.md",
-    "Python/Python- Decorators.md",
-    "Python/Python- Code Examples.md",
-    "Python/Python- asyncio and aiohttp.md",
     "DSA",
     "Untitled 4.base",
     "Linux",

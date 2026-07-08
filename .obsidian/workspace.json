@@ -26,12 +26,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSNotes/Virtual memory.md",
+                "file": "Cpp/Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Virtual memory"
+              "title": "Untitled"
             }
           }
         ],
@@ -207,8 +207,11 @@
   },
   "active": "aeba5a2aeb2ae312",
   "lastOpenFiles": [
-    "OSNotes/Bootloader.md",
+    "HowInternetWorks/Chp1.md",
+    "Cpp/Untitled.md",
     "OSNotes/Virtual memory.md",
+    "CN/CN-1.md",
+    "OSNotes/Bootloader.md",
     "Pasted image 20260708161426.png",
     "OSNotes/Segmentation.md",
     "Pasted image 20260708160941.png",
@@ -239,9 +242,6 @@
     "PSQL/Postgres.md",
     "React/R3.md",
     "React/R2.md",
-    "React/R1.md",
-    "DBMS/What are Joins.md",
-    "DBMS/Transactions in SQL.md",
     "Cpp",
     "Pasted image 20260703155011.png",
     "Pasted image 20260703154403.png",

@@ -1,1 +1,0 @@
-This is a test to verify whether the repo is properly synced

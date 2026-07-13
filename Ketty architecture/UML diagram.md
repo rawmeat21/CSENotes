@@ -9,6 +9,17 @@ This file contains UML views for the backend API.
 ## 1) UML Class Diagram (Domain + Core Services)
 
   
+# Ketty Backend UML Diagram
+
+  
+
+This file contains UML views for the backend API.
+
+  
+
+## 1) UML Class Diagram (Domain + Core Services)
+
+  
 
 ```mermaid
 
@@ -32,6 +43,14 @@ class User {
 
 +String avatarUrl
 
++List<ProfileLink> profileLinks
+
++List<Hobby> hobbies
+
++List<Post> posts
+
++List<Project> projects
+
 +LocalDateTime createdAt
 
 +LocalDateTime updatedAt
@@ -48,6 +67,8 @@ class ProfileLink {
 
 +Long id
 
++User user
+
 +String label
 
 +String url
@@ -60,6 +81,8 @@ class Hobby {
 
 +Long id
 
++User user
+
 +HobbyType type
 
 +String name
@@ -67,6 +90,8 @@ class Hobby {
 +String slug
 
 +int displayOrder
+
++List<HobbyEntry> entries
 
 +onCreate()
 
@@ -77,6 +102,8 @@ class Hobby {
 class HobbyEntry {
 
 +Long id
+
++Hobby hobby
 
 +String externalId
 
@@ -96,6 +123,10 @@ class Post {
 
 +Long id
 
++User user
+
++Hobby hobby
+
 +String content
 
 +String imageUrl
@@ -105,6 +136,10 @@ class Post {
 +LocalDateTime createdAt
 
 +LocalDateTime updatedAt
+
++List<Like> likes
+
++List<Comment> comments
 
 +onCreate()
 
@@ -118,11 +153,19 @@ class Comment {
 
 +Long id
 
++User user
+
++Post post
+
++Comment parent
+
 +String content
 
 +LocalDateTime createdAt
 
 +LocalDateTime updatedAt
+
++List<Comment> replies
 
 +onCreate()
 
@@ -136,6 +179,10 @@ class Like {
 
 +Long id
 
++User user
+
++Post post
+
 }
 
   
@@ -143,6 +190,8 @@ class Like {
 class Project {
 
 +Long id
+
++User user
 
 +String title
 
@@ -158,6 +207,8 @@ class Project {
 
 +LocalDateTime updatedAt
 
++List<ProjectTool> tools
+
 +onCreate()
 
 +onUpdate()
@@ -169,6 +220,8 @@ class Project {
 class ProjectTool {
 
 +Long id
+
++Project project
 
 +String name
 
@@ -296,6 +349,10 @@ User "1" --> "0..*" Post : writes
 
 User "1" --> "0..*" Project : owns
 
+User "1" --> "0..*" Comment : writes
+
+User "1" --> "0..*" Like : gives
+
   
 
 Hobby "1" --> "0..*" HobbyEntry : contains
@@ -307,12 +364,6 @@ Hobby "1" --> "0..*" Post : categorizes
 Post "1" --> "0..*" Like : has
 
 Post "1" --> "0..*" Comment : has
-
-  
-
-User "1" --> "0..*" Like : gives
-
-User "1" --> "0..*" Comment : writes
 
   
 
@@ -394,12 +445,4 @@ JwtAuthenticationFilter->>SecurityContext: setAuthentication(user)
 
 ```
 
-  
 
-## Notes
-
-  
-
-- This UML view is intentionally high-level so it renders cleanly in Obsidian.
-
-- It focuses on backend domain entities plus core service and auth interactions.

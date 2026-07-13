@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CNGFG/VLAN.md",
+                "file": "Ketty architecture/UML diagram.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "VLAN"
+              "title": "UML diagram"
             }
           }
         ]
@@ -193,8 +193,24 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
-    "CNGFG/TCP and UDP.md",
+    "Ketty architecture/ER diagram.md",
+    "Ketty architecture/UML diagram.md",
+    "Ketty architecture/Entities.md",
+    "Ketty architecture/ketty architecture.md",
+    "Ketty architecture/What ketty is.md",
     "CNGFG/VLAN.md",
+    "api/src/main/java/com/ketty/api/config/JwtAuthenticationFilter.java.md",
+    "api/src/main/java/com/ketty/api/config",
+    "api/src/main/java/com/ketty/api",
+    "api/src/main/java/com/ketty",
+    "api/src/main/java/com",
+    "api/src/main/java",
+    "api/src/main",
+    "api/src",
+    "api",
+    "Untitled 2.md",
+    "Ketty architecture",
+    "CNGFG/TCP and UDP.md",
     "CNGFG/Firewall.md",
     "CNGFG/Proxy.md",
     "CNGFG/NAT.md",
@@ -221,24 +237,8 @@
     "Pasted image 20260708155559.png",
     "Pasted image 20260708155337.png",
     "OSNotes/Types of processes in Linux.md",
-    "OSNotes/Untitled",
     "Linux/Wildcards.md",
     "Linux/What are virtual terminals.md",
-    "Linux/The GUI.md",
-    "Linux/Symbolic links and Hard links.md",
-    "Linux/Standard IOE and Redirection.md",
-    "Linux/Simple commands.md",
-    "Linux/Shell and Terminal emulator.md",
-    "Linux/Permissions.md",
-    "Linux/Misacellaneous.md",
-    "Cpp",
-    "DSA",
-    "Untitled 4.base",
-    "Linux",
-    "TEST",
-    "OSNotes",
-    "HowInternetWorks",
-    "CNGFG",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas"

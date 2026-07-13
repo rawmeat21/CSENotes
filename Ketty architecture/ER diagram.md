@@ -237,3 +237,6 @@ PROJECTS ||--o{ PROJECT_TOOLS : uses
 - `COMMENTS.parent_id` creates recursive comment threads (a comment can have replies).
 
 - `POSTS.hobby_id` is optional, so a post can be personal (no hobby) or tied to one hobby.
+
+
+Credit: Github Copilot

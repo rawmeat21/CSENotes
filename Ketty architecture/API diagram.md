@@ -1,7 +1,5 @@
 # Ketty API Layer UML (Split View)
 
-The original single diagram was too wide because every controller, service, repository, and DTO sat on one canvas at once. Splitting it by feature domain keeps each diagram narrow and vertical — better for Obsidian's pane width.
-
 ## 1. Overview — Controllers to Services
 
 ```mermaid
@@ -365,3 +363,6 @@ classDiagram
 - Repositories are the database access layer.
 - Search controllers call external search services rather than repositories.
 - Some repositories/entities (e.g. `UserRepository`) show up in multiple domain diagrams — that's expected, since multiple features depend on the same core entity.
+
+
+Credit: Claude 

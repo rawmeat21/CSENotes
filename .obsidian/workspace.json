@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ketty architecture/API diagram.md",
-                "mode": "preview",
+                "file": "Ketty architecture/UML diagram.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "API diagram"
+              "title": "UML diagram"
             }
           }
         ]
@@ -204,12 +204,12 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
-    "Ketty architecture/UML diagram.md",
-    "Ketty architecture/API diagram.md",
     "Ketty architecture/ER diagram.md",
+    "Ketty architecture/API diagram.md",
     "Ketty architecture/Entities.md",
-    "Ketty architecture/ketty architecture.md",
+    "Ketty architecture/UML diagram.md",
     "Ketty architecture/What ketty is.md",
+    "Ketty architecture/ketty architecture.md",
     "CNGFG/VLAN.md",
     "api/src/main/java/com/ketty/api/config/JwtAuthenticationFilter.java.md",
     "api/src/main/java/com/ketty/api/config",

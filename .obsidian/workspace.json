@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ML/LDA.md",
+                "file": "ML/GD.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LDA"
+              "title": "GD"
             }
           }
         ]
@@ -204,6 +204,9 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
+    "Pasted image 20260718191024.png",
+    "ML/LDA.md",
+    "ML/GD.md",
     "Pasted image 20260718150446.png",
     "Pasted image 20260718150057.png",
     "Pasted image 20260718150052.png",
@@ -211,12 +214,10 @@
     "Pasted image 20260718145958.png",
     "Pasted image 20260718144511.png",
     "ML/Mutual Information.md",
-    "ML/LDA.md",
     "Pasted image 20260717154147.png",
     "Pasted image 20260717154134.png",
     "Pasted image 20260717154102.png",
     "Pasted image 20260717154048.png",
-    "Pasted image 20260717154036.png",
     "ML/Entropy.md",
     "ML/Bias and variance.md",
     "ML/Sensitivity and Specificity.md",
@@ -239,7 +240,6 @@
     "Ketty architecture/Entities.md",
     "Ketty architecture/What ketty is.md",
     "CNGFG/VLAN.md",
-    "api/src/main/java/com/ketty/api/config/JwtAuthenticationFilter.java.md",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",
     "api/src/main/java/com/ketty",

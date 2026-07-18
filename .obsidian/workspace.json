@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ML/Entropy.md",
+                "file": "ML/LDA.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Entropy"
+              "title": "LDA"
             }
           }
         ]
@@ -204,19 +204,21 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
-    "Pasted image 20260717040627.png",
-    "Pasted image 20260717040556.png",
-    "Pasted image 20260717040517.png",
-    "Pasted image 20260717040241.png",
-    "Pasted image 20260717040231.png",
-    "Pasted image 20260717040035.png",
-    "ML/Bias and variance.md",
+    "Pasted image 20260718150446.png",
+    "Pasted image 20260718150057.png",
+    "Pasted image 20260718150052.png",
+    "Pasted image 20260718150034.png",
+    "Pasted image 20260718145958.png",
+    "Pasted image 20260718144511.png",
+    "ML/Mutual Information.md",
+    "ML/LDA.md",
+    "Pasted image 20260717154147.png",
+    "Pasted image 20260717154134.png",
+    "Pasted image 20260717154102.png",
+    "Pasted image 20260717154048.png",
+    "Pasted image 20260717154036.png",
     "ML/Entropy.md",
-    "Pasted image 20260717035826.png",
-    "Pasted image 20260717035801.png",
-    "Pasted image 20260717035719.png",
-    "Pasted image 20260717035708.png",
-    "Pasted image 20260717035651.png",
+    "ML/Bias and variance.md",
     "ML/Sensitivity and Specificity.md",
     "ML/Confusion matrix.md",
     "ML/6. Feature scaling.md",
@@ -246,9 +248,7 @@
     "api/src/main",
     "api/src",
     "api",
-    "Untitled 2.md",
     "Ketty architecture",
-    "CNGFG/TCP and UDP.md",
     "Weird fucking interview questions",
     "Untitled 2.canvas",
     "Untitled 1.canvas",

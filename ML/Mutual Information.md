@@ -1,0 +1,7 @@
+![[Pasted image 20260717154006.png]]
+![[Pasted image 20260717154020.png]]
+![[Pasted image 20260717154036.png]]
+![[Pasted image 20260717154048.png]]
+![[Pasted image 20260717154102.png]]
+![[Pasted image 20260717154134.png]]
+![[Pasted image 20260717154147.png]]

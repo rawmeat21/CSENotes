@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ML/DT hyperparameters.md",
+                "file": "Java/Springboot interview questions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DT hyperparameters"
+              "title": "Springboot interview questions"
             }
           }
         ]
@@ -204,19 +204,22 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
+    "Python/Interview questions.md",
+    "Java/Springboot interview questions.md",
+    "Java/Interview questions.md",
+    "Cpp/Interview questions.md",
+    "ML/DT hyperparameters.md",
     "Pasted image 20260719220658.png",
     "Pasted image 20260719220442.png",
     "Pasted image 20260719220432.png",
     "Pasted image 20260719220223.png",
     "ML/Decision trees.md",
-    "ML/DT hyperparameters.md",
     "Pasted image 20260719220043.png",
     "Pasted image 20260719215956.png",
     "Pasted image 20260719215934.png",
     "Pasted image 20260719215805.png",
     "Pasted image 20260719215745.png",
     "Pasted image 20260719215729.png",
-    "Pasted image 20260719215649.png",
     "fragarach architecture/pipe() syscall.md",
     "fragarach architecture/Tracer.md",
     "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
@@ -238,9 +241,6 @@
     "ML/2. Batch vs Online learning.md",
     "ML/1. Types of ML based on supervision.md",
     "PSQL/Postgres.md",
-    "ML/ML.md",
-    "Ketty architecture/Ketty Notes.md",
-    "Ketty architecture/UML complete - Gemini.md",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",
     "api/src/main/java/com/ketty",

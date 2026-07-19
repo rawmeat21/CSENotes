@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ML/GD.md",
+                "file": "fragarach architecture/pipe() syscall.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GD"
+              "title": "pipe() syscall"
             }
           }
         ]
@@ -204,9 +204,20 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
+    "Pasted image 20260719181712.png",
+    "Pasted image 20260719181629.png",
+    "fragarach architecture/Tracer.md",
+    "fragarach architecture/pipe() syscall.md",
+    "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
+    "fragarach architecture/overlay filesystem.md",
+    "fragarach architecture/Other things to look up.md",
+    "fragarach architecture/Sandbox.md",
+    "Pasted image 20260719034906.png",
+    "Pasted image 20260719034421.png",
+    "ML/GD.md",
+    "fragarach architecture",
     "Pasted image 20260718191024.png",
     "ML/LDA.md",
-    "ML/GD.md",
     "Pasted image 20260718150446.png",
     "Pasted image 20260718150057.png",
     "Pasted image 20260718150052.png",
@@ -214,10 +225,6 @@
     "Pasted image 20260718145958.png",
     "Pasted image 20260718144511.png",
     "ML/Mutual Information.md",
-    "Pasted image 20260717154147.png",
-    "Pasted image 20260717154134.png",
-    "Pasted image 20260717154102.png",
-    "Pasted image 20260717154048.png",
     "ML/Entropy.md",
     "ML/Bias and variance.md",
     "ML/Sensitivity and Specificity.md",
@@ -234,12 +241,6 @@
     "Ketty architecture/UML complete - Gemini.md",
     "Ketty architecture/Implementation architecture.md",
     "Ketty architecture/ketty architecture.md",
-    "Ketty architecture/API diagram.md",
-    "Ketty architecture/ER diagram.md",
-    "Ketty architecture/UML diagram.md",
-    "Ketty architecture/Entities.md",
-    "Ketty architecture/What ketty is.md",
-    "CNGFG/VLAN.md",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",
     "api/src/main/java/com/ketty",
@@ -249,7 +250,6 @@
     "api/src",
     "api",
     "Ketty architecture",
-    "Weird fucking interview questions",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas"

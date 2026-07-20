@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CNGFG/ARP.md",
+                "file": "CNGFG/DHCP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ARP"
+              "title": "DHCP"
             }
           }
         ]
@@ -204,8 +204,9 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
-    "CNGFG/MAC address.md",
     "CNGFG/ARP.md",
+    "CNGFG/DHCP.md",
+    "CNGFG/MAC address.md",
     "CNGFG/Cookies.md",
     "CNGFG/Firewall.md",
     "CNGFG/Untitled.md",
@@ -240,7 +241,6 @@
     "ML/Mutual Information.md",
     "ML/Entropy.md",
     "ML/Bias and variance.md",
-    "ML/Sensitivity and Specificity.md",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",
     "api/src/main/java/com/ketty",

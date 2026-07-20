@@ -1,0 +1,1 @@
+https://medium.com/@ndu202500361/mac-address-the-unique-hardware-identity-of-network-devices-def21b96420e

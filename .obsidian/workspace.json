@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ML/Gradient boost.md",
+                "file": "CNGFG/ARP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Gradient boost"
+              "title": "ARP"
             }
           }
         ]
@@ -204,6 +204,12 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
+    "CNGFG/MAC address.md",
+    "CNGFG/ARP.md",
+    "CNGFG/Cookies.md",
+    "CNGFG/Firewall.md",
+    "CNGFG/Untitled.md",
+    "ML/Gradient boost.md",
     "Pasted image 20260720140232.png",
     "Pasted image 20260720140118.png",
     "Pasted image 20260720135825.png",
@@ -213,10 +219,8 @@
     "Pasted image 20260720135223.png",
     "Pasted image 20260720134617.png",
     "ML/Adaboost.md",
-    "ML/Gradient boost.md",
     "Pasted image 20260720125343.png",
     "Pasted image 20260720125127.png",
-    "Pasted image 20260720124904.png",
     "ML/Feature importance using RF.md",
     "Java/Springboot interview questions.md",
     "Python/Interview questions.md",
@@ -237,10 +241,6 @@
     "ML/Entropy.md",
     "ML/Bias and variance.md",
     "ML/Sensitivity and Specificity.md",
-    "ML/Confusion matrix.md",
-    "ML/6. Feature scaling.md",
-    "ML/5. Feature Engineering.md",
-    "ML/4. Problems faced in ML.md",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",
     "api/src/main/java/com/ketty",

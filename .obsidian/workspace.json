@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Springboot interview questions.md",
+                "file": "ML/Gradient boost.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Springboot interview questions"
+              "title": "Gradient boost"
             }
           }
         ]
@@ -204,22 +204,26 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
-    "Python/Interview questions.md",
+    "Pasted image 20260720140232.png",
+    "Pasted image 20260720140118.png",
+    "Pasted image 20260720135825.png",
+    "Pasted image 20260720135524.png",
+    "Pasted image 20260720135418.png",
+    "Pasted image 20260720135334.png",
+    "Pasted image 20260720135223.png",
+    "Pasted image 20260720134617.png",
+    "ML/Adaboost.md",
+    "ML/Gradient boost.md",
+    "Pasted image 20260720125343.png",
+    "Pasted image 20260720125127.png",
+    "Pasted image 20260720124904.png",
+    "ML/Feature importance using RF.md",
     "Java/Springboot interview questions.md",
+    "Python/Interview questions.md",
     "Java/Interview questions.md",
     "Cpp/Interview questions.md",
     "ML/DT hyperparameters.md",
-    "Pasted image 20260719220658.png",
-    "Pasted image 20260719220442.png",
-    "Pasted image 20260719220432.png",
-    "Pasted image 20260719220223.png",
     "ML/Decision trees.md",
-    "Pasted image 20260719220043.png",
-    "Pasted image 20260719215956.png",
-    "Pasted image 20260719215934.png",
-    "Pasted image 20260719215805.png",
-    "Pasted image 20260719215745.png",
-    "Pasted image 20260719215729.png",
     "fragarach architecture/pipe() syscall.md",
     "fragarach architecture/Tracer.md",
     "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
@@ -237,10 +241,6 @@
     "ML/6. Feature scaling.md",
     "ML/5. Feature Engineering.md",
     "ML/4. Problems faced in ML.md",
-    "ML/3. Instance vs Model based learning.md",
-    "ML/2. Batch vs Online learning.md",
-    "ML/1. Types of ML based on supervision.md",
-    "PSQL/Postgres.md",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",
     "api/src/main/java/com/ketty",

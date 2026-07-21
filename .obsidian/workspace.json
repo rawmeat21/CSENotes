@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CNGFG/DHCP.md",
+                "file": "DL/Perceptron.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DHCP"
+              "title": "Perceptron"
             }
           }
         ]
@@ -204,24 +204,28 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
-    "CNGFG/ARP.md",
+    "Pasted image 20260721225904.png",
+    "Pasted image 20260721225740.png",
+    "Pasted image 20260721225647.png",
+    "Pasted image 20260721225539.png",
+    "Pasted image 20260721225306.png",
+    "Pasted image 20260721225242.png",
+    "Pasted image 20260721225206.png",
+    "Pasted image 20260721225051.png",
+    "Pasted image 20260721225004.png",
+    "Pasted image 20260721224919.png",
+    "Pasted image 20260721224709.png",
+    "DL/What is it.md",
+    "DL/Perceptron.md",
     "CNGFG/DHCP.md",
+    "DL",
+    "CNGFG/ARP.md",
     "CNGFG/MAC address.md",
     "CNGFG/Cookies.md",
     "CNGFG/Firewall.md",
     "CNGFG/Untitled.md",
     "ML/Gradient boost.md",
-    "Pasted image 20260720140232.png",
-    "Pasted image 20260720140118.png",
-    "Pasted image 20260720135825.png",
-    "Pasted image 20260720135524.png",
-    "Pasted image 20260720135418.png",
-    "Pasted image 20260720135334.png",
-    "Pasted image 20260720135223.png",
-    "Pasted image 20260720134617.png",
     "ML/Adaboost.md",
-    "Pasted image 20260720125343.png",
-    "Pasted image 20260720125127.png",
     "ML/Feature importance using RF.md",
     "Java/Springboot interview questions.md",
     "Python/Interview questions.md",
@@ -238,9 +242,6 @@
     "ML/GD.md",
     "fragarach architecture",
     "ML/LDA.md",
-    "ML/Mutual Information.md",
-    "ML/Entropy.md",
-    "ML/Bias and variance.md",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",
     "api/src/main/java/com/ketty",
@@ -249,7 +250,6 @@
     "api/src/main",
     "api/src",
     "api",
-    "Ketty architecture",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas"

@@ -60,6 +60,7 @@ voila!
 
 ![[Pasted image 20260721225306.png]]
 
+This whole process is called forward propagration.
 
 ### Changes we can make to this neural network archtecture
 

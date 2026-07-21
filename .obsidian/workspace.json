@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DL/Perceptron.md",
+                "file": "DL/Backpropagation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Perceptron"
+              "title": "Backpropagation"
             }
           }
         ]
@@ -204,19 +204,20 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
-    "Pasted image 20260721225904.png",
-    "Pasted image 20260721225740.png",
-    "Pasted image 20260721225647.png",
-    "Pasted image 20260721225539.png",
-    "Pasted image 20260721225306.png",
-    "Pasted image 20260721225242.png",
-    "Pasted image 20260721225206.png",
-    "Pasted image 20260721225051.png",
-    "Pasted image 20260721225004.png",
-    "Pasted image 20260721224919.png",
-    "Pasted image 20260721224709.png",
-    "DL/What is it.md",
+    "Pasted image 20260722025831.png",
+    "Pasted image 20260722025158.png",
+    "Pasted image 20260722024820.png",
+    "Pasted image 20260722024728.png",
+    "Pasted image 20260722024630.png",
+    "Pasted image 20260722024614.png",
+    "Pasted image 20260722024333.png",
+    "Pasted image 20260722024112.png",
+    "Pasted image 20260722023835.png",
+    "Pasted image 20260722023722.png",
+    "Pasted image 20260722023132.png",
     "DL/Perceptron.md",
+    "DL/Backpropagation.md",
+    "DL/What is it.md",
     "CNGFG/DHCP.md",
     "DL",
     "CNGFG/ARP.md",
@@ -241,7 +242,6 @@
     "fragarach architecture/Sandbox.md",
     "ML/GD.md",
     "fragarach architecture",
-    "ML/LDA.md",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",
     "api/src/main/java/com/ketty",

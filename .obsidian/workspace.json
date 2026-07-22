@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DL/Backpropagation.md",
+                "file": "DL/Regularization in NN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Backpropagation"
+              "title": "Regularization in NN"
             }
           }
         ]
@@ -204,20 +204,24 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
-    "Pasted image 20260722025831.png",
-    "Pasted image 20260722025158.png",
-    "Pasted image 20260722024820.png",
-    "Pasted image 20260722024728.png",
-    "Pasted image 20260722024630.png",
-    "Pasted image 20260722024614.png",
-    "Pasted image 20260722024333.png",
-    "Pasted image 20260722024112.png",
-    "Pasted image 20260722023835.png",
-    "Pasted image 20260722023722.png",
-    "Pasted image 20260722023132.png",
-    "DL/Perceptron.md",
+    "DL/Dropouts.md",
+    "DL/Regularization in NN.md",
+    "Pasted image 20260722202814.png",
+    "DL/How to improve performance of NN.md",
+    "DL/Normalisation.md",
     "DL/Backpropagation.md",
     "DL/What is it.md",
+    "DL/Perceptron.md",
+    "DL/Vanishing gradient problem.md",
+    "Pasted image 20260722192135.png",
+    "Pasted image 20260722190935.png",
+    "Pasted image 20260722190349.png",
+    "Pasted image 20260722190307.png",
+    "Pasted image 20260722190054.png",
+    "Pasted image 20260722185513.png",
+    "Pasted image 20260722183857.png",
+    "Pasted image 20260722183528.png",
+    "Pasted image 20260722025831.png",
     "CNGFG/DHCP.md",
     "DL",
     "CNGFG/ARP.md",
@@ -237,10 +241,6 @@
     "fragarach architecture/pipe() syscall.md",
     "fragarach architecture/Tracer.md",
     "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
-    "fragarach architecture/overlay filesystem.md",
-    "fragarach architecture/Other things to look up.md",
-    "fragarach architecture/Sandbox.md",
-    "ML/GD.md",
     "fragarach architecture",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",

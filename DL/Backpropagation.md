@@ -48,5 +48,40 @@ This is the overall algo:
 We usually run this algo a few times (epochs) until the loss is minimised.
 
 
+### Backpropagation with classification
+
+![[Pasted image 20260722183528.png]]
+
+Here we use sigmoid as activation function and binary cross entropy loss.
+
+For more: https://www.youtube.com/watch?v=ma6hWrU-LaI&list=PLKnIA16_RmvYuZauWaPlRTC54KxSNLtNn&index=17
+
+
+### Why does backpropagation work?
+
+![[Pasted image 20260722183857.png]]
+
+The calculation of weights is where the magic happens.
+
+Loss function is a function of all the parameters.
+
+Backpropagation works because it finds the weights and biases such that the loss is minimum.
+
+![[Pasted image 20260722185513.png]]
+
+Why do we subtract slope?? - to find the minimum pt.
+
+If slope is +ve, we want to move left (decrease)
+if slope is -ve, we want to move right (increase)
+
+Why learning rate? - To smoothen out the steps to reach minimum (this is just from gradient descent)
+
+
+Additionally, backpropagation uses memoization to calculate the derivatives. It stores intermediate derivatives so that they don't have to be recalculated.
+
+![[Pasted image 20260722192135.png]]
+
+
+
 
 

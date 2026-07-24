@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DL/Regularization in NN.md",
+                "file": "DL/Perceptron.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Regularization in NN"
+              "title": "Perceptron"
             }
           }
         ]
@@ -204,8 +204,13 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
-    "DL/Dropouts.md",
+    "DL/GNN.md",
+    "Pasted image 20260724220938.png",
+    "Pasted image 20260724220811.png",
+    "DL/Weight initialisation.md",
+    "Pasted image 20260722223204.png",
     "DL/Regularization in NN.md",
+    "DL/Dropouts.md",
     "Pasted image 20260722202814.png",
     "DL/How to improve performance of NN.md",
     "DL/Normalisation.md",
@@ -219,9 +224,6 @@
     "Pasted image 20260722190307.png",
     "Pasted image 20260722190054.png",
     "Pasted image 20260722185513.png",
-    "Pasted image 20260722183857.png",
-    "Pasted image 20260722183528.png",
-    "Pasted image 20260722025831.png",
     "CNGFG/DHCP.md",
     "DL",
     "CNGFG/ARP.md",
@@ -238,9 +240,6 @@
     "Cpp/Interview questions.md",
     "ML/DT hyperparameters.md",
     "ML/Decision trees.md",
-    "fragarach architecture/pipe() syscall.md",
-    "fragarach architecture/Tracer.md",
-    "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
     "fragarach architecture",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",

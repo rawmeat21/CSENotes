@@ -80,4 +80,24 @@ We can add more nodes to output. This is usually used when we have > 2 classes (
 
 We can increase number of layers to capture complex boundaries.
 
+What is described so far uses a linear model:
+
+![[Pasted image 20260724230758.png]]
+
+**The Node (∑):** Look closely at the nodes in Layer 1 and 2. They contain only a summation symbol (∑). Each node simply calculates the weighted sum:
+
+z=(w1​⋅x1​)+(w2​⋅x2​)+⋯+b <--- what if we want to change this function??
+
+
+![[Pasted image 20260724230936.png]]
+
+
+
+![[Pasted image 20260724231408.png]]
+
+
+
+
+
+
 

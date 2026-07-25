@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DL/Perceptron.md",
+                "file": "DL/GNN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Perceptron"
+              "title": "GNN"
             }
           }
         ]
@@ -204,26 +204,27 @@
   },
   "active": "efae36f03df74095",
   "lastOpenFiles": [
+    "DL/Backpropagation.md",
+    "DL/An example.md",
+    "DL/Perceptron.md",
+    "Pasted image 20260724233533.png",
+    "Pasted image 20260724232904.png",
+    "Pasted image 20260724232256.png",
+    "Pasted image 20260724231408.png",
+    "Pasted image 20260724230936.png",
+    "Pasted image 20260724230758.png",
+    "DL/How to improve performance of NN.md",
+    "DL/Dropouts.md",
     "DL/GNN.md",
+    "DL/Weight initialisation.md",
     "Pasted image 20260724220938.png",
     "Pasted image 20260724220811.png",
-    "DL/Weight initialisation.md",
     "Pasted image 20260722223204.png",
     "DL/Regularization in NN.md",
-    "DL/Dropouts.md",
     "Pasted image 20260722202814.png",
-    "DL/How to improve performance of NN.md",
     "DL/Normalisation.md",
-    "DL/Backpropagation.md",
     "DL/What is it.md",
-    "DL/Perceptron.md",
     "DL/Vanishing gradient problem.md",
-    "Pasted image 20260722192135.png",
-    "Pasted image 20260722190935.png",
-    "Pasted image 20260722190349.png",
-    "Pasted image 20260722190307.png",
-    "Pasted image 20260722190054.png",
-    "Pasted image 20260722185513.png",
     "CNGFG/DHCP.md",
     "DL",
     "CNGFG/ARP.md",
@@ -239,7 +240,6 @@
     "Java/Interview questions.md",
     "Cpp/Interview questions.md",
     "ML/DT hyperparameters.md",
-    "ML/Decision trees.md",
     "fragarach architecture",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",

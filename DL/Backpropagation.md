@@ -26,6 +26,8 @@ Backpropagation is basically propagrating the errors to previous layers.
 
 ![[Pasted image 20260722024112.png]]
 
+This update happens for every single node!!
+
 We go back and update the weights and biases using gradient descent.
 
  ![[Pasted image 20260722024333.png]]
@@ -80,6 +82,16 @@ Why learning rate? - To smoothen out the steps to reach minimum (this is just fr
 Additionally, backpropagation uses memoization to calculate the derivatives. It stores intermediate derivatives so that they don't have to be recalculated.
 
 ![[Pasted image 20260722192135.png]]
+
+
+
+### Does backprop happen only after a full prediction is made?
+
+**Yes.** Backpropagation happens **only after a complete forward pass is finished** and a prediction (y^​) has been generated at the output node.
+
+It does **not** execute layer-by-layer during the forward pass.
+
+Why is it called backpropagation though? - Its because it calculates derivatives, and derivatives current layers depend on previous layers' derivatives.
 
 
 

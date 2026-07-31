@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "c39dc9e49a4f3588",
+        "id": "421794cf13411028",
         "type": "tabs",
         "children": [
           {
-            "id": "efae36f03df74095",
+            "id": "89fe9ba03e021667",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DL/GNN.md",
+                "file": "fragarach architecture/Sandbox.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GNN"
+              "title": "Sandbox"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -202,44 +204,46 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "efae36f03df74095",
+  "active": "89fe9ba03e021667",
   "lastOpenFiles": [
-    "DL/Backpropagation.md",
+    "fragarach architecture/Tracer.md",
+    "fragarach architecture/pipe() syscall.md",
+    "fragarach architecture/Sandbox.md",
+    "fragarach architecture/overlay filesystem.md",
+    "fragarach architecture/Other things to look up.md",
+    "fragarach architecture/fragarach GNN.md",
+    "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
+    "fragarach architecture/Interview questions.md",
+    "Ketty architecture/Interview questions.md",
+    "Ketty architecture/Authentication process.md",
+    "Behavioral questions/DOC.md",
+    "Behavioral questions",
+    "Ketty architecture/Implementation architecture.md",
+    "Ketty architecture/ER diagram.md",
+    "Ketty architecture/Entities.md",
+    "Ketty architecture/API diagram.md",
+    "ML/Bias and variance.md",
+    "ML/Confusion matrix.md",
+    "ML/DT hyperparameters.md",
+    "ML/Entropy.md",
+    "ML/Feature importance using RF.md",
+    "ML/GD.md",
+    "ML/Gradient boost.md",
+    "ML/LDA.md",
     "DL/An example.md",
-    "DL/Perceptron.md",
+    "DL/GNN.md",
+    "Pasted image 20260725125304.png",
+    "Pasted image 20260725125230.png",
+    "DL/Backpropagation.md",
     "Pasted image 20260724233533.png",
     "Pasted image 20260724232904.png",
     "Pasted image 20260724232256.png",
     "Pasted image 20260724231408.png",
     "Pasted image 20260724230936.png",
     "Pasted image 20260724230758.png",
-    "DL/How to improve performance of NN.md",
-    "DL/Dropouts.md",
-    "DL/GNN.md",
-    "DL/Weight initialisation.md",
     "Pasted image 20260724220938.png",
     "Pasted image 20260724220811.png",
-    "Pasted image 20260722223204.png",
-    "DL/Regularization in NN.md",
-    "Pasted image 20260722202814.png",
-    "DL/Normalisation.md",
-    "DL/What is it.md",
-    "DL/Vanishing gradient problem.md",
-    "CNGFG/DHCP.md",
     "DL",
-    "CNGFG/ARP.md",
-    "CNGFG/MAC address.md",
-    "CNGFG/Cookies.md",
-    "CNGFG/Firewall.md",
-    "CNGFG/Untitled.md",
-    "ML/Gradient boost.md",
-    "ML/Adaboost.md",
-    "ML/Feature importance using RF.md",
-    "Java/Springboot interview questions.md",
-    "Python/Interview questions.md",
-    "Java/Interview questions.md",
-    "Cpp/Interview questions.md",
-    "ML/DT hyperparameters.md",
     "fragarach architecture",
     "api/src/main/java/com/ketty/api/config",
     "api/src/main/java/com/ketty/api",
@@ -248,7 +252,6 @@
     "api/src/main/java",
     "api/src/main",
     "api/src",
-    "api",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas"

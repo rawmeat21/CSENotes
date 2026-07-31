@@ -1,7 +1,5 @@
 The Sandbox is responsible for launching a child process from the main process. This child is launched inside a Linux namespace. cgroups are used to control how much hardware resources this child can use. When the child process is launched, it firsts mounts an overlay file system. An overlayfs has 3 parts `lowerdir`, `upperdir` and `merged`. `merged` is a combined view of the other two. The child first pivots its new root to be the `merged` directory through the `pivot_root()` system call. After that, the child unmounts its previous `root` directory using a `umount2()` call. After this point, the child process is rooted at `merged` and is completely isolated from the main system. Also, any mounting done by the child will not be visible to other processes.
 
-
-
 `fork()` duplicates the calling process into a parent and a child, and the child shares almost everything conceptually but gets its own copy of memory, file descriptors table, etc. 
 
 `clone()` does the same fundamental thing, but it lets _you_ control exactly which resources are shared between parent and child, and which are given fresh/isolated instances. `fork()` is essentially `clone()` with a fixed set of "share everything the normal way" flags.

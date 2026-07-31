@@ -1,0 +1,10 @@
+- Tell me about yourself.
+- Why this company? Why do you want to intern with us specifically?
+- Why should we pick you over other candidates?
+- Tell me about a time you disagreed with someone (a teammate, senior, professor) — how did you handle it?
+- Tell me about a time you failed at something. What did you do next?
+- Tell me about a time you were stuck on a problem for a long time. How did you get unstuck?
+- How do you handle criticism of your work?
+- What are your strengths and weaknesses? (Have a real weakness, not a disguised strength.)
+- Where do you see yourself after this internship?
+- Do you have any questions for us? (Always have 2-3 genuine ones ready — this gets noticed.)

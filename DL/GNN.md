@@ -5,7 +5,7 @@ So, what is a GNN really?
 
 A GNN is an ANN where the dataset is a graph. The question comes how do we even pass a graph to an ANN? Or why we even need a graph? Let's answer the first part.
 
-There are 2 parts:
+There are 2 parts: Aggregation + ANN
 
 ### 1. Neighbor Aggregation (Message Passing)
 
@@ -17,7 +17,23 @@ Once each node has its aggregated feature vector, you pass that vector into a st
 
 During training, backpropagation updates the weights and biases of that ANN based on the prediction loss (e.g., whether a student gets placed).
 
-Here's an example of the flow:
+![[Pasted image 20260725125230.png]]
+
+### Focus on Node 2: Simple Aggregation
+
+Let's begin the _Message Passing_ process, which has two phases: **Aggregation** and **Update**. We start by focusing on a simple aggregation at **Node 2**.
+
+In this zoom-in, we focus on Node 2 (highlighted in blue). Following the graph structure from Image 1, Node 2 must receive data (messages) from its neighbors, N1 and N3.
+
+This diagram visualizes **Aggregation**: the vectors (data packets) of N1 and N3 flow simultaneously toward Node 2 along the edges. Inside Node 2, we sum these two incoming neighbor messages (N1 + N3) and then combine them with Node 2's own self-message. This specialized computational block shows only the gathering (or localized convolution) phase _before_ the shared weights are applied. The unrolled structure from Image 1 is visible, slightly faded, in the background.
+
+![[Pasted image 20260725125304.png]]
+
+
+
+Here's an example of the flow in neural network:
+
+
 
 ### 1. Input (Feature Vector)
 You feed the model a numeric vector $x$ representing student features:

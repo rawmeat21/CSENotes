@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "fragarach architecture/Sandbox.md",
+                "file": "Cpp/Multithreading.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sandbox"
+              "title": "Multithreading"
             }
           }
         ]
@@ -206,9 +206,12 @@
   },
   "active": "89fe9ba03e021667",
   "lastOpenFiles": [
+    "Cpp/Memory management.md",
+    "Cpp/Multithreading.md",
+    "Cpp/Fundamentals.md",
+    "fragarach architecture/Sandbox.md",
     "fragarach architecture/Tracer.md",
     "fragarach architecture/pipe() syscall.md",
-    "fragarach architecture/Sandbox.md",
     "fragarach architecture/overlay filesystem.md",
     "fragarach architecture/Other things to look up.md",
     "fragarach architecture/fragarach GNN.md",
@@ -230,11 +233,8 @@
     "ML/GD.md",
     "ML/Gradient boost.md",
     "ML/LDA.md",
-    "DL/An example.md",
-    "DL/GNN.md",
     "Pasted image 20260725125304.png",
     "Pasted image 20260725125230.png",
-    "DL/Backpropagation.md",
     "Pasted image 20260724233533.png",
     "Pasted image 20260724232904.png",
     "Pasted image 20260724232256.png",

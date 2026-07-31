@@ -1,0 +1,1 @@
+https://leetcode.com/discuss/post/5850114/memory-management-in-c-by-adityakrverma-ym1f/

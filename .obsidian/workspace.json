@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Are commands always executables.md",
+                "file": "Cpp/DSA reference.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Are commands always executables"
+              "title": "DSA reference"
             }
           }
         ]
@@ -206,17 +206,25 @@
   },
   "active": "89fe9ba03e021667",
   "lastOpenFiles": [
-    "Linux/file.md",
-    "Linux/Expansion and Quoting.md",
-    "Linux/Articles.md",
-    "Linux/Are commands always executables.md",
+    "Ketty architecture/Interview questions.md",
+    "Cpp/DSA reference.md",
+    "Ketty architecture/ketty architecture.md",
+    "Ketty architecture/Ketty Notes.md",
+    "Ketty architecture/UML complete - Gemini.md",
+    "Ketty architecture/UML diagram.md",
+    "Ketty architecture/What ketty is.md",
+    "Ketty architecture/Implementation architecture.md",
     "Linux/Linux directories.md",
-    "Linux/File stuff.md",
     "Linux/ls.md",
     "Linux/Misacellaneous.md",
     "Linux/Permissions.md",
     "Linux/Shell and Terminal emulator.md",
     "Linux/Simple commands.md",
+    "Linux/Are commands always executables.md",
+    "Linux/file.md",
+    "Linux/Expansion and Quoting.md",
+    "Linux/Articles.md",
+    "Linux/File stuff.md",
     "Linux/Standard IOE and Redirection.md",
     "Linux/Symbolic links and Hard links.md",
     "Linux/The GUI.md",
@@ -224,14 +232,6 @@
     "Linux/Wildcards.md",
     "Cpp/Multithreading.md",
     "Cpp/Memory management.md",
-    "Cpp/Fundamentals.md",
-    "fragarach architecture/Sandbox.md",
-    "fragarach architecture/Tracer.md",
-    "fragarach architecture/pipe() syscall.md",
-    "fragarach architecture/overlay filesystem.md",
-    "fragarach architecture/Other things to look up.md",
-    "fragarach architecture/fragarach GNN.md",
-    "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
     "Behavioral questions",
     "Pasted image 20260725125304.png",
     "Pasted image 20260725125230.png",

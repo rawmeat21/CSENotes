@@ -13,12 +13,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cpp/DSA reference.md",
+                "file": "Shell Scripting/IMP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DSA reference"
+              "title": "IMP"
+            }
+          },
+          {
+            "id": "065f15d426fc5a01",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Pasted image 20260807120245.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20260807120245"
             }
           }
         ]
@@ -206,8 +218,32 @@
   },
   "active": "89fe9ba03e021667",
   "lastOpenFiles": [
-    "Ketty architecture/Interview questions.md",
+    "Shell Scripting/Tutorial.md",
+    "Shell Scripting/IMP.md",
+    "Linux/bash_full_tutorial.md",
+    "Linux/Ricing.md",
+    "fragarach architecture/Sandbox.md",
+    "fragarach architecture/pipe() syscall.md",
+    "fragarach architecture/overlay filesystem.md",
+    "fragarach architecture/Other things to look up.md",
+    "fragarach architecture/Interview questions.md",
+    "fragarach architecture/fragarach GNN.md",
+    "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
+    "Linux/bash_tutorial_part3_systems.md",
+    "Linux/bash_tutorial_part2_advanced.md",
+    "Pasted image 20260807142743.png",
+    "Pasted image 20260807142332.png",
+    "Pasted image 20260807141434.png",
+    "Pasted image 20260807141351.png",
+    "Pasted image 20260807141125.png",
+    "Pasted image 20260807141103.png",
+    "Pasted image 20260807141026.png",
+    "Pasted image 20260807140929.png",
+    "Pasted image 20260807135748.png",
+    "Pasted image 20260807135731.png",
     "Cpp/DSA reference.md",
+    "Shell Scripting",
+    "Ketty architecture/Interview questions.md",
     "Ketty architecture/ketty architecture.md",
     "Ketty architecture/Ketty Notes.md",
     "Ketty architecture/UML complete - Gemini.md",
@@ -219,30 +255,7 @@
     "Linux/Misacellaneous.md",
     "Linux/Permissions.md",
     "Linux/Shell and Terminal emulator.md",
-    "Linux/Simple commands.md",
-    "Linux/Are commands always executables.md",
-    "Linux/file.md",
-    "Linux/Expansion and Quoting.md",
-    "Linux/Articles.md",
-    "Linux/File stuff.md",
-    "Linux/Standard IOE and Redirection.md",
-    "Linux/Symbolic links and Hard links.md",
-    "Linux/The GUI.md",
-    "Linux/What are virtual terminals.md",
-    "Linux/Wildcards.md",
-    "Cpp/Multithreading.md",
-    "Cpp/Memory management.md",
     "Behavioral questions",
-    "Pasted image 20260725125304.png",
-    "Pasted image 20260725125230.png",
-    "Pasted image 20260724233533.png",
-    "Pasted image 20260724232904.png",
-    "Pasted image 20260724232256.png",
-    "Pasted image 20260724231408.png",
-    "Pasted image 20260724230936.png",
-    "Pasted image 20260724230758.png",
-    "Pasted image 20260724220938.png",
-    "Pasted image 20260724220811.png",
     "DL",
     "fragarach architecture",
     "api/src/main/java/com/ketty/api/config",
@@ -251,7 +264,6 @@
     "api/src/main/java/com",
     "api/src/main/java",
     "api/src/main",
-    "api/src",
     "Untitled 2.canvas",
     "Untitled 1.canvas",
     "Untitled.canvas"

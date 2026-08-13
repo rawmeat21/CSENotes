@@ -11,12 +11,14 @@
             "id": "065f15d426fc5a01",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Pasted image 20260807120245.png"
+                "file": "Git/Branches in Git.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260807120245"
+              "icon": "lucide-file",
+              "title": "Branches in Git"
             }
           }
         ]
@@ -202,22 +204,30 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "04c09b981dedc9df",
+  "active": "065f15d426fc5a01",
   "lastOpenFiles": [
+    "Pasted image 20260813123954.png",
+    "Pasted image 20260813123924.png",
+    "Pasted image 20260813123752.png",
+    "Pasted image 20260813123728.png",
+    "Pasted image 20260813123520.png",
+    "Pasted image 20260813123502.png",
+    "Pasted image 20260813123222.png",
+    "Pasted image 20260813123200.png",
+    "Pasted image 20260813122842.png",
+    "Pasted image 20260813122819.png",
+    "Pasted image 20260813122739.png",
+    "Git/Some tips.md",
+    "Git/Branches in Git.md",
     "Linux/How to read command synopsis part 2.md",
     "Linux/How to read command synopsis.md",
     "Git/Undo things.md",
     "Git/Git commands.md",
     "Git/Workflow of git.md",
-    "Pasted image 20260812105809.png",
     "Git/Understand git config.md",
     "Git/3 states.md",
-    "Pasted image 20260812102434.png",
     "Git/How Git works.md",
-    "Pasted image 20260812101157.png",
-    "Pasted image 20260812100642.png",
     "Git/Distributed VCS.md",
-    "Pasted image 20260812100117.png",
     "Git/Why not use Centralised VCS.md",
     "CNGFG/Sockets.md",
     "Git",
@@ -233,15 +243,7 @@
     "fragarach architecture/fragarach GNN.md",
     "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
     "Linux/bash_tutorial_part3_systems.md",
-    "Linux/bash_tutorial_part2_advanced.md",
-    "Pasted image 20260807142743.png",
-    "Pasted image 20260807142332.png",
-    "Pasted image 20260807141434.png",
-    "Pasted image 20260807141351.png",
-    "Pasted image 20260807141125.png",
-    "Cpp/DSA reference.md",
     "Shell Scripting",
-    "Ketty architecture/Interview questions.md",
     "Behavioral questions",
     "DL",
     "fragarach architecture",

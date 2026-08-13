@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Branches in Git"
             }
+          },
+          {
+            "id": "ea69e1621b559724",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Git/Branches in Git Part 2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Branches in Git Part 2"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -204,24 +219,27 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "065f15d426fc5a01",
+  "active": "ea69e1621b559724",
   "lastOpenFiles": [
+    "Pasted image 20260813205836.png",
+    "Pasted image 20260813205521.png",
+    "Git/Branches in Git.md",
+    "Git/Visualise the basics.md",
+    "Pasted image 20260813204630.png",
+    "Pasted image 20260813204537.png",
+    "Pasted image 20260813204417.png",
+    "Pasted image 20260813204343.png",
+    "Git/Git commands.md",
     "Git/Some tips.md",
     "Git/How Git works.md",
-    "Git/Git commands.md",
-    "Git/Distributed VCS.md",
-    "Git/Branches in Git.md",
     "Git/3 states.md",
-    "Pasted image 20260813123954.png",
-    "Pasted image 20260813123924.png",
-    "Pasted image 20260813123752.png",
-    "Pasted image 20260813123728.png",
-    "Pasted image 20260813123520.png",
-    "Pasted image 20260813123502.png",
-    "Pasted image 20260813123222.png",
-    "Pasted image 20260813123200.png",
-    "Pasted image 20260813122842.png",
-    "Pasted image 20260813122819.png",
+    "Git/Branches in Git Part 2.md",
+    "Pasted image 20260813203844.png",
+    "Pasted image 20260813203831.png",
+    "Pasted image 20260813203814.png",
+    "Pasted image 20260813203757.png",
+    "Pasted image 20260813203056.png",
+    "Git/Distributed VCS.md",
     "Linux/How to read command synopsis part 2.md",
     "Linux/How to read command synopsis.md",
     "Git/Undo things.md",
@@ -240,8 +258,6 @@
     "fragarach architecture/Other things to look up.md",
     "fragarach architecture/Interview questions.md",
     "fragarach architecture/fragarach GNN.md",
-    "fragarach architecture/eBPF (extended Berkeley Packet Filter).md",
-    "Linux/bash_tutorial_part3_systems.md",
     "Shell Scripting",
     "Behavioral questions",
     "DL",

@@ -29,3 +29,4 @@ The basic Git workflow goes something like this:
     
 
 If a particular version of a file is in the Git directory, it’s considered _committed_. If it has been modified and was added to the staging area, it is _staged_. And if it was changed since it was checked out but has not been staged, it is _modified_.
+

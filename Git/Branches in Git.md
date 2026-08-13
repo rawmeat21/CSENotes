@@ -213,7 +213,7 @@ git checkout HEAD~4
 ![[Pasted image 20260813123752.png]]
 
 
-### Branch forcing
+### Branch forcing (reassign a branch)
 
 Relative refs can be used to move branches around. You can directly reassign a branch to a commit with the `-f` option. So something like:
 
@@ -230,5 +230,7 @@ git branch -f main HEAD~3
 ```
 
 ![[Pasted image 20260813123954.png]]
+
+
 
 

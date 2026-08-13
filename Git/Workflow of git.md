@@ -7,4 +7,5 @@ Untracked - when you first create a file, its untracked. Any files in your worki
 
 Unmodified - The file is being tracked by git, but its not changed from its previous version.
 
+Tracked files are files that were in the last snapshot, as well as any newly staged files; they can be unmodified, modified, or staged. In short, tracked files are files that Git knows about.
 

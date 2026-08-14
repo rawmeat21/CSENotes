@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shell Scripting/How to work with strings.md",
+                "file": "Shell Scripting/Array.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "How to work with strings"
+              "title": "Array"
             }
           }
         ],
@@ -221,16 +221,20 @@
   },
   "active": "ea69e1621b559724",
   "lastOpenFiles": [
-    "Shell Scripting/Script args and function args.md",
-    "Shell Scripting/How to work with strings.md",
-    "Shell Scripting/When can I not use the dollar sign.md",
     "Shell Scripting/Brackets in bash.md",
-    "Shell Scripting/Tutorial.md",
+    "Shell Scripting/awk.md",
     "Shell Scripting/Array.md",
+    "Shell Scripting/find and stat.md",
+    "Shell Scripting/How to cut.md",
+    "Shell Scripting/How to use sed.md",
     "Shell Scripting/Functions.md",
+    "Shell Scripting/tips and tricks.md",
+    "Shell Scripting/When can I not use the dollar sign.md",
+    "Shell Scripting/Tutorial.md",
+    "Shell Scripting/How to work with strings.md",
+    "Shell Scripting/Script args and function args.md",
     "Shell Scripting/IMP.md",
     "Shell Scripting/IMP 2.md",
-    "Shell Scripting/tips and tricks.md",
     "Shell Scripting/shebang.md",
     "Shell Scripting/Process substitution.md",
     "Shell Scripting/When to not use shellscript.md",
@@ -253,10 +257,6 @@
     "Pasted image 20260813203757.png",
     "Git/Distributed VCS.md",
     "Linux/How to read command synopsis part 2.md",
-    "Linux/How to read command synopsis.md",
-    "Git/Undo things.md",
-    "Git/Workflow of git.md",
-    "Git/Understand git config.md",
     "Git",
     "Shell Scripting",
     "Behavioral questions",

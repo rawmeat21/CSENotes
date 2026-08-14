@@ -92,6 +92,14 @@ Bash
 arr=( "${arr[@]%/}" )
 ```
 
+### Evaluate expressions
+
+```
+read expr
+printf "%.3f" $(echo $expr | bc -l)
+```
+
+
 
 
 

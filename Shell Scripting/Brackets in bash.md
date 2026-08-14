@@ -59,10 +59,12 @@ This is an extended Bash/Zsh keyword that completely upgrades `[ ... ]`.
     - **Not portable:** Will cause a syntax error in standard `/bin/sh`.
         
     - **Not for C-style math:** Don't do addition inside it (`[[ $x + 1 -eq 5 ]]` won't work automatically; use `$((x + 1))` or `(( ... ))`).
+    
     - **Cannot run commands inside it
         
 - **When to Use:** Always use `[[ ... ]]` over `[ ... ]` for conditional tests in Bash scripts.
     
+In general, use this to check conditions. For complex math conditions, prefer `(())`
 
 ## 2. Arithmetic Brackets
 
@@ -88,7 +90,7 @@ Evaluates C-style mathematical expressions and sets an exit status.
         
 - **When to Use:** Performing math side-effects (`(( count++ ))`) or numerical conditions inside `if` statements (`if (( x > 10 )); then`).
     
-
+Use only for math expressions and checking conditions.
 ### `$(( ... ))` (Double Parentheses with `$` — Expansion)
 
 Same math rules as `(( ... ))`, but it **returns the numerical result** as a string so you can print or assign it.

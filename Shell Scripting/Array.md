@@ -135,7 +135,6 @@ done
 
 ### Part C: Slicing & Manipulating Arrays
 
-Bash
 
 ```bash
 numbers=(0 10 20 30 40 50 60)

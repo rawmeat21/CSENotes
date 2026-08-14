@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shell Scripting/IMP 2.md",
+                "file": "Shell Scripting/Script args and function args.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "IMP 2"
+              "title": "Script args and function args"
             }
           }
         ],
@@ -221,12 +221,17 @@
   },
   "active": "ea69e1621b559724",
   "lastOpenFiles": [
+    "Shell Scripting/When can I not use the dollar sign.md",
+    "Shell Scripting/Script args and function args.md",
+    "Shell Scripting/Brackets in bash.md",
+    "Shell Scripting/Tutorial.md",
+    "Shell Scripting/Array.md",
+    "Shell Scripting/Functions.md",
     "Shell Scripting/IMP.md",
     "Shell Scripting/IMP 2.md",
-    "Shell Scripting/shebang!.md",
-    "Shell Scripting/Functions.md",
-    "Shell Scripting/Tutorial.md",
     "Shell Scripting/tips and tricks.md",
+    "Shell Scripting/shebang.md",
+    "Shell Scripting/Process substitution.md",
     "Shell Scripting/When to not use shellscript.md",
     "Git/Branches in Git Part 2.md",
     "Pasted image 20260813205836.png",
@@ -252,12 +257,7 @@
     "Git/Workflow of git.md",
     "Git/Understand git config.md",
     "Git/Why not use Centralised VCS.md",
-    "CNGFG/Sockets.md",
     "Git",
-    "Linux/bash_full_tutorial.md",
-    "Linux/Ricing.md",
-    "fragarach architecture/Sandbox.md",
-    "fragarach architecture/pipe() syscall.md",
     "Shell Scripting",
     "Behavioral questions",
     "DL",

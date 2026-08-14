@@ -74,6 +74,25 @@ Nothing in `here` will be $changed
 fnord
 ```
 
+### Store all directories in an array:
+
+Say you want to store all directories in HOME folder in an array:
+
+```
+arr=( ~/*/ )
+```
+
+#### Need to strip the trailing slashes?
+
+By default, `~/*/` leaves a trailing slash at the end of each path (e.g., `/home/user/Documents/`). You can strip those slashes cleanly in one line using parameter expansion:
+
+Bash
+
+```
+arr=( "${arr[@]%/}" )
+```
+
+
 
 
 

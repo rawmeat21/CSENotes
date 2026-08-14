@@ -26,7 +26,7 @@
 |`"$str" = "$str2"`|True if string `$str` is equal to `$str2` _(Note: in `[[ ]]`, `==` is preferred)_.|
 |`"$str" != "$str2"`|True if the strings are **not equal**.|
 
-### 💡 Bonus String Operators (Inside `[[ ]]`)
+### Bonus String Operators (Inside `[[ ]]`)
 
 |Operator|Details|
 |---|---|
@@ -104,3 +104,46 @@ if [[ "$age" -ge 18 && "$age" -le 65 ]]; then
   echo "Eligible for working age bracket."
 fi
 ```
+
+
+### Problem
+
+If you write `if [[ $1 + 5 > 91 ]]`, Bash will not throw a syntax error, but **it will give wrong and buggy results**.
+
+### Why `[[ $1 + 5 > 91 ]]` Fails
+
+1. **`>` means String Comparison in `[[ ]]`**
+    
+    - Inside `(( ... ))`, `>` compares **numbers** (15>10).
+        
+    - Inside `[[ ... ]]`, `>` compares **strings alphabetically** ("9">"10" is `true` because '9' comes after '1' in ASCII).
+        
+2. **No Automatic Math in `[[ ]]`**
+    
+    - Inside `(( ... ))`, arithmetic expressions are automatically calculated.
+        
+    - Inside `[[ ... ]]`, `$1 + 5` is not evaluated as addition; Bash treats it as a literal string containing a plus sign (e.g., `"10 + 5"`).
+        
+3. **Different Operators for Numbers**
+    
+    - To compare numbers in `[[ ]]`, you must use integer operators like `-gt`, `-lt`, `-eq`.
+        
+
+### How to rewrite it using `[[ ]]` (If you really had to)
+
+To make it work inside `[[ ... ]]`, you would need to use **arithmetic expansion** `$(( ... ))` for the addition and `-gt` for the comparison:
+
+Bash
+
+```
+if [[ $(( $1 + 5 )) -gt 91 ]]; then
+  echo "$1 is greater than 86"
+fi
+```
+
+### Summary: Use the Right Tool for the Job
+
+- **Use `(( ... ))` for Math:** It natively supports C-style arithmetic (`+`, `-`, `*`, `/`), variables without `$`, and standard math operators (`>`, `<`, `>=`, `==`).
+    
+- **Use `[[ ... ]]` for Conditions:** Best for string matching, file checks, regex, and standard logical tests.
+

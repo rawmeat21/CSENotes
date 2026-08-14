@@ -66,28 +66,59 @@ The difference comes down to **Command Substitution** vs. **Arithmetic Expansion
 
 ## 1. Quotes: Handling Expansion & Literals
 
-|Syntax|Name|Behavior|Example|Output|
-|---|---|---|---|---|
-|**`"..."`**|**Double Quotes**|**Soft quoting.** Expands variables (`$var`), command substitutions (`$(...)`), and arithmetic (`$((...))`), but preserves spaces and prevents globbing (`*`).|`x=5; echo "Value: $x"`|`Value: 5`|
-|**`'...'`**|**Single Quotes**|**Hard quoting.** Treats **everything** literally. No variables, commands, or escape characters are expanded.|`x=5; echo 'Value: $x'`|`Value: $x`|
+| Syntax      | Name              | Behavior                                                                                                                                                       | Example                 | Output      |
+| ----------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------- |
+| **`"..."`** | **Double Quotes** | **Soft quoting.** Expands variables (`$var`), command substitutions (`$(...)`), and arithmetic (`$((...))`), but preserves spaces and prevents globbing (`*`). | `x=5; echo "Value: $x"` | `Value: 5`  |
+| **`'...'`** | **Single Quotes** | **Hard quoting.** Treats **everything** literally. No variables, commands, or escape characters are expanded.                                                  | `x=5; echo 'Value: $x'` | `Value: $x` |
 
 > **Rule of Thumb:** Always double-quote variable expansions (e.g., `"$var"`) to prevent word splitting and file globbing bugs.
 
 ## 2. Parentheses & Braces: Grouping & Scope
 
-|Syntax|Name|Behavior|Common Use Cases|
-|---|---|---|---|
-|**`{ ... }`**|**Braces**|**1. Parameter Expansion:** Isolates variable names (`${var}_1`).<br><br>  <br><br>**2. Group Commands:** Runs commands in the **current shell context** (modifies current environment).|`${name:-Guest}`<br><br>  <br><br>`{ list; commands; }`|
-|**`( ... )`**|**Parentheses**|**1. Subshell:** Runs enclosed commands in a **child shell process** (variable changes inside are lost outside).<br><br>  <br><br>**2. Array Definition:** Instantiates arrays.|`( cd /tmp && ls )`<br><br>  <br><br>`arr=(one two three)`|
+| Syntax        | Name            | Behavior                                                                                                                                                                                                                                                                     | Common Use Cases                                           |
+| ------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **`{ ... }`** | **Braces**      | **1. Parameter Expansion:** Isolates variable names (`${var}_1`). Use this when you want to append something to the variable value while printing it.<br><br>  <br><br>**2. Group Commands:** Runs commands in the **current shell context** (modifies current environment). | `${name:-Guest}`<br><br>  <br><br>`{ list; commands; }`    |
+| **`( ... )`** | **Parentheses** | **1. Subshell:** Runs enclosed commands in a **child shell process** (variable changes inside are lost outside).<br><br>  <br><br>**2. Array Definition:** Instantiates arrays.                                                                                              | `( cd /tmp && ls )`<br><br>  <br><br>`arr=(one two three)` |
 
 ## 3. Brackets: Conditional Testing
 
-|Syntax|Name|Portable?|Key Features & Behavior|
-|---|---|---|---|
-|**`[ ... ]`**|**Single Brackets**|**POSIX standard** (Works everywhere)|Alias for the traditional `test` command. Requires explicit double-quoting of variables (e.g., `[ "$x" = "y" ]`) to avoid syntax errors if a variable is empty or contains spaces.|
-|**`[[ ... ]]`**|**Double Brackets**|**Shell Builtin** (Bash/Zsh only)|Modern, safer test construct. Does **not** require quoting variables, supports regex matching (`=~`), and supports native logic ope|
+| Syntax          | Name                | Portable?                             | Key Features & Behavior                                                                                                                                                            |
+| --------------- | ------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`[ ... ]`**   | **Single Brackets** | **POSIX standard** (Works everywhere) | Alias for the traditional `test` command. Requires explicit double-quoting of variables (e.g., `[ "$x" = "y" ]`) to avoid syntax errors if a variable is empty or contains spaces. |
+| **`[[ ... ]]`** | **Double Brackets** | **Shell Builtin** (Bash/Zsh only)     | Modern, safer test construct. Does **not** require quoting variables, supports regex matching (`=~`), and supports native logic ope                                                |
+|                 |                     |                                       |                                                                                                                                                                                    |
 
-Wait a fucking minute,
+when to use `[[]]` in bash?
+
+**`[[`**: An extended test keyword added by Bash, Zsh, and KornShell that improves upon `[` with regex matching (`=~`), pattern matching (`==`), and better variable handling without quote issues. Basically, improved version of `[`.
+
+`if` checks status code. `[[]]` is a command
+
+| Scenario               | Use `[[ ... ]]`? | Example                       | Why?                                                               |
+| ---------------------- | ---------------- | ----------------------------- | ------------------------------------------------------------------ |
+| **Command / Function** | **NO**           | `if grep -q "text" file.txt`  | You are testing if the command succeeds (exit status `0`).         |
+| **String Comparison**  | **YES**          | `if [[ "$t1" == "char" ]]`    | `==` is an operator, not a command. `[[` is needed to evaluate it. |
+| **File Checks**        | **YES**          | `if [[ -f "/path/to/file" ]]` | `-f` is an operator provided by the test construct.                |
+| **Regex Matching**     | **YES**          | `if [[ "$var" =~ ^[0-9]+$ ]]` | `=~` is a Bash operator evaluated inside `[[`.                     |
+| **Numeric Comparison** | **YES**          | `if [[ "$num" -gt 10 ]]`      | `-gt` is a comparison operator.                                    |
+
+
+### Common Pitfall to Avoid
+
+Do **not** wrap your function calls in `[[ ... ]]` or `[ ... ]` like this:
+
+Bash
+
+```
+# ❌ INCORRECT / WRONG
+if [[ is_num "$t1" ]]; then ... fi
+```
+
+Inside `[[ ... ]]`, Bash treats `is_num` as a literal string rather than executing it as a command, which will cause a syntax error or give unexpected results!
+
+
+
+### Wait a fucking minute,
 
 ```bash
 echo "the sum of '$userv1' and '$userv2' is $result"
@@ -131,3 +162,4 @@ In shell scripts, **outer quotes always win**. Because the whole string is wrapp
 | **Capture output of a command**             | Command Substitution `$( )` | `today=$(date +%Y-%m-%d)`              | Executes the command and substitutes the printed text right into your script.                                                             |
 | **Run commands in an isolated environment** | Subshell Parentheses `( )`  | `(cd /tmp && rm -rf *)`                | Runs in a separate child shell. Changes to working directories (`cd`) or variables inside **do not affect** the rest of your main script. |
 | **Group commands to share an output/pipe**  | Braces `{ ...; }`           | `{ echo "Start"; run_job; } > log.txt` | Groups multiple commands together in the **current shell context** so you can redirect or pipe all their out                              |
+

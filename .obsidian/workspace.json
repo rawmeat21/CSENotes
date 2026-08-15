@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shell Scripting/How to work with strings.md",
+                "file": "Shell Scripting/A smol guide on regex.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "How to work with strings"
+              "title": "A smol guide on regex"
             }
           }
         ],
@@ -233,12 +233,15 @@
   },
   "active": "aac3add14b88c0d9",
   "lastOpenFiles": [
+    "assets/Pasted image 20260815205007.png",
+    "assets/Pasted image 20260815200446.png",
+    "Shell Scripting/How to work with strings.md",
+    "Shell Scripting/A smol guide on regex.md",
     "Shell Scripting/Functions.md",
     "Shell Scripting/find and stat.md",
     "Shell Scripting/IMP 2.md",
     "Shell Scripting/IMP.md",
     "Shell Scripting/IFS.md",
-    "Shell Scripting/How to work with strings.md",
     "Shell Scripting/File descriptors.md",
     "Shell Scripting/cut.md",
     "Shell Scripting/Brackets in bash.md",
@@ -257,8 +260,6 @@
     "Weird fucking interview questions/wdym I need to code my own malloc.md",
     "api/src/main/java/com/ketty/api/config/JwtAuthenticationFilter.java.md",
     "Shell Scripting/piping.md",
-    "Linux/inodes.md",
-    "Linux/Useful reads.md",
     "assets/Pasted image 20260815093046.png",
     "assets/Pasted image 20260813205836.png",
     "Untitled 2.canvas",
@@ -275,7 +276,6 @@
     "assets/Pasted image 20260813204537.png",
     "assets/Pasted image 20260813204417.png",
     "assets/Pasted image 20260813204343.png",
-    "assets/Pasted image 20260813203844.png",
     "Git",
     "Shell Scripting",
     "Behavioral questions",

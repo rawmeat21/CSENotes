@@ -6,7 +6,7 @@ While `ls` lists what’s inside a directory, `find` recursively searches throug
 
 Bash
 
-```
+```bash
 find [path] [filters/conditions] [actions]
 ```
 
@@ -16,7 +16,7 @@ find [path] [filters/conditions] [actions]
 
 Bash
 
-```
+```bash
 # Exact match
 find /path/to/dir -name "file.txt"
 
@@ -31,7 +31,7 @@ find . ! -name "config.json"
 
 Bash
 
-```
+```bash
 find . -type f   # Regular files
 find . -type d   # Directories
 find . -type l   # Symbolic links
@@ -44,7 +44,7 @@ find . -type l   # Symbolic links
 
 Bash
 
-```
+```bash
 find . -size +100M   # Files LARGER than 100 Megabytes
 find . -size -10k    # Files SMALLER than 10 Kilobytes
 find . -size 0b      # Completely empty files
@@ -61,7 +61,7 @@ find . -size 0b      # Completely empty files
 
 Bash
 
-```
+```bash
 find . -mtime -7    # Modified within the LAST 7 days
 find . -mtime +30   # Modified MORE than 30 days ago
 find . -mtime 0     # Modified in the last 24 hours
@@ -73,7 +73,7 @@ By default, `find` searches all subdirectories recursively. Use depth limits to 
 
 Bash
 
-```
+```bash
 # Search ONLY the current directory (do not enter subfolders)
 find . -maxdepth 1 -type f
 
@@ -96,7 +96,7 @@ Instead of piping output, `-exec` runs a command directly on every matched file.
 
 Bash
 
-```
+```bash
 # Change permissions on all directories found
 find /var/www -type d -exec chmod 755 {} +
 
@@ -108,7 +108,7 @@ find . -name "*.sh" -exec grep -H "TODO" {} \;
 
 Bash
 
-```
+```bash
 # Safely test first!
 find . -name "*.tmp" -type f
 
@@ -122,7 +122,7 @@ Filenames with spaces or newlines can break standard loops. `-print0` separates 
 
 Bash
 
-```
+```bash
 find . -type f -print0 | xargs -0 rm -f
 ```
 

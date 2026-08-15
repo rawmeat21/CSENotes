@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/The GUI.md",
+                "file": "Shell Scripting/How to work with strings.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The GUI"
+              "title": "How to work with strings"
             }
           }
         ],
@@ -233,6 +233,18 @@
   },
   "active": "aac3add14b88c0d9",
   "lastOpenFiles": [
+    "Shell Scripting/Functions.md",
+    "Shell Scripting/find and stat.md",
+    "Shell Scripting/IMP 2.md",
+    "Shell Scripting/IMP.md",
+    "Shell Scripting/IFS.md",
+    "Shell Scripting/How to work with strings.md",
+    "Shell Scripting/File descriptors.md",
+    "Shell Scripting/cut.md",
+    "Shell Scripting/Brackets in bash.md",
+    "Shell Scripting/awk.md",
+    "Shell Scripting/Array.md",
+    "Linux/The GUI.md",
     "Linux/Symbolic links and Hard links.md",
     "Behavioral questions/DOC.md",
     "CN/CN7.md",
@@ -244,21 +256,9 @@
     "CN/CN1.md",
     "Weird fucking interview questions/wdym I need to code my own malloc.md",
     "api/src/main/java/com/ketty/api/config/JwtAuthenticationFilter.java.md",
-    "Shell Scripting/File descriptors.md",
     "Shell Scripting/piping.md",
     "Linux/inodes.md",
     "Linux/Useful reads.md",
-    "Shell Scripting/Process substitution.md",
-    "Shell Scripting/Word splitting.md",
-    "Shell Scripting/IFS.md",
-    "Shell Scripting/Little about how CS works.md",
-    "Shell Scripting/IMP 2.md",
-    "Shell Scripting/IMP.md",
-    "Shell Scripting/How to work with strings.md",
-    "Shell Scripting/Functions.md",
-    "Shell Scripting/sed.md",
-    "Shell Scripting/cut.md",
-    "Shell Scripting/find and stat.md",
     "assets/Pasted image 20260815093046.png",
     "assets/Pasted image 20260813205836.png",
     "Untitled 2.canvas",

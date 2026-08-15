@@ -97,7 +97,7 @@ echo "${filepath%%.*}"   # "/var/log/app/data"
 
 Bash
 
-```
+```bash
 text="hello WORLD"
 
 # Upper all
@@ -116,8 +116,9 @@ In C++, you use `getline(cin, str)` to avoid breaking on spaces. In Bash, use `I
 
 Bash
 
-```
+```bash
 # -r disables backslash escaping
 # IFS= prevents leading/trailing whitespace trimming
 IFS= read -r user_input
 ```
+d

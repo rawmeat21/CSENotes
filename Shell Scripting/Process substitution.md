@@ -1,84 +1,83 @@
-Process substitution comes in two flavors: **Input `<(...)`** and **Output `>(...)`**.
+Process substitution (`<(cmd)` and `>(cmd)`) allows the standard input or output of a process to be exposed as a virtual file path (typically `/dev/fd/N`), enabling commands that expect file paths to read from or write to asynchronous command pipelines.
 
-### 1. Input Process Substitution: `<(command)`
+## Internal Mechanism
 
-_Treats the stdout of `command` as if it were a file on disk._
+When Bash parses a process substitution construct:
 
-#### Basic: Comparing Command Outputs
+1. **Pipe Creation & Subshell Fork:** Bash invokes the `pipe()` system call to create an anonymous pipe, then executes `fork()` to run the inner command in a child subshell.
+    
+2. **File Descriptor Binding:**
+    
+    - For **Input substitution** `<(cmd)`: The child subshell's `stdout` (FD 1) is bound to the write end of the pipe.
+        
+    - For **Output substitution** `>(cmd)`: The child subshell's `stdin` (FD 0) is bound to the read end of the pipe.
+        
+3. **Argument Substitution:** Bash replaces the `<(cmd)` syntax on the command line with a path string pointing to the corresponding open file descriptor—typically `/dev/fd/<N>` on Linux (resolved via `/proc/self/fd/<N>`).
+    
+4. **FIFO Fallback:** On systems lacking dynamic `/dev/fd/` entries, Bash creates a named pipe in `/tmp` via `mkfifo()`, passes the FIFO path as the argument, and unlinks the file entry after opening.
+    
+5. **Execution & Cleanup:** The main process opens and processes `/dev/fd/<N>` using standard file I/O operations (`open()`, `read()`, `write()`, `close()`).
+    
 
-Tools like `diff` require **file paths** as arguments. Without process substitution, you'd have to create temporary files on disk:
+## Key Usage Patterns
 
-Bash
+### 1. Commands Expecting Multiple File Arguments
 
-```
-# Compare the contents of two directories directly without saving to disk
-diff -u <(ls /usr/bin) <(ls /usr/local/bin)
-
-# Compare a local file with a remote file over SSH
-diff config.txt <(ssh server "cat /etc/config.txt")
-```
-
-#### Intermediate: Side-by-Side File Processing
-
-Merge two live command streams side-by-side using `paste` or `comm`:
-
-Bash
-
-```
-# Monitor two log streams side by side
-paste <(tail -f /var/log/nginx/access.log) <(tail -f /var/log/nginx/error.log)
-```
-
-#### Advanced: Multi-Stream Data Pipeline
-
-Pass multiple dynamic streams into a command like `ffmpeg` or `tar`:
+Commands such as `diff`, `comm`, or `paste` accept file path arguments rather than multiple standard input streams.
 
 Bash
 
-```
-# Create a tarball containing live system metrics without generating intermediate log files
-tar -czf system_snapshot.tar.gz \
-  <(hostname) \
-  <(uptime) \
-  <(df -h)
+```bash
+# Compare the sorted outputs of two commands without writing to disk
+diff -u <(sort serverA.log) <(sort serverB.log)
 ```
 
-### 2. Output Process Substitution: `>(command)`
+Think that `<(sort serverB.log)` and `<(sort serverA.log)` output **2 files**, which are passed as input to `diff`.
 
-_Sends data written to a "file" into the stdin of `command`._
+### 2. Preserving Variable Scope in Loops
 
-#### Basic: Global Script Logging
-
-Redirect all stdout and stderr from your entire script through a logging utility:
+Piping data to a loop (`cmd | while ...`) executes the loop inside a subshell, causing any state changes to variables inside the loop to be lost upon exit. Feeding the loop via process substitution executes the loop in the current shell environment.
 
 Bash
 
+```bash
+count=0
+
+# Loop runs in the current shell context
+while read -r line; do
+    ((count++))
+done < <(grep "ERROR" system.log) <--- Think that <(grep "ERROR" system.log) produces a file which is passed to the while loop using < (redirection)
+
+echo "Total errors: $count" # Variable value is preserved
 ```
-#!/bin/bash
-# Send all script output both to terminal AND syslog
-exec > >(logger -t "my_script_tag") 2>&1
 
-echo "This automatically goes to syslog!"
-```
+### 3. Multiplexing Output Streams
 
-#### Intermediate: Splitting a Data Stream
-
-Send a massive output stream to multiple background tasks simultaneously using `tee` **without saving intermediate files to disk**:
+Process substitution can be combined with `tee` to redirect a single stream into multiple child processes concurrently.
 
 Bash
 
-```
-# Download a file once, but simultaneously compress it AND compute its SHA-256 hash
-curl -s "https://example.com/large_file.iso" | tee >(sha256sum > iso.sha256) | gzip > large_file.iso.gz
+```bash
+# Process a single log stream into multiple filtered output targets
+cat app.log | tee >(grep "ERROR" > errors.log) >(grep "WARN" > warnings.log) > /dev/null
 ```
 
-#### Advanced: Multi-Branch Log Filtering
+`tee` is designed to take file paths directly as CLI arguments:
 
-Filter standard error and standard output into completely different log processing tools in real-time:
-
-Bash
-
+```bash
+tee [OPTION]... [FILE]... (note: multiple file arguments are allowed)
 ```
-# Send regular logs to stdout.log and errors to an alerting webhook
-./my_app 1> >(tee -a stdout.log) 2> >(curl -X POST -d @- https://discord-webhook.url)
-```
+
+So technically we are passing in a file when we write `>(grep "ERROR" > errors.log)`.
+Also, `tee` passes the output to `/dev/null`, which is basically what `tee` is used for.
+
+## Process Substitution vs Piping
+
+| Feature               | Standard Piping (`cmd1 \| cmd2`)                 | Process Substitution (`cmd2 <(cmd1)`)          |
+| --------------------- | ------------------------------------------------ | ---------------------------------------------- |
+| **Data Interface**    | Connects directly to process `stdin` (FD 0)      | Passed as a file path argument (`/dev/fd/N`)   |
+| **Stream Capacity**   | 1 input stream                                   | Arbitrary number of concurrent inputs          |
+| **Execution Context** | Receiver executes in subshell (in standard Bash) | Receiver executes in current shell environment |
+| **Seekability**       | Stream-only (unseekable)                         | Stream-only (fails `lseek()` syscalls)         |
+
+Read more: https://oneuptime.com/blog/post/2026-01-24-bash-process-substitution/view

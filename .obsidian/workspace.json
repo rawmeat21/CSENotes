@@ -219,8 +219,9 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "ea69e1621b559724",
+  "active": "04c09b981dedc9df",
   "lastOpenFiles": [
+    "assets",
     "Shell Scripting/Brackets in bash.md",
     "Shell Scripting/awk.md",
     "Shell Scripting/Array.md",
@@ -256,7 +257,6 @@
     "Pasted image 20260813203814.png",
     "Pasted image 20260813203757.png",
     "Git/Distributed VCS.md",
-    "Linux/How to read command synopsis part 2.md",
     "Git",
     "Shell Scripting",
     "Behavioral questions",

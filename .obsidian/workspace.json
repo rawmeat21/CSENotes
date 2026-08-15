@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/R1.md",
+                "file": "Shell Scripting/How to work with strings.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "R1"
+              "title": "How to work with strings"
             }
           }
         ],
@@ -233,10 +233,17 @@
   },
   "active": "aac3add14b88c0d9",
   "lastOpenFiles": [
+    "Shell Scripting/Functions.md",
+    "Shell Scripting/How to work with strings.md",
+    "Shell Scripting/sed.md",
+    "Shell Scripting/cut.md",
+    "Shell Scripting/find and stat.md",
+    "Shell Scripting/Brackets in bash.md",
+    "Shell Scripting/Array.md",
+    "React/R1.md",
     "React/R2.md",
     "React/R3.md",
     "assets/Pasted image 20260815093046.png",
-    "React/R1.md",
     "assets/Pasted image 20260813205836.png",
     "test.md",
     "Untitled 2.canvas",
@@ -252,18 +259,11 @@
     "assets/Pasted image 20260429231750.png",
     "OSx7.md",
     "assets/2026-06-05_18-02-28.png",
-    "Shell Scripting/Array.md",
     "assets",
-    "Shell Scripting/Brackets in bash.md",
     "Shell Scripting/awk.md",
-    "Shell Scripting/find and stat.md",
-    "Shell Scripting/How to cut.md",
-    "Shell Scripting/How to use sed.md",
-    "Shell Scripting/Functions.md",
     "Shell Scripting/tips and tricks.md",
     "Shell Scripting/When can I not use the dollar sign.md",
     "Shell Scripting/Tutorial.md",
-    "Shell Scripting/How to work with strings.md",
     "Shell Scripting/Script args and function args.md",
     "Shell Scripting/IMP.md",
     "Shell Scripting/IMP 2.md",

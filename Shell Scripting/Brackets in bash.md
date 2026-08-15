@@ -13,7 +13,7 @@
 
 ## 1. Conditional Testing Brackets
 
-### `[ ... ]` (Single Square Brackets)
+### `[ ... ]` (Single Square Brackets) (Mostly not needed)
 
 This is an alias for the standard POSIX `test` command.
 
@@ -64,7 +64,7 @@ This is an extended Bash/Zsh keyword that completely upgrades `[ ... ]`.
         
 - **When to Use:** Always use `[[ ... ]]` over `[ ... ]` for conditional tests in Bash scripts.
     
-In general, use this to check conditions. For complex math conditions, prefer `(())`
+In general, use this to check conditions. For complex math conditions, prefer `(())`.
 
 ## 2. Arithmetic Brackets
 
@@ -91,7 +91,7 @@ Evaluates C-style mathematical expressions and sets an exit status.
 - **When to Use:** Performing math side-effects (`(( count++ ))`) or numerical conditions inside `if` statements (`if (( x > 10 )); then`).
     
 Use only for math expressions and checking conditions.
-### `$(( ... ))` (Double Parentheses with `$` — Expansion)
+### `$(( ... ))` (Double Parentheses with `$` — Arithmetic Expansion)
 
 Same math rules as `(( ... ))`, but it **returns the numerical result** as a string so you can print or assign it.
 
@@ -258,8 +258,8 @@ Generates sets or ranges of text **before** any command executes.
 
 You can combine **`$` (Value)** with any symbol to transform its behavior:
 
-|Base Symbol|What Base Symbol Does|Add `$` to Front|What it Becomes|
-|---|---|---|---|
-|**`( cmd )`**|Run in subshell|**`$( cmd )`**|Capture command output as text|
-|**`(( math ))`**|Evaluate math condition|**`$(( math ))`**|Calculate math and return the number|
-|**`{ var }`**|Parameter boundary|**`${ var }`**|Get variable value / manipulate string|
+| Base Symbol      | What Base Symbol Does   | Add `$` to Front  | What it Becomes                        |
+| ---------------- | ----------------------- | ----------------- | -------------------------------------- |
+| **`( cmd )`**    | Run in subshell         | **`$( cmd )`**    | Capture command output as text         |
+| **`(( math ))`** | Evaluate math condition | **`$(( math ))`** | Calculate math and return the number   |
+| **`{ var }`**    | Parameter boundary      | **`${ var }`**    | Get variable value / manipulate string |

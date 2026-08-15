@@ -35,7 +35,7 @@ In C++, you call methods like `s.substr()` or `s.length()`. In Bash, you use **P
 
 Bash
 
-```
+```bash
 str="HelloWorld"
 
 # C++: str.substr(0, 5) -> "Hello"
@@ -53,7 +53,7 @@ echo "${str: -5}" # "World"
 
 Bash
 
-```
+```bash
 str="apple banana apple orange"
 
 # Replace FIRST match: C++ s.replace() / s.find()
@@ -77,7 +77,7 @@ Bash has a feature built specifically for stripping file extensions and path pre
 
 Bash
 
-```
+```bash
 filepath="/var/log/app/data.tar.gz"
 
 # Strip shortest prefix matching '*/' (Gets filename)

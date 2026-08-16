@@ -6,7 +6,7 @@ While `cut` is great for simple character/field splitting and `sed` is great for
 
 Bash
 
-```
+```bash
 awk 'pattern { action }' filename
 ```
 
@@ -28,17 +28,19 @@ awk 'pattern { action }' filename
 |**`NR`**|**N**umber of **R**ecords (current line number)|`awk '{print NR, $0}'`|
 |**`FS`**|**F**ield **S**eparator (default: whitespace)|Set via `-F` flag|
 |**`OFS`**|**O**utput **F**ield **S**eparator|Default is a single space|
-
+NF starts behaving like a field when you add $ (`$NF)
 ## 2. Printing & Field Extraction
 
 ### A. Print Specific Columns
 
 Bash
 
-```
+```bash
 # Print username ($1) and default shell ($7) from /etc/passwd
 awk -F ':' '{print $1, $7}' /etc/passwd
 ```
+
+You can also do `-F[:]`. For multiple delimiters, use `-F[:- ]`.
 
 ### B. Changing the Field Separator (`-F`)
 
@@ -46,7 +48,7 @@ Unlike `cut`, `awk` can handle multi-character delimiters or treat consecutive s
 
 Bash
 
-```
+```bash
 # Custom delimiter comma (CSV)
 awk -F ',' '{print $1}' data.csv
 
@@ -60,7 +62,7 @@ Commas between fields in `print` insert the `OFS` (a space by default). Concaten
 
 Bash
 
-```
+```bash
 # Output: User: alice | Shell: /bin/bash
 awk -F ':' '{print "User: " $1 " | Shell: " $7}' /etc/passwd
 ```
@@ -73,7 +75,7 @@ You can place conditions **before** the `{ action }` block to target specific li
 
 Bash
 
-```
+```bash
 # Print lines where column 3 is greater than 100
 awk '$3 > 100 {print $1, $3}' data.txt
 
@@ -87,7 +89,7 @@ Use `/pattern/` to target lines matching a pattern:
 
 Bash
 
-```
+```bash
 # Print lines containing "ERROR"
 awk '/ERROR/ {print $0}' app.log
 
@@ -102,7 +104,7 @@ awk '$1 !~ /guest/ {print $0}' users.txt
 
 Bash
 
-```
+```bash
 # Print lines 5 through 10 (like sed -n '5,10p')
 awk 'NR >= 5 && NR <= 10' file.txt
 ```
@@ -137,7 +139,7 @@ awk 'NR >= 5 && NR <= 10' file.txt
 
 Bash
 
-```
+```bash
 # Calculate the total and average size of files in a directory
 ls -l | awk '
 BEGIN {
@@ -154,13 +156,117 @@ END {
 }'
 ```
 
+`ls -l` format:
+
+`[File Type & Permissions] [Hard Links] [Owner] [Group] [Size in Bytes] [Month] [Date] [time] [File Name]`
+
+
+Other useful formats:
+
+**1. `ps aux`**
+
+Plaintext
+
+```
+USER  PID  %CPU  %MEM  VSZ  RSS  TTY  STAT  START  TIME  COMMAND
+```
+
+- **USER / PID:** Process owner and Process ID
+    
+- **%CPU / %MEM:** Percentage of CPU and RAM being used
+    
+- **VSZ / RSS:** Virtual memory size vs. Physical RAM in use (in KB)
+    
+- **TTY / STAT:** Controlling terminal and process state (`R`=running, `S`=sleeping, `Z`=zombie)
+    
+- **START / TIME:** Process start time and cumulative CPU execution time
+    
+- **COMMAND:** Executable name and arguments (occupies `$11` through `$NF`)
+    
+
+**2. `lsblk`**
+
+Plaintext
+
+```
+NAME  MAJ:MIN  RM  SIZE  RO  TYPE  MOUNTPOINTS
+```
+
+- **NAME:** Block device tree name
+    
+- **MAJ:MIN:** Major and minor device numbers (kernel drivers)
+    
+- **RM / RO:** Removable flag (`1`=yes, `0`=no) and Read-Only flag (`1`=yes, `0`=no)
+    
+- **SIZE:** Total device capacity
+    
+- **TYPE:** Device classification (`disk`, `part`, `lvm`, `rom`)
+    
+- **MOUNTPOINTS:** Directory where the partition is mounted
+    
+
+**3. `df -h`**
+
+Plaintext
+
+```
+Filesystem  Size  Used  Avail  Use%  Mounted on
+```
+
+- **Filesystem:** Storage partition or virtual filesystem identifier
+    
+- **Size / Used / Avail:** Total size, consumed space, and remaining capacity
+    
+- **Use%:** Percentage of partition space used
+    
+- **Mounted on:** System directory mount point
+    
+
+**4. `free -h`**
+
+Plaintext
+
+```
+       total   used   free  shared  buff/cache  available
+Mem:    8.0G   2.1G   3.4G    120M        2.5G       5.5G
+Swap:   2.0G     0B   2.0G
+```
+
+- **total:** Total installed RAM or Swap capacity
+    
+- **used:** Currently occupied space
+    
+- **free:** Completely unused memory
+    
+- **shared:** Memory used primarily by `tmpfs`
+    
+- **buff/cache:** Memory used by kernel buffers and page cache (reclaimable)
+    
+- **available:** Estimated memory available for starting new applications without swapping
+    
+
+**5. `ip -br a`** _(Brief mode—ideal for single-line `awk` parsing, unlike multi-line standard `ip a`)_
+
+Plaintext
+
+```
+INTERFACE  STATE  IP_ADDRESS/MASK
+```
+
+- **INTERFACE:** Network device name (e.g., `eth0`, `wlan0`, `lo`)
+    
+- **STATE:** Link operational status (`UP`, `DOWN`, `UNKNOWN`)
+    
+- **IP_ADDRESS/MASK:** Assigned IPv4/IPv6 addresses and CIDR subnet prefix
+
+
 ## 5. Useful Built-in String & Math Functions
 
 Inside `awk` action blocks, you can use built-in functions just like in programming languages:
 
 Bash
 
-```
+```bash
 # length(): Get string length
 awk '{print $1, length($1)}' file.txt
 

@@ -20,7 +20,7 @@ This is `sed`'s most common use case.
 
 Bash
 
-```
+```bash
 sed 's/cat/dog/' file.txt
 ```
 
@@ -41,13 +41,24 @@ sed 's/cat/dog/' file.txt
 |**`i`**|**Ignore Case:** Match pattern case-insensitively|`sed 's/cat/dog/gi' file.txt`|Matches "Cat", "CAT", "cAt", etc.|
 |**`2`**|**Nth Occurrence:** Replace only the Nth match on a line|`sed 's/cat/dog/2' file.txt`|Replaces only the 2nd "cat" per line.|
 
+```bash
+# only apply pattern to a specific line
+sed '2 s/India/USA/g' file.txt # only apply on line 2
+
+# apply everywhere except line 2
+sed '2! s/India/USA/g' file.txt
+
+# search and replace
+sed '/Paul/ s/India/USA/g' file.txt 
+```
+
 ### Using Custom Delimiters
 
 If you are replacing file paths containing slashes (`/`), using `/` as a delimiter creates readable clutter:
 
 Bash
 
-```
+```bash
 # Hard to read ("Leaning Toothpick Syndrome"):
 sed 's/\/usr\/local\/bin/\/usr\/bin/g' file.txt
 
@@ -61,7 +72,7 @@ To save changes directly to the original file instead of just printing them to t
 
 Bash
 
-```
+```bash
 # Modify file.txt directly
 sed -i 's/old_text/new_text/g' file.txt
 
@@ -75,7 +86,7 @@ The `-n` flag suppresses automatic output, allowing you to print only specific l
 
 Bash
 
-```
+```bash
 # Print only line 5
 sed -n '5p' file.txt
 
@@ -84,13 +95,30 @@ sed -n '10,20p' file.txt
 
 # Print lines matching a specific pattern (like grep)
 sed -n '/ERROR/p' file.txt
+
+sed -n '$p' file.txt
+
+# print all lines containing the string 'India'
+sed -n '/India/p' file.txt
+
+# see specific lines using multiple expressions
+sed -n -e '1p' -e '3p' file.txt # print lines 1 and 3
+
+# show line ranges from a point (sublines if you will)
+sed -n '2,+4p' file.txt # will print lines 2,3,4,5,6 (take line 2 and take 4 lines after that)
+
+sed -n '1~2p' file.txt # print lines 1,3,5,7,... (2 is step size)
+
+
 ```
+
+
 
 ## 4. Deleting Lines (`d`)
 
 Bash
 
-```
+```bash
 # Delete line 1 (e.g., remove a CSV header)
 sed '1d' file.txt
 
@@ -107,6 +135,27 @@ sed '/^$/d' file.txt
 sed '/DEBUG/d' file.txt
 ```
 
+
+## 5. Write lines to files
+
+```bash
+# search for lines having string 'India' and add them to file 'indians'
+sed '/India/ w indians' file.txt 
+
+```
+
+## 6. Append after lines
+
+```bash
+sed '3 a hello bro' file.txt # adds the line "hello user" just after line 3 (line 4)
+
+sed '/India/ a hello bro' file.txt # search for lines with pattern and insert "hello bro" after those lines
+
+# To change the line (rewrite) use:
+sed '3 c hello bro' # line 3: hello bro (rewritten)
+
+
+```
 ## 5. Advanced: Extended Regex & Backreferences (`-E`)
 
 The `-E` flag enables Extended Regular Expressions, allowing capture groups with `()` without needing clunky backslashes.
@@ -117,7 +166,7 @@ Use `\1`, `\2`, etc., to reference matched groups:
 
 Bash
 
-```
+```bash
 # Input:  "John Smith"
 # Output: "Smith, John"
 

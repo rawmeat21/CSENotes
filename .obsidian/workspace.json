@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shell Scripting/awk by M Prashant.md",
+                "file": "Shell Scripting/sed.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "awk by M Prashant"
+              "title": "sed"
             }
           }
         ],
@@ -233,8 +233,9 @@
   },
   "active": "aac3add14b88c0d9",
   "lastOpenFiles": [
-    "Shell Scripting/awk.md",
+    "Shell Scripting/sed by M Prashant.md",
     "Shell Scripting/awk by M Prashant.md",
+    "Shell Scripting/awk.md",
     "Shell Scripting/Array.md",
     "assets/Pasted image 20260816132928.png",
     "assets/Pasted image 20260816130909.png",

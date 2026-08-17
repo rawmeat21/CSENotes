@@ -44,7 +44,7 @@ Find `error`, `ERROR`, or `Error` in system logs:
 
 Bash
 
-```
+```bash
 grep -i "error" /var/log/syslog
 ```
 
@@ -54,7 +54,7 @@ Match `port` as an isolated word, ignoring `portable`, `viewport`, or `sport`:
 
 Bash
 
-```
+```bash
 grep -w "port" /etc/services
 ```
 
@@ -64,7 +64,7 @@ Filter for lines that consist _exclusively_ of the string `root`:
 
 Bash
 
-```
+```bash
 grep -x "root" /etc/users
 ```
 
@@ -74,7 +74,7 @@ Filter out comment lines starting with `#` and empty lines:
 
 Bash
 
-```
+```bash
 grep -v -E '^\s*(#|$)' /etc/ssh/sshd_config
 ```
 
@@ -84,7 +84,7 @@ Extract all IPv4 addresses from an engine log using `grep -o`:
 
 Bash
 
-```
+```bash
 grep -E -o '([0-9]{1,3}\.){3}[0-9]{1,3}' /var/log/nginx/access.log
 ```
 
@@ -96,7 +96,7 @@ Show matching line numbers alongside the matched string:
 
 Bash
 
-```
+```bash
 grep -n "main" src/server.c
 ```
 
@@ -106,7 +106,7 @@ Count the number of failed login attempts without printing each line:
 
 Bash
 
-```
+```bash
 grep -c "Failed password" /var/log/auth.log
 ```
 
@@ -116,7 +116,7 @@ Locate exact byte offsets of matching headers inside raw binary or structured da
 
 Bash
 
-```
+```bash
 grep -b -o "ELF" /bin/ls
 ```
 
@@ -126,7 +126,7 @@ Stop processing after finding the first 3 occurrences of a memory allocation fai
 
 Bash
 
-```
+```bash
 grep -m 3 "out of memory" /var/log/kern.log
 ```
 
@@ -138,7 +138,7 @@ Find all C source files that invoke `malloc`:
 
 Bash
 
-```
+```bash
 grep -l "malloc" src/*.c
 ```
 
@@ -148,7 +148,7 @@ Identify C source files that do not include `config.h`:
 
 Bash
 
-```
+```bash
 grep -L '#include "config.h"' src/*.c
 ```
 
@@ -158,7 +158,7 @@ Pass files containing spaces safely into `xargs`:
 
 Bash
 
-```
+```bash
 grep -lZ "TODO" ./*.py | xargs -0 rm
 ```
 
@@ -170,7 +170,7 @@ Show 5 lines of stack trace directly _after_ an exception:
 
 Bash
 
-```
+```bash
 grep -A 5 "NullPointerException" app.log
 ```
 
@@ -180,7 +180,7 @@ Show 3 lines of configuration state directly _before_ an error line:
 
 Bash
 
-```
+```bash
 grep -B 3 "CRITICAL" /var/log/app.log
 ```
 
@@ -190,7 +190,7 @@ Show 2 lines before and 2 lines after a function declaration:
 
 Bash
 
-```
+```bash
 grep -C 2 "int init_module(void)" driver.c
 ```
 
@@ -202,7 +202,7 @@ Search all files under the current tree for a symbol:
 
 Bash
 
-```
+```bash
 grep -r "sys_call_table" /usr/src/linux/
 ```
 
@@ -212,7 +212,7 @@ Search strictly within `.c` and `.h` files:
 
 Bash
 
-```
+```bash
 grep -r --include="*.[ch]" "PAGE_SIZE" ./kernel/
 ```
 
@@ -222,7 +222,7 @@ Ignore `node_modules`, `.git`, and compiled `.min.js` files during search:
 
 Bash
 
-```
+```bash
 grep -r --exclude-dir={.git,node_modules,build} --exclude="*.min.js" "API_KEY" .
 ```
 
@@ -234,7 +234,7 @@ Match alternate expressions or apply non-escaped grouping quantifiers:
 
 Bash
 
-```
+```bash
 grep -E "ERR(OR)?|WARN(ING)?" application.log
 ```
 
@@ -244,7 +244,7 @@ Search for literal strings containing special characters without escaping:
 
 Bash
 
-```
+```bash
 grep -F "https://example.com/api?v=1.0&status=active" access.log
 ```
 
@@ -254,7 +254,7 @@ Extract key values from a key-value pair using a positive lookbehind:
 
 Bash
 
-```
+```bash
 # Extracts value after 'DB_PASSWORD=' without including the key
 grep -P -o '(?<=DB_PASSWORD=)\w+' .env
 ```
@@ -265,7 +265,7 @@ Combine multiple search patterns via `-e` or pull them from an external pattern 
 
 Bash
 
-```
+```bash
 # Via multiple -e flags
 grep -e "sys_open" -e "sys_read" -e "sys_write" kernel_symbols.txt
 
@@ -281,7 +281,7 @@ Check if a user exists in `/etc/passwd` silently in a shell script:
 
 Bash
 
-```
+```bash
 if grep -q "^docker:" /etc/passwd; then
     echo "Docker group user exists"
 fi
@@ -293,7 +293,7 @@ Avoid scanning compiled binaries during broad text searches:
 
 Bash
 
-```
+```bash
 grep -I -r "DEBUG_LEVEL" ./
 ```
 
@@ -303,6 +303,6 @@ Process multiline blocks separated by NUL characters or search across raw data b
 
 Bash
 
-```
+```bash
 grep -z -P 'function_start\n\s+call_subroutine' binary_dump.bin
 ```

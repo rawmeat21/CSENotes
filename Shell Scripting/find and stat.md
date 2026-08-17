@@ -134,7 +134,7 @@ While `ls -l` shows basic information, `stat` displays **all raw metadata** stor
 
 Bash
 
-```
+```bash
 stat [options] filename
 ```
 
@@ -183,7 +183,7 @@ Instead of parsing full text output, use `-c` to extract specific attributes in 
 
 Bash
 
-```
+```bash
 # Print only file size in bytes
 stat -c %s file.txt
 
@@ -203,7 +203,7 @@ Combining both commands allows you to locate specific files and extract specific
 
 Bash
 
-```
+```bash
 find . -maxdepth 1 -type f -exec stat -c "%n: %s bytes" {} +
 ```
 
@@ -211,7 +211,7 @@ find . -maxdepth 1 -type f -exec stat -c "%n: %s bytes" {} +
 
 Bash
 
-```
+```bash
 while IFS= read -r -d '' file; do
     size=$(stat -c %s "$file")
     echo "Processing $file ($size bytes)..."

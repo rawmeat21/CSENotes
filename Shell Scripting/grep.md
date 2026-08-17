@@ -306,3 +306,4 @@ Bash
 ```bash
 grep -z -P 'function_start\n\s+call_subroutine' binary_dump.bin
 ```
+

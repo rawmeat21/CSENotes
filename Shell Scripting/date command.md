@@ -1,6 +1,5 @@
 ### Basic syntax
 
-bash
 
 ```bash
 date [OPTIONS] [+FORMAT]
@@ -17,45 +16,51 @@ date
 ```
 Sun Aug 17 10:42:03 IST 2026
 ```
-
+format: day month date time standard year
 ### Key options
 
-|Option|Purpose|
-|---|---|
-|`+FORMAT`|Custom output format using `%` sequences|
-|`-d STRING`|Display a date described by `STRING`, not "now" (doesn't change the clock)|
-|`-s STRING`|**Set** the system date/time to `STRING` (needs root)|
-|`-u`|Use UTC instead of local timezone|
-|`-r FILE`|Show the last modification time of `FILE` (like `stat -c %y`)|
-|`-I[TIMESPEC]`|ISO 8601 format; `TIMESPEC` = `date`, `hours`, `minutes`, `seconds`|
-|`-R`|RFC 5322 format (used in email headers)|
-|`--rfc-3339=TIMESPEC`|RFC 3339 format (`date`, `seconds`, `ns`)|
+| Option                | Purpose                                                                    |
+| --------------------- | -------------------------------------------------------------------------- |
+| `+FORMAT`             | Custom output format using `%` sequences                                   |
+| `-d STRING`           | Display a date described by `STRING`, not "now" (doesn't change the clock) |
+| `-s STRING`           | **Set** the system date/time to `STRING` (needs root)                      |
+| `-u`                  | Use UTC instead of local timezone                                          |
+| `-r FILE`             | Show the last modification time of `FILE` (like `stat -c %y`)              |
+| `-I[TIMESPEC]`        | ISO 8601 format; `TIMESPEC` = `date`, `hours`, `minutes`, `seconds`        |
+| `-R`                  | RFC 5322 format (used in email headers)                                    |
+| `--rfc-3339=TIMESPEC` | RFC 3339 format (`date`, `seconds`, `ns`)                                  |
 
 ### Format sequences (for `+FORMAT`)
 
-|Sequence|Meaning|Example|
-|---|---|---|
-|`%Y`|4-digit year|2026|
-|`%y`|2-digit year|26|
-|`%m`|month (01-12)|08|
-|`%d`|day of month|17|
-|`%H`|hour (24h)|10|
-|`%I`|hour (12h)|10|
-|`%M`|minute|42|
-|`%S`|second|03|
-|`%N`|nanoseconds|123456789|
-|`%s`|Unix epoch seconds|1755407523|
-|`%A`|full weekday name|Monday|
-|`%a`|abbreviated weekday|Mon|
-|`%B`|full month name|August|
-|`%b`|abbreviated month|Aug|
-|`%j`|day of year (001-366)|229|
-|`%Z`|timezone name|IST|
-|`%z`|timezone offset|+0530|
-|`%p`|AM/PM|AM|
-|`%u`|day of week (1=Mon..7=Sun)|1|
-|`%T`|equivalent to `%H:%M:%S`|10:42:03|
-|`%F`|equivalent to `%Y-%m-%d`|2026-08-17|
+dmY- date month year
+HMS- hour minute seconds
+AB- day-of-week-name month-of-year
+u- day-of-week-number
+TF- time format, date format
+
+| Sequence | Meaning                    | Example    |
+| -------- | -------------------------- | ---------- |
+| `%Y`     | 4-digit year               | 2026       |
+| `%y`     | 2-digit year               | 26         |
+| `%m`     | month (01-12)              | 08         |
+| `%d`     | day of month               | 17         |
+| `%H`     | hour (24h)                 | 10         |
+| `%I`     | hour (12h)                 | 10         |
+| `%M`     | minute                     | 42         |
+| `%S`     | second                     | 03         |
+| `%N`     | nanoseconds                | 123456789  |
+| `%s`     | Unix epoch seconds         | 1755407523 |
+| `%A`     | full weekday name          | Monday     |
+| `%a`     | abbreviated weekday        | Mon        |
+| `%B`     | full month name            | August     |
+| `%b`     | abbreviated month          | Aug        |
+| `%j`     | day of year (001-366)      | 229        |
+| `%Z`     | timezone name              | IST        |
+| `%z`     | timezone offset            | +0530      |
+| `%p`     | AM/PM                      | AM         |
+| `%u`     | day of week (1=Mon..7=Sun) | 1          |
+| `%T`     | equivalent to `%H:%M:%S`   | 10:42:03   |
+| `%F`     | equivalent to `%Y-%m-%d`   | 2026-08-17 |
 
 ### Use cases
 

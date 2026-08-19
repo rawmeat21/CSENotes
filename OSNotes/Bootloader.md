@@ -10,3 +10,9 @@ Source: https://conclusive.tech/glossary/what-is-a-bootloader-how-does-it-work/
 
 -> **A device may have more than one bootloader**. An example of that can be observed in systems where primary and secondary boot managers exist. In such cases, the former is usually exceptionally small and run by the BIOS while having only one task – to launch the secondary, larger, bootloader.
 
+
+![[Pasted image 20260819115659.png]]
+![[Pasted image 20260819115708.png]]
+![[Pasted image 20260819115801.png]]
+
+

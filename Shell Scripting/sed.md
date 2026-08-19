@@ -6,7 +6,7 @@ Unlike interactive text editors (like `nano` or `vim`), `sed` parses text **line
 
 Bash
 
-```
+```bash
 sed [options] 'command' filename
 ```
 
@@ -50,6 +50,12 @@ sed '2! s/India/USA/g' file.txt
 
 # search and replace
 sed '/Paul/ s/India/USA/g' file.txt 
+
+# replace a word with another word, no partial matches
+sed 's/\bthe\b/this/' # replace 'the' with 'this'
+
+# highlight a word by wrapping in braces(thY -> {thY})
+sed 's/\bthe\b/{&}/gi' # & refers to the match
 ```
 
 ### Using Custom Delimiters

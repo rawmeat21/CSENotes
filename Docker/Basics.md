@@ -1,6 +1,6 @@
 Run a container:
 
-```
+```bash
 docker container run <name of image> # or use: docker run <name of image>
 ```
 
@@ -46,7 +46,7 @@ docker pull quay.io/podman/hello <--- pull from a repo other than docker hub
 
 #### Versions of image and how to rename images
 
-```oxygene
+```bash
 $ docker pull ubuntu
   Using default tag: latest <--- using latest (we can change this)
   latest: Pulling from library/ubuntu
@@ -54,7 +54,7 @@ $ docker pull ubuntu
 
 Images can be tagged to save different versions of the same image. You define an image's tag by adding `:<tag>` after the image's name.
 
-```nix
+```bash
 $ docker pull ubuntu:25.10
   25.10: Pulling from library/ubuntu
   c2ca09a1934b: Downloading [============================================>      ]  34.25MB/38.64MB
@@ -119,9 +119,21 @@ $ docker container rm <name>
 
 Notes:
 
-1. `docker run` requires an image. Don't try running containers with this.
+1. `docker run` requires an image. Don't try running existing containers with this.
 2. `docker exec` works on running containers only.
-3. Use `docker start` to start a container in background.
+3. Use `docker start` to start a container in background by default (yeah it's true).
+
+
+### Managing Container Lifecycles
+
+| Command                      | Action                                    |
+| ---------------------------- | ----------------------------------------- |
+| `docker run <image>`         | Create & start a brand-new container      |
+| `docker stop <container>`    | Stop a running container                  |
+| `docker start <container>`   | Start an existing stopped container       |
+| `docker restart <container>` | Stop and immediately restart a container  |
+| `docker ps`                  | List all currently running containers     |
+| `docker ps -a`               | List all containers (running and stopped) |
 
 
 

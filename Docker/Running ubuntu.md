@@ -1,15 +1,15 @@
-```elixir
+```bash
 docker run -t ubuntu
 ```
 This will open up a tty. But commands don't work. 
 
 Use `-i` (interactive) to pass STDIN to container: 
 
-```tcl
+```bash
 docker run -it ubuntu
 ```
 
-When to use? Suppose yo want to run a script which takes input:
+When to use? Suppose you want to run a script which takes input:
 
 ```bash
 docker exec jovial_benz sh -c 'while true; do echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website; done'
@@ -24,7 +24,7 @@ docker exec -it jovial_benz sh -c 'while true; do echo "Input website:"; read we
 
 Now we can type commands.
 
-```gauss
+```bash
 docker run -d -it --name looper ubuntu sh -c 'while true; do date; sleep 1; done'
 ```
 
@@ -33,26 +33,26 @@ docker run -d -it --name looper ubuntu sh -c 'while true; do date; sleep 1; done
 `--name` - give a name to container.
 `sh -c 'shell langauge'` - Used to run shell commands
 
-```armasm
+```bash
 $ docker logs -f looper <-- see what is ubuntu doing
   Sat Mar  1 15:51:29 UTC 2025
   Sat Mar  1 15:51:30 UTC 2025
   Sat Mar  1 15:51:31 UTC 2025
 ```
 
-```armasm
+To makes this foreground:
+```bash
 $ docker attach looper
   Sat Mar  1 15:54:38 UTC 2025
   Sat Mar  1 15:54:39 UTC 2025
   ...
 ```
-This makes this foreground again.
 
 Now you have process logs (STDOUT) running in two terminals. Now press _control+c_ in the attached window. The container is stopped because the process is no longer running.
 
 If we want to attach to a container while making sure we don't close it from the other terminal we can specify to not attach STDIN with `--no-stdin` option.
 
-```gams
+```bash
 $ docker start looper # used to start a stopped container
 
 $ docker attach --no-stdin looper
@@ -65,7 +65,9 @@ Now you can do Ctrl+C again. The container will continue running. Control+c now 
 
 ## Running processes inside a container with docker exec
 
-```tap
+Note: ONLY works on a running container
+
+```bash
 $ docker exec looper ls -la
 total 56
 drwxr-xr-x   1 root root 4096 Mar  6 10:24 .
@@ -93,7 +95,7 @@ drwxr-xr-x  11 root root 4096 Feb 27 16:08 var
 
 We can execute the Bash shell in the container in interactive mode and then run any commands within that Bash session:
 
-```tap
+```bash
 $ docker exec -it looper bash
 
   root@2a49df3ba735:/# ps aux <-- we can enter commands easily
@@ -117,19 +119,44 @@ docker kill looper && docker rm looper
 
 Use this instead, or: 
 
-`docker rm --force looper`
+`docker rm --force looper` <--- use this when `docker stop` doesn't work.
 
 
 
-Remove automatically after exit: use `--rm`.
+### Remove automatically after exit: use `--rm`.
 
-```stata
+```bash
 docker run -d --rm -it --name looper-it ubuntu sh -c 'while true; do date; sleep 1; done'
 ```
+#### What is the point of running an interactive terminal and putting it on background?
+
+##### Technical Reasons to Combine `-d` and `-it`
+
+- **Prevents Interactive Shells from Immediately Exiting:** If you start a container running an interactive shell (`docker run -d ubuntu bash`), `bash` attempts to read from `STDIN`. Without `-i`, `STDIN` receives an immediate `EOF`, causing PID 1 to terminate and the container to exit. Adding `-it` keeps `STDIN` open and attached to a PTY in the background, allowing the container to remain running continuously until explicitly stopped or attached to.
+    
+- **Preserves PTY Capabilities for `docker attach`:** If you later run `docker attach <container_name>`, the attached session inherits the stream properties set at container creation. If `-it` was passed on creation, `docker attach` provides a full, interactive terminal session complete with `readline` support, tab completion, and proper signal processing. Without `-t` allocated at creation, attaching only pipes raw, unformatted `STDOUT`/`STDERR` streams.
+    
+- **Changes Stream Buffering & Terminal Detection (`isatty`):** Allocating a TTY with `-t` causes the `isatty(STDOUT_FILENO)` system call to evaluate to `true` inside the process. Many logging frameworks, CLI tools, and runtimes (like Python or Node.js) check `isatty()` to decide buffering strategies:
+    
+    - **With `-t` (TTY present):** `STDOUT` operates in **line-buffered** mode, flushing output immediately after every newline (`\n`), and applications enable ANSI color escape codes.
+        
+    - **Without `-t` (No TTY):** `STDOUT` switches to **block-buffered** mode (typically 4KB/8KB buffers), delaying output until the buffer fills or the process exits.
+        
+- **Signal Trapping via PTY Line Discipline:** A process running inside a PTY receives standard POSIX terminal signals (such as `SIGINT` from `Ctrl+C` or `SIGTSTP` from `Ctrl+Z`) through the kernel's TTY line discipline driver when attached.
+    
+
+In this specific command, the `-it` flags interact as follows:
+
+1. **`-i` is redundant here:** The `sh -c` loop does not read from `STDIN`, so keeping `STDIN` open does not alter the execution loop.
+    
+2. **`-t` alters stdout buffering:** It forces the `date` command and shell to run with a PTY, ensuring output is line-buffered in `docker logs -f` rather than block-buffered.
+    
+3. **`-it` enables interactive control upon attachment:** If you execute `docker attach looper-it`, the pre-allocated PTY allows you to send `Ctrl+C` (`SIGINT`) directly to the `sh` process loop to terminate it. Without `-t`, `Ctrl+C` over `docker attach` would not pass through the PTY line discipline to stop the loop.
+
 
 Now let's attach to the container and hit _control+p_, _control+q_ to detach us from the STDOUT.
 
-```armasm
+```bash
 $ docker attach looper-it
 
   Sat Mar 01 19:50:42 UTC 2025
@@ -146,18 +173,21 @@ Instead, if we had used _ctrl+c_, it would have sent a kill signal followed by r
 
 What to run:
 
-```
+```bash
 $ docker exec -it jovial_benz bash
 root@fc2959c980b6:/usr/src/app# tail -f ./text.log
 2026-08-20 04:09:37 +0000 UTC
 2026-08-20 04:09:39 +0000 UTC
 Secret message is: 'You can find the source code here: https://github.com/docker-hy'
 ```
+
 To stop:
 
-```
+```bash
 $ docker stop jovial_benz
 ```
+
+
 
 
 

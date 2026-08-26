@@ -39,12 +39,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/shutdown, halt, reboot.md",
+                "file": "Go/Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "shutdown, halt, reboot"
+              "title": "Basics"
             }
           }
         ],
@@ -233,8 +233,16 @@
   },
   "active": "aac3add14b88c0d9",
   "lastOpenFiles": [
-    "Linux/Standard IOE and Redirection.md",
+    "assets/Pasted image 20260826195535.png",
+    "assets/Pasted image 20260826195451.png",
+    "assets/Pasted image 20260826195415.png",
+    "assets/Pasted image 20260826193612.png",
+    "assets/Pasted image 20260826193516.png",
+    "Weird fucking interview questions/wdym I need to code my own malloc.md",
+    "Go/Basics.md",
+    "Go",
     "Linux/shutdown, halt, reboot.md",
+    "Linux/Standard IOE and Redirection.md",
     "Linux/bash_tutorial_part3_systems.md",
     "Linux/File stuff.md",
     "Linux/file.md",
@@ -262,15 +270,8 @@
     "Docker/CMD is confusing.md",
     "assets/Pasted image 20260826123059.png",
     "Docker/Running ubuntu.md",
-    "Docker/Basics.md",
-    "Docker/Intro.md",
     "Docker/Untitled",
-    "assets/Pasted image 20260820092743.png",
-    "assets/Pasted image 20260819235235.png",
-    "assets/Pasted image 20260819234425.png",
     "Docker",
-    "OSNotes/Bootloader.md",
-    "assets/Pasted image 20260819115801.png",
     "Untitled 2.canvas",
     "Untitled 2.base",
     "Untitled 1.canvas",
@@ -280,7 +281,6 @@
     "assets",
     "Git",
     "Shell Scripting",
-    "Behavioral questions",
-    "DL"
+    "Behavioral questions"
   ]
 }

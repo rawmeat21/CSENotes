@@ -4,65 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "421794cf13411028",
+        "id": "b45695afe86f959c",
         "type": "tabs",
         "children": [
           {
-            "id": "065f15d426fc5a01",
+            "id": "ce1f920db5327c16",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git/Branches in Git.md",
+                "file": "Java/Java DSA reference by Gemini.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Branches in Git"
-            }
-          },
-          {
-            "id": "ea69e1621b559724",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "assets/2026-06-05_18-02-28.png"
-              },
-              "icon": "lucide-image",
-              "title": "2026-06-05_18-02-28"
-            }
-          },
-          {
-            "id": "aac3add14b88c0d9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux/How does login work.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "How does login work"
-            }
-          },
-          {
-            "id": "a82d3341d3227d85",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux/How does access control work, part 1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "How does access control work, part 1"
+              "title": "Java DSA reference by Gemini"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -245,12 +204,25 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "a82d3341d3227d85",
+  "active": "ce1f920db5327c16",
   "lastOpenFiles": [
+    "Java/Java DSA reference by Claude.md",
+    "Docker/How does Docker work.md",
+    "assets/Pasted image 20260827180750.png",
+    "assets/Pasted image 20260827175431.png",
+    "assets/Pasted image 20260827175325.png",
+    "assets/Pasted image 20260827175205.png",
+    "assets/Pasted image 20260827175004.png",
+    "Docker/Intro.md",
+    "assets/Pasted image 20260827155801.png",
+    "Docker/Basics.md",
+    "Docker/Docker compose.md",
+    "Docker/Ports.md",
+    "Docker/Volumes.md",
+    "Linux/How does access control work, part 1.md",
     "assets/Pasted image 20260827145942.png",
     "assets/Pasted image 20260827145902.png",
     "Linux/How passwd works using setuid.md",
-    "Linux/How does access control work, part 1.md",
     "Linux/How does login work.md",
     "Linux/Process ownership.md",
     "assets/Pasted image 20260827140912.png",
@@ -259,16 +231,9 @@
     "assets/Pasted image 20260827135726.png",
     "Go/Pointers.md",
     "Go/Memory management.md",
-    "assets/Pasted image 20260827123256.png",
-    "assets/Pasted image 20260827123047.png",
-    "assets/Pasted image 20260827123029.png",
     "Go/How to build.md",
     "Go/Date and time.md",
     "Go/Basics.md",
-    "assets/Pasted image 20260826195535.png",
-    "assets/Pasted image 20260826195451.png",
-    "assets/Pasted image 20260826195415.png",
-    "assets/Pasted image 20260826193612.png",
     "Weird fucking interview questions/wdym I need to code my own malloc.md",
     "Go",
     "Linux/shutdown, halt, reboot.md",
@@ -278,12 +243,6 @@
     "Linux/file.md",
     "Linux/How to read command synopsis.md",
     "Linux/How to read command synopsis part 2.md",
-    "Linux/inodes.md",
-    "Linux/Linux directories.md",
-    "Linux/ls.md",
-    "Linux/Misacellaneous.md",
-    "Linux/Wildcards.md",
-    "Linux/What does init even do.md",
     "Docker/Untitled",
     "Docker",
     "Untitled 2.canvas",

@@ -22,7 +22,7 @@ Dockerfile is the instruction set for building an image.
 
 #### Where do the images come from?
 
-When running a command such as `==docker run hello-world==`, Docker will automatically search [Docker Hub (opens in a new tab)](https://hub.docker.com/) for the image if it is not found locally.
+When running a command such as `docker run hello-world`, Docker will automatically search [Docker Hub](https://hub.docker.com/) for the image if it is not found locally.
 
 We can search for images in the Docker Hub with `docker search`.
 
@@ -59,6 +59,7 @@ $ docker pull ubuntu:25.10
   25.10: Pulling from library/ubuntu
   c2ca09a1934b: Downloading [============================================>      ]  34.25MB/38.64MB
 ```
+
 Images are composed of different layers that are downloaded in parallel to speed up the download.
 
 We can also tag images locally for convenience, for example, `docker tag ubuntu:25.10 ubuntu:questing_quokka` creates the tag `ubuntu:questing_quokka` which refers to `ubuntu:25.10`.

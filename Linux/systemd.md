@@ -76,7 +76,7 @@ Usually you shouldn't need the `.service` part when you mention _unit_, but you 
 
 The enabled and disabled states apply only to unit files that live in one of systemd’s system directories (that is, they are not linked in by a symbolic link) and that have an `[Install]` section in their unit files. 
 
-**Enabled units: **
+**Enabled units:**
 
 **Enabled** units should perhaps really be thought of as “installed,” meaning that the directives in the `[Install]` section have been executed and that the unit is wired up to its normal activation triggers. In most cases, this state causes the unit to be activated automatically once the system is bootstrapped.
 
@@ -301,3 +301,17 @@ all together with the original unit file. However, **override files have priorit
 
 ![[Pasted image 20260826160711.png]]
 
+
+### Services vs. Targets
+
+**A service** (unit files ending in `.service`) represents _one single program/process_ that systemd manages — starting it, stopping it, restarting it if it crashes, etc.
+
+Examples:
+
+- `sshd.service` → runs the SSH daemon
+- `nginx.service` → runs the nginx web server
+- `NetworkManager.service` → runs the network manager
+
+**A target** (unit files ending in `.target`) is **not a process at all**. It's a _grouping_ or _synchronization point_ — essentially a named collection of other units (services, mounts, sockets, other targets, etc.) that should be active together to reach a particular system "state."
+
+Think of a target as a checklist/label, not a running program. When systemd "reaches" a target, it means all the units that target depends on and pulls in have been started.

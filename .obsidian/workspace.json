@@ -39,16 +39,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go/Basics.md",
+                "file": "Linux/How does login work.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basics"
+              "title": "How does login work"
+            }
+          },
+          {
+            "id": "a82d3341d3227d85",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/How does access control work, part 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "How does access control work, part 1"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -231,15 +245,31 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "aac3add14b88c0d9",
+  "active": "a82d3341d3227d85",
   "lastOpenFiles": [
+    "assets/Pasted image 20260827145942.png",
+    "assets/Pasted image 20260827145902.png",
+    "Linux/How passwd works using setuid.md",
+    "Linux/How does access control work, part 1.md",
+    "Linux/How does login work.md",
+    "Linux/Process ownership.md",
+    "assets/Pasted image 20260827140912.png",
+    "Linux/systemd part 2.md",
+    "Linux/systemd.md",
+    "assets/Pasted image 20260827135726.png",
+    "Go/Pointers.md",
+    "Go/Memory management.md",
+    "assets/Pasted image 20260827123256.png",
+    "assets/Pasted image 20260827123047.png",
+    "assets/Pasted image 20260827123029.png",
+    "Go/How to build.md",
+    "Go/Date and time.md",
+    "Go/Basics.md",
     "assets/Pasted image 20260826195535.png",
     "assets/Pasted image 20260826195451.png",
     "assets/Pasted image 20260826195415.png",
     "assets/Pasted image 20260826193612.png",
-    "assets/Pasted image 20260826193516.png",
     "Weird fucking interview questions/wdym I need to code my own malloc.md",
-    "Go/Basics.md",
     "Go",
     "Linux/shutdown, halt, reboot.md",
     "Linux/Standard IOE and Redirection.md",
@@ -254,22 +284,6 @@
     "Linux/Misacellaneous.md",
     "Linux/Wildcards.md",
     "Linux/What does init even do.md",
-    "Linux/What are virtual terminals.md",
-    "Linux/Useful reads.md",
-    "Linux/The GUI.md",
-    "Linux/systemd part 2.md",
-    "Linux/systemd.md",
-    "assets/Pasted image 20260826160711.png",
-    "assets/Pasted image 20260826154625.png",
-    "assets/Pasted image 20260826153321.png",
-    "assets/Pasted image 20260826150613.png",
-    "assets/Pasted image 20260826150043.png",
-    "Docker/Ports.md",
-    "Docker/Volumes.md",
-    "Docker/How to build a docker image.md",
-    "Docker/CMD is confusing.md",
-    "assets/Pasted image 20260826123059.png",
-    "Docker/Running ubuntu.md",
     "Docker/Untitled",
     "Docker",
     "Untitled 2.canvas",

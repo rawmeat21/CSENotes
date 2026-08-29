@@ -89,7 +89,6 @@ Also stated:
 - Supports both database-like operations and functional programming operations to manipulate data.
 - Operations can be executed in sequence or in parallel.
 
-java
 
 ```java
 long count = allArtists.stream()
@@ -102,8 +101,6 @@ long count = allArtists.stream()
 ### 4. filter → map → collect (worked example)
 
 Using a `Dish` class with this shape (used throughout the slides):
-
-java
 
 ```java
 class Dish {

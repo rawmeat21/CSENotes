@@ -71,3 +71,79 @@ If the proposed command is permitted, sudo prompts for the user’s own password
 
 ![[Pasted image 20260827145942.png]]
 
+To manually modify the sudoers file, use the visudo command, which checks to be sure no one else is editing the file, invokes an editor on it (vi, or whichever editor you specify in your EDITOR environment variable), and then verifies the syntax of the edited file before installing it. **This last step is particularly important because an invalid sudoers file might prevent you from sudoing again to fix it.**
+
+sudo has a couple of disadvantages:
+
+- The worst of these is that any breach in the security of a sudoer’s personal account can be equivalent to breaching the root account itself.
+- `sudo`’s command logging can easily be subverted by tricks such as shell escapes from within an allowed program, or by `sudo sh` and `sudo su`. (Such commands do show up in the logs, so you’ll at least know they’ve been run.)
+
+**sudo runs on all UNIX and Linux systems. You do need not worry about managing different solutions on different platforms.**
+
+
+#### Environment managment
+
+Many commands consult the values of environment variables and modify their behavior depending on what they find. In the case of commands run as root, this mechanism can be both a useful convenience and a potential route of attack.
+
+
+For example, several commands run the program specified in your `EDITOR` environment variable to spawn a text editor. If this variable points to a hacker’s malicious program instead of an editor, it’s likely that you’ll eventually end up running that program as root!
+
+
+-> To minimize this risk, sudo’s default behavior is to pass only a minimal, sanitized environment to the commands that it runs. If your site needs additional environment variables to be passed, you can whitelist them by adding them to the sudoers file’s `env_keep` list.
+
+example:
+```
+Defaults		env_keep += "SSH_AUTH_SOCK"
+Defaults		env_keep += "DISPLAY XAUTHORIZATION XAUTHORITY"
+```
+
+If you need to preserve an environment variable that isn’t listed in the `sudoers` file,
+you can set it explicitly on the sudo command line. For example, the command
+
+```
+$ sudo EDITOR=emacs vipw
+```
+
+edits the system password file with emacs. This feature has some potential restric-
+tions, but they’re waived for users who can run ALL commands.
+
+### `sudo` without passwords?
+
+don't do it :)
+
+For more, see the sudo section on the sysadmin book. (chapter 3)
+
+### How to disable root account?
+
+You can disable root logins entirely by setting root’s encrypted password to * or to some other fixed, arbitrary string. 
+
+On Linux, `passwd -l` “locks” an account by prepending a ! to the encrypted password, with equivalent results.
+
+The * and the ! are just conventions; no software checks for them explicitly. Their effect derives from their **not being valid password hashes.** As a result, attempts to verify root’s password simply fail.
+
+
+### System accounts other than root
+
+You can identify these accounts by their low UIDs, usually less than 100. 
+
+Most often, UIDs under 10 are system accounts, and UIDs between 10 and 100 are pseudo-users associated with specific pieces of software.
+
+**Better to replace the encrypted password field of these special users in the**
+**`shadow` or `master.passwd` file with a * so that their accounts cannot be logged**
+**in to. Their shells should be set to `/bin/false` or `/bin/nologin` as well, to protect**
+**against remote login exploits that use password alternatives such as SSH key files.**
+
+There are also system-related groups that have similarly low GIDs.
+
+-> Files and processes that are part of the operating system but that need not be owned
+by root are sometimes assigned to the users bin or daemon.
+
+-> The main advantage of defining pseudo-accounts and pseudo-groups is that they can be used more safely than the root account to provide access to defined groups of resources. 
+
+For example, databases often implement elaborate access control systems of their own. From the perspective of the kernel, they run as a pseudo-user such as “mysql” that owns all database-related resources.
+
+-> The Network File System (NFS) uses an account called “nobody” to represent root users on other systems.
+
+
+![[Pasted image 20260829002740.png]]
+

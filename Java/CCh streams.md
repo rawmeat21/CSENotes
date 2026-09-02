@@ -229,9 +229,11 @@ you --> hasNext()/next() --> loop   you --> describe pipeline --> library iterat
 T ──► [ Predicate ] ──► boolean
 ```
 
+![[Pasted image 20260830153410.png]]
+
 A `Predicate<T>` is a functional interface with one abstract method: `boolean test(T t)`. `filter()` takes a `Predicate<T>` and keeps only elements for which `test()` returns `true`.
 
-**Code example (verbatim from slide):**
+**Code example:
 
 java
 
@@ -249,13 +251,13 @@ The slide's diagrams illustrate that `filter` inspects every element and only le
 
 ### 9. Truncating a Stream
 
-**`limit(n)` (verbatim):**
+**`limit(n)`:**
 
 - Streams support the `limit(n)` method, which returns another stream that's no longer than a given size.
 - The requested size is passed as argument to `limit`.
 - If the stream is ordered, the first elements are returned up to a maximum of `n`.
 
-**`skip(n)` (verbatim):**
+**`skip(n)`:**
 
 - Streams support the `skip(n)` method to return a stream that discards the first `n` elements.
 - If the stream has fewer elements than `n`, then an empty stream is returned.

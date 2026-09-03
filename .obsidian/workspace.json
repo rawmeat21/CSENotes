@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASM/Solved questions by Claude.md",
+                "file": "CG/DDA.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Solved questions by Claude"
+              "title": "DDA"
             }
           }
         ]
@@ -206,8 +206,14 @@
   },
   "active": "a64aa4013285f242",
   "lastOpenFiles": [
-    "ASM/8086 asm by Claude.md",
+    "assets/Pasted image 20260903121103.png",
+    "assets/Pasted image 20260903120227.png",
+    "assets/Pasted image 20260903113844.png",
+    "assets/Pasted image 20260903113806.png",
     "ASM/Solved questions by Claude.md",
+    "CG/DDA.md",
+    "CG",
+    "ASM/8086 asm by Claude.md",
     "ASM/8086 asm by Gemini.md",
     "Shell Scripting/File descriptors.md",
     "Untitled 3.md",
@@ -231,8 +237,6 @@
     "Linux/How passwd works using setuid.md",
     "Linux/How to fix bluetooth failed to connect.md",
     "Linux/shutdown, halt, reboot.md",
-    "Linux/Simple commands.md",
-    "Linux/Standard IOE and Redirection.md",
     "assets/Pasted image 20260830153410.png",
     "assets/Pasted image 20260829152326.png",
     "assets/Pasted image 20260829152127.png",
@@ -240,9 +244,6 @@
     "assets/Pasted image 20260829150247.png",
     "assets/Pasted image 20260829145811.png",
     "assets/Pasted image 20260829145743.png",
-    "assets/Pasted image 20260829145407.png",
-    "assets/Pasted image 20260829144356.png",
-    "assets/Pasted image 20260829144343.png",
     "Go",
     "Docker/Untitled",
     "Docker",
@@ -253,7 +254,6 @@
     "Untitled.canvas",
     "Untitled.base",
     "assets",
-    "Git",
-    "Shell Scripting"
+    "Git"
   ]
 }

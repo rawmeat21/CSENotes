@@ -2,7 +2,7 @@
 
 ### 1. External Iteration
 
-This is the "old style" of iterating — **you** control the loop.
+This is the "old style" of iterating, **you** control the loop.
 
 java
 
@@ -32,12 +32,12 @@ for (Artist a : allArtists) {
 
 ![[Pasted image 20260829144343.png]]
 
-**Key points to remember (verbatim from slides):**
+**Key points to remember:**
 
 - Inherently serial in nature
 - Hard to parallelize
 
-**Why:** with external iteration, _your code_ asks the collection "do you have a next element?" and "give me the next element" step by step. That interaction is a strict, one-at-a-time conversation between your code and the collection — there's no room for the collection to decide "I'll hand off different elements to different threads."
+**Why:** with external iteration, _your code_ asks the collection "do you have a next element?" and "give me the next element" step by step. That interaction is a strict, one-at-a-time conversation between your code and the collection, there's no room for the collection to decide "I'll hand off different elements to different threads."
 
 ---
 
@@ -55,7 +55,7 @@ long count = allArtists.stream()
 
 ![[Pasted image 20260829144356.png]]
 
-**Key points (verbatim):**
+**Key points:**
 
 - Instead of returning an `Iterator` to control the iteration, it returns the equivalent interface in the internal iteration world: **Stream**.
 - A Stream is a tool for building up complex operations on collections using a functional approach.
@@ -67,9 +67,9 @@ long count = allArtists.stream()
 
 ---
 
-### 3. Streams — Definition
+### 3. Streams
 
-**Definition (verbatim, important for exam):**
+**Definition:**
 
 > Streams can be defined as a sequence of elements from a source that supports data processing operations.
 
@@ -138,10 +138,10 @@ Read this left to right: "start from `menu`'s stream, keep only dishes with more
 
 **Two categories (verbatim):**
 
-- **Intermediate**: `filter`, `map` — these return another Stream, so you can chain more operations after them.
-- **Terminal**: `collect`, `count` — these end the pipeline and produce a non-stream result (a value, a collection, etc.).
+- **Intermediate**: `filter`, `map` -> these return another Stream, so you can chain more operations after them.
+- **Terminal**: `collect`, `count` -> these end the pipeline and produce a non-stream result (a value, a collection, etc.).
 
-#### Characteristics of stream operations (verbatim, exam-worthy list):
+#### Characteristics of stream operations:
 
 - **Pipelining**
 - **Laziness**
@@ -162,10 +162,10 @@ menu.stream()
 
 **Explanations given in the slide:**
 
-- **Loop fusion (pipelining)** — filter and map are two separate operations that are merged into one pass (the stream doesn't fully materialize an intermediate list after `filter` and then loop again for `map` — it processes each element through the whole chain in one traversal).
-- **Short circuiting** — despite the fact that there are many high-calorie dishes, only the first 3 are selected (once `limit(3)` is satisfied, the stream stops pulling more elements).
+- **Loop fusion (pipelining)**: filter and map are two separate operations that are merged into one pass (the stream doesn't fully materialize an intermediate list after `filter` and then loop again for `map` — it processes each element through the whole chain in one traversal).
+- **Short circuiting**: despite the fact that there are many high-calorie dishes, only the first 3 are selected (once `limit(3)` is satisfied, the stream stops pulling more elements).
 
-**Laziness** (general concept, ties into the above): intermediate operations like `filter`/`map` don't actually run anything when you call them — they just build up a description of the pipeline. Nothing happens until a terminal operation (like `collect`) is invoked. This is what allows short-circuiting to work efficiently.
+**Laziness** (general concept, ties into the above): intermediate operations like `filter`/`map` don't actually run anything when you call them, they just build up a description of the pipeline. Nothing happens until a terminal operation (like `collect`) is invoked. This is what allows short-circuiting to work efficiently.
 
 ---
 
@@ -180,7 +180,7 @@ menu.stream()
 |Stream is a set of values spread out in time|A set of values spread out in space|
 |Internal iteration|External iteration|
 
-**"Traversable exactly once" is important:** once you call a terminal operation on a stream, that stream is _consumed_. You cannot reuse the same `Stream` object for a second terminal operation — you'd get an `IllegalStateException`. If you need to iterate again, call `.stream()` on the source collection again.
+**"Traversable exactly once" is important:** once you call a terminal operation on a stream, that stream is _consumed_. You cannot reuse the same `Stream` object for a second terminal operation, you'd get an `IllegalStateException`. If you need to iterate again, call `.stream()` on the source collection again.
 
 java
 
@@ -192,7 +192,7 @@ s.forEach(System.out::println); // throws IllegalStateException: stream has alre
 
 ---
 
-### 7. External vs Internal Iteration (verbatim comparison)
+### 7. External vs Internal Iteration
 
 **Internal Iteration:**
 
@@ -204,30 +204,16 @@ s.forEach(System.out::println); // throws IllegalStateException: stream has alre
 - Programmer needs to implement parallelism and define the order in which the elements of a collection can be processed.
 - Committed to a single-threaded step-by-step sequential iteration.
 
-ASCII summary:
-
-```
-External Iteration:                Internal Iteration:
-you --> hasNext()/next() --> loop   you --> describe pipeline --> library iterates
-(you drive it, one thread)          (library can parallelize/reorder)
-```
-
 ---
 
 ### 8. Filtering
 
-**Key points (verbatim):**
+**Key points:**
 
 - Where clause of a select statement (i.e., it's like SQL's `WHERE`)
 - Takes a `Predicate` object as an argument
 - Returns a stream including all elements that match with the predicate
 - If you're refactoring legacy code, the presence of an `if` statement in the middle of a `for` loop is a pretty strong indicator that you really want to use `filter`.
-
-**Predicate signature (diagram in slide):**
-
-```
-T ──► [ Predicate ] ──► boolean
-```
 
 ![[Pasted image 20260830153410.png]]
 
@@ -269,7 +255,7 @@ List<Integer> firstThree = numbers.stream().limit(3).collect(toList());
 List<Integer> afterFirstThree = numbers.stream().skip(3).collect(toList());
 ```
 
-Common pattern — pagination-style processing:
+Common pattern, pagination-style processing:
 
 java
 
@@ -284,7 +270,9 @@ List<Dish> page2 = menu.stream()
 
 ### 10. Mapping
 
-**Key points (verbatim):**
+![[Pasted image 20260904131200.png]]
+
+**Key points:**
 
 - The function is applied to each element, mapping it into a new element.
 - The word _mapping_ is used because it has a meaning similar to _transforming_ but with the nuance of "creating a new version of" rather than "modifying".
@@ -293,12 +281,12 @@ List<Dish> page2 = menu.stream()
 **Map's signature (diagram):**
 
 ```
-T ──► [ Function ] ──► R
+T ──► [ Function ] ──► R (T and R can be different)
 ```
 
-`map` takes a `Function<T, R>` — a functional interface with `R apply(T t)` — and produces a new stream where each element has been transformed.
+`map` takes a `Function<T, R>`: a functional interface with `R apply(T t)`, and produces a new stream where each element has been transformed.
 
-**Imperative version (verbatim):**
+**Imperative version:**
 
 java
 
@@ -310,7 +298,7 @@ for (String string : asList("a", "b", "hello")) {
 }
 ```
 
-**Stream version (verbatim):**
+**Stream version:**
 
 java
 
@@ -334,7 +322,7 @@ List<Integer> wordLengths = words.stream()
 // [5, 7, 2, 6]
 ```
 
-#### Mapping pitfall — mapping to arrays
+#### Mapping pitfall: mapping to arrays
 
 The slide poses the question: _how could you return a list of all the unique characters for a list of words?_
 
@@ -348,28 +336,11 @@ distinctLetters = word1.stream()
                         .collect(toList());
 ```
 
-**This is wrong / doesn't do what you want**, and the slides use this exact example to introduce `flatMap` in the next section. The problem: `map(w -> w.split(""))` turns each word into a `String[]` (an array), so you end up with a `Stream<String[]>` — a stream _of arrays_. `distinct()` then compares whole arrays (by reference/equality of the array objects), not individual letters, so it does **not** give you unique letters across all words.
+**This is wrong / doesn't do what you want**. The problem: `map(w -> w.split(""))` turns each word into a `String[]` (an array), so you end up with a `Stream<String[]>`: a stream _of arrays_. `distinct()` then compares whole arrays (by reference/equality of the array objects), not individual letters, so it does **not** give you unique letters across all words.
 
 ---
 
 ### 11. FlatMap
-
-The fix to the problem above. The slide's diagram walks through it step by step for the words "Hello" and "World":
-
-```
-Stream of words:        Hello                    World
-map(s -> s.split("")):  [H,e,l,l,o]  (Stream<String[]>)   [W,o,r,l,d]     <-- 🙁 still grouped as arrays
-
-flatMap(Arrays::stream): H e l l o                 W o r l d              <-- 🙂 flattened into Stream<String>
-
-distinct():              H e l  o  W r  d          (duplicates removed)
-
-collect(toList()):       [H, e, l, o, W, r, d]
-```
-
-**How it works:** `map(s -> s.split(""))` produces a stream of arrays (one array per word) — a "stream of streams" conceptually. `flatMap` does what `map` does, **but then flattens each resulting stream/array into a single combined stream**, instead of leaving them nested.
-
-java
 
 ```java
 List<String> uniqueChars = word1.stream()
@@ -379,7 +350,23 @@ List<String> uniqueChars = word1.stream()
                                  .collect(toList());
 ```
 
-#### FlatMap examples (verbatim from slides)
+This is also correct:
+
+```java
+List<String> uniqueChars = word1.stream()
+                                 .map(w -> w.split(""))
+                                 .flatMap(arr -> Arrays.stream(arr))
+                                 .distinct()
+                                 .collect(toList());
+```
+
+![[Pasted image 20260904131141.png]]
+![[Pasted image 20260904131404.png]]
+
+![[Pasted image 20260904131515.png]]
+
+
+#### FlatMap examples
 
 **Form a pair of numbers taking each number from two lists of numbers:**
 
@@ -388,8 +375,22 @@ java
 ```java
 numbers1.stream()
         .flatMap(i -> numbers2.stream()
-                               .map(k -> new int[]{i, k}))
+        .map(k -> new int[]{i, k}))
         .collect(toList());
+```
+
+```java
+numbers1.stream().
+        .flatMap(i -> numbers2.stream().map(j -> new int[]{i, j}))
+        .collect(Collectors.toList());
+```
+
+Filter:
+
+```java
+numbers1.stream().
+        .flatMap(i -> numbers2.stream().filter(j -> (i + j) % 3 == 0).map(j -> new int[]{i, j}))
+        .collect(Collectors.toList());
 ```
 
 **Form a list of numbers that represents pairwise summations of numbers taking each number from two lists of numbers. Each number should appear exactly once in the list.**
@@ -409,13 +410,24 @@ numbers1.stream()
 
 **The core idea to remember:** use `map` when each input element maps to exactly one output element; use `flatMap` when each input element maps to _zero or more_ output elements (like a word → its letters, or a number → a set of pairs) and you want a single flat stream out.
 
+The rule to follow is: in the lambda inside flatMap, you must somehow map from an **object of a stream** to a **stream**.
+
+```java
+
+List<List<String>> phoneNumbers = customers.stream().map(customer -> customer.getPhoneNumbers()).collect(Collectors.toList()); // using a map, returns nested lists.
+
+// using flatMap, just return a stream
+List<String> phones = customers.stream().flatMap(customer -> customers.getPhoneNumbers().stream()).collect(Collectors.toList());
+
+```
+
 ---
 
 ### 12. Finding and Matching
 
-**`anyMatch` (verbatim):**
+**`anyMatch`:**
 
-- Takes a predicate as argument and returns `true` if there is at least one element matching the criteria from the stream.
+- Takes a **predicate** as argument and returns `true` if there is at least one element matching the criteria from the stream.
 
 **Also listed:**
 
@@ -439,21 +451,29 @@ boolean allVeg = menu.stream().allMatch(Dish::isVegetarian);
 boolean noneOver1000 = menu.stream().noneMatch(d -> d.getCalories() > 1000);
 ```
 
-All three of these are **terminal** operations that return a `boolean`, and all three are **short-circuiting** (see next section) — they don't necessarily need to check every element.
+These are identical btw:
+```java
+// Using a Lambda Expression:
+boolean allVeg = menu.stream().allMatch(d -> d.isVegetarian());
+
+// Using a Method Reference (shorthand):
+boolean allVeg = menu.stream().allMatch(Dish::isVegetarian);
+```
+In the 2nd case, `allMatch()` takes in a `Predicate<T>`, now this uses a `bool test(T obj)` function, so you _can_ pass in another function like `Dish::isVegetarian` which has the same signature.
+
+All three of these are **terminal** operations that return a `boolean`, and all three are **short-circuiting**, they don't necessarily need to check every element.
 
 ---
 
 ### 13. Short Circuiting
 
-**Key points (verbatim):**
+**Key points:**
 
 - The matching functions do not need to process the entire stream to give the result.
 - They can turn an infinite stream to constant size.
 - Examples of short-circuiting operations: `limit`, `findFirst` (more constraining for parallel streams), `findAny`.
 
-**Example (verbatim):**
-
-java
+**Example:**
 
 ```java
 menu.stream()
@@ -462,34 +482,30 @@ menu.stream()
     .ifPresent(d -> System.out.println(d.getName()));
 ```
 
-**Why `findFirst` is "more constraining for parallel streams":** `findFirst` must respect the encounter order of the stream — even when running in parallel, it has to figure out which element is truly "first," which limits how freely the work can be parallelized. `findAny` has no such constraint — any matching element will do, so it's more parallel-friendly.
+**Why `findFirst` is "more constraining for parallel streams":** `findFirst` must respect the encounter order of the stream — even when running in parallel, it has to figure out which element is truly "first," which limits how freely the work can be parallelized. `findAny` has no such constraint, any matching element will do, so it's more parallel-friendly.
 
-Note that `findAny`/`findFirst` return an `Optional<T>` — which is exactly the next topic.
+Note that `findAny`/`findFirst` return an `Optional<T>`.
 
 ---
 
 ### 14. Optional
 
-**Definition (verbatim):**
+**Definition:**
 
 > The `Optional<T>` class (`java.util.Optional`) is a container class to represent the existence or absence of a value.
-
-Motivating problem it solves (verbatim style):
-
-java
 
 ```java
 if (value != null) value.someMethod();
 ```
 
-`Optional` exists to avoid bugs related to null checking — instead of returning `null` and hoping every caller remembers to check for it, a method returns an `Optional<T>` that explicitly forces you to consider the "absent" case.
+`Optional` exists to avoid bugs related to null checking, instead of returning `null` and hoping every caller remembers to check for it, a method returns an `Optional<T>` that explicitly forces you to consider the "absent" case.
 
-**Optional's key methods (verbatim):**
+**Optional's key methods:**
 
-- `isPresent()` — returns `true` if Optional contains a value, `false` otherwise.
-- `T get()` — returns the value if present; otherwise it throws a `NoSuchElementException`.
-- `ifPresent(Consumer<T> block)` — executes the given block if a value is present.
-- `T orElse(T other)` — returns the value if present; otherwise it returns a default value.
+- `isPresent()` -> returns `true` if Optional contains a value, `false` otherwise.
+- `T get()` -> returns the value if present; otherwise it throws a `NoSuchElementException`.
+- `ifPresent(Consumer<T> block)` -> executes the given block if a value is present.
+- `T orElse(T other)` -> returns the value if present; otherwise it returns a default value.
 
 java
 
@@ -511,9 +527,7 @@ Dish chosen = spicy.orElse(defaultDish);
 
 ---
 
-### 15. Predicate, Map and FlatMap — Practice Questions
-
-The slide poses these as exercises (verbatim questions):
+### 15. Predicate, Map and FlatMap Questions
 
 1. Given a list, square each number
 2. Find a number from a given list, whose squares are divisible by 3
@@ -565,17 +579,17 @@ long lowerCount = someString.chars()
                              .count();
 ```
 
-(`String.chars()` returns an `IntStream` of the character codes, which is why `filter` takes an `int`-based predicate here — `Character::isLowerCase` matches that signature.)
+(`String.chars()` returns an `IntStream` of the character codes, which is why `filter` takes an `int`-based predicate here, `Character::isLowerCase` matches that signature.)
 
 ---
 
 ### 16. Terminal Operations
 
-**Key points (verbatim):**
+**Key points:**
 
 - So far, the terminal operations are found to return a `boolean` (`allMatch` and so on), `void` (`forEach`), an `Optional` object (`findAny` and so on).
 
-**Reducing (verbatim):**
+**Reducing:**
 
 - Combines all elements of the stream repeatedly to produce a single value as result. This is called **fold**.
 
@@ -583,7 +597,7 @@ long lowerCount = someString.chars()
 
 ### 17. Reducing
 
-**Motivating example — summing up elements (verbatim):**
+**Motivating example: summing up elements:**
 
 java
 
@@ -603,7 +617,6 @@ for (int x : numbers) {
 - An initial value, here `0`.
 - A `BinaryOperator<T>` to combine two elements and produce a new value; here you use the lambda `(accumulator, element) -> accumulator + element`.
 
-java
 
 ```java
 int sum = numbers.stream().reduce(0, (a, b) -> a + b);
@@ -637,17 +650,17 @@ Second chunk: 0+5=5, 5+6=11, 11+7=18, 18+8=26
 Combine: 10 + 26 = 36
 ```
 
-**Key requirements (verbatim) for this parallelization to be valid:**
+**Key requirements for this parallelization to be valid:**
 
 - Only for **associative** operations
-- The operations must be **non-interfering** — that is, does not affect the data source
+- The operations must be **non-interfering**, that is, does not affect the data source
 - **Stateless** and **deterministic**
 
 These are the same rules that govern any operation you hand to a parallel stream: the accumulator function must give the same result regardless of the order operands are combined in (associativity), it must not read/mutate any shared external state (statelessness/non-interference), and repeated runs must produce the same answer (determinism). Addition satisfies all of these; something like "subtract" would not (not associative), and anything that mutates a shared list while streaming over it would violate non-interference.
 
 ---
 
-### 19. Stream Operations — Stateless vs Stateful
+### 19. Stream Operations: Stateless vs Stateful (See this again)
 
 #### Stateless operations
 
@@ -669,10 +682,10 @@ Also mentioned as needing only small, bounded internal state: `sum`, `max`, `red
 - Take an input stream
 - Process each element of the stream
 - Produce 1 result in the output stream
-- To compute they need the previous history
+- To compute they need the previous history (like `distinct`)
 - Stateful operations → Unbounded storage space
 
-**Important note (verbatim):**
+**Important note:**
 
 > The stream operations that do not pose an order are easier for parallelization.  
 > Stream poses an encounter order in which each element is operated upon. This depends on both:
@@ -680,11 +693,11 @@ Also mentioned as needing only small, bounded internal state: `sum`, `max`, `red
 > - the source of the data
 > - the operation performed on the stream
 
-Intuition: `filter`/`map` can decide the fate of one element in isolation, so they parallelize trivially. `sort`/`distinct` need to compare an element against _all_ the others seen so far, so they need to accumulate growing state as they go (which is why "unbounded storage space" is listed) — this makes them harder to parallelize efficiently.
+Intuition: `filter`/`map` can decide the fate of one element in isolation, so they parallelize trivially. `sort`/`distinct` need to compare an element against _all_ the others seen so far, so they need to accumulate growing state as they go (which is why "unbounded storage space" is listed), this makes them harder to parallelize efficiently.
 
 ---
 
-### 20. Version 1 (verbatim, unrefactored)
+### 20. Version 1 (unrefactored)
 
 java
 
@@ -701,18 +714,14 @@ Set<String> origins = bands.stream()
                             .collect(toSet());
 ```
 
-The slide includes this quote as commentary on this style:
-
-> "There does not now, nor will there ever, exist a programming language in which it is least bit hard to write bad programs."
-
-#### Uses and Misuses (verbatim reasons this Version 1 style is bad)
+#### Uses and Misuses (reasons this Version 1 style is bad)
 
 - It's harder to read what's going on because the ratio of boilerplate code to actual business logic is worse.
-- It's less efficient because it requires eagerly creating new collection objects at each intermediate step.
+- It's less efficient because it requires creating new collection objects at each intermediate step.
 - It clutters your method with meaningless garbage variables that are needed only as intermediate results.
 - It makes operations harder to automatically parallelize.
 
-#### Version 2 (verbatim, refactored — a single chained pipeline)
+#### Version 2 (refactored, a single chained pipeline)
 
 java
 
@@ -723,9 +732,7 @@ Set<String> origins = album.getMusicians()
                             .collect(toSet());
 ```
 
-**Takeaway/exam point:** prefer chaining operations directly on a stream into one pipeline, rather than breaking it into multiple intermediate `List`/`Set` variables — this is both more readable and more efficient (no wasted intermediate collections), and easier to parallelize.
-
-_(Note: the slide's Version 1 filters on `startsWith("S")` and Version 2 on `startsWith("A")` — that's exactly how it appears in the source deck; it's just illustrating the refactoring pattern, not the same literal filter value.)_
+**Takeaway/exam point:** prefer chaining operations directly on a stream into one pipeline, rather than breaking it into multiple intermediate `List`/`Set` variables, this is both more readable and more efficient (no wasted intermediate collections), and easier to parallelize.
 
 ---
 
@@ -742,26 +749,22 @@ java
 List<Dish> result = menu.stream().collect(toList());
 ```
 
-Diagram description: a stream of shapes → `toList()` → a `List` containing the same shapes.
-
-**Extra note (verbatim, important):**
+**Note (important):**
 
 > If the stream is parallel, and the Collector is concurrent, and either the stream is unordered or the collector is unordered, then a concurrent reduction will be performed.
 
 ---
 
-### 22. Collecting Streams — the `Collector` interface
+### 22. Collecting Streams: The `Collector` interface
 
-**Key points (verbatim):**
+**Key points:**
 
-- Collection, Collector, and collect are different (words that look similar but mean different things — `Collection` is the data structure interface, `Collector` is the recipe object, `collect` is the stream method).
+- Collection, Collector, and collect are different (words that look similar but mean different things:`Collection` is the data structure interface, `Collector` is the recipe object, `collect` is the stream method).
 - `Collector` interface: a general-purpose construct for producing complex values from streams.
 - `Collector<T,A,R>`:
-    - `T` — Generic type of Stream elements
-    - `A` — Accumulator type
-    - `R` — Type of elements resulting from the collect operation
-
-java
+    - `T` -> Generic type of Stream elements
+    - `A` -> Accumulator type
+    - `R` -> Type of elements resulting from the collect operation
 
 ```java
 R collect(Collector<? super T, A, R> collector)
@@ -771,7 +774,7 @@ R collect(Collector<? super T, A, R> collector)
 
 ### 23. Collectors
 
-**Key points (verbatim):**
+**Key points:**
 
 - Collector applies a transforming function to the elements.
 - For example, in `toList()` it is the identity transformation.
@@ -801,7 +804,9 @@ List<String> names = menu.stream().map(Dish::getName).collect(toList());
 
 ---
 
-### 24. Collecting — how it actually works internally
+### 24. Collecting: how it actually works internally
+
+![[Pasted image 20260904142934.png]]
 
 The slide's diagram walks through processing a stream of transactions with a `Collector`:
 
@@ -815,35 +820,35 @@ So a `Collector` is essentially a plug-in strategy: for every element in the str
 
 ### 25. The Collector Functions
 
-**A Collector is specified by four functions (verbatim, exam-important):**
+**A Collector is specified by four functions:**
 
-1. Creation of a new result container — `supplier()`
-2. Incorporating a new data element into a result container — `accumulator()`
-3. Combining two result containers into one — `combiner()`
-4. Performing an optional final transform on the container — `finisher()`
+1. Creation of a new result container, `supplier()`
+2. Incorporating a new data element into a result container, `accumulator()`
+3. Combining two result containers into one, `combiner()`
+4. Performing an optional final transform on the container,`finisher()`
 
 Also noted:
 
 > Collectors also have a set of characteristics, such as `Collector.Characteristics.CONCURRENT`, that provide hints that can be used by a reduction implementation to provide better performance.
 
-**How a sequential implementation works (verbatim):**
+**How a sequential implementation works:**
 
 - Create a single result container using the supplier function.
 - And invoke the accumulator function once for each input element.
 
-**How a parallel implementation works (verbatim):**
+**How a parallel implementation works:**
 
 - Partition the input
 - Create a result container for each partition
 - Accumulate the contents of each partition into a subresult for that partition
 - Use the combiner function to merge the subresults into a combined result
-- The combiner may fold state — returns a `BinaryOperator`
+- The combiner may fold state, returns a `BinaryOperator`
 
-This is the exact same fork/join pattern you saw with `reduce` earlier — `Collector` is really the general, mutable version of that idea (supplier = "start", accumulator = "combine one more element in", combiner = "merge two partial results", finisher = "final polish").
+This is the exact same fork/join pattern you saw with `reduce` earlier: `Collector` is really the general, mutable version of that idea (supplier = "start", accumulator = "combine one more element in", combiner = "merge two partial results", finisher = "final polish").
 
 ---
 
-### 26. Collecting Streams — three broad categories (verbatim)
+### 26. Collecting Streams
 
 - Reducing and summarizing stream elements to a single value
 - Grouping elements
@@ -853,7 +858,7 @@ This is the exact same fork/join pattern you saw with `reduce` earlier — `Coll
 
 ### 27. Reducing and Summarizing
 
-**Counting (verbatim):**
+**Counting:**
 
 > Count the no of menu items
 
@@ -863,9 +868,7 @@ java
 long countingDish = menu.stream().collect(Collectors.counting());
 ```
 
-**`maxBy()` and `minBy()` (verbatim):**
-
-java
+**`maxBy()` and `minBy()`:**
 
 ```java
 Comparator<Dish> dishCaloriesComp = Comparator.comparing(Dish::getCalories);
@@ -880,7 +883,7 @@ Optional<Dish> TastyDish = menu.stream().collect(maxBy(dishCaloriesComp));
 
 ### 28. Summarizing
 
-**Collectors mentioned (verbatim):**
+**Collectors mentioned:**
 
 - `Collectors.summingInt()`
 
@@ -912,7 +915,6 @@ stats.getCount();
 
 ### 29. Joining Strings
 
-java
 
 ```java
 String results = menu.stream()
@@ -921,7 +923,6 @@ String results = menu.stream()
                       .collect(Collectors.joining(",", "[", "]"));
 ```
 
-java
 
 ```java
 results = menu.stream().collect(reducing(" ", Dish::getName, (i, j) -> i + j));
@@ -936,17 +937,15 @@ Initial Value    Identity function/          Binary operator
                   transformation
 ```
 
-**Note (verbatim):**
+**Note:**
 
 > `joining()` internally makes use of a `StringBuilder` to append the generated strings into one.
 
-`Collectors.joining(delimiter, prefix, suffix)` is the friendly, purpose-built way to concatenate strings from a stream — you'd use it instead of manually reducing, in practice.
+`Collectors.joining(delimiter, prefix, suffix)` is the friendly, purpose-built way to concatenate strings from a stream, you'd use it instead of manually reducing, in practice.
 
 ---
 
 ### 30. Reducing (as a collector)
-
-java
 
 ```java
 results = menu.stream()
@@ -957,13 +956,13 @@ Optional<Dish> mostCalorieDish =
         .collect(reducing((d1, d2) -> d1.getCalories() > d2.getCalories() ? d1 : d2));
 ```
 
-This second form — `reducing` with just a `BinaryOperator` and no initial value — returns an `Optional<Dish>` (again because the stream might be empty), and picks whichever dish has more calories at each step, ending with the overall highest-calorie dish.
+This second form:`reducing` with just a `BinaryOperator` and no initial value, returns an `Optional<Dish>` (again because the stream might be empty), and picks whichever dish has more calories at each step, ending with the overall highest-calorie dish.
 
 ---
 
 ### 31. Reduce vs Collect
 
-**Key points (verbatim, important exam distinction):**
+**Key points:**
 
 - The `reduce` method is meant to combine two values and produce a new one; it's an **immutable** reduction.
 - In contrast, the `collect` method is designed to **mutate** a container to accumulate the result it's supposed to produce.
@@ -983,13 +982,13 @@ Map<Boolean, List<Dish>> mapResults =
     menu.stream().collect(partitioningBy(d -> d.isVegetarian()));
 ```
 
-Diagram: `partitioningBy` splits the stream into exactly two buckets keyed by `true`/`false` — here, Vegetarian vs NonVegetarian.
+`partitioningBy` splits the stream into exactly two buckets keyed by `true`/`false`: here, Vegetarian vs NonVegetarian.
 
-`partitioningBy` always produces a `Map<Boolean, List<T>>` with exactly two keys (`true` and `false`), even if one bucket ends up empty — this is different from `groupingBy` (next section), which only creates keys it actually encounters.
+`partitioningBy` always produces a `Map<Boolean, List<T>>` with exactly two keys (`true` and `false`), even if one bucket ends up empty, this is different from `groupingBy` (next section), which only creates keys it actually encounters.
 
 ---
 
-### 33. Prime vs Non-Prime example (verbatim)
+### 33. Prime vs Non-Prime example
 
 java
 
@@ -1022,17 +1021,21 @@ java
 menu.stream().collect(groupingBy(d -> d.getType()));
 ```
 
-**Key point (verbatim):**
+**Key point:**
 
 > We call this Function a _classification_ function because it's used to classify the elements of the stream into different groups.
 
-Diagram: `menu` → grouped into FISH / MEAT / OTHERS buckets, using `Dish::getType`.
+![[Pasted image 20260904192939.png]]
+
+`menu` → grouped into FISH / MEAT / OTHERS buckets, using `Dish::getType`.
 
 `groupingBy` produces a `Map<K, List<T>>` where `K` is whatever type your classification function returns, and each key maps to a list of all elements that produced that key.
 
 ---
 
-### 35. Grouping — internal mechanics
+### 35. Grouping
+
+![[Pasted image 20260904193223.png]]
 
 The slide's diagram traces one element through the process:
 
@@ -1057,11 +1060,10 @@ Each incoming element gets run through the classification function to determine 
 
 ### 36. Grouping with a more complex classification function
 
-**Key point (verbatim):**
+**Key point:**
 
 > It isn't always possible to use a method reference as a classification function, because you may wish to classify using something more complex than a simple property accessor.
 
-java
 
 ```java
 public enum Category { DIET, NORMAL, FAT }
@@ -1072,22 +1074,20 @@ java
 ```java
 menu.stream().collect(groupingBy(d -> {
     if (d.getCalories() <= 400) return Category.DIET;
-    else if (dish.getCalories() <= 700) return Category.NORMAL;
+    else if (d.getCalories() <= 700) return Category.NORMAL;
     else return Category.FAT;
 }));
 ```
 
 Resulting type: `Map<Category, List<Dish>>`
 
-Whereas `d -> d.getType()` was a simple property accessor (could've been `Dish::getType`), here the classification logic is a multi-branch calculation — this is why it needs to be a full lambda body rather than a method reference.
-
-_(Note: the slide's lambda body references `dish.getCalories()` in the `else if` while the parameter is named `d` — that's how it appears in the source deck; in your own code keep the parameter name consistent, e.g. always use `d`.)_
+Whereas `d -> d.getType()` was a simple property accessor (could've been `Dish::getType`), here the classification logic is a multi-branch calculation. This is why it needs to be a full lambda body rather than a method reference.
 
 ---
 
 ### 37. Extracting Group-wise Features
 
-**Key point (verbatim):**
+**Key point:**
 
 > Using a collector created with a two-argument version of the `Collectors.groupingBy` factory method. It accepts a second argument of type collector besides the usual classification function.  
 > The regular one-argument `groupingBy(f)`, where f is the classification function, is in reality just shorthand for `groupingBy(f, toList())`.
@@ -1098,18 +1098,15 @@ This is a crucial mental model: `groupingBy(classifier)` always secretly means `
 
 ### 38. Multilevel Collection (brief intro slide)
 
-**Key point (verbatim):**
+**Key point:**
 
 > Second level collector may not always subgroup.
 
-(Restates the three categories again: Reducing and summarizing stream elements to a single value / Grouping elements / Partitioning elements — this is the same list as slide 26, used here to set up multilevel collecting.)
+(Restates the three categories again: Reducing and summarizing stream elements to a single value / Grouping elements / Partitioning elements, this is the same list as slide 26, used here to set up multilevel collecting.)
 
 ---
 
-### 39. "Do You Remember?" (recap slide, verbatim — same as slide 27)
-
-java
-
+### 39. Do You Remember?
 ```java
 long countingDish = menu.stream().collect(Collectors.counting());
 
@@ -1137,7 +1134,7 @@ For the highest-calorie dish per type:
 {FISH=Optional[salmon], OTHER=Optional[pizza], MEAT=Optional[Burger]}
 ```
 
-**Key points (verbatim):**
+**Key points:**
 
 - `groupingBy` works in terms of "buckets."
 - The first `groupingBy` creates a bucket for each key. You then collect the elements in each bucket with the downstream collector.

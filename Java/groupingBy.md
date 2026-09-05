@@ -70,12 +70,6 @@ That second argument is called the **downstream collector** — "once you've sor
 
 ### Step 1: Classification function can be _anything_, not just a getter
 
-The slides point out: sometimes you can't just say "group by this property" with a one-liner method reference — you need actual logic to decide the bucket.
-
-Example: bucket employees by salary band.
-
-java
-
 ```java
 enum SalaryBand { LOW, MID, HIGH }
 
@@ -101,7 +95,7 @@ HIGH -> [Alice(90k), Frank(85k)]
 
 ---
 
-### Step 2: `partitioningBy` — the special "only two buckets" case
+### Step 2: `partitioningBy`
 
 `partitioningBy` is like `groupingBy`, except the classification function must return a `boolean`, so there are always **exactly two buckets**: `true` and `false`.
 
@@ -142,7 +136,7 @@ Map<Boolean, List<Integer>> primeSplit =
 
 ---
 
-### Step 3: Now let's actually use the downstream collector — this is the "hard part" made easy
+### Step 3: Downstream collector
 
 Ask yourself: _"I want one number/value per department, not a whole list."_ That's exactly when you swap out the default `toList()` downstream collector for something else.
 
@@ -183,8 +177,6 @@ Sales -> Optional[Frank(85000)]
 
 **Why is the value wrapped in `Optional`?** Because `maxBy` itself, on its own, always returns an `Optional<T>` (a plain stream _could_ be empty, so `maxBy` has to account for "no maximum exists"). When you plug `maxBy` in as the downstream collector, that `Optional` wrapping comes along for the ride, per-bucket.
 
-But logically — if a department-bucket exists at all in this map, it's _because_ at least one employee was grouped into it. So the `Optional` can never actually be empty here. It's just an annoying wrapper. That's exactly the itch `collectingAndThen` scratches (see Step 5).
-
 #### Example: Total salary per department
 
 java
@@ -219,13 +211,9 @@ groupingBy( classifier ,  downstreamCollector )
                             inside that bucket?"
 ```
 
-Any collector you've already learned (`toList()`, `counting()`, `summingInt()`, `maxBy()`, `toSet()`, `joining()`, etc.) can be plugged in as that second argument. That's the whole trick.
-
 ---
 
-### Step 4: `mapping` — transform elements _before_ they get collected inside a bucket
-
-Sometimes you don't want the raw `Employee` objects inside each bucket — you want just their names, or some derived value.
+### Step 4: `mapping`: transform elements _before_ they get collected inside a bucket
 
 #### Example: Just the names of employees per department (not full Employee objects)
 
@@ -252,8 +240,6 @@ mapping( Employee::getName ,  toList() )
 
 #### Example: Distinct salary-bands present per department
 
-java
-
 ```java
 Map<String, Set<SalaryBand>> bandsPresentByDept =
     employees.stream()
@@ -269,7 +255,7 @@ This exactly mirrors the slide's `caloricLevelsByType` example — for each dish
 
 ---
 
-### Step 5: `collectingAndThen` — clean up the result of a downstream collector
+### Step 5: `collectingAndThen`
 
 Recall the "annoying `Optional`" problem from Step 3. `collectingAndThen` lets you take _any_ collector, and after it finishes, run one more transformation on whatever it produced.
 
@@ -468,7 +454,6 @@ Ask these three questions, in order:
 
 Once you can answer those three questions for a problem, writing the `groupingBy(...)` call is just plugging the answers into the template:
 
-java
 
 ```java
 groupingBy(

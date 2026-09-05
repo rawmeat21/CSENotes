@@ -47,24 +47,6 @@ boolean isPalindrome = IntStream.range(0, input.length() / 2)
 ```
 - Finding a number prime or nonprime using Java streams
 
-### Explanation
-
-**`range()` vs `rangeClosed()`** — this is a key exam point:
-- `IntStream.range(a, b)` produces `a, a+1, ..., b-1`, the upper bound `b` is **exclusive**.
-- `IntStream.rangeClosed(a, b)` produces `a, a+1, ..., b`, the upper bound `b` is **inclusive**.
-
-So `IntStream.rangeClosed(1, 100)` gives you 1 through 100 (100 numbers), while `IntStream.range(1, 100)` gives you 1 through 99 (99 numbers). That's exactly why the slide's second line is named `oneToNinetyNine`.
-
-**Palindrome check, explained in depth:**
-```java
-boolean isPalindrome = IntStream.range(0, input.length() / 2)
-    .allMatch(i -> input.charAt(i) == input.charAt(input.length() - 1 - i));
-```
-- `IntStream.range(0, input.length() / 2)` generates indices `0, 1, 2, ...` up to (but not including) the halfway point of the string. You only need to check the first half against the mirrored second half — checking the whole string would be redundant work.
-- `allMatch(predicate)` is a **short-circuiting terminal operation**: it returns `true` only if the predicate is `true` for *every* element, and it stops as soon as it finds one element where the predicate is `false` (it does not need to scan the rest).
-- The predicate `i -> input.charAt(i) == input.charAt(input.length() - 1 - i)` compares the character at position `i` from the front with the character at position `i` from the back (`length - 1 - i` is the mirrored index).
-- If every such pair matches, the string reads the same forwards and backwards → palindrome.
-
 **Prime/nonprime via streams:** Since this is a very standard interview-style pattern, here is how you'd write it, keeping the exact same style as the palindrome example (checking divisibility with `noneMatch`/`allMatch`):
 
 ```java
@@ -75,7 +57,6 @@ static boolean isPrime(int candidate) {
 }
 ```
 
-- `noneMatch(predicate)` is the logical opposite of `allMatch`: it returns `true` if the predicate is `false` for every element (i.e., no divisor was found), meaning the number is prime. It is also short-circuiting, it stops as soon as it finds one divisor.
 
 ---
 
@@ -195,44 +176,12 @@ IntStream.generate(fib).limit(10).forEach(System.out::println);
 
 **`Stream.generate(Supplier<T> s)`** is the other way to build an infinite stream. Unlike `iterate`, each new element is produced by calling a `Supplier<T>`, a functional interface with a single method `T get()` that takes **no arguments**. There is no relationship enforced between one generated value and the next (unlike `iterate`, where each value is explicitly derived from the previous one via `f`).
 
-`Stream.generate(Math::random).limit(5).forEach(System.out::println)`:
-- `Math::random` is a method reference matching `Supplier<Double>` (its signature `double random()` takes no args and returns a value, matching `T get()`).
-- Each call to `Math.random()` produces a new pseudo-random double in `[0, 1)`, independent of prior calls.
-- `.limit(5)` again bounds the infinite stream to 5 elements (mandatory here, since `generate` never terminates on its own).
-
 **Why statefulness matters:** `Math::random` happens to be safe because each call is independent and thread-safe internally. But the `IntSupplier fib` example is **stateful**, it has mutable instance fields `previous` and `current` that are updated on every call, and each call's result depends on the *order* of previous calls. If you ran `IntStream.generate(fib).parallel()...`, multiple threads could call `getAsInt()` concurrently, racing on `previous`/`current` and corrupting the sequence (or throwing exceptions due to unsynchronized access). This is exactly the sentence on the slide: *"a supplier that's stateful isn't safe to use in parallel code."*
-
-Walking through the stateful Fibonacci `IntSupplier`:
-```java
-IntSupplier fib = new IntSupplier(){
-    private int previous = 0;
-    private int current = 1;
-    public int getAsInt(){
-        int oldPrevious = this.previous;
-        int nextValue = this.previous + this.current;
-        this.previous = this.current;
-        this.current = nextValue;
-        return oldPrevious;
-    }
-};
-```
-- This is an **anonymous class** implementing `IntSupplier` (the primitive-specialized version of `Supplier<T>`, whose method is `int getAsInt()` instead of `T get()` — this avoids boxing each Fibonacci number into an `Integer`).
-- It keeps two `private` fields as mutable state across calls: `previous` and `current`.
-- Each call to `getAsInt()`:
-  1. Remembers the *old* `previous` value (this is what gets returned this call).
-  2. Computes `nextValue = previous + current`.
-  3. Shifts the window forward: `previous` becomes the old `current`, `current` becomes `nextValue`.
-  4. Returns the *old* `previous`.
-- Trace of first several calls: returns `0, 1, 1, 2, 3, 5, 8, 13, 21, 34` — the Fibonacci sequence — because each call mutates the enclosed state to remember where it left off, unlike `Math::random` which needs no such memory.
-- `IntStream.generate(fib).limit(10).forEach(System.out::println)` prints exactly those 10 numbers.
-
-This is the counterpart to the `iterate`-based Fibonacci from Slide 5: `iterate` derives the next state functionally from the *previous* state (passed in as the seed/output of `f`), with no mutable fields, while `generate` here relies on a stateful object that remembers everything internally between calls with no seed/state passed through the stream API itself.
 
 ---
 
-## Slide 7 & 8 — Parallel Streams
+## Parallel Streams
 
-**[SLIDE]**
 ```java
 public static long iterativeSum(long n) {
     long result = 0;
@@ -247,7 +196,7 @@ public static long parallelSum(long n) {
                       .reduce(0L, (a,b) -> a+b);
 }
 ```
-- (Slide 8 repeats this, then adds:) "Using the right data structure and then making it work in parallel guarantees the best performance."
+"Using the right data structure and then making it work in parallel guarantees the best performance."
 ```java
 public static long parallelSum(long n) {
     return LongStream.iterate(1L, i -> i + 1)
@@ -261,26 +210,14 @@ public static long parallelSum(long n) {
 
 `iterativeSum` is the classic imperative for-loop way to sum `1` through `n`.
 
-The first `parallelSum` (Slide 7) is **not actually running in parallel** — despite the name, it's just a *sequential stream* pipeline written in stream style:
-- `LongStream.iterate(1L, i -> i + 1)` — an infinite stream of longs starting at 1, incrementing by 1 each step (`1, 2, 3, 4, ...`).
-- `.limit(n)` — cut it down to exactly `n` elements: `1, 2, ..., n`.
-- `.reduce(0L, (a,b) -> a+b)` — a terminal **reduction**: start with an identity value `0L`, and combine elements pairwise with the `(a,b) -> a+b` operator, producing a running total. `reduce(identity, accumulator)` folds the whole stream down to a single value — here, the sum `1+2+...+n`.
+The first `parallelSum` (Slide 7) is **not actually running in parallel**, despite the name, it's just a *sequential stream* pipeline written in stream style.
 
-Slide 8's point ("using the right data structure...guarantees the best performance") sets up the punchline: **actually going parallel requires calling `.parallel()`.**
-```java
-LongStream.iterate(1L, i -> i + 1)
-           .limit(n)
-           .parallel()
-           .reduce(0L, (a,b) -> a+b);
-```
-- `.parallel()` is an intermediate operation that marks the stream to be executed using the **Fork/Join framework** (covered on the following slides), splitting the work across multiple threads/cores.
-- **Gotcha (this is a very important exam trap, and the slides flag it in the very next section):** `LongStream.iterate(...)` is fundamentally a poor fit for parallelization, because each element depends sequentially on the one before it (`i -> i+1` needs the previous `i`) and `iterate`-based streams don't split (decompose) efficiently. So simply slapping `.parallel()` onto this particular pipeline does **not** actually make it faster — it may even be slower than the sequential version, because of the coordination overhead with no real parallel gain. This is exactly what the next slides explain in more depth (see "Parallelism Wins?").
-
+- `.parallel()` is an intermediate operation that marks the stream to be executed using the **Fork/Join framework**, splitting the work across multiple threads/cores.
+- **Gotcha (this is a very important exam trap, and the slides flag it in the very next section):** `LongStream.iterate(...)` is fundamentally a poor fit for parallelization, because each element depends sequentially on the one before it (`i -> i+1` needs the previous `i`) and `iterate`-based streams don't split (decompose) efficiently. So simply slapping `.parallel()` onto this particular pipeline does **not** actually make it faster — it may even be slower than the sequential version, because of the coordination overhead with no real parallel gain.
 ---
 
-## Slide 9 — Parallelism Wins? (Part 1)
+## Parallelism Wins? (Part 1)
 
-**[SLIDE]**
 - Turning a sequential stream into a parallel one is trivial but not always the right thing to do. Performance should be measured first.
 - Automatic boxing and unboxing operations can dramatically hurt performance.
 - Some operations naturally perform worse on a parallel stream than on a sequential stream.
@@ -290,44 +227,25 @@ LongStream.iterate(1L, i -> i + 1)
 
 ### Explanation
 
-This is a list of caveats about parallel streams — memorize these, they are classic exam bullet points:
+1. **Order-dependent operations are expensive in parallel.** `limit(n)` needs to know exactly which `n` elements come *first in encounter order*, in a parallel setting, different threads process different chunks concurrently, so the framework has to do extra bookkeeping/synchronization to figure out which results are "the first n" once everything comes back together. Similarly, `findFirst()` must specifically return the first element in encounter order, which again requires the same kind of coordination across parallel workers.
 
-1. **"Trivial but not always right" / measure first.** Calling `.parallel()` is a one-line change, so it's tempting to sprinkle it everywhere. But parallel execution has real overhead (splitting the data, coordinating threads, merging partial results), and for small workloads that overhead can dwarf any benefit. Always benchmark before/after with realistic data sizes rather than assuming `.parallel()` helps.
+2. **`findAny` vs `findFirst`.** `findAny()` returns *some* matching element, it doesn't care which one, so as soon as *any* worker thread finds a match, it can return immediately without needing to coordinate with the others about ordering. This makes `findAny()` cheaper than `findFirst()` in a parallel context whenever you don't specifically need the first-in-order result.
 
-2. **Boxing/unboxing hurts performance.** If your parallel stream is a `Stream<Integer>` rather than an `IntStream`, every element requires boxing/unboxing on top of the parallel overhead — compounding the cost. This connects back to Slide 1: prefer primitive streams for numeric work, *especially* in parallel.
-
-3. **Order-dependent operations are expensive in parallel.** `limit(n)` needs to know exactly which `n` elements come *first in encounter order* — in a parallel setting, different threads process different chunks concurrently, so the framework has to do extra bookkeeping/synchronization to figure out which results are "the first n" once everything comes back together. Similarly, `findFirst()` must specifically return the first element in encounter order, which again requires the same kind of coordination across parallel workers.
-
-4. **`findAny` vs `findFirst`.** `findAny()` returns *some* matching element — it doesn't care which one — so as soon as *any* worker thread finds a match, it can return immediately without needing to coordinate with the others about ordering. This makes `findAny()` cheaper than `findFirst()` in a parallel context whenever you don't specifically need the first-in-order result.
-
-5. **`unordered()`.** If you don't care about encounter order at all (e.g., you're just summing values, or using `findAny`), calling `.unordered()` on the stream tells the framework it's free to ignore ordering constraints, which can remove a lot of the coordination overhead described in point 3 — and can be combined with `.parallel()` for extra speed on order-insensitive operations.
+3. **`unordered()`.** If you don't care about encounter order at all (e.g., you're just summing values, or using `findAny`), calling `.unordered()` on the stream tells the framework it's free to ignore ordering constraints, which can remove a lot of the coordination overhead described in point 3, and can be combined with `.parallel()` for extra speed on order-insensitive operations.
 
 ---
 
-## Slide 10 — Parallelism Wins? (Part 2: Cost Model)
+## Parallelism Wins?
 
-**[SLIDE]**
 - Consider the total computational cost of the pipeline of operations performed by the stream.
 - With `N` being the number of elements to be processed and `Q` the approximate cost of processing one of these elements through the stream pipeline, the product of `N*Q` gives a rough qualitative estimation of this cost.
 - A higher value for `Q` implies a better chance of good performance when using a parallel stream.
 - For a small amount of data, choosing a parallel stream is almost never a winning decision.
 
-### Explanation
-
-This gives you a mental cost model, worth memorizing as-is for an exam:
-
-- **`N` = number of elements**, **`Q` = per-element processing cost**. The rough total work is `N * Q`.
-- Splitting work across threads has a fixed overhead (thread coordination, merging results). This overhead is only "worth it" if the total work `N * Q` is large enough to amortize it.
-- **If `Q` is large** (each element takes real, non-trivial computation — e.g., some heavy math operation per element), then parallelizing has more to gain, because you're distributing genuinely expensive work.
-- **If `N` is small** (few elements), the fixed overhead of setting up parallel execution dominates regardless of `Q`, so sequential execution nearly always wins. This is the direct justification for the bullet: *"for a small amount of data, choosing a parallel stream is almost never a winning decision."*
-
-Intuition: parallelism amortizes fixed coordination costs over the *total* amount of work; if total work is small, there's nothing to amortize it against.
-
 ---
 
-## Slide 11 — Parallelism Wins? (Part 3: Data Structure Decomposition)
+## Parallelism Wins?
 
-**[SLIDE]**
 - Take into account how well the data structure underlying the stream decomposes.
 - For instance, an `ArrayList` can be split much more efficiently than a `LinkedList`; the primitive streams created with the `range` factory method can be decomposed quickly.
 - You can get full control of this decomposition process by implementing your own `Spliterator`.
@@ -345,11 +263,9 @@ To run a stream in parallel, the underlying data source has to be **split (decom
 
 ---
 
-## Slide 12 — Fork/Join
+## Fork/Join
 
-**[SLIDE]**
-- Diagram showing: "Recursively fork a task into smaller subtasks until each subtask is small enough" → "Evaluate all subtasks in parallel" (sequential evaluation on each leaf) → "join" → "Recombine the partial results" (join again up the tree).
-- Callout box: "Ideally, all the cores should be busy invoking the worker threads for a task following the fork/join framework."
+![[Pasted image 20260905235013.png]]
 
 ### Explanation
 
@@ -359,13 +275,10 @@ This is the execution model underlying `.parallel()`. It works as a **divide-and
 2. **Sequential evaluation:** Each smallest-granularity subtask ("leaf" in the diagram) is computed directly, sequentially, by some worker thread.
 3. **Join:** Once two sibling subtasks are both finished, their partial results are combined ("joined") together. This joining happens repeatedly, moving back up the recursion tree, until all partial results have been merged into the single, final answer at the root.
 
-The callout — *"ideally, all the cores should be busy"* — states the goal of this whole scheme: by breaking work into many independent pieces, the framework tries to keep every CPU core continuously occupied with useful work throughout the computation, rather than some cores idling while others are still busy. Whether that ideal is actually reached in practice is exactly the subject of the next slide (work stealing).
-
 ---
 
-## Slide 13 — Utilize the Cores (Work Stealing)
+## Utilize the Cores (Work Stealing)
 
-**[SLIDE]**
 - The time taken by each subtask can dramatically vary either due to the use of an inefficient partition strategy or because of unpredictable causes like slow access to the disk or the need to coordinate the execution with external services.
 - The fork/join framework works around this problem with a technique called **work stealing**.
 - The tasks are more or less evenly divided on all the threads in the `ForkJoinPool`.
@@ -375,22 +288,11 @@ The callout — *"ideally, all the cores should be busy"* — states the goal of
 - This process continues until all the tasks are executed, and then all the queues become empty.
 - That's why having many smaller tasks, instead of only a few bigger ones, can help in better balancing the workload among the worker threads.
 
-### Explanation
-
-This slide directly addresses the "ideal" stated in the Fork/Join slide: in reality, subtasks don't always take equal time (disk I/O, external service calls, or an uneven split can make some subtasks slower than others). If threads were rigidly assigned a fixed batch of work with no way to help each other, a thread that finished early would sit idle while another thread was still overloaded — wasting available CPU capacity.
-
-**Work stealing solves this:**
-- Every worker thread in the `ForkJoinPool` has its **own double-ended queue** of tasks.
-- Normal operation: a thread works through **its own queue from the head** — pull a task from the head, execute it, pull the next from the head, etc.
-- When a thread's own queue runs empty (it finished its assigned work early) but other threads still have pending tasks, that idle thread doesn't just sit there — it picks another thread's queue **at random** and **"steals" a task from that queue's tail** (the opposite end from where the owning thread is pulling work). Taking from the opposite end minimizes direct contention between the owner (pulling from the head) and the thief (pulling from the tail).
-- This repeats continuously until every queue across every thread is empty, meaning all work is done — at that point the whole parallel computation is complete.
-- **Why many small tasks help:** if you split into just 2 or 4 big chunks, an imbalance between chunks (one much slower than another) leaves a big idle gap with no smaller task available to "steal" and fill that gap efficiently. With many small tasks, imbalances get smoothed out much more finely — an idle thread can always grab another small unit of work rather than waiting for one giant chunk to free up.
 
 ---
 
-## Slide 14 — Currying: Unit Converter
+## Currying: Unit Converter
 
-**[SLIDE]**
 ```java
 DoubleUnaryOperator convertCtoF = curriedConverter(9.0/5, 32);
 DoubleUnaryOperator convertUSDtoINR = curriedConverter(0.6, 0);
@@ -435,15 +337,14 @@ Each of `convertCtoF`, `convertUSDtoINR`, `convertKmtoMi` is a distinct, reusabl
 
 ---
 
-## Slide 15 — Currying (Formal Definition)
+## Currying (Formal Definition)
 
-**[SLIDE]**
 - Currying is a technique where a function `f` of two arguments (`x` and `y`, say) is seen instead as a function `g` of one argument that returns a function also of one argument.
 - The value returned by the latter function is the same as the value of the original function.
 - **`f(x,y) = (g(x))(y)`**
 - When some but fewer than the full complement of arguments have been passed, we often say the function is **partially applied**.
 
-### Explanation — memorize this definition precisely, it is exam-critical
+### Explanation
 
 This is the formal, general definition of currying, independent of any particular language:
 
@@ -455,9 +356,8 @@ This is the formal, general definition of currying, independent of any particula
 
 ---
 
-## Slide 16 — Partial Applications (Python: closures)
+## Partial Applications (Python: closures)
 
-**[SLIDE]**
 ```python
 def quad(a, b, c, x):
     return a*x**2 + b*x + c
@@ -486,7 +386,6 @@ def quad_abc(a, b, c):
 ```
 - `quad_abc` takes the three coefficients and defines an *inner function* `f(x)` that calls `quad`, filling in `a, b, c` from the outer function's parameters, and taking only `x` as its own parameter.
 - `quad_abc` then `return`s this inner function `f` itself (not the result of calling it) — so `quad_abc(1, 2, 3)` gives you back a *callable function object*, not a number.
-- **What makes `f` a closure**, per the slide's exact definition: `f` is "an inner function returned from a surrounding function, with the inner function having references to the surrounding function." Concretely, `f` refers to `a`, `b`, `c` from `quad_abc`'s scope even though, by the time you actually *call* `f(x)`, `quad_abc` itself has already finished executing and returned. Python's closures "capture" those enclosing variables so they remain accessible to the inner function indefinitely.
 
 Usage:
 ```python
@@ -494,15 +393,11 @@ xs = range(5)
 f = quad_abc(1, 2, 3)   # f(x) = 1*x^2 + 2*x + 3
 g = quad_abc(2, 0, 1)   # g(x) = 2*x^2 + 0*x + 1
 ```
-- `f = quad_abc(1, 2, 3)` — this call runs `quad_abc` once with `a=1, b=2, c=3`, and returns the inner `f` function with those values baked in via closure. `f` is now a reusable one-argument function.
-- `g = quad_abc(2, 0, 1)` — a separate call producing a *different* closure `g`, with its own independently captured `a=2, b=0, c=1`. Each call to `quad_abc` creates a fresh, independent closure — `f` and `g` do not interfere with each other even though they were both built from the same `quad_abc` definition.
-- You could now do `[f(x) for x in xs]` to evaluate `f` at every value `0,1,2,3,4` — this is exactly the pattern used with `map` on the next slide.
 
 ---
 
-## Slide 17 — Partial Applications (`functools.partial`)
+## Partial Applications (`functools.partial`)
 
-**[SLIDE]** (Image content transcribed)
 ```python
 from functools import partial
 def quad(a, b, c, x):
@@ -572,7 +467,6 @@ Python's standard library has no built-in `curry` keyword — the `partial`-chai
 
 ## Slide 19 — Composition (Java: `curriedConverter`, and Python `CtoFconverter`)
 
-**[SLIDE]**
 - The formula to convert Celsius to Fahrenheit is `CtoF(x) = x*9/5 + 32`.
 ```java
 static double converter(double x, double f, double b) {

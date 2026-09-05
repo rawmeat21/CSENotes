@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/streams.md",
+                "file": "Java/CCh currying.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "streams"
+              "title": "CCh currying"
             }
           },
           {
@@ -33,20 +33,6 @@
               },
               "icon": "lucide-file",
               "title": "Lambda calculus"
-            }
-          },
-          {
-            "id": "ed53af2c03c81561",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Java/groupingBy.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "groupingBy"
             }
           },
           {
@@ -78,21 +64,20 @@
             }
           },
           {
-            "id": "0d80db3c9ff332ac",
+            "id": "df432580c29a4911",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/How to fix bluetooth failed to connect.md",
+                "file": "Java/CCh currying.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "How to fix bluetooth failed to connect"
+              "title": "CCh currying"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -275,14 +260,17 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "0d80db3c9ff332ac",
+  "active": "a64aa4013285f242",
   "lastOpenFiles": [
-    "Java/CCh currying.md",
-    "Java/CCh streams.md",
+    "assets/Pasted image 20260905235013.png",
     "Java/groupingBy.md",
-    "Java/PPL PYQs.md",
     "Java/streams.md",
+    "Java/CCh streams.md",
+    "Java/PPL PYQs.md",
+    "Java/Streams IMP functions.md",
     "Java/Lambda calculus.md",
+    "Java/CCh currying.md",
+    "Linux/How to fix bluetooth failed to connect.md",
     "assets/Pasted image 20260904213417.png",
     "assets/Pasted image 20260904193223.png",
     "assets/Pasted image 20260904192939.png",
@@ -312,9 +300,6 @@
     "Linux/How does login work.md",
     "Linux/How to read command synopsis.md",
     "Linux/How to read command synopsis part 2.md",
-    "Linux/inodes.md",
-    "Linux/Linux directories.md",
-    "Linux/ls.md",
     "Go",
     "Docker/Untitled",
     "Docker",

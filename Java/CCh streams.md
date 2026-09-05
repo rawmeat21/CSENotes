@@ -1,4 +1,4 @@
-## Streams and Functional Programming in Java — Full Tutorial
+## Streams and Functional Programming in Java
 
 ### 1. External Iteration
 

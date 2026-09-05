@@ -1092,7 +1092,9 @@ Whereas `d -> d.getType()` was a simple property accessor (could've been `Dish::
 > Using a collector created with a two-argument version of the `Collectors.groupingBy` factory method. It accepts a second argument of type collector besides the usual classification function.  
 > The regular one-argument `groupingBy(f)`, where f is the classification function, is in reality just shorthand for `groupingBy(f, toList())`.
 
-This is a crucial mental model: `groupingBy(classifier)` always secretly means `groupingBy(classifier, toList())` — and you can swap out that second argument (the "downstream collector") for something other than `toList()` to compute something different _per group_.
+This is a crucial mental model: `groupingBy(classifier)` always secretly means `groupingBy(classifier, toList())`, and you can swap out that 2nd argument (the "downstream collector") for something other than `toList()` to compute something different _per group_.
+
+So, the downstream collector is a function you apply on the 'streams' created under each bucket.
 
 ---
 

@@ -1,14 +1,9 @@
-# Streams and Currying — Full Tutorial (Slides 1–25)
+# Streams and Currying
 
-This tutorial walks through every slide in `Streams_and_Currying_2026_.pdf`, in order. For each slide: the exact points/definitions from the slide (flagged **[SLIDE]**), followed by an in-depth explanation of the syntax and mechanics, and — where the slide gives you an incomplete or missing example — an additional worked example so you can actually reproduce the behavior yourself (flagged **[ADDITIONAL — not in slides]**).
+## Numeric Streams (Motivation)
 
----
-
-## Slide 1 — Numeric Streams (Motivation)
-
-**[SLIDE]**
 - Java 8 introduces three primitive specialized stream interfaces to tackle this issue: `IntStream`, `DoubleStream`, and `LongStream`, to avoid boxing costs.
-- These specializations aren't more complexity about streams but instead more complexity caused by boxing — the (efficiency-based) difference between `int` and `Integer` and so on.
+- These specializations aren't more complexity about streams but instead more complexity caused by boxing: the (efficiency-based) difference between `int` and `Integer` and so on.
 - Example:
 ```java
 IntStream calorieStream = menu.stream().mapToInt(d -> d.getCalories());
@@ -18,17 +13,17 @@ Stream<Integer> boxedCalorieStream = calorieStream.boxed();
 
 ### Explanation
 
-A `Stream<T>` is generic, which means every element has to be an *object*. `int`, `double`, and `long` are primitive types in Java, not objects, so a `Stream<Integer>` cannot literally hold `int` values — every `int` has to be wrapped ("boxed") into an `Integer` object, and every time you need the raw value back, it has to be "unboxed." This wrapping/unwrapping is not free: it allocates objects on the heap and adds CPU overhead. If you are summing a million calorie values, boxing a million `Integer` objects is wasteful.
+A `Stream<T>` is generic, which means every element has to be an *object*. `int`, `double`, and `long` are primitive types in Java, not objects, so a `Stream<Integer>` cannot literally hold `int` values, every `int` has to be wrapped ("boxed") into an `Integer` object, and every time you need the raw value back, it has to be "unboxed." This wrapping/unwrapping is not free: it allocates objects on the heap and adds CPU overhead. If you are summing a million calorie values, boxing a million `Integer` objects is wasteful.
 
-`IntStream`, `DoubleStream`, and `LongStream` solve this by storing the *primitive* values directly, with no boxing. They are functionally almost identical to `Stream<T>` (same idea of `map`, `filter`, `reduce`, etc.), but their methods are specialized to primitives — e.g. `mapToInt`, `mapToObj`, `sum()`, `average()`, `max()`, `min()`.
+`IntStream`, `DoubleStream`, and `LongStream` solve this by storing the *primitive* values directly, with no boxing. They are functionally almost identical to `Stream<T>` (same idea of `map`, `filter`, `reduce`, etc.), but their methods are specialized to primitives, e.g. `mapToInt`, `mapToObj`, `sum()`, `average()`, `max()`, `min()`.
 
 Breaking down the example line by line:
 ```java
 IntStream calorieStream = menu.stream().mapToInt(d -> d.getCalories());
 ```
-- `menu.stream()` — turns the `menu` collection into a normal `Stream<Dish>` (assuming `menu` is a `List<Dish>`).
-- `.mapToInt(d -> d.getCalories())` — this is a special version of `map`. Instead of returning a `Stream<Integer>` (which would box), it returns an `IntStream` directly, because the lambda produces `int` values via `getCalories()`.
-- The result, `calorieStream`, is an `IntStream` — no `Integer` objects are created.
+- `menu.stream()` -> turns the `menu` collection into a normal `Stream<Dish>` (assuming `menu` is a `List<Dish>`).
+- `.mapToInt(d -> d.getCalories())` -> this is a special version of `map`. Instead of returning a `Stream<Integer>` (which would box), it returns an `IntStream` directly, because the lambda produces `int` values via `getCalories()`.
+- The result, `calorieStream`, is an `IntStream` -> no `Integer` objects are created.
 
 ```java
 Stream<Integer> boxedCalorieStream = calorieStream.boxed();
@@ -39,34 +34,26 @@ Stream<Integer> boxedCalorieStream = calorieStream.boxed();
 
 ---
 
-## Slide 2 — Numeric Streams (Creating Numeric Streams)
+## Numeric Streams (Creating Numeric Streams)
 
-**[SLIDE]**
 ```java
-IntStream oneToHundred = IntStream.rangeClosed(1,100).filter(i%2==0)
-IntStream oneToNinetyNine = IntStream.range(1,100).filter(i%2==0)
+IntStream oneToHundred = IntStream.rangeClosed(1,100).filter(i->i%2==0)
+IntStream oneToNinetyNine = IntStream.range(1,100).filter(i->i%2==0)
 ```
 - Checking a string is a palindrome:
 ```java
 boolean isPalindrome = IntStream.range(0, input.length() / 2)
     .allMatch(i -> input.charAt(i) == input.charAt(input.length() - 1 - i));
 ```
-- Finding a number prime or nonprime using Java streams (heading only — no code given on the slide).
+- Finding a number prime or nonprime using Java streams
 
 ### Explanation
 
 **`range()` vs `rangeClosed()`** — this is a key exam point:
-- `IntStream.range(a, b)` produces `a, a+1, ..., b-1` — the upper bound `b` is **exclusive**.
-- `IntStream.rangeClosed(a, b)` produces `a, a+1, ..., b` — the upper bound `b` is **inclusive**.
+- `IntStream.range(a, b)` produces `a, a+1, ..., b-1`, the upper bound `b` is **exclusive**.
+- `IntStream.rangeClosed(a, b)` produces `a, a+1, ..., b`, the upper bound `b` is **inclusive**.
 
-So `IntStream.rangeClosed(1, 100)` gives you 1 through 100 (100 numbers), while `IntStream.range(1, 100)` gives you 1 through 99 (99 numbers). That's exactly why the slide's second line is named `oneToNinetyNine` — `range(1,100)` stops *before* 100.
-
-**Important correction on syntax:** the slide's `.filter(i%2==0)` as literally written **does not compile**. `filter` takes an `IntPredicate` — a *lambda expression*, i.e. a function from `int` to `boolean` — not a bare boolean expression, and `i` is not in scope there. The correct code is:
-```java
-IntStream oneToHundred = IntStream.rangeClosed(1, 100).filter(i -> i % 2 == 0);
-IntStream oneToNinetyNine = IntStream.range(1, 100).filter(i -> i % 2 == 0);
-```
-The lambda `i -> i % 2 == 0` is read as: "for each `int i` produced by the range, keep it only if `i % 2 == 0` (i.e., `i` is even)." `filter` is lazy — it doesn't run until a terminal operation (like `forEach`, `sum`, `toArray`, `boxed().collect(...)`) is invoked on the stream.
+So `IntStream.rangeClosed(1, 100)` gives you 1 through 100 (100 numbers), while `IntStream.range(1, 100)` gives you 1 through 99 (99 numbers). That's exactly why the slide's second line is named `oneToNinetyNine`.
 
 **Palindrome check, explained in depth:**
 ```java
@@ -78,14 +65,8 @@ boolean isPalindrome = IntStream.range(0, input.length() / 2)
 - The predicate `i -> input.charAt(i) == input.charAt(input.length() - 1 - i)` compares the character at position `i` from the front with the character at position `i` from the back (`length - 1 - i` is the mirrored index).
 - If every such pair matches, the string reads the same forwards and backwards → palindrome.
 
-Example trace for `input = "level"` (length 5, half = 2, so we check `i = 0, 1`):
-- `i=0`: `charAt(0)='l'` vs `charAt(4)='l'` → match
-- `i=1`: `charAt(1)='e'` vs `charAt(3)='e'` → match
-- `allMatch` returns `true`.
+**Prime/nonprime via streams:** Since this is a very standard interview-style pattern, here is how you'd write it, keeping the exact same style as the palindrome example (checking divisibility with `noneMatch`/`allMatch`):
 
-**Prime/nonprime via streams — the slide only gives the heading, no code.** Since this is a very standard interview-style pattern and the slide clearly intends you to know it, here is how you'd write it, keeping the exact same style as the palindrome example (checking divisibility with `noneMatch`/`allMatch`):
-
-**[ADDITIONAL — not in slides]**
 ```java
 static boolean isPrime(int candidate) {
     int candidateRoot = (int) Math.sqrt((double) candidate);
@@ -93,15 +74,13 @@ static boolean isPrime(int candidate) {
                      .noneMatch(i -> candidate % i == 0);
 }
 ```
-- We only need to test divisors up to `sqrt(candidate)`, because if `candidate = a * b` with `a <= b`, then `a <= sqrt(candidate)` — so any factor pair must have its smaller factor at or below the square root.
-- `noneMatch(predicate)` is the logical opposite of `allMatch`: it returns `true` if the predicate is `false` for every element (i.e., no divisor was found), meaning the number is prime. It is also short-circuiting — it stops as soon as it finds one divisor.
-- `IntStream.rangeClosed(2, candidateRoot)` — testing divisors starting at 2 (since 1 divides everything, and we don't count 1).
+
+- `noneMatch(predicate)` is the logical opposite of `allMatch`: it returns `true` if the predicate is `false` for every element (i.e., no divisor was found), meaning the number is prime. It is also short-circuiting, it stops as soon as it finds one divisor.
 
 ---
 
-## Slide 3 — Building Streams
+## Building Streams
 
-**[SLIDE]**
 - Static methods:
 ```java
 Stream.of("", "", "", " ");
@@ -128,9 +107,8 @@ Because the array is `int[]`, `Arrays.stream` returns an `IntStream` (a primitiv
 
 ---
 
-## Slide 4 — Streams from Files
+## Streams from Files
 
-**[SLIDE]**
 ```java
 long NoOfUniqueWords = 0;
 try {
@@ -144,7 +122,7 @@ try {
 
 ### Explanation
 
-**`Files.lines(Path path, Charset cs)`** is a static method that opens the file at `path` and returns a `Stream<String>` where each element is exactly one line of the file, decoded using the given `Charset`. It is a *lazy* stream — the file is read incrementally as the stream is consumed, not loaded entirely into memory up front — which is why it's the recommended way to process large text files line by line.
+**`Files.lines(Path path, Charset cs)`** is a static method that opens the file at `path` and returns a `Stream<String>` where each element is exactly one line of the file, decoded using the given `Charset`. It is a *lazy* stream. The file is read incrementally as the stream is consumed, not loaded entirely into memory up front, which is why it's the recommended way to process large text files line by line.
 
 Now the pipeline:
 ```java
@@ -152,34 +130,20 @@ lines1.flatMap(lines2 -> Arrays.stream(lines2.split(" ")))
       .distinct()
       .count();
 ```
-- `lines2.split(" ")` — for each line (a `String`), split it on spaces into a `String[]` of individual words.
-- `Arrays.stream(lines2.split(" "))` — turn that `String[]` into a `Stream<String>` of the words on that one line.
-- **`flatMap`** — this is the crucial operation to understand. If we had used `map` instead of `flatMap`, the result would be a `Stream<Stream<String>>` — a stream *of streams*, one inner stream per line. That's awkward to work with because you'd have to flatten it manually. `flatMap` instead takes each of those inner streams and **merges/concatenates them all into one single flat stream**. So the end result of `flatMap` here is one single `Stream<String>` containing every word from every line, back to back.
-- **`.distinct()`** — a stateful intermediate operation that removes duplicate elements (using `.equals()` for comparison), keeping only the first occurrence of each distinct word. Because it needs to remember every element it has already seen, this operation requires the whole stream to be buffered internally (or handles state as it goes) — it is not "free" the way `filter` or `map` are.
-- **`.count()`** — a terminal operation returning the number of elements remaining as a `long`.
 
-So the full pipeline reads: *"Take every line, split each line into words, flatten all the per-line word-streams into a single stream of words, remove duplicates, and count how many distinct words remain."*
-
-**`flatMap` vs `map` — this is a very common exam distinction:**
-| | Input → Output per element | Result shape |
-|---|---|---|
-| `map` | `T -> R` | `Stream<R>` (same number of "slots" as input) |
-| `flatMap` | `T -> Stream<R>` | `Stream<R>`, flattened — one output stream per input element, all merged into one |
+Hopefully you get this one :)
 
 ---
 
-## Slide 5 — Infinite Streams: `iterate`
+## Infinite Streams: `iterate`
 
-**[SLIDE]**
 ```java
 Stream.iterate(0, n -> n + 2).limit(10).forEach(System.out::println);
 Stream.of(1,2,3,4,5,6,7,8,9,10).?
 ```
 - Fibonacci number:
 ```java
-Stream.iterate(new int[]{0, 1}, ???).limit(20)
-      .forEach(t -> System.out.println("(" + t[0] + "," + t[1] + ")"));
-static <T> Stream<T> iterate(T seed, UnaryOperator<T> f)
+Stream.iterate(new int[]{0, 1}, arr -> new int[]{arr[1], arr[0] + arr[1]}).limit(20).forEach(t -> System.out.println("(" + t[0] + "," + t[1] + ")"));
 ```
 
 ### Explanation
@@ -189,40 +153,22 @@ static <T> Stream<T> iterate(T seed, UnaryOperator<T> f)
 static <T> Stream<T> iterate(T seed, UnaryOperator<T> f)
 ```
 - `seed` is the first element.
-- `f` is a `UnaryOperator<T>` — a function `T -> T` — applied to the previous element to produce the next one.
+- `f` is a `UnaryOperator<T>`: a function `T -> T` — applied to the previous element to produce the next one.
 - The stream conceptually never ends: `seed, f(seed), f(f(seed)), f(f(f(seed))), ...`
 
 `Stream.iterate(0, n -> n + 2).limit(10).forEach(System.out::println)`:
 - Start at `0`.
 - Each next element = previous `+ 2`: `0, 2, 4, 6, 8, 10, 12, 14, 16, 18, ...` (infinite).
-- **`.limit(10)`** is what makes this usable — it's an intermediate operation that cuts the (conceptually infinite) stream down to only the first 10 elements. Without `.limit(...)` (or another short-circuiting operation) before a terminal operation, calling `forEach` on an infinite stream would run forever.
-- `.forEach(System.out::println)` — a terminal operation that consumes each element (printing it). `System.out::println` is a **method reference**, shorthand for the lambda `x -> System.out.println(x)`.
+- **`.limit(10)`** is what makes this usable: it's an intermediate operation that cuts the (conceptually infinite) stream down to only the first 10 elements. Without `.limit(...)` (or another short-circuiting operation) before a terminal operation, calling `forEach` on an infinite stream would run forever.
+- `.forEach(System.out::println)`: a terminal operation that consumes each element (printing it). `System.out::println` is a **method reference**, shorthand for the lambda `x -> System.out.println(x)`.
 - Output: `0 2 4 6 8 10 12 14 16 18`.
 
-The line `Stream.of(1,2,3,4,5,6,7,8,9,10).?` is left incomplete on the slide (the `?` is literally a placeholder/exercise prompt, not real syntax) — it is showing a finite alternative for contrast with the infinite `iterate` example, but no operation is specified.
-
-**Fibonacci with `iterate` — mechanics of the `int[]` state trick.** The signature `iterate(T seed, UnaryOperator<T> f)` only carries forward **one** value of type `T` from step to step. But a Fibonacci sequence needs to remember *two* numbers at once (the current one and the previous one) to compute the next. The trick shown on the slide is to make `T` be `int[]` — an array of two ints — so that a single "state object" can carry both numbers simultaneously.
-
-- `seed = new int[]{0, 1}` — the initial pair (F(0)=0, F(1)=1).
-- The `???` is left blank on the slide as an exercise, but the pattern it wants is:
-```java
-t -> new int[]{ t[1], t[0] + t[1] }
-```
-i.e., given the current pair `(previous, current)`, the next pair is `(current, previous + current)`.
-
-**[ADDITIONAL — not in slides]** — filling in the full working example:
-```java
-Stream.iterate(new int[]{0, 1}, t -> new int[]{ t[1], t[0] + t[1] })
-      .limit(10)
-      .forEach(t -> System.out.println("(" + t[0] + "," + t[1] + ")"));
-```
-Trace of the state array across iterations: `(0,1) → (1,1) → (1,2) → (2,3) → (3,5) → (5,8) → (8,13) → ...`. Each printed pair's *second* element is the actual Fibonacci number at that position. If you only wanted the Fibonacci numbers themselves (not the pairs), you would follow this with `.map(t -> t[0])`.
+The line `Stream.of(1,2,3,4,5,6,7,8,9,10).?` is left incomplete on the slide (the `?` is literally a placeholder/exercise prompt, not real syntax), it is showing a finite alternative for contrast with the infinite `iterate` example, but no operation is specified.
 
 ---
 
-## Slide 6 — Infinite Streams: `generate`
+Infinite Streams: `generate`
 
-**[SLIDE]**
 - It takes a lambda of type `Supplier<T>` to provide new values.
 ```java
 Stream.generate(Math::random)
@@ -247,14 +193,14 @@ IntStream.generate(fib).limit(10).forEach(System.out::println);
 
 ### Explanation
 
-**`Stream.generate(Supplier<T> s)`** is the other way to build an infinite stream. Unlike `iterate`, each new element is produced by calling a `Supplier<T>` — a functional interface with a single method `T get()` that takes **no arguments**. There is no relationship enforced between one generated value and the next (unlike `iterate`, where each value is explicitly derived from the previous one via `f`).
+**`Stream.generate(Supplier<T> s)`** is the other way to build an infinite stream. Unlike `iterate`, each new element is produced by calling a `Supplier<T>`, a functional interface with a single method `T get()` that takes **no arguments**. There is no relationship enforced between one generated value and the next (unlike `iterate`, where each value is explicitly derived from the previous one via `f`).
 
 `Stream.generate(Math::random).limit(5).forEach(System.out::println)`:
 - `Math::random` is a method reference matching `Supplier<Double>` (its signature `double random()` takes no args and returns a value, matching `T get()`).
 - Each call to `Math.random()` produces a new pseudo-random double in `[0, 1)`, independent of prior calls.
 - `.limit(5)` again bounds the infinite stream to 5 elements (mandatory here, since `generate` never terminates on its own).
 
-**Why statefulness matters — key exam point:** `Math::random` happens to be safe because each call is independent and thread-safe internally. But the `IntSupplier fib` example is **stateful** — it has mutable instance fields `previous` and `current` that are updated on every call, and each call's result depends on the *order* of previous calls. If you ran `IntStream.generate(fib).parallel()...`, multiple threads could call `getAsInt()` concurrently, racing on `previous`/`current` and corrupting the sequence (or throwing exceptions due to unsynchronized access). This is exactly the sentence on the slide: *"a supplier that's stateful isn't safe to use in parallel code."*
+**Why statefulness matters:** `Math::random` happens to be safe because each call is independent and thread-safe internally. But the `IntSupplier fib` example is **stateful**, it has mutable instance fields `previous` and `current` that are updated on every call, and each call's result depends on the *order* of previous calls. If you ran `IntStream.generate(fib).parallel()...`, multiple threads could call `getAsInt()` concurrently, racing on `previous`/`current` and corrupting the sequence (or throwing exceptions due to unsynchronized access). This is exactly the sentence on the slide: *"a supplier that's stateful isn't safe to use in parallel code."*
 
 Walking through the stateful Fibonacci `IntSupplier`:
 ```java

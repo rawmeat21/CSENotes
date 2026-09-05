@@ -147,7 +147,7 @@ Sources: 2018, 2019, 2021, 2024, 2025 Semester Exams; CT1_2022 (Sets I–IV); 20
 1. Reduce (λx. λz.z) ((λy. yy) (λu. uu)) following call-by-name and call-by-value. State the kind of reduction used in each step. *[4]*
 2. `if(roll_no%2==0) return roll_no; else return "Odd Number";` Represent in lambda calculus; derive any predicates, constructs and data types needed. *[8]*
 3. Reduce: (i) ((λx.((λy.(x y))x))(λz.w)) (ii) ((λf.((λg.((f f)g))(λh.(k h))))(λx.(λy.y))) *[6]*
-4. Given a text file, group its words into three categories by length: 2-letter, 3-letter, more than 3 letters. *[6]*
+4. Given a text file, group its words into three categories by length: 2-letter, 3-letter, more than 3 letters. *[6]* (done)
 5. Assuming Church numerals are in place, how can you compute "subtract five from three"? *[6]*
 
 **Set II**
@@ -155,15 +155,16 @@ Sources: 2018, 2019, 2021, 2024, 2025 Semester Exams; CT1_2022 (Sets I–IV); 20
 2. How do you encode Boolean True and False in Lambda Calculus? Explain. *[3]*
 3. Validate the truth table of NAND using the derivation from Q2. *[4]*
 4. Reduce: ((((λf.(λg.(λx.((fx)(gx)))))(λm.(λn.(nm)))))(λn.z))p) *[3]*
-5. Traders/Transaction classes given. (i) Group traders from different cities. (ii) Find the transaction with the smallest value for each year. *[9]*
+5. Traders/Transaction classes given. (i) Group traders from different cities. (ii) Find the transaction with the smallest value for each year. *[9]* (done)
 6. Partition the list of natural numbers into prime and non-prime using Java Streams. *[7]*
-
+(done)
 **Set III**
 1. Derive the Boolean operator OR in lambda calculus and validate its truth table. *[5]*
 2. `int arr[]={1,2,3}; if(arr[2]%2==0) return "left"; else return "right";` Represent in lambda calculus; derive any predicates, constructs, data types needed (no need to define Church numerals or the Q1 expressions). *[12]*
 3. Show the deduction steps for is_zero when the Church encoded numeral two is passed as argument. *[3]*
 4. Implement min(), average(), count() using collect and lambda expressions. Can it handle an empty list? *[6]*
 5. Given a list of Dish objects, partition them into high calorie and low calorie groups. *[4]*
+(done)
 
 **Set IV**
 1. `if(roll_no==0) return roll_no+1; else return roll_no;` Represent in lambda calculus; derive any predicates, constructs and data types needed. *[8]*
@@ -177,7 +178,7 @@ Sources: 2018, 2019, 2021, 2024, 2025 Semester Exams; CT1_2022 (Sets I–IV); 20
 ### 2025 Class Test I — Set III (Full Marks 30)
 1. Derive the Boolean operator OR in lambda calculus and validate its truth table (2 different input combinations). *[5]*
 2. Design a message filter in Lambda calculus taking two inputs — (i) message from a friend, (ii) semester time flag. If not semester time, all friend's messages returned, else none; filter always displays "No time for distraction". Derive any predicates, constructs and data types needed (no need to define the expressions derived as Ans. 1). *[6]*
-3. Given a list of salaries of employees; salaries above Rs. 100,000 are taxable at 5%. Display the list of taxes payable for the taxable salaries (Java streams or Python functional programming). *[8]*
+3. Given a list of salaries of employees; salaries above Rs. 100,000 are taxable at 5%. Display the list of taxes payable for the taxable salaries (Java streams or Python functional programming). *[8]*(done)
 4. Given a list of BCSEIII student objects, divide into 3 subgroups by attendance (<50%, 50%-80%, >80%). Print average marks scored by each group. *[8]*
 5. How does an upstream collector differ from a downstream collector in Java streams? Does collect exhibit a combination of lazy and eager evaluation when dealing with multi-level grouping? Give reasons. *[3]*
 

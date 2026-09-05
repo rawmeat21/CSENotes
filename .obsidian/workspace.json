@@ -41,16 +41,58 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Java/groupingBy.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "groupingBy"
+            }
+          },
+          {
+            "id": "13da11a9c65376b1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Java/PPL PYQs.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "PPL PYQs"
             }
+          },
+          {
+            "id": "ebe1497a0f9160b6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Java/CCh streams.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CCh streams"
+            }
+          },
+          {
+            "id": "0d80db3c9ff332ac",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/How to fix bluetooth failed to connect.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "How to fix bluetooth failed to connect"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -233,22 +275,23 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "ed53af2c03c81561",
+  "active": "0d80db3c9ff332ac",
   "lastOpenFiles": [
+    "Java/CCh currying.md",
+    "Java/CCh streams.md",
+    "Java/groupingBy.md",
+    "Java/PPL PYQs.md",
+    "Java/streams.md",
     "Java/Lambda calculus.md",
     "assets/Pasted image 20260904213417.png",
-    "Java/CCh streams.md",
     "assets/Pasted image 20260904193223.png",
     "assets/Pasted image 20260904192939.png",
-    "Java/PPL PYQs.md",
     "Java/CCh lambda expressions.md",
-    "Java/CCh currying.md",
     "assets/Pasted image 20260904142934.png",
     "assets/Pasted image 20260904131515.png",
     "assets/Pasted image 20260904131404.png",
     "assets/Pasted image 20260904131200.png",
     "assets/Pasted image 20260904131141.png",
-    "Java/streams.md",
     "Java/classpath and packages.md",
     "CG/DDA.md",
     "assets/Pasted image 20260903121103.png",

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CG/Viewing in 2D by Claude.md",
+                "file": "Java/CCh streams.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Viewing in 2D by Claude"
+              "title": "CCh streams"
             }
           },
           {
@@ -262,10 +262,10 @@
   },
   "active": "a64aa4013285f242",
   "lastOpenFiles": [
+    "CG/Viewing in 2D by Claude.md",
     "assets/Pasted image 20260906160919.png",
     "assets/Pasted image 20260906160910.png",
     "CG/2D Transformations.md",
-    "CG/Viewing in 2D by Claude.md",
     "assets/Pasted image 20260906141833.png",
     "assets/Pasted image 20260906140433.png",
     "CG/DDA.md",
@@ -284,7 +284,6 @@
     "Java/CCh lambda expressions.md",
     "assets/Pasted image 20260904142934.png",
     "assets/Pasted image 20260904131515.png",
-    "assets/Pasted image 20260904131404.png",
     "Java/classpath and packages.md",
     "ASM/Solved questions by Claude.md",
     "CG",

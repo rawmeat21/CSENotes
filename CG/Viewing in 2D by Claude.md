@@ -269,7 +269,7 @@ If an endpoint is already sitting exactly on the boundary being clipped against 
 
 ### Why Strict Inequality Prevents This by Construction
 
-Whenever a line is clipped against boundary $B$, the resulting point satisfies that boundary's equation **exactly** (e.g. $y = wy_{max}$). Under strict inequality, that specific bit is *guaranteed* to become 0 — this is an algebraic guarantee, not an empirical "usually works."
+Whenever a line is clipped against boundary $B$, the resulting point satisfies that boundary's equation **exactly** (e.g. $y = wy_{max}$). Under strict inequality, that specific bit is *guaranteed* to become 0.
 
 $$
 \text{Each clip against boundary } B \implies \text{the bit corresponding to } B \text{ is cleared}
@@ -279,13 +279,121 @@ Since the outcode has only 4 bits, and each clip strictly clears at least one bi
 
 ---
 
+```cpp
+#include <iostream>
+#include <optional>
+
+struct Point {
+    double x, y;
+};
+
+struct Window {
+    double xmin, xmax, ymin, ymax;
+};
+
+// Outcode bits
+constexpr int LEFT   = 1 << 0; // 0001
+constexpr int RIGHT  = 1 << 1; // 0010
+constexpr int BOTTOM = 1 << 2; // 0100
+constexpr int TOP    = 1 << 3; // 1000
+
+// Strict inequalities -> a point exactly ON a boundary is treated as inside
+// for that boundary. 
+int computeOutcode(const Point& p, const Window& w) {
+    int code = 0;
+    if (p.x < w.xmin) code |= LEFT;
+    else if (p.x > w.xmax) code |= RIGHT;
+
+    if (p.y < w.ymin) code |= BOTTOM;
+    else if (p.y > w.ymax) code |= TOP;
+
+    return code;
+}
+
+// Returns the intersection of the line (p1 -> p2) with whichever
+// single boundary corresponds to `outsideCode`'s highest-priority set bit.
+Point computeIntersection(const Point& p1, const Point& p2, int outsideCode, const Window& w) {
+    double x = 0, y = 0;
+    double dx = p2.x - p1.x;
+    double dy = p2.y - p1.y;
+
+    // Order chosen arbitrarily (top -> bottom -> right -> left).
+    // order doesn't affect correctness for a convex window.
+    if (outsideCode & TOP) {
+        y = w.ymax;
+        x = p1.x + dx * (w.ymax - p1.y) / dy;
+    } else if (outsideCode & BOTTOM) {
+        y = w.ymin;
+        x = p1.x + dx * (w.ymin - p1.y) / dy;
+    } else if (outsideCode & RIGHT) {
+        x = w.xmax;
+        y = p1.y + dy * (w.xmax - p1.x) / dx;
+    } else if (outsideCode & LEFT) {
+        x = w.xmin;
+        y = p1.y + dy * (w.xmin - p1.x) / dx;
+    }
+
+    return {x, y};
+}
+
+// Returns the clipped line if any part survives, or std::nullopt if fully rejected.
+std::optional<std::pair<Point, Point>> cohenSutherlandClip(Point p1, Point p2, const Window& w) {
+    int code1 = computeOutcode(p1, w);
+    int code2 = computeOutcode(p2, w);
+
+    while (true) {
+        if ((code1 | code2) == 0) {
+            // Trivial accept: both endpoints inside
+            return std::make_pair(p1, p2);
+        }
+        if ((code1 & code2) != 0) {
+            // Trivial reject: share an outside region -> whole line misses window
+            return std::nullopt;
+        }
+
+        // At least one endpoint is outside -> pick that one to clip
+        int outsideCode = code1 != 0 ? code1 : code2;
+        Point intersection = computeIntersection(p1, p2, outsideCode, w);
+
+        if (outsideCode == code1) {
+            p1 = intersection;
+            code1 = computeOutcode(p1, w);
+        } else {
+            p2 = intersection;
+            code2 = computeOutcode(p2, w);
+        }
+    }
+}
+
+// --- Showcase ---
+int main() {
+    Window window{0, 10, 0, 10}; // xmin, xmax, ymin, ymax
+
+    // Example: line from (-2, 5) to (12, 8) — crosses left and right boundaries
+    Point a{-2, 5};
+    Point b{12, 8};
+
+    auto result = cohenSutherlandClip(a, b, window);
+
+    if (result) {
+        std::cout << "Clipped line: ("
+                  << result->first.x << ", " << result->first.y << ") to ("
+                  << result->second.x << ", " << result->second.y << ")\n";
+    } else {
+        std::cout << "Line fully rejected (outside window)\n";
+    }
+
+    return 0;
+}
+```
+
+---
+
 ## 5. Area (Polygon) Clipping
 
 Just like lines, filled areas/polygons must also be clipped to the window — and we must decide which *portions* of the polygon's interior survive.
 
 ## 6. Sutherland–Hodgman Area Clipping Algorithm
-
-*Developed by Ivan Sutherland (again!) together with Gary Hodgman, with whom he worked at Evans & Sutherland — the first graphics company.*
 
 **Core idea:** clip the polygon against **one boundary at a time** (e.g. left, then right, then bottom, then top). After each boundary, you're left with a (possibly smaller) polygon, which becomes the input to clipping against the *next* boundary.
 

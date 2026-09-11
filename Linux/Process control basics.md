@@ -62,6 +62,21 @@ Priority - how much CPU time a process recieves.
 
 More niceness means lower priority.
 
+In Linux the range is -20 to +19, and in FreeBSD it’s -20 to +20.
+
+Unless the user takes special action, a newly created process inherits the niceness of its parent process.
+
+The owner of the process can increase its niceness but cannot lower it, even to return the process to the default niceness. This restriction prevents processes running at low priority from bearing high-priority children. **However, the superuser can set nice values arbitrarily.**
+
+Use `nice` and `renice` to change priority.
+
+```bash
+$ nice -n 5 ~/bin/longtask // Lowers priority (raise nice) by 5
+$ sudo renice -5 8829 		 // Sets niceness to -5
+$ sudo renice 5 -u boggs		 // Sets niceness of boggs’s procs to 5
+```
+
+
 **Control terminal**
 
 Most nondaemon processes have an associated control terminal. 

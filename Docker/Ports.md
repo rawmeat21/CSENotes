@@ -27,6 +27,9 @@ To expose a port, add the line `EXPOSE <port>` in your Dockerfile.
 
 To publish a port, run the container with `-p <host-port>:<container-port>`
 
+Then you map `<host-port>-<container-port>`. 
+
+**If you run multiple containers, then the `<container-port>` part can be same, BUT the `<host-port>` part must be unique. You cannot allocate 1 port to multiple containers.**
 
 If you leave out the host port and only specify the container port, Docker will automatically choose a free port as the host port.
 

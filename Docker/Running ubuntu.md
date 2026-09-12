@@ -21,14 +21,15 @@ This doesn't work, you can't enter the website. So use `-i`:
 docker exec -it jovial_benz sh -c 'while true; do echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website; done'
 ```
 
-
 Now we can type commands.
 
 ```bash
 docker run -d -it --name looper ubuntu sh -c 'while true; do date; sleep 1; done'
 ```
 
-`-d` - in background.
+`-d` - in background (detached mode)
+
+Use of `-d`: When you run a container, your terminal may get occupied. To stop this container or to start a new one, you need to open up another terminal. This is annoying. Use `-d` to detach the container from your terminal.
 
 `--name` - give a name to container.
 `sh -c 'shell langauge'` - Used to run shell commands

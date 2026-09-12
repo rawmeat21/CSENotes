@@ -19,3 +19,6 @@ VMs provide strong isolation and are suited for running multiple OS environments
 Docker relies on Linux kernels, which means that macOS and Windows cannot run Docker natively without some additional steps. Each operating system has its own solution for running Docker. For example, Docker for Mac actually uses a Linux virtual machine under the hood, within which Docker operates.
 
 ![[Pasted image 20260827155801.png]]
+
+![[Pasted image 20260912102749.png]]
+

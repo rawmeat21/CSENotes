@@ -1,6 +1,4 @@
 
-
-
 `git diff --stat HEAD..origin/main`
 
 This command tells Git to **compare your current working state with the main branch on the remote server (`origin`)** and summarize the changes. Useful if you want to see the changes made in remote repo that are not in your local (maybe you can't push to the repo).

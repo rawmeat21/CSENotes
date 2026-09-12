@@ -1,3 +1,5 @@
+![[Pasted image 20260912102839.png]]
+
 https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker-spring-2026/chapter-2/in-depth-dive-into-images
 
 General steps: 
@@ -38,8 +40,9 @@ CMD ["./hello.sh"]
 All instructions in a Dockerfile **except** CMD (and one other) are executed during build time. **CMD** is executed when we call docker run, unless we overwrite it.
 
 
-```bash
+```
 $ docker build -t hello-docker .
+
  => [internal] load build definition from Dockerfile                                                                                                                                              0.0s
  => => transferring dockerfile: 478B                                                                                                                                                              0.0s
  => [internal] load metadata for docker.io/library/alpine:3.21                                                                                                                                    2.1s
@@ -56,6 +59,10 @@ $ docker build -t hello-docker .
  => => writing image sha256:5f8f5d7445f34b0bcfaaa4d685a068cdccc1ed79e65068337a3a228c79ea69c8                                                                                                      0.0s
  => => naming to docker.io/library/hello-docker
 ```
+
+Note that you can specify a version too, like `docker build -t hello-docker:01 .`
+
+What happens if you don't give a name? - Then you have to use the `IMAGE ID` entry to refer to it (see output of `docker image ls`)
 
 During the build we see from the output that there are three steps: [1/3], [2/3] and [3/3]. The steps here represent [layers](https://docs.docker.com/build/guide/layers/) of the image so that each step is a new layer on top of the base image (alpine:3.21 in our case).
 
@@ -169,6 +176,18 @@ CMD ["server"] <--- pass arguments
 $ docker build -t web-server .
 $ docker run web-server
 ```
+
+### Tip: Version control using docker
+
+The approach is:
+
+1. Build your project upto a certain point.
+2. Then create a Docker image, call it version 1 or something.
+3. Make a few changes
+4. Create another Docker image, version 2 say.
+
+This way you can easily track all the different versions of your project.
+
 
 
 

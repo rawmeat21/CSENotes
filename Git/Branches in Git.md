@@ -8,14 +8,16 @@ Branches in Git are incredibly lightweight, just like commits. **They are simply
 
 Because there is no storage / memory overhead with making many branches, it's easier to logically divide up your work than have big beefy branches.
 
-**There is not much overhead in creating branches**
+**There is not much overhead in creating branches**.
 
 ![[Pasted image 20260813115320.png]]
 
 The branch `newImage` now refers to commit `C1`.
 
+Scenario 1: 
 ![[Pasted image 20260813115404.png]]
 
+Scenario 2:
 ![[Pasted image 20260813115439.png]]
 
 ![[Pasted image 20260813115557.png]]
@@ -26,7 +28,7 @@ The branch `newImage` now refers to commit `C1`.
 
 Now we need to learn some kind of way of combining the work from two different branches together. This will allow us to branch off, develop a new feature, and then combine it back in.
 
-The first method to combine work that we will examine is `git merge`. Merging in Git creates a special commit that has two unique parents. A commit with two parents essentially means "I want to include all the work from this parent over here and this one over here, _and_ the set of all their parents."
+The first method to combine work that we will examine is `git merge`. Merging in Git **creates a special commit** that has two unique parents. A commit with two parents essentially means "I want to include all the work from this parent over here and this one over here, _and_ the set of all their parents."
 
 ![[Pasted image 20260813115940.png]]
 

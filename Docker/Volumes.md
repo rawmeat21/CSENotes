@@ -20,10 +20,21 @@ A Docker volume is essentially a **shared directory or file** between the host m
 
 Additionally, volumes facilitate file sharing between containers, enabling programs to access and load updated files seamlessly.
 
+
+To see all volumes:
+
+```
+docker volume ls
+```
+
+
 **What about files?**
 
-If we wish to create a volume with only a single file we could also do that by pointing to it. For example `-v "$(pwd)/material.md:/mydir/material.md"` this way we could edit the file material.md locally and have it change in the container (and vice versa).
+If we wish to create a volume with only a single file we could also do that by pointing to it. 
 
+For example `-v "$(pwd)/material.md:/mydir/material.md"` this way we could edit the file material.md locally and have it change in the container (and vice versa).
+
+This is called a **bind mount** (map container file to local file). 
 
 **Note: `-v` option will create a directory at the given path if the specified file does not exist on your filesystem.**
 
@@ -41,4 +52,5 @@ docker run -v "$(pwd):/usr/src/app" devopsdockeruh/simple-web-service:ubuntu
 ```
 
 This will cause `/use/src/app/server` to be removed and your image will not be able to run.
+
 

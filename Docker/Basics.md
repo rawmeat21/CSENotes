@@ -58,7 +58,7 @@ $ docker pull ubuntu
 
 Images can be tagged to save different versions of the same image. You define an image's tag by adding `:<tag>` after the image's name.
 
-```bash
+```
 $ docker pull ubuntu:25.10
   25.10: Pulling from library/ubuntu
   c2ca09a1934b: Downloading [============================================>      ]  34.25MB/38.64MB

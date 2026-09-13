@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Docker/Docker compose.md",
+                "file": "Kubernetes/Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Docker compose"
+              "title": "Basics"
             }
           },
           {
@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java/Lambda calculus.md",
+                "file": "Kubernetes/Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lambda calculus"
+              "title": "Basics"
             }
           },
           {
@@ -92,7 +92,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -275,21 +275,24 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "7a9a74a060242051",
+  "active": "2d2fdfbc83aeeebf",
   "lastOpenFiles": [
-    "assets/Pasted image 20260913134335.png",
-    "assets/Pasted image 20260913134010.png",
-    "Docker/Communication to and from containers.md",
+    "Kubernetes/How I installed k8s.md",
+    "Kubernetes/Basics.md",
+    "assets/Pasted image 20260913143659.png",
+    "assets/Pasted image 20260913143449.png",
+    "assets/Pasted image 20260913143052.png",
+    "assets/Pasted image 20260913142731.png",
+    "assets/Pasted image 20260913142648.png",
+    "assets/Pasted image 20260913142544.png",
+    "assets/Pasted image 20260913142423.png",
+    "assets/Pasted image 20260913142354.png",
+    "Java/Lambda calculus.md",
+    "assets/Pasted image 20260913142330.png",
+    "assets/Pasted image 20260913142214.png",
     "Docker/Docker compose.md",
-    "assets/Pasted image 20260913132111.png",
-    "assets/Pasted image 20260913130345.png",
-    "assets/Pasted image 20260913130110.png",
-    "assets/Pasted image 20260913125922.png",
-    "assets/Pasted image 20260913125725.png",
-    "assets/Pasted image 20260913124953.png",
-    "assets/Pasted image 20260913124912.png",
-    "assets/Pasted image 20260913124419.png",
-    "assets/Pasted image 20260913124133.png",
+    "Kubernetes",
+    "Docker/Communication to and from containers.md",
     "Docker/Volumes.md",
     "Docker/Push image to Docker Hub.md",
     "Docker/Basics.md",
@@ -311,8 +314,6 @@
     "Git/3 states.md",
     "Docker/How to build a docker image.md",
     "Docker/Ports.md",
-    "Docker/Running ubuntu.md",
-    "Docker/Intro.md",
     "CG",
     "ASM",
     "Go",
@@ -324,7 +325,6 @@
     "Untitled 1.base",
     "Untitled.canvas",
     "Untitled.base",
-    "assets",
-    "Git"
+    "assets"
   ]
 }

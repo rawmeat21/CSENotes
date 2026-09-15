@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git/Remote branches.md",
+                "file": "Git/Rebasing.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Remote branches"
+              "title": "Rebasing"
             }
           },
           {
@@ -277,21 +277,22 @@
   },
   "active": "2d2fdfbc83aeeebf",
   "lastOpenFiles": [
+    "assets/Pasted image 20260914231301.png",
+    "assets/Pasted image 20260914231209.png",
+    "assets/Pasted image 20260914231114.png",
+    "assets/Pasted image 20260914231045.png",
+    "assets/Pasted image 20260914224413.png",
+    "assets/Pasted image 20260914223955.png",
+    "assets/Pasted image 20260914223922.png",
+    "assets/Pasted image 20260914223809.png",
+    "assets/Pasted image 20260914223757.png",
+    "Git/Remote branches.md",
+    "Git/Rebasing.md",
     "assets/Pasted image 20260914214933.png",
     "assets/Pasted image 20260914214814.png",
-    "assets/Pasted image 20260914214617.png",
-    "assets/Pasted image 20260914214454.png",
-    "assets/Pasted image 20260914213810.png",
     "Git/Remotes.md",
-    "Git/Remote branches.md",
     "Git/Branch management.md",
     "Git/Awesome tutorial on branching and merging.md",
-    "assets/Pasted image 20260913195841.png",
-    "assets/Pasted image 20260913195833.png",
-    "assets/Pasted image 20260913195550.png",
-    "assets/Pasted image 20260913195443.png",
-    "assets/Pasted image 20260913195001.png",
-    "assets/Pasted image 20260913194932.png",
     "Git/Branches.md",
     "Git/But what is a commit really.md",
     "Kubernetes/Basics.md",
@@ -313,7 +314,6 @@
     "Git/Workflow of git.md",
     "Git/Distributed VCS.md",
     "Git/Understand git config.md",
-    "Git/How Git works.md",
     "CG",
     "ASM",
     "Go",

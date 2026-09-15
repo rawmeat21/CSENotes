@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git/Rebasing.md",
+                "file": "HLD/Basics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rebasing"
+              "title": "Basics"
             }
           },
           {
@@ -277,19 +277,21 @@
   },
   "active": "2d2fdfbc83aeeebf",
   "lastOpenFiles": [
-    "assets/Pasted image 20260914231301.png",
-    "assets/Pasted image 20260914231209.png",
-    "assets/Pasted image 20260914231114.png",
-    "assets/Pasted image 20260914231045.png",
-    "assets/Pasted image 20260914224413.png",
-    "assets/Pasted image 20260914223955.png",
-    "assets/Pasted image 20260914223922.png",
-    "assets/Pasted image 20260914223809.png",
-    "assets/Pasted image 20260914223757.png",
-    "Git/Remote branches.md",
+    "assets/Pasted image 20260915114015.png",
+    "assets/Pasted image 20260915114008.png",
+    "assets/Pasted image 20260915112328.png",
+    "assets/Pasted image 20260915110501.png",
+    "assets/Pasted image 20260915105244.png",
+    "assets/Pasted image 20260915105047.png",
+    "assets/Pasted image 20260915105016.png",
+    "assets/Pasted image 20260915105007.png",
+    "assets/Pasted image 20260915104953.png",
+    "assets/Pasted image 20260915104239.png",
+    "assets/Pasted image 20260915104231.png",
     "Git/Rebasing.md",
-    "assets/Pasted image 20260914214933.png",
-    "assets/Pasted image 20260914214814.png",
+    "HLD/Basics.md",
+    "HLD",
+    "Git/Remote branches.md",
     "Git/Remotes.md",
     "Git/Branch management.md",
     "Git/Awesome tutorial on branching and merging.md",
@@ -313,7 +315,6 @@
     "Git/Git commands.md",
     "Git/Workflow of git.md",
     "Git/Distributed VCS.md",
-    "Git/Understand git config.md",
     "CG",
     "ASM",
     "Go",
@@ -324,7 +325,6 @@
     "Untitled 1.canvas",
     "Untitled 1.base",
     "Untitled.canvas",
-    "Untitled.base",
-    "assets"
+    "Untitled.base"
   ]
 }

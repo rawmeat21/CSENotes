@@ -21,6 +21,13 @@ This fetches any data from `<remote>` that you don’t yet have, and updates you
 
 ![[Pasted image 20260914214617.png]]
 
+What does `git fetch` do, graph wise?
+
+-> `git fetch <remote>` basically updates all the branches of type `<remote>/*` on your local repo.
+
+-> `git fetch <remote> <branch>` only updates `remote/branch`.
+
+So, `git fetch` updates the remote branches. It doesn't place the files in your directory, that doesn't make sense. Yes, your files would look different, but only if you were on a `<remote>` branch.
 
 ### Example with multiple remote servers
 
@@ -43,8 +50,7 @@ You have to explicitly push the branches you want to share.
 
 `git push <remote> <branch>` is the command.
 
-
-```console
+```
 $ git push origin serverfix
 Counting objects: 24, done.
 Delta compression using up to 8 threads.
@@ -57,12 +63,10 @@ To https://github.com/schacon/simplegit
 
 Git automatically expands the `serverfix` branchname out to `refs/heads/serverfix:refs/heads/serverfix`, which means, “Take my `serverfix` local branch and push it to update the remote’s `serverfix` branch.”
 
-
 You can also do `git push origin serverfix:serverfix`, which does the same thing. 
 It says, “Take my serverfix and make it the remote’s serverfix.” 
 
 You can use this format to push a local branch into a remote branch that is named differently. If you didn’t want it to be called `serverfix` on the remote, you could instead run `git push origin serverfix:awesomebranch` to push your local `serverfix` branch to the `awesomebranch` branch on the remote project.
-
 
 The next time one of your collaborators fetches from the server, they will get a reference to where the server’s version of `serverfix` is under the remote branch `origin/serverfix`:
 
@@ -87,6 +91,109 @@ Switched to a new branch 'serverfix'
 ```
 
 This gives you a local branch that you can work on that starts where `origin/serverfix` is.
+
+An example:
+
+***Before a fetch:***
+
+Local machine:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+
+    B --- OFeature[origin/feature]
+    C --- LFeature["feature (HEAD)"]
+
+    style LFeature fill:#2b5c8f,color:#fff,stroke-width:0px
+    style OFeature fill:#d97706,color:#fff,stroke-width:0px
+```
+
+Remote machine:
+```mermaid
+graph LR
+    A((A)) --> B((B))
+
+    B --- RFeature[feature]
+
+    style RFeature fill:#2b5c8f,color:#fff,stroke-width:0px
+```
+
+***After a fetch:***
+
+Local machine:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+
+    C --- LFeature["feature (HEAD)"]
+    C --- OFeature[origin/feature]
+
+    style LFeature fill:#2b5c8f,color:#fff,stroke-width:0px
+    style OFeature fill:#d97706,color:#fff,stroke-width:0px
+```
+
+Remote:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+
+    C --- RFeature[feature]
+
+    style RFeature fill:#2b5c8f,color:#fff,stroke-width:0px
+```
+
+
+What happens is the branch is not there in the remote server?
+
+Local:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+
+    B --- OMain[origin/main]
+    C --- LFeature["feature (HEAD)"]
+
+    style OMain fill:#d97706,color:#fff,stroke-width:0px
+    style LFeature fill:#2b5c8f,color:#fff,stroke-width:0px
+```
+
+Remote:
+```mermaid
+graph LR
+    A((A)) --> B((B))
+
+    B --- RMain[main]
+
+    style RMain fill:#2b5c8f,color:#fff,stroke-width:0px
+```
+
+After pushing:
+
+Local:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+
+    B --- OMain[origin/main]
+    C --- LFeature["feature (HEAD)"]
+    C --- OFeature[origin/feature]
+
+    style OMain fill:#d97706,color:#fff,stroke-width:0px
+    style OFeature fill:#d97706,color:#fff,stroke-width:0px
+    style LFeature fill:#2b5c8f,color:#fff,stroke-width:0px
+```
+
+Remote:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+
+    B --- RMain[main]
+    C --- RFeature[feature]
+
+    style RMain fill:#2b5c8f,color:#fff,stroke-width:0px
+    style RFeature fill:#2b5c8f,color:#fff,stroke-width:0px
+```
 
 
 ### Tracking Branches
@@ -175,6 +282,126 @@ $ git fetch --all; git branch -vv
 `git pull` is  a `git fetch` immediately followed by a `git merge` in most cases.
 
 -> If you have a tracking branch, either by explicitly setting it or by having it created for you by the `clone` or `checkout` commands, `git pull` will look up what server and branch your current branch is tracking, fetch from that server and then try to merge in that remote branch.
+
+##### Why do we need to merge after a fetch?
+
+Suppose you are on `main` branch. Your remote repo at github also has a main branch. This is your `origin/main` branch on your local machine. You fetch to update `origin/main`:
+
+```bash
+$ git fetch origin main
+```
+
+But your main branch doesn't change. Suppose the `main` branch at github is ahead by a few commits in the remote server. You want to push your changes, so you do a `git push`. It would get rejected:
+
+Remote:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+    C --- RMain[main]
+
+    style RMain fill:#2b5c8f,color:#fff,stroke-width:0px
+```
+
+Your machine:
+```mermaid
+graph LR
+    A((A)) --> D((D)) --> E((E))
+    
+    E --- LMain[main]
+    A --- OMain[origin/main]
+
+    style LMain fill:#2b5c8f,color:#fff,stroke-width:0px
+    style OMain fill:#d97706,color:#fff,stroke-width:0px
+```
+
+How would `main` at remote server even update? Do you expect it to just make something like `A<-B<-C<-D<-E`? Nope, doesn't work like that.
+
+So, how to push? First, update `origin/main` with a fetch:
+
+Remote:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+    C --- RMain[main]
+
+    style RMain fill:#2b5c8f,color:#fff,stroke-width:0px
+```
+
+Your machine:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+    A --> D((D)) --> E((E))
+
+    E --- LMain[main]
+    C --- OMain[origin/main]
+
+    style LMain fill:#2b5c8f,color:#fff,stroke-width:0px
+    style OMain fill:#d97706,color:#fff,stroke-width:0px
+```
+
+
+
+Now, you need to incorporate the changes you made (commits `D` and `E`). How to do that? Do a merge, simple:
+
+Remote:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+    C --- RMain[main]
+
+    style RMain fill:#2b5c8f,color:#fff,stroke-width:0px
+```
+
+Your machine:
+
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+    A --> D((D)) --> E((E))
+    E --> M((M))
+    C --> M
+
+    M --- LMain[main]
+    C --- OMain[origin/main]
+
+    style LMain fill:#2b5c8f,color:#fff,stroke-width:0px
+    style OMain fill:#d97706,color:#fff,stroke-width:0px
+    style M fill:#10b981,color:#fff,stroke-width:0px
+```
+
+Now you can push:
+
+Remote:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C)) --> M((M))
+    A --> D((D)) --> E((E)) --> M
+
+    M --- RMain[main]
+
+    style RMain fill:#2b5c8f,color:#fff,stroke-width:0px
+    style M fill:#10b981,color:#fff,stroke-width:0px
+```
+
+Your machine:
+```mermaid
+graph LR
+    A((A)) --> B((B)) --> C((C))
+    A --> D((D)) --> E((E))
+    E --> M((M))
+    C --> M
+
+    M --- LMain[main]
+    C --- OMain[origin/main]
+
+    style LMain fill:#2b5c8f,color:#fff,stroke-width:0px
+    style OMain fill:#d97706,color:#fff,stroke-width:0px
+    style M fill:#10b981,color:#fff,stroke-width:0px
+```
+
+Is there a shortcut for fetch + merge? yep, it's called a pull.
+
 
 ### Deleting Remote Branches
 

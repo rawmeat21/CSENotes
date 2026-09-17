@@ -10,7 +10,6 @@ However, there is another way: you can take the patch of the change that was int
 
 With the `rebase` command, you can take all the changes that were committed on one branch and replay them on a different branch.
 
-
 For this example, you would check out the `experiment` branch, and then **rebase it onto** the `master` branch as follows:
 
 ```console

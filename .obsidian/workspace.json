@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/shell, terminal, terminal emulator and how it all works.md",
+                "file": "Linux/File descriptors.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "shell, terminal, terminal emulator and how it all works"
+              "title": "File descriptors"
             }
           },
           {
@@ -227,8 +227,9 @@
             "state": {
               "type": "outline",
               "state": {
-                "followCursor": false,
-                "showSearch": false,
+                "file": "Linux/File descriptors.md",
+                "followCursor": true,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
@@ -246,7 +247,7 @@
             }
           },
           {
-            "id": "de2c769bbd5d04a9",
+            "id": "cc8e4d7ba0a0ff8b",
             "type": "leaf",
             "state": {
               "type": "mermaid-toolbar-view",
@@ -260,7 +261,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 291.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -275,21 +276,26 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "2d2fdfbc83aeeebf",
+  "active": "4f13ed87e3a1f4d2",
   "lastOpenFiles": [
+    "2026-09-18.md",
+    "Untitled 5.base",
+    "Linux/File descriptors.md",
+    "assets/Pasted image 20260918155355.png",
+    "assets/Pasted image 20260918155325.png",
+    "assets/Pasted image 20260918155253.png",
+    "assets/Pasted image 20260918155144.png",
+    "Linux/File stuff.md",
+    "Linux/file.md",
+    "Linux/How does login work.md",
+    "Linux/shell, terminal, terminal emulator, and how the universe works.md",
     "assets/Pasted image 20260918152903.png",
     "assets/Pasted image 20260918152757.png",
     "assets/Pasted image 20260918152753.png",
     "assets/Pasted image 20260918152517.png",
     "assets/Pasted image 20260918150805.png",
     "assets/9_Gn_M8g_0d3b281ed5.gif",
-    "assets/Pasted image 20260918150346.png",
-    "assets/Pasted image 20260918150257.png",
-    "assets/Pasted image 20260918150217.png",
-    "assets/Pasted image 20260918150058.png",
-    "assets/Pasted image 20260918145317.png",
     "Linux/What does a shell like bash even do.md",
-    "Linux/shell, terminal, terminal emulator and how it all works.md",
     "Linux/Process control basics.md",
     "Linux/ps I love you.md",
     "Linux/cron.md",
@@ -308,11 +314,6 @@
     "Git/Why not use Centralised VCS.md",
     "Git/Visualise the basics.md",
     "Git/Undo things.md",
-    "Git/Understand git config.md",
-    "Git/Tagging guide.md",
-    "Git/Some tips.md",
-    "Git/Remotes.md",
-    "Git/Remote branches.md",
     "HLD",
     "Kubernetes",
     "CG",
@@ -324,7 +325,6 @@
     "Untitled 2.base",
     "Untitled 1.canvas",
     "Untitled 1.base",
-    "Untitled.canvas",
-    "Untitled.base"
+    "Untitled.canvas"
   ]
 }

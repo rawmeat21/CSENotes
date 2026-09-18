@@ -1,6 +1,6 @@
 The following article has been created using:
 
-Claude
+Claude Sonnet 5
 https://medium.com/@M4verick/how-i-went-from-confused-to-confident-understanding-ttys-ptys-ssh-and-tmux-d34252c0e452
 https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
 
@@ -11,6 +11,7 @@ https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
 
 ![[Pasted image 20260918144951.png]]
 An IBM 2741 teletype and the IBM System/360 Mo. 40 mainframe computer. These were released in the late 60s, and were prevalent until the 70s. The purchase of one of these mainframes (>$200k at the time) included a teletype.
+
 
 
 ![[Pasted image 20260918145317.png]]

@@ -1,5 +1,35 @@
 ### Components of a process
 
+```
+ ┌─────────────────────────────┐
+ │        USER SPACE            │   <- what the program "sees"
+ │  ┌───────────────────────┐   │
+ │  │   stack (grows down)  │   │
+ │  │          ↓             │   │
+ │  │                        │   │
+ │  │          ↑             │   │
+ │  │   heap (grows up)      │   │
+ │  ├───────────────────────┤   │
+ │  │   BSS  (uninit. data)  │   │
+ │  │   Data (init. data)    │   │
+ │  │   Text (code, r/o)     │   │
+ │  └───────────────────────┘   │
+ └─────────────────────────────┘
+              ▲
+              │  syscalls / traps
+              ▼
+ ┌─────────────────────────────┐
+ │        KERNEL SPACE          │
+ │  task_struct for this PID:   │
+ │   - PID, PPID                │
+ │   - UID/EUID/GID/EGID        │
+ │   - open file descriptor tbl │
+ │   - signal mask               │
+ │   - scheduling info (nice)   │
+ │   - memory page tables       │
+ └─────────────────────────────┘
+```
+
 A process consists of an address space and a set of data structures within the kernel. 
 
 The address space is a set of memory pages that the kernel has marked for the process’s use. These pages contain the code and libraries that the process is executing, the process’s variables, its stacks, and various extra information needed by the kernel while the process is running. 
@@ -7,6 +37,8 @@ The address space is a set of memory pages that the kernel has marked for the pr
 The process’s virtual address space is laid out randomly in physical memory and tracked by the kernel’s page tables.
 
 ![[Pasted image 20260911222125.png]]
+
+On Linux it's literally called `task_struct`, and you can eyeball a live one indirectly via `/proc/<pid>`.
 
 **Thread**- A “thread” is an execution context within a process. Every process has at least 1 thread, but some processes have many. Each thread has its **own stack** and CPU context but operates within the address space of its enclosing process.
 
@@ -31,6 +63,21 @@ from which it was cloned.
 
 **IMP:** The parent PID is a useful piece of information when you’re confronted with an unrecognized (and possibly misbehaving) process. Tracing the process back to its origin (whether that is a shell or some other program) may give you a better idea of its purpose and significance.
 
+```
+systemd (PID 1)
+ ├─ systemd-journald
+ ├─ systemd-logind
+ ├─ sshd
+ │   └─ sshd (per-connection)
+ │       └─ bash
+ │           └─ vim
+ └─ getty (tty1)
+     └─ bash
+```
+
+**Why `fork`+`exec` and not one syscall?** Because it's flexible. Between the fork and the exec, the child can do setup work — redirect its stdin/stdout, drop privileges, change its working directory, close file descriptors — _before_ the new program even starts running. This is exactly what your shell does every time you run a command with `command > out.txt`: fork, redirect stdout in the child, then exec.
+
+
 **UID and EUID: real and effective user ID**
 
 A process’s UID is the user identification number of the person who created it, or more accurately, it is a copy of the UID value of the parent process.
@@ -39,6 +86,9 @@ The EUID is the “effective” user ID, an extra UID that determines what resou
 
 UID MEANS IDENTITY
 EUID MEANS PERMISSION
+
+- **UID** = who _owns_ the process (inherited from the parent).
+- **EUID** = what permissions the process is currently _using_.
 
 Most systems also keep track of a “saved UID,” which is a copy of the process’s EUID at the point at which the process first begins to execute. Unless the process takes steps to obliterate this saved UID, it remains available for use as the real or effective UID. A conservatively written setuid program can therefore renounce its special privileges for the majority of its execution and access them only at the points where extra privileges are needed.
 
@@ -83,12 +133,20 @@ Most nondaemon processes have an associated control terminal.
 
 The control terminal determines the default linkages for the standard input, standard output, and standard error channels. It also distributes signals to processes in response to keyboard events such as `<Control-C>`
 
+Check yours:
+bash
+
+```bash
+$ tty
+/dev/pts/3        # a pseudo-terminal, e.g. inside a terminal emulator
+```
 
 ### Life cycle
 
 ![[Pasted image 20260911224737.png]]
 ![[Pasted image 20260911224746.png]]
 
+**A zombie is not "using resources" in the sense of CPU or RAM** — it's a corpse waiting for its death certificate to be signed. You cannot `kill -9` a zombie away — it's already dead; there's nothing left to kill. The fix is always to find and deal with the _parent_.
 
 ### Signals
 
@@ -127,6 +185,19 @@ TSTP is a “soft” version of STOP that might be best described as a request t
 
 ![[Pasted image 20260911225947.png]]
 
+
+|Signal|#|What it really means in practice|
+|---|---|---|
+|`SIGHUP`|1|"reload config" convention for daemons, OR literally "your terminal hung up"|
+|`SIGINT`|2|what `<Ctrl-C>` sends — "please stop, politely"|
+|`SIGQUIT`|3|`<Ctrl-\>` — like INT but expects a core dump|
+|`SIGKILL`|9|unblockable, uncatchable, instant death — last resort|
+|`SIGTERM`|15|the _default_ kill signal — "please exit cleanly"|
+|`SIGSTOP`|19|unblockable pause (like `<Ctrl-Z>` but uncatchable)|
+|`SIGTSTP`|20|what `<Ctrl-Z>` actually sends — a _catchable_ "please stop"|
+|`SIGCONT`|18|resume after STOP/TSTP|
+
+**The SIGTERM vs SIGKILL distinction is the single most important practical thing in this section.** `kill pid` sends SIGTERM by default — a _request_. A well-behaved program catches it, flushes its buffers, closes its files, deletes its lockfile, and exits. `kill -9 pid` sends SIGKILL, which the kernel enforces at the scheduler level — the process gets **zero chance to clean up**. This is why you always try plain `kill` first and only escalate to `-9` if the process is genuinely wedged.
 
 #### How to kill processes??
 

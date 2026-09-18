@@ -61,3 +61,17 @@ $ pidof sshd
 ```
 
 
+**Finding a specific process:**
+
+```bash
+$ ps aux | grep sshd | grep -v grep
+$ pgrep sshd
+$ pidof sshd
+```
+
+**Who's eating my memory?**
+
+```bash
+$ ps aux --sort=-%mem | head -10
+```
+

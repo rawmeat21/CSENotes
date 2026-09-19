@@ -1,3 +1,4 @@
+CSENotes
 
 This repository contains notes about several topics I'm currently studying / have covered as a CSE student at Jadavpur University. 
 

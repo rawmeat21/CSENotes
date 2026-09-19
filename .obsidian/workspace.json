@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/File descriptors.md",
+                "file": "Linux/shell, terminal, terminal emulator, and how the universe works.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "File descriptors"
+              "title": "shell, terminal, terminal emulator, and how the universe works"
             }
           },
           {
@@ -278,6 +278,7 @@
   },
   "active": "2d2fdfbc83aeeebf",
   "lastOpenFiles": [
+    "Linux/File descriptors.md",
     "assets/Pasted image 20260919095212.png",
     "assets/Pasted image 20260919095143.png",
     "assets/Pasted image 20260919095022.png",
@@ -288,10 +289,8 @@
     "assets/Pasted image 20260919093946.png",
     "assets/Pasted image 20260919093641.png",
     "assets/Pasted image 20260919093630.png",
-    "assets/Pasted image 20260919091151.png",
     "2026-09-18.md",
     "Untitled 5.base",
-    "Linux/File descriptors.md",
     "Linux/File stuff.md",
     "Linux/file.md",
     "Linux/How does login work.md",

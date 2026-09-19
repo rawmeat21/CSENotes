@@ -8,7 +8,7 @@ https://en.rattibha.com/thread/1553033011016306689
 https://linuxmeerkat.wordpress.com/2011/12/02/file-descriptors-explained/
 https://www.youtube.com/watch?v=crd2hgzBVTo&pp=ygUYZmlsZSBkZXNjcmlwdG9yIGluIGxpbnV4
 https://www.youtube.com/watch?v=rW_NV6rf0rM&pp=ygUYZmlsZSBkZXNjcmlwdG9yIGluIGxpbnV4
-
+https://cseweb.ucsd.edu/classes/sp17/cse291-a/applications/ln/lecture5.html
 https://chessman7.substack.com/p/fork-and-file-descriptors-the-unix
 https://tzimmermann.org/2017/07/28/data-structures-of-unix-file-io/
 https://jzhao.xyz/thoughts/file-descriptor

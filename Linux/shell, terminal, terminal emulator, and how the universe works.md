@@ -4,6 +4,7 @@ Claude Sonnet 5
 https://medium.com/@M4verick/how-i-went-from-confused-to-confident-understanding-ttys-ptys-ssh-and-tmux-d34252c0e452
 https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
 
+Also read: https://lfg.popovicu.com/series/the-shell-as-a-language/terminal-tty-and-shell/
 
 - **Shell** — a program that reads commands and executes them (bash, zsh, fish). It's just a regular process, like any other. Its job is to parse input and fork/exec other processes.
 - **Terminal** — historically, a physical device (a screen + keyboard, or even older, a teletype/printer) that let a human talk to a computer. In modern Linux, this role is played by a **TTY device** (a kernel abstraction — more below). A terminal emulator is a GUI application. 
@@ -228,6 +229,16 @@ In modern operating systems: Each `/dev/ttyX` device represents an entire **keyb
 A TTY is an interactive communication channel between **you** and the **system**. When you open a terminal directly on your computer (without using remote access), you are interfacing with one of these TTYs.
 
 ![[Pasted image 20260918140042.png]]
+
+There are a few different things under `/dev` with "tty" in the name:
+
+| Path                       | What it is                                                                   |
+| -------------------------- | ---------------------------------------------------------------------------- |
+| `/dev/tty1`, `tty2`, ...   | Kernel **virtual consoles** (VTs), tied to your physical keyboard and screen |
+| `/dev/pts/0`, `pts/1`, ... | **Pseudo-terminals** (ptys), software-only terminals                         |
+| `/dev/ttyS0`, `ttyUSB0`    | Real serial ports                                                            |
+| `/dev/tty` (no number)     | Magic alias: "the controlling terminal of _this_ process"                    |
+
 
 
 There are two kinds you'll encounter:

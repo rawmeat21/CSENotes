@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "HLD/DS - Replication (or Redundancy).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "DS - Replication (or Redundancy)"
             }
           },
           {
@@ -292,8 +292,14 @@
   },
   "active": "39424640fc8a9ddc",
   "lastOpenFiles": [
-    "Shell Scripting/Tutorial.md",
+    "assets/Pasted image 20260922113220.png",
+    "assets/Pasted image 20260922111738.png",
+    "assets/Pasted image 20260922111207.png",
+    "assets/Pasted image 20260922105704.png",
+    "Linux/How to fix bluetooth failed to connect.md",
+    "Linux/How passwd works using setuid.md",
     "README.md",
+    "Shell Scripting/Tutorial.md",
     "Linux/Permissions.md",
     "Linux/Misacellaneous.md",
     "Linux/Useful reads.md",
@@ -310,9 +316,6 @@
     "assets/Pasted image 20260919094445.png",
     "assets/Pasted image 20260919094150.png",
     "assets/Pasted image 20260919094123.png",
-    "assets/Pasted image 20260919093946.png",
-    "assets/Pasted image 20260919093641.png",
-    "assets/Pasted image 20260919093630.png",
     "2026-09-18.md",
     "Untitled 5.base",
     "Linux/File stuff.md",
@@ -326,9 +329,6 @@
     "HLD/Distributed systems - How to scale.md",
     "Git/How to maintain a project.md",
     "Git/How Git works.md",
-    "Git/Workflow to contribute to a public project on a site like Github.md",
-    "Git/Distributed workflows.md",
-    "Git/Distributed VCS.md",
     "HLD",
     "Kubernetes",
     "CG",

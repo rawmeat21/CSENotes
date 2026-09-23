@@ -2,7 +2,7 @@
 
 ## Limited Directed Execution protocol (LDE)- Just run the process
 
-![[Pasted image 20260604141951.png]]
+![Pasted image 20260604141951](../assets/Pasted%20image%2020260604141951.png)
 
 
 When the OS wishes to start a program running, it creates a process entry for it in a process list, allocates some memory for it, loads the program code into memory (from disk), locates its entry point (i.e., the main() routine or something similar), jumps to it, and starts running the user’s code
@@ -62,7 +62,7 @@ There are two phases in the limited direct execution (LDE) protocol.
 1. In the ﬁrst (at boot time), the kernel initializes the trap table, and the CPU remembers its location for subsequent use. The kernel does so via a privileged instruction. 
 2. In the second (when running a process), the kernel sets up a few things (e.g., allocating a node on the process list, allocating memory) before using a return-from-trap instruction to start the execution of the process; this switches the CPU to user mode and begins running the process. When the process wishes to issue a system call, it traps back into the OS, which handles it and once again returns control via a return-from-trap to the process. The process then completes its work, and returns from main(); this usually will return into some stub code which will properly exit the program (say, by calling the exit() system call, which traps into the OS). At this point, the OS cleans up and we are done.
 
-![[Pasted image 20260604145023.png]]
+![Pasted image 20260604145023](../assets/Pasted%20image%2020260604145023.png)
 
 
 ## Switching between processes
@@ -102,11 +102,11 @@ If the decision is made to switch, the OS then executes a low-level piece of cod
 A context switch is conceptually simple: all the OS has to do is save a few register values  
 for the currently-executing process (onto its kernel stack, for example) and restore a few for the soon-to-be-executing process (from its kernel stack). By doing so, the OS thus ensures that when the return-from-trap instruction is ﬁnally executed, instead of returning to the process that was running, the system resumes execution of another process.
 
-![[Pasted image 20260604151519.png]]
+![Pasted image 20260604151519](../assets/Pasted%20image%2020260604151519.png)
 
 In the timer interrupt handler, the OS decides to switch from running Process A to Process B. At that point, it calls the switch() routine, which carefully saves current register values (into the process structure of A), restores the registers of Process B (from its process  
 structure entry), and then switches contexts, speciﬁcally by changing the stack pointer to use B’s kernel stack.
 
-![[Pasted image 20260604151824.png]]
+![Pasted image 20260604151824](../assets/Pasted%20image%2020260604151824.png)
 
 

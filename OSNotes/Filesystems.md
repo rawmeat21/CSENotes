@@ -11,13 +11,13 @@ Without a file system, information placed in storage would be one large body of 
 
 -> Hard drives are divided into _sectors_ (often 512 bytes large), and are _sector-addressable_: you must read or write entire 512-byte sectors, even if you’re only interested in 32 bytes of information within a sector.
 
-![[Pasted image 20260620115026.png]]
+![Pasted image 20260620115026](../assets/Pasted%20image%2020260620115026.png)
 
 -> A sector is a physical spot on a formatted disk. 
 
 -> When a disk is formatted, tracks are defined (concentric rings from inside to the outside of the disk platter. Each track is divided into a slice, which is a sector. On hard drives and floppies, each sector can hold 512 bytes of data.
 
-![[Pasted image 20260620115427.png]]
+![Pasted image 20260620115427](../assets/Pasted%20image%2020260620115427.png)
 
 A block is a group of sectors that the operating system can address. A block might be one sector, or it might be several sectors (2,4,8, or even 16). The bigger the drive, the more sectors that a block will hold.
 
@@ -37,7 +37,7 @@ For example, PC DOS (earlier versions at least) could only address 65,536 blocks
 -> The disk stores the information about the partitions’ locations and sizes in an area known as the [partition table](https://en.wikipedia.org/wiki/Partition_table) that the operating system reads before any other part of the disk. When a hard drive is installed in a computer, it must be partitioned before you can format and use it.
 
 
-![[Pasted image 20260620120258.png]]
+![Pasted image 20260620120258](../assets/Pasted%20image%2020260620120258.png)
 
 
 ### Some types of FS

@@ -234,7 +234,7 @@ done
     done
 } > file.txt
 ```
-Prefer `(( ))`/`[[ ]]`/parameter expansion (all builtins, no fork) over spawning `expr`,
+Prefer `(( ))`/`[ ](%20)`/parameter expansion (all builtins, no fork) over spawning `expr`,
 `sed`, `awk`, `basename`, `cut` in a hot loop — each is a full `fork()+exec()`.
 
 ### "Useless Use of Cat" (UUOC) and similar redundant forks

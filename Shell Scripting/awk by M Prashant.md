@@ -1,8 +1,8 @@
-![[Pasted image 20260816122650.png]]
+![Pasted image 20260816122650](../assets/Pasted%20image%2020260816122650.png)
 
-![[Pasted image 20260816123703.png]]
+![Pasted image 20260816123703](../assets/Pasted%20image%2020260816123703.png)
 
-![[Pasted image 20260816123724.png]]
+![Pasted image 20260816123724](../assets/Pasted%20image%2020260816123724.png)
 
 
 Search multiple words:
@@ -22,18 +22,18 @@ awk '$2 ~ /a/ {print $2}' file.txt
 ```
 (consider 2nd column is name)
 
-![[Pasted image 20260816130415.png]]
+![Pasted image 20260816130415](../assets/Pasted%20image%2020260816130415.png)
 
 ### How to read logs in a range of time:
 
 (How to work with time)
 
-![[Pasted image 20260816130736.png]]
+![Pasted image 20260816130736](../assets/Pasted%20image%2020260816130736.png)
 
 Just put the time under double quotes.
 
 
-![[Pasted image 20260816130909.png]]
+![Pasted image 20260816130909](../assets/Pasted%20image%2020260816130909.png)
 
 For substitution, use gsub.
 
@@ -72,7 +72,7 @@ awk '{print tolower($2)}' file.txt
 For uppercase, use `toupper()`.
 
 
-![[Pasted image 20260816132928.png]]
+![Pasted image 20260816132928](../assets/Pasted%20image%2020260816132928.png)
 
 
 ```bash

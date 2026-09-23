@@ -1,4 +1,4 @@
-![[Pasted image 20260829145407.png]]
+![Pasted image 20260829145407](../assets/Pasted%20image%2020260829145407.png)
 
 Any Collection can be converted to a Stream.
 
@@ -6,17 +6,17 @@ Stream is a sequence of items got from a collection so that we can perform decla
 
 declarative means "what to do" not "how to do".
 
-![[Pasted image 20260829145743.png]]
+![Pasted image 20260829145743](../assets/Pasted%20image%2020260829145743.png)
 
 
 Advantages:
 
-![[Pasted image 20260829145811.png]]
+![Pasted image 20260829145811](../assets/Pasted%20image%2020260829145811.png)
 
 
 How to create streams:
 
-![[Pasted image 20260829150247.png]]
+![Pasted image 20260829150247](../assets/Pasted%20image%2020260829150247.png)
 
 ```java
 Stream<Integer> intStream = Stream.of(1,2,3);// creates a Stream having 1,2,3
@@ -43,7 +43,7 @@ This generates 100 random values.
 
 A sexy example:
 
-![[Pasted image 20260829151512.png]]
+![Pasted image 20260829151512](../assets/Pasted%20image%2020260829151512.png)
 
 Each function explained:
 
@@ -58,7 +58,7 @@ Each function explained:
 
 Another example using `.iterate()`:
 
-![[Pasted image 20260829152127.png]]
+![Pasted image 20260829152127](../assets/Pasted%20image%2020260829152127.png)
 
 
 Using `max()`:

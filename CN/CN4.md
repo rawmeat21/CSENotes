@@ -7,7 +7,7 @@ The OSI Model is a conceptual framework created by the International Organizatio
 - Promotes compatibility between different networking systems.
 - Simplifies network design, implementation, and troubleshooting.
 
-![[Pasted image 20260615015642.png]]
+![Pasted image 20260615015642](../assets/Pasted%20image%2020260615015642.png)
 
 ### Layer 1: The Physical Layer
 
@@ -20,7 +20,7 @@ The [**Physical Layer**](https://www.geeksforgeeks.org/computer-networks/physica
 - ****Physical**** [****Topologies****](https://www.geeksforgeeks.org/computer-networks/types-of-network-topology/)****:**** It defines the structural layout of the network, such as Bus, Star, or Mesh configurations.
 - ****Transmission Mode:**** It determines the direction of data flow, utilizing modes like Simplex (one-way), Half-Duplex (two-way, one at a time), or Full-Duplex (simultaneous two-way).
 
-![[Pasted image 20260615015720.png]]
+![Pasted image 20260615015720](../assets/Pasted%20image%2020260615015720.png)
 
 ### Layer 2: The Data Link Layer (DLL)
 
@@ -41,7 +41,7 @@ The [****Data Link Layer****](https://www.geeksforgeeks.org/computer-networks/da
 
 ****6. Access Control:**** When multiple devices share the same communication channel, the MAC sublayer dictates which device has the right to transmit at any given time to avoid collisions.
 
-![[Pasted image 20260615015915.png]]
+![Pasted image 20260615015915](../assets/Pasted%20image%2020260615015915.png)
 ### Layer 3: The Network Layer
 
 The [****Network Layer****](https://www.geeksforgeeks.org/computer-networks/network-layer-in-osi-model/) manages data transmission between hosts across different networks by handling logical addressing and path finding.
@@ -51,7 +51,7 @@ The [****Network Layer****](https://www.geeksforgeeks.org/computer-networks/netw
 - ****Routing:**** Determines the most efficient physical path from the source to the destination across interconnected networks.
 - ****Hardware:**** Primarily implemented via [****Routers and Switches****](https://www.geeksforgeeks.org/computer-networks/difference-between-router-and-switch/).
 - ****Inter-networking:**** Facilitates communication between disparate networks by directing traffic to the correct destination.
-![[Pasted image 20260615015901.png]]
+![Pasted image 20260615015901](../assets/Pasted%20image%2020260615015901.png)
 ### Layer 4: The Transport Layer
 
 The [Transport Layer](https://www.geeksforgeeks.org/computer-networks/transport-layer-in-osi-model/) ensures the end-to-end delivery of entire messages. It acts as a liaison, providing services to the Application layer while utilizing the infrastructure of the Network layer to ensure data reaches the correct application on the destination host.
@@ -63,7 +63,7 @@ The [Transport Layer](https://www.geeksforgeeks.org/computer-networks/transport-
 - ****Connection-Oriented (TCP):**** Requires a "handshake" to establish a connection; ensures reliability via error checking and acknowledgements.
 - ****Connectionless (UDP):**** Sends data immediately without a formal connection; faster but offers no guarantee of delivery.
 
-![[Pasted image 20260615015847.png]]
+![Pasted image 20260615015847](../assets/Pasted%20image%2020260615015847.png)
 ### Layer 5: The Session Layer
 
 The [****Session Layer****](https://www.geeksforgeeks.org/computer-networks/session-layer-in-osi-model/) acts as the "dialogue manager," governing the opening, closing, and security of communication channels between two devices.
@@ -74,7 +74,7 @@ The [****Session Layer****](https://www.geeksforgeeks.org/computer-networks/sess
 - ****Dialog Control:**** Directs whether communication is half-duplex (alternating) or full-duplex (simultaneous).
 - ****Practical Example:**** In a web-based messenger, the Session Layer maintains the active link between your browser and the server, ensuring your specific chat remains open and synchronized while handling background encryption and data conversion.
 
-![[Pasted image 20260615015836.png]]
+![Pasted image 20260615015836](../assets/Pasted%20image%2020260615015836.png)
 ### Layer 6: The Presentation Layer
 
 Often called the ****Translation Layer****, the [Presentation Layer](https://www.geeksforgeeks.org/computer-networks/presentation-layer-in-osi-model/) ensures that data is formatted, secured, and compressed so that the receiving application can correctly interpret it.
@@ -84,7 +84,7 @@ Often called the ****Translation Layer****, the [Presentation Layer](https://www
 - ****Encryption/Decryption:**** Provides security by converting "plain text" into "ciphertext" (encryption) and back again (decryption) using key values. This process is typically handled by protocols like [****TLS/SSL****](https://www.geeksforgeeks.org/computer-networks/difference-between-secure-socket-layer-ssl-and-transport-layer-security-tls/).
 - ****Compression:**** Reduces the total number of bits required for transmission, which increases network efficiency and speed.
 
-![[Pasted image 20260615015825.png]]
+![Pasted image 20260615015825](../assets/Pasted%20image%2020260615015825.png)
 ### Layer 7: The Application Layer
 
 The [****Application Layer****](https://www.geeksforgeeks.org/computer-networks/application-layer-in-osi-model/) sits at the top of the OSI stack and serves as the direct interface between the software user and the network. It produces the data that will be sent and displays the information received from other layers.
@@ -95,7 +95,7 @@ The [****Application Layer****](https://www.geeksforgeeks.org/computer-networks/
 - ****File Transfer, Access, and Management (FTAM):**** Provides the framework for users to retrieve, manage, and manipulate files stored on remote computers.
 - ****Directory Services:**** Offers distributed database access to manage global information regarding various network objects and services.
 
-![[Pasted image 20260615015813.png]]
+![Pasted image 20260615015813](../assets/Pasted%20image%2020260615015813.png)
 
 
 ## Data Flows in the OSI Model

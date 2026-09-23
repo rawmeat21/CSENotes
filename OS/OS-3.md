@@ -4,10 +4,10 @@
 = Program + runtime activity
 program under exectuion
 
-![[Pasted image 20260424020810.png]]
-![[Pasted image 20260424020848.png]]
-![[Pasted image 20260424020928.png]]
-![[Pasted image 20260424020952.png]]
+![Pasted image 20260424020810](Pasted%20image%2020260424020810.png)
+![Pasted image 20260424020848](Pasted%20image%2020260424020848.png)
+![Pasted image 20260424020928](Pasted%20image%2020260424020928.png)
+![Pasted image 20260424020952](Pasted%20image%2020260424020952.png)
 
 PID- process ID (used to identify process)
 PC- program counter
@@ -16,16 +16,16 @@ GPR- general purpose register
 ## PCB (How to save a process!)
 
 Attributes of a process are stored in PCB (process control block) or process descriptor
-![[Pasted image 20260424021614.png]]
+![Pasted image 20260424021614](Pasted%20image%2020260424021614.png)
 
 when a process is stopped and we want to resume it, how does the process have its contents restored?
-![[Pasted image 20260424232925.png]]
+![Pasted image 20260424232925](Pasted%20image%2020260424232925.png)
 
 P1 is running 
 when its paused, its entire 'context' is saved in its PCB in OS. PC, register values, etc, everything is copied
 
 Content of PCB= context of process
-![[Pasted image 20260424233207.png]]
+![Pasted image 20260424233207](Pasted%20image%2020260424233207.png)
 
 Context Switch: pause current process and resume/start another process
 

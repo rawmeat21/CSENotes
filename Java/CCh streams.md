@@ -30,7 +30,7 @@ for (Artist a : allArtists) {
 }
 ```
 
-![[Pasted image 20260829144343.png]]
+![Pasted image 20260829144343](../assets/Pasted%20image%2020260829144343.png)
 
 **Key points to remember:**
 
@@ -53,7 +53,7 @@ long count = allArtists.stream()
                         .count();
 ```
 
-![[Pasted image 20260829144356.png]]
+![Pasted image 20260829144356](../assets/Pasted%20image%2020260829144356.png)
 
 **Key points:**
 
@@ -215,7 +215,7 @@ s.forEach(System.out::println); // throws IllegalStateException: stream has alre
 - Returns a stream including all elements that match with the predicate
 - If you're refactoring legacy code, the presence of an `if` statement in the middle of a `for` loop is a pretty strong indicator that you really want to use `filter`.
 
-![[Pasted image 20260830153410.png]]
+![Pasted image 20260830153410](../assets/Pasted%20image%2020260830153410.png)
 
 A `Predicate<T>` is a functional interface with one abstract method: `boolean test(T t)`. `filter()` takes a `Predicate<T>` and keeps only elements for which `test()` returns `true`.
 
@@ -270,7 +270,7 @@ List<Dish> page2 = menu.stream()
 
 ### 10. Mapping
 
-![[Pasted image 20260904131200.png]]
+![Pasted image 20260904131200](../assets/Pasted%20image%2020260904131200.png)
 
 **Key points:**
 
@@ -360,10 +360,10 @@ List<String> uniqueChars = word1.stream()
                                  .collect(toList());
 ```
 
-![[Pasted image 20260904131141.png]]
-![[Pasted image 20260904131404.png]]
+![Pasted image 20260904131141](../assets/Pasted%20image%2020260904131141.png)
+![Pasted image 20260904131404](../assets/Pasted%20image%2020260904131404.png)
 
-![[Pasted image 20260904131515.png]]
+![Pasted image 20260904131515](../assets/Pasted%20image%2020260904131515.png)
 
 
 #### FlatMap examples
@@ -806,7 +806,7 @@ List<String> names = menu.stream().map(Dish::getName).collect(toList());
 
 ### 24. Collecting: how it actually works internally
 
-![[Pasted image 20260904142934.png]]
+![Pasted image 20260904142934](../assets/Pasted%20image%2020260904142934.png)
 
 The slide's diagram walks through processing a stream of transactions with a `Collector`:
 
@@ -1025,7 +1025,7 @@ menu.stream().collect(groupingBy(d -> d.getType()));
 
 > We call this Function a _classification_ function because it's used to classify the elements of the stream into different groups.
 
-![[Pasted image 20260904192939.png]]
+![Pasted image 20260904192939](../assets/Pasted%20image%2020260904192939.png)
 
 `menu` → grouped into FISH / MEAT / OTHERS buckets, using `Dish::getType`.
 
@@ -1035,7 +1035,7 @@ menu.stream().collect(groupingBy(d -> d.getType()));
 
 ### 35. Grouping
 
-![[Pasted image 20260904193223.png]]
+![Pasted image 20260904193223](../assets/Pasted%20image%2020260904193223.png)
 
 The slide's diagram traces one element through the process:
 

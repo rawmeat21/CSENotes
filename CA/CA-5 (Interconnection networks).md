@@ -1,6 +1,6 @@
 ## Interconnection Networks
 
-![[Pasted image 20260503120456.png]]
+![Pasted image 20260503120456](../assets/Pasted%20image%2020260503120456.png)
 
 
 ### What is an Interconnection Network?
@@ -47,7 +47,7 @@ A **rearrangeably non-blocking** (or rearrangeable) network is one where the net
 
 ### Crossbar Networks
 
-![[Pasted image 20260503120518.png]]
+![Pasted image 20260503120518](../assets/Pasted%20image%2020260503120518.png)
 
 
 An n×mn×m crossbar (or crosspoint switch) directly connects nn inputs to mm outputs with no intermediate stages. Each output may be connected to at most one input at a time, while each input may be connected to any number of outputs. Such a switch consists of mm nn-to-1 multiplexers, one for each output.
@@ -62,7 +62,7 @@ In an n×mn×m crossbar:
 - Each input connects to one input pin on each of the mm multiplexers.
 - Each output is driven by exactly one multiplexer.
 
-![[Pasted image 20260503120555.png]]
+![Pasted image 20260503120555](../assets/Pasted%20image%2020260503120555.png)
 
 
 > **PYQ (2018 Q14):** A 4×54×5 crossbar switch can be implemented with **(a) 5 four-to-one multiplexers** — one per output, each selecting among the 4 inputs.
@@ -75,7 +75,7 @@ In an n×mn×m crossbar:
 
 ### Clos Networks
 
-![[Pasted image 20260503120610.png]]
+![Pasted image 20260503120610](../assets/Pasted%20image%2020260503120610.png)
 
 
 A Clos network is a **three-stage network** in which each stage is composed of a number of crossbar switches. A symmetric Clos network is characterized by a triple (m,n,r)(m,n,r) where:
@@ -94,7 +94,7 @@ Each input switch is an n×mn×m crossbar, each middle-stage switch is an r×rr�
 
 ### Butterfly Networks
 
-![[Pasted image 20260503120626.png]]
+![Pasted image 20260503120626](../assets/Pasted%20image%2020260503120626.png)
 
 
 A **k-ary n-fly** butterfly network consists of:
@@ -166,11 +166,11 @@ Path: terminal 6→0.3→1.1→2.0→6→0.3→1.1→2.0→ terminal 11.
 
 ---
 
-![[Pasted image 20260503122244.png]]
+![Pasted image 20260503122244](../assets/Pasted%20image%2020260503122244.png)
 
 ### Allocation Units: Messages, Packets, Flits, and Phits
 
-![[Pasted image 20260503122218.png]]
+![Pasted image 20260503122218](../assets/Pasted%20image%2020260503122218.png)
 
 
 There is a hierarchy of allocation units in an interconnection network. Understanding what each unit is, what it is used for, and its typical size is essential.
@@ -219,7 +219,7 @@ A flit is itself subdivided into one or more **physical transfer digits or phits
 
 #### Bufferless Flow Control
 
-![[Pasted image 20260503122341.png]]
+![Pasted image 20260503122341](../assets/Pasted%20image%2020260503122341.png)
 
 
 In bufferless flow control there are no buffers at the nodes. When two packets arrive at a router simultaneously and both request the same output channel, there is no buffer to hold the loser. The flow control mechanism must immediately resolve the contention. **Dropping flow control** is one such technique — one packet (A) acquires the channel and the other (B) is dropped. B must be retransmitted from the source. A negative acknowledgment (NACK) triggers this retransmission.
@@ -230,7 +230,7 @@ In bufferless flow control there are no buffers at the nodes. When two packets a
 
 #### Buffered Flow Control — Packet-Buffer Methods
 
-![[Pasted image 20260503122437.png]]
+![Pasted image 20260503122437](../assets/Pasted%20image%2020260503122437.png)
 
 Buffered flow control is more efficient than bufferless flow control. A buffer **decouples the allocation of adjacent channels** — it gives a place to store the packet (or flit) while waiting for the second channel to be allocated, allowing the allocation of the second channel to be delayed without complications.
 
@@ -246,7 +246,7 @@ While waiting to acquire resources, no channels are being held idle and only a s
 
 ##### Cut-Through Flow Control
 
-![[Pasted image 20260503122458.png]]
+![Pasted image 20260503122458](../assets/Pasted%20image%2020260503122458.png)
 
 
 Cut-through flow control **forwards a packet as soon as the header is received** and resources (buffer and channel) are acquired, without waiting for the entire packet to be received. This significantly reduces latency compared to store-and-forward.
@@ -269,7 +269,7 @@ If the packet encounters contention — it cannot immediately acquire the next c
 
 #### Flit-Buffer (Wormhole) Flow Control
 
-![[Pasted image 20260503122608.png]]
+![Pasted image 20260503122608](../assets/Pasted%20image%2020260503122608.png)
 
 
 Flit-buffer flow control, also called **wormhole flow control**, operates like cut-through but with channels and buffers allocated to **flits rather than packets**. When the head flit of a packet arrives at a node, it must acquire three resources before it can be forwarded to the next node along the route:
@@ -298,7 +298,7 @@ A **virtual channel** holds the state needed to coordinate the handling of the f
 
 #### Virtual-Channel Flow Control
 
-![[Pasted image 20260503122631.png]]
+![Pasted image 20260503122631](../assets/Pasted%20image%2020260503122631.png)
 
 
 The key problem with wormhole flow control is **blocking**. When a packet B blocks while holding the sole virtual channel associated with physical channel pp, channels pp and qq are idled even though packet A requires the use of these idle channels.
@@ -321,4 +321,4 @@ Three common low-level flow control mechanisms that provide backpressure:
 2. **On/off** — the downstream node signals the upstream node with an on/off signal indicating whether it can accept more flits.
 3. **Ack/nack** — the downstream node sends an acknowledgment (ack) or negative acknowledgment (nack) for each flit, indicating success or failure of reception.
 4. 
-![[Pasted image 20260503122700.png]]
+![Pasted image 20260503122700](../assets/Pasted%20image%2020260503122700.png)

@@ -3,7 +3,7 @@
 Bus arbiter decides who will have access to the bus at any given time.
 ### The Single Shared Bus
 
-![[Pasted image 20260503115913.png]]
+![Pasted image 20260503115913](../assets/Pasted%20image%2020260503115913.png)
 
 
 In a single-bus multiprocessor, all processors P1,P2,…,PkP1​,P2​,…,Pk​ and all memory modules M1,M2,…,MnM1​,M2​,…,Mn​ are connected to a single shared bus. The bus carries five categories of lines: **address lines** (carry the memory address), **data lines** (carry the actual data), **control lines** (carry read/write and other control signals), **interrupt lines** (carry interrupt signals from devices to processors), and **bus exchange lines** (carry the arbitration signals — bus request and bus grant — by means of which processors or other temporary bus masters can request bus allocation).
@@ -14,7 +14,7 @@ Since the bus is a shared resource, only one master may use it at any instant. I
 
 ### Centralized Arbitration
 
-![[Pasted image 20260503115933.png]]
+![Pasted image 20260503115933](../assets/Pasted%20image%2020260503115933.png)
 
 In centralized arbitration there is a **single central bus arbiter**. Each master ii has its own **dedicated request line** RiRi​ going to the arbiter, and its own **dedicated grant line** GiGi​ coming back from the arbiter. There is one **single shared bus busy line** that all masters and the arbiter observe.
 
@@ -40,7 +40,7 @@ Key structural fact: in centralized arbitration, the bus request lines are **ind
 
 ### Daisy-Chained Bus Arbitration
 
-![[Pasted image 20260503115950.png]]
+![Pasted image 20260503115950](../assets/Pasted%20image%2020260503115950.png)
 
 
 Daisy-chaining is one of the most popular arbiter logic organizations. Its defining structural feature is that there is only **one single shared bus request line** — all masters use this one line to signal their need for the bus. The **bus grant line**, however, is not shared — it is passed serially from master to master in a chain.
@@ -74,7 +74,7 @@ The daisy-chained scheme **lacks fairness**. Master 1 can continuously re-reques
 
 ### Decentralized Rotating Arbiter
 
-![[Pasted image 20260503120008.png]]
+![Pasted image 20260503120008](../assets/Pasted%20image%2020260503120008.png)
 
 
 The rotating arbiter is a decentralized design that eliminates the unfairness of daisy-chaining. There is **no single central arbiter** — instead, each master ii has its own **local arbiter** (Arbiter ii). Each arbiter-master pair has its own request line RiRi​ and grant line GiGi​. In addition, arbiters are connected by a chain of **priority lines**: the output priority line PiPi​ of Arbiter ii feeds into Arbiter i+1i+1 as its priority input. All arbiters observe the shared **bus busy line**.

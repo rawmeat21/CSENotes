@@ -127,7 +127,7 @@ CMD ["echo", "Password is $MYSQL_PASSWORD"]
 
 it would print the literal string `$MYSQL_PASSWORD` — nothing to expand it, since no shell is involved.
 
-![[Pasted image 20260826123059.png]]
+![Pasted image 20260826123059](../assets/Pasted%20image%2020260826123059.png)
 
 
  `sh -c` syntax is: `sh -c COMMAND_STRING [name] [arg1] [arg2] ...`

@@ -1,6 +1,6 @@
 When not to use shell scripts
 
-- Resource-intensive tasks, especially where speed is a factor (sorting, hashing, recursion [[2]](https://tldp.org/LDP/abs/html/why-shell.html#FTN.AEN87) ...)
+- Resource-intensive tasks, especially where speed is a factor (sorting, hashing, recursion [2](2)(https://tldp.org/LDP/abs/html/why-shell.html#FTN.AEN87) ...)
     
 - Procedures involving heavy-duty math operations, especially floating point arithmetic, arbitrary precision calculations, or complex numbers (use _C++_ or _FORTRAN_ instead)
     

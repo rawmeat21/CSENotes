@@ -6,9 +6,9 @@ Before anything else, these two words need to be precisely defined because they'
 
 **Concurrency** — multiple operations are in progress at the same time, but not necessarily executing simultaneously. One operation starts, hits a waiting point, gets suspended, and another operation runs while the first is waiting. When the first operation's wait is over, it resumes. Only one thing is actually executing at any given instant, but many things are making progress.
 
-![[Pasted image 20260701202026.png]]
+![Pasted image 20260701202026](../assets/Pasted%20image%2020260701202026.png)
 
-![[Pasted image 20260701202156.png]]
+![Pasted image 20260701202156](../assets/Pasted%20image%2020260701202156.png)
 
 `asyncio` is a concurrency model. It runs in a single thread. Multiple operations make progress by yielding control to each other at waiting points.
 
@@ -69,10 +69,10 @@ To understand it you need to understand three things in order: coroutines, the e
 
 ---
 
-![[Pasted image 20260701202420.png]]
+![Pasted image 20260701202420](../assets/Pasted%20image%2020260701202420.png)
 
-![[Pasted image 20260701202551.png]]
-![[Pasted image 20260701202624.png]]
+![Pasted image 20260701202551](../assets/Pasted%20image%2020260701202551.png)
+![Pasted image 20260701202624](../assets/Pasted%20image%2020260701202624.png)
 
 Multithreading means the OS gives you multiple threads of execution that can genuinely run **in parallel** (on multi-core CPUs) or be interleaved by the OS scheduler (preemptively, without your code's consent).
 
@@ -118,7 +118,7 @@ Async requires the entire call chain to be non-blocking — every library you ca
 If you're stuck with a blocking library that has no async equivalent, threads let you get concurrency anyway without rewriting the library.
 
 
-![[Pasted image 20260701202656.png]]
+![Pasted image 20260701202656](../assets/Pasted%20image%2020260701202656.png)
 
 ### Coroutines (cooperative function)
 
@@ -149,11 +149,11 @@ print(result)      # <coroutine object greet at 0x...>
 
 Calling a coroutine function returns a **coroutine object** — a suspended computation that hasn't started yet. To actually run it, you either `await` it or pass it to the event loop.
 
-![[Pasted image 20260701210615.png]]
+![Pasted image 20260701210615](../assets/Pasted%20image%2020260701210615.png)
 
 How to create event loop object:
 
-![[Pasted image 20260701210907.png]]
+![Pasted image 20260701210907](../assets/Pasted%20image%2020260701210907.png)
 
 
 ---
@@ -421,7 +421,7 @@ B: done        ← after 2s
 
 All three started almost simultaneously. Total time was ~2 seconds (the longest task), not ~4 seconds (the sum). This is exactly the speedup your fetchers would get.
 
-![[Pasted image 20260701220421.png]]
+![Pasted image 20260701220421](../assets/Pasted%20image%2020260701220421.png)
 
 gather() does this:
 

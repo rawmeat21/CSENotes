@@ -15,7 +15,7 @@ A quad-core processor has four cores, allowing it to perform four tasks simultan
 
 ## What is a Thread?
 
-![[Pasted image 20260430143057.png]]
+![Pasted image 20260430143057](../assets/Pasted%20image%2020260430143057.png)
 
 A thread is an independent path of a process. It exists within the address space of a process. It represents a flow of control within a process.
 
@@ -99,7 +99,7 @@ Used by modern operating systems like Linux and Windows.
 **Example:**  
 **Pthreads in Linux**: Each pthread (POSIX thread) in a Linux application is usually mapped to a unique kernel thread.
 
-![[Pasted image 20260620110314.png]]
+![Pasted image 20260620110314](../assets/Pasted%20image%2020260620110314.png)
 
 
 **Benefits of Multithreading**
@@ -132,9 +132,9 @@ Each thread maintains its own:
 
 There is a parent child relation between Threads. If a thread x is created from a thread y, then y is the *parent* of x. Naturally, main thread is the mother of all threads.
 
-![[Pasted image 20260430143254.png]]
+![Pasted image 20260430143254](../assets/Pasted%20image%2020260430143254.png)
 
-![[Pasted image 20260620110124.png]]
+![Pasted image 20260620110124](../assets/Pasted%20image%2020260620110124.png)
 
 **Context Switching: Process vs Thread**
 
@@ -147,11 +147,11 @@ When the CPU switches from one process to another, it must:
 Switching between threads of the same process is lighter because memory mapping remains the same, only registers and stack pointers need to be saved/restored.
 
 
-![[Pasted image 20260430143514.png]]
+![Pasted image 20260430143514](../assets/Pasted%20image%2020260430143514.png)
 
 
 
-![[Pasted image 20260430143646.png]]
+![Pasted image 20260430143646](../assets/Pasted%20image%2020260430143646.png)
 
 In a multi-threaded environment, threads within the same process operate within a shared context while maintaining individual execution states.
 
@@ -175,9 +175,9 @@ of the same process execute on different physical cores at the exact same time.
 
 ## Thread States
 
-![[Pasted image 20260430184932.png]]
+![Pasted image 20260430184932](../assets/Pasted%20image%2020260430184932.png)
 
-![[Pasted image 20260430184953.png]]
+![Pasted image 20260430184953](../assets/Pasted%20image%2020260430184953.png)
 
 ## **Thread Lifecycle**
 
@@ -192,6 +192,6 @@ The lifecycle of a thread in Java consists of several states, which a thread can
 
 ## Deadlocks
 
-![[Pasted image 20260430192000.png]]
+![Pasted image 20260430192000](../assets/Pasted%20image%2020260430192000.png)
 
 

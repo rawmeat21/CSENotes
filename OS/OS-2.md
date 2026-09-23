@@ -1,5 +1,5 @@
 
-![[Pasted image 20260424011444.png]]
+![Pasted image 20260424011444](Pasted%20image%2020260424011444.png)
 
 1. Uniprogramming OS (Single CPU)- ONLY 1 process in RAM, CPU utilization is not there. Also processes may starve. Ex- MSDOS
 	a process cannot keep both IO and CPU busy at a time
@@ -20,7 +20,7 @@
 	Its better than multiprocessing OS due to Timesharing. It executes one process for some amount of time then executes some other process
 	CPU utilization is High, Starvation is low
 4. Multiuser OS
-	![[Pasted image 20260424013706.png]]
+	![Pasted image 20260424013706](Pasted%20image%2020260424013706.png)
 	Windows- NOT multiuser
 	Linux- Multiuser
 5. MultiProcessing OS: used in systems with multiple cpus
@@ -29,11 +29,11 @@
 	Types:
 	2. Tightly coupled (shared memory)
 	3. Loosely coupled (distributed memory)
-	![[Pasted image 20260424014134.png]]
+	![Pasted image 20260424014134](Pasted%20image%2020260424014134.png)
 
 6. Embedded OS: for embedded computer systems (cars, AC, fridge etc)
 7. Real time OS: for large number of events
 	Where its required- Low error desired, and works in real time
 
 Batch processing OS
-![[Pasted image 20260531192706.png]]
+![Pasted image 20260531192706](../assets/Pasted%20image%2020260531192706.png)

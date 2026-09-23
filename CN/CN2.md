@@ -1,6 +1,6 @@
 # Network Devices
 
-![[Pasted image 20260615015036.png]]
+![Pasted image 20260615015036](../assets/Pasted%20image%2020260615015036.png)
 
 ## Layer 1 Devices: Physical Layer (Hub, repeater, modem)
 
@@ -91,4 +91,4 @@ It is a network security system, comprising hardware, software, or both that mo
 - It tracks active connections.
 
 
-![[Pasted image 20260615015135.png]]
+![Pasted image 20260615015135](../assets/Pasted%20image%2020260615015135.png)

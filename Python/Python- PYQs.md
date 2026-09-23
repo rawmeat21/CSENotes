@@ -823,7 +823,7 @@ python
 
 ```python
 len([1, 2, 3])        # 3
-len([[1, 2], [3, 4]]) # 2 — two sublists, not four elements
+len([1, 2](1,%202)) # 2 — two sublists, not four elements
 ```
 
 **`sum(iterable, start=0)`** Returns the arithmetic sum of all elements. The optional `start` parameter is added to the total. Elements must be numeric.

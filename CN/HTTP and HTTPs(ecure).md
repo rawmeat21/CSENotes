@@ -45,7 +45,7 @@ This protocol secures communications by using what’s known as an [asymmetric p
 1. The private key - this key is controlled by the owner of a website and it’s kept private. This key lives on a web server and is used to decrypt information encrypted by the public key.
 2. The public key - this key is available to everyone who wants to interact with the server in a way that’s secure. Information that’s encrypted by the public key can only be decrypted by the private key.
 
-![[Pasted image 20260615133149.png]]
+![Pasted image 20260615133149](../assets/Pasted%20image%2020260615133149.png)
 
 
 HTTPS uses port 443. This differentiates HTTPS from HTTP, which uses port 80.
@@ -53,7 +53,7 @@ HTTPS uses port 443. This differentiates HTTPS from HTTP, which uses port 80.
 
 **TLS handshake
 
-![[Pasted image 20260615134008.png]]
+![Pasted image 20260615134008](../assets/Pasted%20image%2020260615134008.png)
 
 
 - The client sends a **ClientHello** which just contains the information of the client’s supported SSL/TLS versions, cryptographic algorithms, etc.

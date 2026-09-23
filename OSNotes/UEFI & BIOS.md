@@ -1,4 +1,4 @@
-![[Pasted image 20260620125103.png]]
+![Pasted image 20260620125103](../assets/Pasted%20image%2020260620125103.png)
 
 
 When you press the power button, the CPU begins execution at a predefined reset vector, which is mapped to the system firmware (UEFI/ BIOS) stored in non-volatile memory. After this, the process looks something like this:
@@ -26,9 +26,9 @@ When you press the power button, the CPU begins execution at a predefined reset 
 
 -> Can only handle boot disks up to 2.2 TB because it relies on the older MBR partitioning scheme. Plus, its setup screen is text-based, navigated with the keyboard, and offers only a handful of configuration options.
 
-![[Pasted image 20260620125537.png]]
+![Pasted image 20260620125537](../assets/Pasted%20image%2020260620125537.png)
 
-![[Pasted image 20260819103139.png]]
+![Pasted image 20260819103139](../assets/Pasted%20image%2020260819103139.png)
 
 
 Source: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface
@@ -42,7 +42,7 @@ The [Unified Extensible Firmware Interface](https://en.wikipedia.org/wiki/UEFI "
 
 -> It stores all data about initialization and startup in an .efi file, which is located on a specific partition called the EFI System Partition (ESP) on the hard disk. This ESP partition also contains the bootloader.
 
-![[Pasted image 20260620130317.png]]
+![Pasted image 20260620130317](../assets/Pasted%20image%2020260620130317.png)
 
 -> UEFI utilizes the GUID Partition Table (GPT). GPT removes the 2-terabyte limit, allowing support for modern, high-capacity hard drives and solid-state drives.
 
@@ -56,10 +56,10 @@ The [Unified Extensible Firmware Interface](https://en.wikipedia.org/wiki/UEFI "
 
 Source: https://superops.com/blog/bios-vs-uefi, https://www.freecodecamp.org/news/uefi-vs-bios/
 
-![[Pasted image 20260819103641.png]]
-![[Pasted image 20260819103652.png]]
-![[Pasted image 20260819103715.png]]
-![[Pasted image 20260819103723.png]]
+![Pasted image 20260819103641](../assets/Pasted%20image%2020260819103641.png)
+![Pasted image 20260819103652](../assets/Pasted%20image%2020260819103652.png)
+![Pasted image 20260819103715](../assets/Pasted%20image%2020260819103715.png)
+![Pasted image 20260819103723](../assets/Pasted%20image%2020260819103723.png)
 
 
 Example of my system:

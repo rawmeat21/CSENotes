@@ -20,14 +20,14 @@ How to make sure the data ends up on all replicas (machines which contain duplic
 
 3. When a client wants to read from the database, it can query either the leader or any of the followers. However, **writes are only accepted on the leader** (the followers are read only from the client’s point of view).
 
-![[Pasted image 20260917115622.png]]
+![Pasted image 20260917115622](../assets/Pasted%20image%2020260917115622.png)
 
-![[Pasted image 20260917115656.png]]
+![Pasted image 20260917115656](../assets/Pasted%20image%2020260917115656.png)
 
 
 ### Synchronous and asynchronous replication
 
-![[Pasted image 20260917120847.png]]
+![Pasted image 20260917120847](../assets/Pasted%20image%2020260917120847.png)
 
 Replication to follower 1 is synchronous - The leader waits for an OK from the machine before letting the client know the write is done.
 
@@ -112,8 +112,8 @@ The steps are:
 
 ##### Problems with failover
 
-![[Pasted image 20260917124635.png]]
-![[Pasted image 20260917124644.png]]
+![Pasted image 20260917124635](../assets/Pasted%20image%2020260917124635.png)
+![Pasted image 20260917124644](../assets/Pasted%20image%2020260917124644.png)
 
 
 There are no easy solutions to these problems. For this reason, some operations teams prefer to perform failovers manually, even if the software supports automatic failover.
@@ -207,7 +207,7 @@ Some problems which can be caused due to a lag is given:
 
 ### Reading Your Own Writes
 
-![[Pasted image 20260922105704.png]]
+![Pasted image 20260922105704](../assets/Pasted%20image%2020260922105704.png)
 
 The user updates the database, then tries to read from a lagging follower, and sees no update is made.
 
@@ -273,7 +273,7 @@ Some issues:
 This can happen if a user makes several reads from different replicas, first to a follower with little lag, then to a follower with greater lag. (This scenario is quite likely if the user
 refreshes a web page, and each request is routed to a random server!).
 
-![[Pasted image 20260922111207.png]]
+![Pasted image 20260922111207](../assets/Pasted%20image%2020260922111207.png)
 
 The fix is to use **monotonic reads**. Monotonic reads only means that if one user makes several reads in sequence, they will not see time go backward, i.e., they will not read older data after having previously read newer data.
 
@@ -299,7 +299,7 @@ Imagine a third person is listening to this conversation through followers. The
 things said by Mrs. Cake go through a follower with little lag, but the things said by
 Mr. Poons have a longer replication lag: 
 
-![[Pasted image 20260922111738.png]]
+![Pasted image 20260922111738](../assets/Pasted%20image%2020260922111738.png)
 
 The observer sees:
 
@@ -349,7 +349,7 @@ With a normal leader-based replication setup, the leader has to be in one of the
 
 **In a multi-leader configuration, you can have a leader in each datacenter.**
 
-![[Pasted image 20260922113220.png]]
+![Pasted image 20260922113220](../assets/Pasted%20image%2020260922113220.png)
 
 
 #### Clients with offline operation
@@ -383,14 +383,14 @@ However, for faster collaboration, you may want to make the unit of change very 
 ### Problem with multi leader replication
 
 
-![[Pasted image 20260923095011.png]]
+![Pasted image 20260923095011](../assets/Pasted%20image%2020260923095011.png)
 
 
  Consider a wiki page that is simultaneously being edited by two users. User 1 changes the title of the page from A to B, and user 2 changes the title from A to C at the same time. Each user’s change is successfully applied to their local leader. However, when the changes are asynchronously replicated, a conflict is detected.
 
 #### Synchronous vs asynchrounous
 
-![[Pasted image 20260923095254.png]]
+![Pasted image 20260923095254](../assets/Pasted%20image%2020260923095254.png)
 
 #### Conflict avoidance
 
@@ -452,7 +452,7 @@ CouchDB works this way, for example.
 
 
 
-![[Pasted image 20260923101357.png]]
+![Pasted image 20260923101357](../assets/Pasted%20image%2020260923101357.png)
 
 
 #### What is a conflict?
@@ -464,7 +464,7 @@ In this case, a conflict may arise if two different bookings are created for the
 
 ### Topologies
 
-![[Pasted image 20260923101806.png]]
+![Pasted image 20260923101806](../assets/Pasted%20image%2020260923101806.png)
 
 The most general topology is all-to-all, in which every leader sends its writes to every other leader.
 
@@ -485,7 +485,7 @@ The fault tolerance of a more densely connected topology (such as all-to-all) is
 
 all-to-all topologies can have issues too. In particular, some network links may be faster than others (e.g., due to network congestion), with the result that some replication messages may “overtake” others.
 
-![[Pasted image 20260923102345.png]]
+![Pasted image 20260923102345](../assets/Pasted%20image%2020260923102345.png)
 
 You might think we should use a clock, but clocks cannot be trusted to be sufficiently in sync.
 
@@ -494,7 +494,7 @@ To order these events correctly, a technique called **version vectors** can be u
 
 ## Leaderless replication
 
-![[Pasted image 20260923102912.png]]
+![Pasted image 20260923102912](../assets/Pasted%20image%2020260923102912.png)
 
 
 ### Writing to the Database When a Node Is Down
@@ -503,7 +503,7 @@ In leader based configuration, when leader is down, we need to do a failover.
 
 Here, failover doesn't exist.
 
-![[Pasted image 20260923103151.png]]
+![Pasted image 20260923103151](../assets/Pasted%20image%2020260923103151.png)
 
 
 The client (user 1234) sends the write to all three replicas in parallel, and the two available replicas accept the write but the unavailable replica misses it.
@@ -541,5 +541,5 @@ example, n = 3, w = 2, r = 2.)
 
 As long as w + r > n, we expect to get an up-to-date value when reading, because at least one of the r nodes we’re reading from must be up to date. Reads and writes that obey these r and w values are called quorum reads and writes.
 
-![[Pasted image 20260923104248.png]]
+![Pasted image 20260923104248](../assets/Pasted%20image%2020260923104248.png)
 

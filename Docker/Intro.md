@@ -1,6 +1,6 @@
 "Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.".
 
-![[Pasted image 20260819234425.png]]
+![Pasted image 20260819234425](../assets/Pasted%20image%2020260819234425.png)
 
 - Docker is a set of tools to deliver software in containers.
 - Containers are packages of software.
@@ -10,7 +10,7 @@ Containers allow the developer to personally run the application inside a contai
 
 Difference between VMs:
 
-![[Pasted image 20260819235235.png]]
+![Pasted image 20260819235235](../assets/Pasted%20image%2020260819235235.png)
 
 Virtual Machines (VMs) run on a [hypervisor (opens in a new tab)](https://en.wikipedia.org/wiki/Hypervisor), which virtualizes the physical hardware. Each VM includes a **full operating system (OS)** along with the necessary binaries and libraries, making them heavier and more resource-intensive. Containers, on the other hand, **share the host OS kernel** and only package the application and its dependencies, resulting in a more lightweight and efficient solution.
 
@@ -18,7 +18,7 @@ VMs provide strong isolation and are suited for running multiple OS environments
 
 Docker relies on Linux kernels, which means that macOS and Windows cannot run Docker natively without some additional steps. Each operating system has its own solution for running Docker. For example, Docker for Mac actually uses a Linux virtual machine under the hood, within which Docker operates.
 
-![[Pasted image 20260827155801.png]]
+![Pasted image 20260827155801](../assets/Pasted%20image%2020260827155801.png)
 
-![[Pasted image 20260912102749.png]]
+![Pasted image 20260912102749](../assets/Pasted%20image%2020260912102749.png)
 

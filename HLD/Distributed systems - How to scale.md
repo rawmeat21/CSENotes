@@ -41,5 +41,5 @@ improve performance.
 
 **Partitioning** - Splitting a big database into smaller subsets called partitions so that different partitions can be assigned to different nodes (also known as sharding).
 
-![[Pasted image 20260917114053.png]]
+![Pasted image 20260917114053](../assets/Pasted%20image%2020260917114053.png)
 

@@ -16,7 +16,7 @@
 
 
 
-![[Pasted image 20260620100327.png]]
+![Pasted image 20260620100327](../assets/Pasted%20image%2020260620100327.png)
 
 #### **Advantages**
 
@@ -128,7 +128,7 @@ It uses **time-slicing** for executing processes. Instead of waiting for a proce
 - After execution, results are combined (if required) to produce the final output.
 - The OS manages CPU scheduling, memory access, and resource allocation.
 
-![[Pasted image 20260620103350.png]]
+![Pasted image 20260620103350](../assets/Pasted%20image%2020260620103350.png)
 
 ### Types:
 
@@ -140,7 +140,7 @@ All processors are equal and execute the same instance of the operating system. 
 - All processors share the same physical memory and I/O subsystem.
 - Also known as a Shared-Memory Multiprocessing System.
 
-![[Pasted image 20260620103734.png]]
+![Pasted image 20260620103734](../assets/Pasted%20image%2020260620103734.png)
 
 #### Advantages
 
@@ -162,7 +162,7 @@ Processors are not equal. One processor acts as the master, while the others act
 - Slave processors execute tasks assigned by the master.
 - The master maintains the ready queue and dispatches processes to slaves.
 
-![[Pasted image 20260620103725.png]]
+![Pasted image 20260620103725](../assets/Pasted%20image%2020260620103725.png)
 
 #### Advantages
 
@@ -185,7 +185,7 @@ Processors are not equal. One processor acts as the master, while the others act
 
 -> The main benefit is remote access, allowing users to use files and software stored on other connected systems.
 
-![[Pasted image 20260620104102.png]]
+![Pasted image 20260620104102](../assets/Pasted%20image%2020260620104102.png)
 
 Read more: https://www.geeksforgeeks.org/operating-systems/what-is-a-distributed-operating-system/
 
@@ -198,7 +198,7 @@ Read more: https://www.geeksforgeeks.org/operating-systems/what-is-a-distributed
 
 -> Users can see the configuration and connections of other users, which is why these systems are considered **tightly coupled**.
 
-![[Pasted image 20260620104639.png]]
+![Pasted image 20260620104639](../assets/Pasted%20image%2020260620104639.png)
 
 
 ## 7. Real-Time Operating System

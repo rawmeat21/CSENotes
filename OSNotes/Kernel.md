@@ -2,7 +2,7 @@
 
 A boot loader is a type of program that loads and starts the boot time tasks and processes of an operating system or the computer system. It enables loading the operating system within the computer memory when a computer is started or booted up. A boot loader is also known as a boot manager or bootstrap loader.
 
-![[Pasted image 20260616210410.png]]
+![Pasted image 20260616210410](../assets/Pasted%20image%2020260616210410.png)
 
 ### What is a kernel?
 
@@ -12,9 +12,9 @@ A kernel exists in a privileged mode and communicates directly with hardware com
 
 Kernel is the first part of the OS loaded into memory during boot, and it stays resident while the system is running.
 
-![[Pasted image 20260616210427.png]]
+![Pasted image 20260616210427](../assets/Pasted%20image%2020260616210427.png)
 
-![[Pasted image 20260616210454.png]]
+![Pasted image 20260616210454](../assets/Pasted%20image%2020260616210454.png)
 
 ### Whats a system call?
 

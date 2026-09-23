@@ -26,22 +26,22 @@ cp item1 item2 # copy item1 into item2
 
 item1 / item2 can be a file or directory
 
-![[Pasted image 20260624234241.png]]
-![[Pasted image 20260624234315.png]]
+![Pasted image 20260624234241](../assets/Pasted%20image%2020260624234241.png)
+![Pasted image 20260624234315](../assets/Pasted%20image%2020260624234315.png)
 
-![[Pasted image 20260624234345.png]]
+![Pasted image 20260624234345](../assets/Pasted%20image%2020260624234345.png)
 
 #### mv – Move and Rename Files
 
-![[Pasted image 20260624234459.png]]
+![Pasted image 20260624234459](../assets/Pasted%20image%2020260624234459.png)
 
-![[Pasted image 20260624234508.png]]
-![[Pasted image 20260624234536.png]]
+![Pasted image 20260624234508](../assets/Pasted%20image%2020260624234508.png)
+![Pasted image 20260624234536](../assets/Pasted%20image%2020260624234536.png)
 
 #### rm – Remove Files and Directories
 
-![[Pasted image 20260624234610.png]]
-![[Pasted image 20260624234622.png]]
+![Pasted image 20260624234610](../assets/Pasted%20image%2020260624234610.png)
+![Pasted image 20260624234622](../assets/Pasted%20image%2020260624234622.png)
 
 
 

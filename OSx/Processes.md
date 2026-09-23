@@ -15,12 +15,12 @@ promote the illusion that many virtual CPUs exist when in fact there is only one
 The counterpart of time  sharing is **space sharing**, where a resource is divided (in space) among those who wish to use it. For example, disk space is naturally a space-  
 shared resource; once a block is assigned to a ﬁle, it is normally not assigned to another ﬁle until the user deletes the original ﬁle.
 
-![[Pasted image 20260603233018.png]]
+![Pasted image 20260603233018](../assets/Pasted%20image%2020260603233018.png)
 
 
 ## How a process is created
 
-![[Pasted image 20260603233043.png]]
+![Pasted image 20260603233043](../assets/Pasted%20image%2020260603233043.png)
 
 1. The ﬁrst thing that the OS must do to run a program is to load its code  and any static data (e.g., initialized variables) into memory, into the address space of the process
 2. Some memory must be allocated for the program’s run-time stack. Programs use the stack for local variables, function parameters, and return addresses; the OS allocates  this memory and gives it to the process. The OS will also likely initialize the stack with arguments; speciﬁcally, it will ﬁll in the parameters to the main() function, i.e., argc and the argv array.
@@ -30,7 +30,7 @@ shared resource; once a block is assigned to a ﬁle, it is normally not assigne
 
 ## Process states
 
-![[Pasted image 20260603234058.png]]
+![Pasted image 20260603234058](../assets/Pasted%20image%2020260603234058.png)
 
 **Being moved from ready to running means the process has been scheduled
 

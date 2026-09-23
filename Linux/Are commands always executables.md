@@ -8,7 +8,7 @@ A command can be one of four different things:
 
 4. **An alias**. 
 
-![[Pasted image 20260625000840.png]]
+![Pasted image 20260625000840](../assets/Pasted%20image%2020260625000840.png)
 
-![[Pasted image 20260625000902.png]]
+![Pasted image 20260625000902](../assets/Pasted%20image%2020260625000902.png)
 

@@ -12,10 +12,10 @@ The Physical Layer is the lowest OSI layer responsible for transmitting raw data
 - It ensures signals are transmitted correctly and uses techniques like modulation to prepare the data for transmission and demodulation to retrieve it at the other end.
 - This layer also decides how data flows (one-way, two-way alternately, or simultaneously) through transmission modes and controls the speed and timing of data transmission to keep everything running smoothly.
 
-![[Pasted image 20260615091324.png]]
-![[Pasted image 20260615091333.png]]
-![[Pasted image 20260615091348.png]]
-![[Pasted image 20260615091356.png]]
+![Pasted image 20260615091324](../assets/Pasted%20image%2020260615091324.png)
+![Pasted image 20260615091333](../assets/Pasted%20image%2020260615091333.png)
+![Pasted image 20260615091348](../assets/Pasted%20image%2020260615091348.png)
+![Pasted image 20260615091356](../assets/Pasted%20image%2020260615091356.png)
 
 
 ## Physical Topologies

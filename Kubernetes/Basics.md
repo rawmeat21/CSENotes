@@ -1,27 +1,27 @@
 All pictures here are taken from this course: https://youtu.be/rBeyHDKLVqM?si=q3BCs6hxFTNdzoYJ
 
-![[Pasted image 20260913141521.png]]
+![Pasted image 20260913141521](../assets/Pasted%20image%2020260913141521.png)
 
 Kubernetes does container orchestration, which means it manages containers.
 
 Why use kubernetes?
 
-![[Pasted image 20260913141805.png]]
+![Pasted image 20260913141805](../assets/Pasted%20image%2020260913141805.png)
 
 You have your website deployed to a server. 
 
-![[Pasted image 20260913141913.png]]
+![Pasted image 20260913141913](../assets/Pasted%20image%2020260913141913.png)
 
 What happens on heavy load?
 
-![[Pasted image 20260913141929.png]]
+![Pasted image 20260913141929](../assets/Pasted%20image%2020260913141929.png)
 
 What if the server fails?
 
 
 Solution?
 
-![[Pasted image 20260913142006.png]]
+![Pasted image 20260913142006](../assets/Pasted%20image%2020260913142006.png)
 
 deploy on multiple servers.
 
@@ -32,18 +32,18 @@ Yep, that's what Kubernetes does.
 
 ### Architecture of Kubernetes
 
-![[Pasted image 20260913142214.png]]
+![Pasted image 20260913142214](../assets/Pasted%20image%2020260913142214.png)
 
 Master - Controller
 Worker nodes - Our servers, which hold containers
 
-![[Pasted image 20260913142330.png]]
+![Pasted image 20260913142330](../assets/Pasted%20image%2020260913142330.png)
 
-![[Pasted image 20260913142354.png]]
+![Pasted image 20260913142354](../assets/Pasted%20image%2020260913142354.png)
 
 A group of nodes is called a cluster. 
 
-![[Pasted image 20260913142544.png]]
+![Pasted image 20260913142544](../assets/Pasted%20image%2020260913142544.png)
 
 The Master controls these worker nodes.
 It has an API server.
@@ -53,12 +53,12 @@ The Master can be on a separate server or on the same server as some other worke
 
 ### Components of K8s
 
-![[Pasted image 20260913142648.png]]
+![Pasted image 20260913142648](../assets/Pasted%20image%2020260913142648.png)
 
 
 ### Pod
 
-![[Pasted image 20260913142731.png]]
+![Pasted image 20260913142731](../assets/Pasted%20image%2020260913142731.png)
 
 Basically, servers run pods, and pods run containers. Pod is an isolated environment with it's own resources. Pod is the smallest unit in K8s.
 
@@ -96,7 +96,7 @@ This is more a philosophy than a "feature," but it's the single most important t
 
 ### The Master node
 
-![[Pasted image 20260913143052.png]]
+![Pasted image 20260913143052](../assets/Pasted%20image%2020260913143052.png)
 
 **API server** is the terminal (kubectl).
 **Scheduler** is used to **assign nodes to newly created pods.**
@@ -105,13 +105,13 @@ This is more a philosophy than a "feature," but it's the single most important t
 
 ### Worker node
 
-![[Pasted image 20260913143449.png]]
+![Pasted image 20260913143449](../assets/Pasted%20image%2020260913143449.png)
 
 An example of container-runtime is Docker. 
 
 
 ### What can we do with K8s
 
-![[Pasted image 20260913143659.png]]
+![Pasted image 20260913143659](../assets/Pasted%20image%2020260913143659.png)
 
 

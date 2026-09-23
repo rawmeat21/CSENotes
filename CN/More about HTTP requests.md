@@ -16,7 +16,7 @@ HTTP Headers are key-value pairs included in an HTTP Request or Response. They p
 
 HTTP Headers are key-value pairs included in an HTTP Request or Response. They provide metadata about the request or response, such as authentication details, content type, caching policies, and more.
 
-![[Pasted image 20260701194419.png]]
+![Pasted image 20260701194419](../assets/Pasted%20image%2020260701194419.png)
 
 ### Why Use HTTP Headers?
 

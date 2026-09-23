@@ -140,15 +140,15 @@ Bash
 export PATH_VAR=$(cat path.txt)  # Safe: Treated as scalar assignment
 ```
 
-### Extended Test Construct (`[[ ... ]]`)
+### Extended Test Construct (`[ ... ](%20...%20)`)
 
-The conditional test operator `[[ ... ]]` suppresses word splitting and globbing on all contained expansions.
+The conditional test operator `[ ... ](%20...%20)` suppresses word splitting and globbing on all contained expansions.
 
 Bash
 
 ```
 var="a b"
-if [[ $var == "a b" ]]; then
+if [ $var == "a b" ](%20$var%20==%20"a%20b"%20); then
     echo "Match" # Safe: Evaluated without syntax errors
 fi
 ```
@@ -210,7 +210,7 @@ b="10"
 |**Loop List**|`for x in $var`|**Yes**|
 |**Single Bracket Test**|`[ $var = "x" ]`|**Yes** (Triggers syntax errors)|
 |**Scalar Assignment**|`var=$val`|**No**|
-|**Double Bracket Test**|`[[ $var == "x" ]]`|**No**|
+|**Double Bracket Test**|`[ $var == "x" ](%20$var%20==%20"x"%20)`|**No**|
 |**Case Statement**|`case $var in`|**No**|
 |**Here-String**|`cmd <<< $var`|**No**|
 |**Array Subscript**|`arr[$var]=1`|**No**|

@@ -23,7 +23,7 @@ Partition tables are MBR and GPT
 
 - **Identification**: It includes a unique 32-bit disk signature that allows the operating system to identify the specific hard disk drive within the system, preventing conflicts if multiple drives are installed
 
-![[Pasted image 20260620122207.png]]
+![Pasted image 20260620122207](../assets/Pasted%20image%2020260620122207.png)
 
 
 ### Components of MBR

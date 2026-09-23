@@ -11,11 +11,11 @@ When you create the commit by running `git commit`, Git checksums each subdirect
 
 Your Git repository now contains 5 objects: three _blobs_ (each representing the contents of one of the three files), one _tree_ that lists the contents of the directory and specifies which file names are stored as which blobs, and one _commit_ with the pointer to that root tree and all the commit metadata.
 
-![[Pasted image 20260913193438.png]]
+![Pasted image 20260913193438](../assets/Pasted%20image%2020260913193438.png)
 
 If you make some changes and commit again, the next commit stores a pointer to the commit that came immediately before it.
 
-![[Pasted image 20260913193455.png]]
+![Pasted image 20260913193455](../assets/Pasted%20image%2020260913193455.png)
 
 
 

@@ -1,16 +1,16 @@
 
-![[Pasted image 20260430143901.png]]
-![[Pasted image 20260430143921.png]]
+![Pasted image 20260430143901](../assets/Pasted%20image%2020260430143901.png)
+![Pasted image 20260430143921](../assets/Pasted%20image%2020260430143921.png)
 
 ### User Threads vs Daemon Threads
 
 If there are no user threads running, the program will terminate. Otherwise, there may be daemon threads running.
 
-![[Pasted image 20260430144335.png]]
+![Pasted image 20260430144335](../assets/Pasted%20image%2020260430144335.png)
 
 ## Let's create threads
 
-![[Pasted image 20260430145612.png]]
+![Pasted image 20260430145612](../assets/Pasted%20image%2020260430145612.png)
 
 ```java
 public class Test {  
@@ -58,12 +58,12 @@ public class World implements Runnable {
 
 
 
-![[Pasted image 20260430150836.png]]
+![Pasted image 20260430150836](../assets/Pasted%20image%2020260430150836.png)
 (A small example that shows the main thread/method can finish before its child thread)
 
 if we mark the thread as daemon by doing `th.setDaemon(true)` then it may stop after main is done. Daemon threads live to serve user threads
 
-![[Pasted image 20260430152604.png]]
+![Pasted image 20260430152604](../assets/Pasted%20image%2020260430152604.png)
 
 The Thread class is not abstract, nor an interface. So why not use that only?
 
@@ -76,10 +76,10 @@ So we create a Thread by either
 Which method is better?- If you extend Thread, then you **cannot extend any other classes!**
 Multiple inheritance doesn't exist in Java. But you can implement multiple classes, right? So, there's no problem there. 
 
-![[Pasted image 20260430154123.png]]
+![Pasted image 20260430154123](../assets/Pasted%20image%2020260430154123.png)
 When you implement Runnable
 
-![[Pasted image 20260430154203.png]]
+![Pasted image 20260430154203](../assets/Pasted%20image%2020260430154203.png)
 When you extend Thread
 
 ## Thread methods
@@ -161,15 +161,15 @@ class Counter {
 
 What happens when 2 threads simultaneously read a value?
 
-![[Pasted image 20260430154451.png]]
-![[Pasted image 20260430154611.png]]
+![Pasted image 20260430154451](../assets/Pasted%20image%2020260430154451.png)
+![Pasted image 20260430154611](../assets/Pasted%20image%2020260430154611.png)
 
 An example Stack 
-![[Pasted image 20260430155250.png]]
+![Pasted image 20260430155250](../assets/Pasted%20image%2020260430155250.png)
 
 2 Threads have access to one stack object
 
-![[Pasted image 20260430155300.png]]
+![Pasted image 20260430155300](../assets/Pasted%20image%2020260430155300.png)
 
 Example situation: 
 thread1 runs, tries to push 100 into empty stack
@@ -184,7 +184,7 @@ prevent more than 1 thread from having access to some object at a particular tim
 
 A Thread can acquire a 'lock', when it has the lock to the room (=object/function) ONLY it can do what it wants. Other threads have to wait.
 
-![[Pasted image 20260430160514.png]]
+![Pasted image 20260430160514](../assets/Pasted%20image%2020260430160514.png)
 
 You can see an object being used as a lock. You can basically use any object as a lock!
 When a thread has access to a lock, only this thread can make any changes.
@@ -193,108 +193,108 @@ You can see push() and pop() are using the same lock object. Hence, these method
 
 However if the locks were different, then other threads could work with them parallely!
 
-![[Pasted image 20260430161201.png]]
+![Pasted image 20260430161201](../assets/Pasted%20image%2020260430161201.png)
 
 You can also use the `synchronized` keyword if you want to make the whole function synchronized. 
 
 But then where's the lock? 
 
-![[Pasted image 20260430161317.png]]
+![Pasted image 20260430161317](../assets/Pasted%20image%2020260430161317.png)
 
 The lock used is the instance of the object itself! This also means that ALL `synchronized` methods are usable by only 1 Thread.
 
 Synchronisation for static methods?
 
-![[Pasted image 20260430161646.png]]
+![Pasted image 20260430161646](../assets/Pasted%20image%2020260430161646.png)
 
 It uses ClassName.class (dk what is that)
 
-![[Pasted image 20260430161802.png]]
-![[Pasted image 20260430161847.png]]
-![[Pasted image 20260430161918.png]]
+![Pasted image 20260430161802](../assets/Pasted%20image%2020260430161802.png)
+![Pasted image 20260430161847](../assets/Pasted%20image%2020260430161847.png)
+![Pasted image 20260430161918](../assets/Pasted%20image%2020260430161918.png)
 
 
-![[Pasted image 20260430180124.png]]
+![Pasted image 20260430180124](../assets/Pasted%20image%2020260430180124.png)
 
 
-![[Pasted image 20260430180158.png]]
+![Pasted image 20260430180158](../assets/Pasted%20image%2020260430180158.png)
 
 
-![[Pasted image 20260430180241.png]]
+![Pasted image 20260430180241](../assets/Pasted%20image%2020260430180241.png)
 
 
-![[Pasted image 20260430180310.png]]
+![Pasted image 20260430180310](../assets/Pasted%20image%2020260430180310.png)
 
-![[Pasted image 20260430180336.png]]
+![Pasted image 20260430180336](../assets/Pasted%20image%2020260430180336.png)
 
 
 Read more: https://engineeringdigest.medium.com/multithreading-in-java-39f34724bbf6
 
 ## Volatile
 
-![[Pasted image 20260430180911.png]]
+![Pasted image 20260430180911](../assets/Pasted%20image%2020260430180911.png)
 
-![[Pasted image 20260430180949.png]]
+![Pasted image 20260430180949](../assets/Pasted%20image%2020260430180949.png)
 
 The threads read from a cache (Each thread runs on a core, and each core has its own cache)
 
-![[Pasted image 20260430181603.png]]
+![Pasted image 20260430181603](../assets/Pasted%20image%2020260430181603.png)
 
 Th2 makes an update to Flag. This is Not reflected in Thread 1's cache.
 
-![[Pasted image 20260430181700.png]]
+![Pasted image 20260430181700](../assets/Pasted%20image%2020260430181700.png)
 
 Even after Flag is changed in RAM, Th1 still doesn't have the updated value of Flag
 
-![[Pasted image 20260430181808.png]]
+![Pasted image 20260430181808](../assets/Pasted%20image%2020260430181808.png)
 
 With the volatile keyword, Threads read the variable from RAM directly!
 
 ## Thread States
 
-![[Pasted image 20260430184932.png]]
+![Pasted image 20260430184932](../assets/Pasted%20image%2020260430184932.png)
 
-![[Pasted image 20260430184953.png]]
+![Pasted image 20260430184953](../assets/Pasted%20image%2020260430184953.png)
 
-![[Pasted image 20260430185156.png]]
+![Pasted image 20260430185156](../assets/Pasted%20image%2020260430185156.png)
 yield() tells JVM to put the current running thread back into ready to run state. But there's no guarantee that JVM would actually listen
 
-![[Pasted image 20260430185323.png]]
-![[Pasted image 20260430185442.png]]
+![Pasted image 20260430185323](../assets/Pasted%20image%2020260430185323.png)
+![Pasted image 20260430185442](../assets/Pasted%20image%2020260430185442.png)
 
 Difference between sleep and wait: When a thread sleeps, it will NOT relinquish any lock but when it waits it WILL relinquish the lock
 
 **Also, wait only relinquishes the lock on the object it was called from.
 
-![[Pasted image 20260430185829.png]]
+![Pasted image 20260430185829](../assets/Pasted%20image%2020260430185829.png)
 
-![[Pasted image 20260430185925.png]]
+![Pasted image 20260430185925](../assets/Pasted%20image%2020260430185925.png)
 
 
 
-![[Pasted image 20260430190120.png]]
-![[Pasted image 20260430190143.png]]
+![Pasted image 20260430190120](../assets/Pasted%20image%2020260430190120.png)
+![Pasted image 20260430190143](../assets/Pasted%20image%2020260430190143.png)
 
 
 Concept of thread join()- When called on a parent thread, it pauses the parent thread until its child threads finish
-![[Pasted image 20260430190325.png]]
+![Pasted image 20260430190325](../assets/Pasted%20image%2020260430190325.png)
 
-![[Pasted image 20260430190534.png]]
+![Pasted image 20260430190534](../assets/Pasted%20image%2020260430190534.png)
 
 
 ## Priorities
 
-![[Pasted image 20260430190624.png]]
+![Pasted image 20260430190624](../assets/Pasted%20image%2020260430190624.png)
 
-![[Pasted image 20260430190637.png]]
-![[Pasted image 20260430190729.png]]
+![Pasted image 20260430190637](../assets/Pasted%20image%2020260430190637.png)
+![Pasted image 20260430190729](../assets/Pasted%20image%2020260430190729.png)
 
 ## Thread Scheduling
 
-![[Pasted image 20260430190906.png]]
+![Pasted image 20260430190906](../assets/Pasted%20image%2020260430190906.png)
 
 ## Deadlocks
 
-![[Pasted image 20260430192000.png]]
+![Pasted image 20260430192000](../assets/Pasted%20image%2020260430192000.png)
 
 

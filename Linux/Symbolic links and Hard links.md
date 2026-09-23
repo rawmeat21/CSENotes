@@ -1,4 +1,4 @@
-![[Pasted image 20260624233315.png]]
+![Pasted image 20260624233315](../assets/Pasted%20image%2020260624233315.png)
 
 l -> means symbolic link (also called soft links or symlinks)
 
@@ -65,11 +65,11 @@ Each inode is identified by an inode number. Therefore, when creating or copying
 
 However, when moving a file, the inode number will only change if the file is moved to a different filesystem. This applies to directories as well.
 
-![[Pasted image 20260624235654.png]]
+![Pasted image 20260624235654](../assets/Pasted%20image%2020260624235654.png)
 
 The links means number of hard links. 
 
-![[Pasted image 20260624235732.png]]
+![Pasted image 20260624235732](../assets/Pasted%20image%2020260624235732.png)
 
 Hard links basically point to the inode for a file. When a hard link is deleted, the file will still be in memory if there are other hard links to it. So, deleting a hard link will not necessarily free up the space. 
 

@@ -7,19 +7,19 @@ Let’s say you have a Git server on your network at `git.ourcompany.com`. If yo
 
 Git also gives you your own local `master` branch starting at the same place as origin’s `master` branch, so you have something to work from.
 
-![[Pasted image 20260914213810.png]]
+![Pasted image 20260914213810](../assets/Pasted%20image%2020260914213810.png)
 
 If you do some work on your local `master` branch, and, in the meantime, someone else pushes to `git.ourcompany.com` and updates its `master` branch, then your histories move forward differently. 
 
 As long as you stay out of contact with your `origin` server, your `origin/master` pointer doesn’t move.
 
-![[Pasted image 20260914214454.png]]
+![Pasted image 20260914214454](../assets/Pasted%20image%2020260914214454.png)
 
 To synch, use `git fetch <remote>`
 
 This fetches any data from `<remote>` that you don’t yet have, and updates your local database, moving your `origin/master` pointer to its new, more up-to-date position.
 
-![[Pasted image 20260914214617.png]]
+![Pasted image 20260914214617](../assets/Pasted%20image%2020260914214617.png)
 
 What does `git fetch` do, graph wise?
 
@@ -33,13 +33,13 @@ So, `git fetch` updates the remote branches. It doesn't place the files in your 
 
 Assume you have another internal Git server that is used only for development by one of your sprint teams. This server is at `git.team1.ourcompany.com`. You can add it as a new remote reference to the project you’re currently working on by running the `git remote add` command.
 
-![[Pasted image 20260914214814.png]]
+![Pasted image 20260914214814](../assets/Pasted%20image%2020260914214814.png)
 
 `git fetch teamone`
 
 Result:
 
-![[Pasted image 20260914214933.png]]
+![Pasted image 20260914214933](../assets/Pasted%20image%2020260914214933.png)
 
 This server has a subset of the data your `origin` server has right now, Git fetches no data but sets a remote-tracking branch called `teamone/master` to point to the commit that `teamone` has as its `master` branch.
 

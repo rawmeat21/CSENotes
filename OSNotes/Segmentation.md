@@ -12,7 +12,7 @@ Segmentation is a memory management technique used in operating systems to divid
 **Base register** - base address of the segment 
 **Limit register** - length of the segment.
 
-![[Pasted image 20260708160853.png]]
+![Pasted image 20260708160853](../assets/Pasted%20image%2020260708160853.png)
 
 #### Translation of Logical address into a physical address by segment table
 
@@ -24,6 +24,6 @@ CPU generates a logical address which contains two parts:
 
 The **Segment number** is mapped to the segment table. The limit of the respective segment is compared with the **offset**. If the offset is less than the limit then the address is valid otherwise it throws an error as the address is invalid.
 
-![[Pasted image 20260708160941.png]]
+![Pasted image 20260708160941](../assets/Pasted%20image%2020260708160941.png)
 
 

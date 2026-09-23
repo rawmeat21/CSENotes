@@ -1,4 +1,4 @@
-![[Pasted image 20260531104349.png]]
+![Pasted image 20260531104349](../assets/Pasted%20image%2020260531104349.png)
 
 Data has no meaning by itself. It has to be processed first.
 
@@ -10,7 +10,7 @@ Database- System where data is stored in a way it can be easily accessed, manage
 
 DBMS (Database management system)- Collection of interrelated data (Database) and a set of programs to manage that data
 
-![[Pasted image 20260531105715.png]]
+![Pasted image 20260531105715](../assets/Pasted%20image%2020260531105715.png)
 
 
 ## Why not just use File systems? (or Why use DBMS?)
@@ -30,17 +30,17 @@ TLDR: DBMS comes with extra functionality to manage data. FS needs such things t
 
 ## View of data (3 schema architecture)
 
-![[Pasted image 20260531133921.png]]
+![Pasted image 20260531133921](../assets/Pasted%20image%2020260531133921.png)
 
 DBMS uses abstraction to provide a 'view' of the database to different types of Users.
 
 For example, There could be a Logistics dept, Customers service dept, etc. They need access to only some specific data (like Logistics dept may need only Name, Addr, Phno of users, while CSDept may need some others columns too). DBMS provides a different view to each of them. 
 
-![[Pasted image 20260531134411.png]]
+![Pasted image 20260531134411](../assets/Pasted%20image%2020260531134411.png)
 
 ## (PLV)
 
-![[Pasted image 20260531135740.png]]
+![Pasted image 20260531135740](../assets/Pasted%20image%2020260531135740.png)
 
 ### Physical level: The actual data
 
@@ -77,7 +77,7 @@ Logical schema is the most important for programmers
     
 - **iv.** Views also provide a **security** mechanism to prevent users from accessing certain parts of DB.
 
-![[Pasted image 20260531141433.png]]
+![Pasted image 20260531141433](../assets/Pasted%20image%2020260531141433.png)
 
 ## Instance of DB
 
@@ -85,33 +85,33 @@ Describes the data in a DB at a point of time (snapshot of DB)
 
 ## Data Models (design at the logical level)
 
-![[Pasted image 20260531142150.png]]
+![Pasted image 20260531142150](../assets/Pasted%20image%2020260531142150.png)
 
 ## DBMS languages (How to use DBMS)
 
-![[Pasted image 20260531142444.png]]
+![Pasted image 20260531142444](../assets/Pasted%20image%2020260531142444.png)
 
 DDL- schema (design) of different tables of a DB (ex- HOW a student looks like, what attributes they have)
 DML- modify the data (Insert, Delete, Update, Retrieval- RUDI)
 
-![[Pasted image 20260531143053.png]]
+![Pasted image 20260531143053](../assets/Pasted%20image%2020260531143053.png)
 
-![[Pasted image 20260531143115.png]]
+![Pasted image 20260531143115](../assets/Pasted%20image%2020260531143115.png)
 
-![[Pasted image 20260531143324.png]]
+![Pasted image 20260531143324](../assets/Pasted%20image%2020260531143324.png)
 
 **DBA works at the logical level
 
 ## DBMS application architecture
 
-![[Pasted image 20260531143738.png]]
-![[Pasted image 20260531143905.png]]
+![Pasted image 20260531143738](../assets/Pasted%20image%2020260531143738.png)
+![Pasted image 20260531143905](../assets/Pasted%20image%2020260531143905.png)
 
 T1 example- localhost, where DB and server are both present
 
 T2
 
-![[Pasted image 20260531144052.png]]
+![Pasted image 20260531144052](../assets/Pasted%20image%2020260531144052.png)
 
 problem- What if client sends a stupid query that fucks up the DB?
 

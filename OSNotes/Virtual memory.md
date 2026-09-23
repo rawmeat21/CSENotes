@@ -24,7 +24,7 @@ This mechanism allows large programs to run smoothly and enables multiple applic
 
 **Thrashing** is a condition where the operating system spends **_most of its time swapping pages between RAM and disk instead of executing programs._**
 
-![[Pasted image 20260708161426.png]]
+![Pasted image 20260708161426](../assets/Pasted%20image%2020260708161426.png)
 
 Thrashing occurs when too many processes are running while the available RAM is insufficient to hold their active pages. This leads to a high page fault rate, causing the system to spend most of its time swapping pages between memory and disk instead of executing programs.
 

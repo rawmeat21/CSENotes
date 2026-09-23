@@ -326,12 +326,12 @@ date -d @1700000000 +%Y-%m-%d                   # convert timestamp back to date
 ## 9. Regular expressions
 
 ```bash
-if [[ "hello123" =~ ^[a-z]+[0-9]+$ ]]; then
+if [ "hello123" =~ ^[a-z](%20"hello123"%20=~%20^[a-z); then
     echo "matched"
 fi
 
 # capture groups from a =~ match are stored in BASH_REMATCH
-if [[ "2026-08-07" =~ ^([0-9]{4})-([0-9]{2})-([0-9]{2})$ ]]; then
+if [ "2026-08-07" =~ ^([0-9](%20"2026-08-07"%20=~%20^([0-9); then
     echo "year: ${BASH_REMATCH[1]}"
     echo "month: ${BASH_REMATCH[2]}"
     echo "day: ${BASH_REMATCH[3]}"
@@ -363,15 +363,15 @@ All four evaluate conditions but behave differently:
 |---|---|
 | `test expr` | POSIX builtin, oldest form |
 | `[ expr ]` | identical to `test`, just bracket syntax; needs quoting discipline, supports `-a`/`-o` |
-| `[[ expr ]]` | bash keyword (not a command); safer, supports `&&` `\|\|` `=~` `<` `>` directly, no word-splitting surprises |
+| `[ expr ](%20expr%20)` | bash keyword (not a command); safer, supports `&&` `\|\|` `=~` `<` `>` directly, no word-splitting surprises |
 | `(( expr ))` | arithmetic context; returns exit-status 0 (true) if the numeric result is non-zero |
 
 ```bash
 [ -z "$var" ] && echo "empty"        # POSIX-safe, portable to sh
-[[ -z $var ]] && echo "empty"          # bash-only, allows unquoted var safely
+[ -z $var ](%20-z%20$var%20) && echo "empty"          # bash-only, allows unquoted var safely
 (( 5 > 3 )) && echo "true"               # arithmetic truthiness
 ```
-Prefer `[[ ]]` and `(( ))` in bash-specific scripts; use `[ ]` only if targeting POSIX `sh`.
+Prefer `[ ](%20)` and `(( ))` in bash-specific scripts; use `[ ]` only if targeting POSIX `sh`.
 
 ---
 
@@ -523,7 +523,7 @@ tput lines                   # terminal height
 
 ### Is a TTY? (detect interactive terminal vs pipe/redirect)
 ```bash
-if [[ -t 1 ]]; then
+if [ -t 1 ](%20-t%201%20); then
     echo "stdout is a terminal (interactive)"
 else
     echo "stdout is redirected/piped"

@@ -239,7 +239,7 @@ python
 ```python
 d = {}
 d[(1, 2)] = "tuple key"     # valid
-d[[1, 2]] = "list key"      # TypeError: unhashable type: 'list'
+d[1, 2](1,%202) = "list key"      # TypeError: unhashable type: 'list'
 ```
 
 The rule: **mutable containers are not hashable**.

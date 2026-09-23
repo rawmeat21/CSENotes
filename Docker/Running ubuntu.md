@@ -110,7 +110,7 @@ $ docker exec -it looper bash
 
 How to kill this? If you try `docker stop looper` it won't work:
 
-![[Pasted image 20260820092743.png]]
+![Pasted image 20260820092743](../assets/Pasted%20image%2020260820092743.png)
 
 Its frozen.
 

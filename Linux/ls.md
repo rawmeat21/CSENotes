@@ -1,6 +1,6 @@
-![[Pasted image 20260624232623.png]]
+![Pasted image 20260624232623](../assets/Pasted%20image%2020260624232623.png)
 
-![[Pasted image 20260624232720.png]]
+![Pasted image 20260624232720](../assets/Pasted%20image%2020260624232720.png)
 
 -rw-r--r-- -> permissions of file
 1 -> number of hard links of file

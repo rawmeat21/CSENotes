@@ -10,7 +10,7 @@ It consists of:
 - **UI Backend**
 - **Disk API / Data Storage**
 
-![[Pasted image 20260615125741.png]]
+![Pasted image 20260615125741](../assets/Pasted%20image%2020260615125741.png)
 
 ### 1. User Interface
 
@@ -47,7 +47,7 @@ This handles the storage side of things. It manages the cache, cookies, and sess
 
 ## How Browsers Display a website ?
 
-![[Pasted image 20260615130016.png]]
+![Pasted image 20260615130016](../assets/Pasted%20image%2020260615130016.png)
 
 Basically, there will be an HTTP server (like a computer far away) holding your files: HTML, CSS, and JS.
 

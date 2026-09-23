@@ -6,7 +6,7 @@ In Git, every developer is potentially both a node and a hub; that is, every dev
 
 In centralized systems, there is generally a single collaboration model — the centralized workflow. One central hub, or _repository_, can accept code, and everyone synchronizes their work with it. A number of developers are nodes — consumers of that hub — and synchronize with that centralized location.
 
-![[Pasted image 20260917235516.png]]
+![Pasted image 20260917235516](../assets/Pasted%20image%2020260917235516.png)
 
 
 ### Integration-Manager Workflow (what we do in fork)
@@ -32,7 +32,7 @@ In centralized systems, there is generally a single collaboration model — 
 - The maintainer pushes merged changes to the main repository.
 
 
-![[Pasted image 20260917235823.png]]
+![Pasted image 20260917235823](../assets/Pasted%20image%2020260917235823.png)
 
 
 This is a very common workflow with hub-based tools like GitHub or GitLab, where it’s easy to fork a project and push your changes into your fork for everyone to see.
@@ -56,7 +56,7 @@ The process works like this:
     
 - Finally, the dictator pushes that `master` branch to the reference repository so the other developers can rebase on it.
 
-![[Pasted image 20260918000053.png]]
+![Pasted image 20260918000053](../assets/Pasted%20image%2020260918000053.png)
 
 
 **The flow**
@@ -69,7 +69,7 @@ The process works like this:
 
 #### How a simple workflow looks like (private small team)
 
-![[Pasted image 20260918100515.png]]
+![Pasted image 20260918100515](../assets/Pasted%20image%2020260918100515.png)
 
 Read the section "Private Small team" from here: https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project
 

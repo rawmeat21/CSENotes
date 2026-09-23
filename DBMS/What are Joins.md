@@ -11,7 +11,7 @@ An INNER JOIN returns only the rows that have matching values in both tables. If
 
 Combines the data from two or more tables based on a related column, and it filters out rows that do not satisfy the join condition.
 
-![[Pasted image 20260624134428.png]]
+![Pasted image 20260624134428](../assets/Pasted%20image%2020260624134428.png)
 
 
 Do an inner join:
@@ -62,7 +62,7 @@ A LEFT JOIN, also referred to as a **LEFT OUTER JOIN**, is a type of SQL join wh
 
 This join condition ensures that for each row from the left table, the LEFT JOIN includes the corresponding matching rows from the right table in the result set. If there is no match found in the right table, NULL values are returned for the columns from the right table.
 
-![[Pasted image 20260624134906.png]]
+![Pasted image 20260624134906](../assets/Pasted%20image%2020260624134906.png)
 
 
 Do a left join:
@@ -118,7 +118,7 @@ A RIGHT JOIN, also known as **RIGHT OUTER JOIN**, is a type of SQL join that ret
 
 The RIGHT JOIN ensures that all rows from the right table are retained in the result set, and for each row from the right table, it includes the corresponding matching rows from the left table based on the join condition. If there is no match found in the left table, NULL values are returned for the columns from the left table.
 
-![[Pasted image 20260624135219.png]]
+![Pasted image 20260624135219](../assets/Pasted%20image%2020260624135219.png)
 
 Do a right join
 ```sql
@@ -170,7 +170,7 @@ Result:
 
 A FULL JOIN, also known as a **FULL OUTER JOIN**, is a type of SQL join that returns all rows from both the left table (table1) and the right table (table2). When there is a match between the tables based on the join condition, the result set includes the matched rows from both tables. When there is no match, the result set includes NULL values for columns from the table without a match.
 
-![[Pasted image 20260624135445.png]]
+![Pasted image 20260624135445](../assets/Pasted%20image%2020260624135445.png)
 
 
 Do full join:
@@ -222,7 +222,7 @@ Result:
 
 A CROSS JOIN is a type of SQL join that returns the Cartesian product of the two joined tables. This means that each row from the first table is combined with each row from the second table. The result set includes all possible combinations of rows from both tables.
 
-![[Pasted image 20260624135733.png]]
+![Pasted image 20260624135733](../assets/Pasted%20image%2020260624135733.png)
 
 customers table:
 

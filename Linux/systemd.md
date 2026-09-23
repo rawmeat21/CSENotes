@@ -64,7 +64,7 @@ To see all installed unit files:
 $ systemctl list-unit-files --type=service
 ```
 
-![[Pasted image 20260826150043.png]]
+![Pasted image 20260826150043](../assets/Pasted%20image%2020260826150043.png)
 
 What do I mean by subcommand? Well these are things you add after `systemctl`, like `systemctl status` or `systemctl reboot`. 
 
@@ -72,7 +72,7 @@ Usually you shouldn't need the `.service` part when you mention _unit_, but you 
 
 #### More about `systemctl status`
 
-![[Pasted image 20260826150613.png]]
+![Pasted image 20260826150613](../assets/Pasted%20image%2020260826150613.png)
 
 The enabled and disabled states apply only to unit files that live in one of systemd’s system directories (that is, they are not linked in by a symbolic link) and that have an `[Install]` section in their unit files. 
 
@@ -196,7 +196,7 @@ $ systemctl list-units --type=target
 
 
 
-![[Pasted image 20260826153321.png]]
+![Pasted image 20260826153321](../assets/Pasted%20image%2020260826153321.png)
 
 
 ### Dependencies among units
@@ -237,7 +237,7 @@ Two things happening here:
 You almost always pair `Requires=` with `After=`, because wanting something active isn't the same as controlling the sequence.
 
 
-![[Pasted image 20260826154625.png]]
+![Pasted image 20260826154625](../assets/Pasted%20image%2020260826154625.png)
 
 
 ### Execution order
@@ -299,7 +299,7 @@ standard name.
 all together with the original unit file. However, **override files have priority over**
 **the original unit file should both sources try to set the value of a particular option.**
 
-![[Pasted image 20260826160711.png]]
+![Pasted image 20260826160711](../assets/Pasted%20image%2020260826160711.png)
 
 
 ### Services vs. Targets

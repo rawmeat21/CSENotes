@@ -22,7 +22,7 @@ First, look into virtual vs physical memory:
 
 3. Page Size = Frame Size
 
-![[Pasted image 20260708155201.png]]
+![Pasted image 20260708155201](../assets/Pasted%20image%2020260708155201.png)
 
 At allocation time, the OS allocates the necessary number of page frames to the process. The translations from virtual pages into physical page frames are kept in a per-process data structure called the page table.
 
@@ -33,7 +33,7 @@ For example, Let’s say the main memory size is 64B and the frame size is 4B th
 
 There are 4 processes. The size of each process is 16B and page size is also 4B then, No of pages in each process = 16/4 = 4 These pages may be stored in the main memory frames in a non-contiguous form, depending on their availability
 
-![[Pasted image 20260708155337.png]]
+![Pasted image 20260708155337](../assets/Pasted%20image%2020260708155337.png)
 
 
 ### Address translation
@@ -42,16 +42,16 @@ Suppose a page size of k bits, an address space m bits long, and a physical addr
 
 - The virtual address is split into an offset (the k least significant bits) and a Virtual Page Number (VPN, the remaining bits):
 
-![[Pasted image 20260708155559.png]]
+![Pasted image 20260708155559](../assets/Pasted%20image%2020260708155559.png)
 
 The VPN is the page where this virtual address is placed in the process address space. The offset is the “delta” of the memory address inside the page (how far it is from the first address in the page):
 
-![[Pasted image 20260708155641.png]]
+![Pasted image 20260708155641](../assets/Pasted%20image%2020260708155641.png)
 
 
 - We need to find the corresponding Page Frame Number (PFN) in the physical memory. The page table is leveraged for this purpose.
 
-![[Pasted image 20260708155710.png]]
+![Pasted image 20260708155710](../assets/Pasted%20image%2020260708155710.png)
 
 
 ### Page table

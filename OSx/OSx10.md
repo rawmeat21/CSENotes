@@ -6,7 +6,7 @@ Where free-space management becomes more difﬁcult is when the free space you a
 
 This arises in a user-level memory-allocation library (as in malloc() and free()) and in an OS managing physical memory when using segmentation to implement virtual memory. In either case, the problem that exists is known as external fragmentation.
 
-![[Pasted image 20260616202532.png]]
+![Pasted image 20260616202532](../assets/Pasted%20image%2020260616202532.png)
 
 
 ### Assumptions
@@ -38,7 +38,7 @@ Assume that the allocator manages a contiguous region of bytes. In some cases, a
 
 ### Splitting
 
-![[Pasted image 20260616203817.png]]
+![Pasted image 20260616203817](../assets/Pasted%20image%2020260616203817.png)
 
 Assume we have a request for just 1 byte of memory. In this case, the allocator will perform an action known as **splitting:**
 
@@ -46,17 +46,17 @@ Find a free chunk of memory that can satisfy the request and split it into two. 
 
 If a request for 1 byte were made, and the allocator decided to use the second of the two elements on the list to satisfy the request, the call to malloc() would return 20 (the address of the 1-byte allocated region) and the list would end up looking like this:
 
-![[Pasted image 20260616204002.png]]
+![Pasted image 20260616204002](../assets/Pasted%20image%2020260616204002.png)
 
 ### Coalescing
 
 What happens when an application calls free(10), thus returning the space in the middle of the heap?
 
-![[Pasted image 20260616204110.png]]
+![Pasted image 20260616204110](../assets/Pasted%20image%2020260616204110.png)
 
 You need to combine these.
 
-![[Pasted image 20260616204137.png]]
+![Pasted image 20260616204137](../assets/Pasted%20image%2020260616204137.png)
 
 (After coalescing)
 
@@ -68,7 +68,7 @@ the handed-out chunk of memory.
 
 On malloc(20):
 
-![[Pasted image 20260616204627.png]]
+![Pasted image 20260616204627](../assets/Pasted%20image%2020260616204627.png)
 
 (magic number is used for sanity checking)
 

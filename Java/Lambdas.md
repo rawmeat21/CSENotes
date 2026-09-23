@@ -7,13 +7,13 @@ Again suppose we have an e-commerce app, where we may want to filter entries by 
 
 ### How to pass functions?
 
-![[Pasted image 20260703145210.png]]
+![Pasted image 20260703145210](../assets/Pasted%20image%2020260703145210.png)
 
-![[Pasted image 20260703145227.png]]
+![Pasted image 20260703145227](../assets/Pasted%20image%2020260703145227.png)
 
 Make an interface which defines an abstract filtering logic function. When the user wants to use `filterHotels()` they would pass in an object of `FilteringCondition`. Simple.
 
-![[Pasted image 20260703145502.png]]
+![Pasted image 20260703145502](../assets/Pasted%20image%2020260703145502.png)
 
 So the steps are:
 
@@ -55,11 +55,11 @@ Ok, why not use normal classes? Reasons like:
 Interfaces are the best choice for these things.
 
 
-![[Pasted image 20260703151047.png]]
+![Pasted image 20260703151047](../assets/Pasted%20image%2020260703151047.png)
 
 We can prevent the need of creating classes each time by using Anonymous Inner classes.
 
-![[Pasted image 20260703151348.png]]
+![Pasted image 20260703151348](../assets/Pasted%20image%2020260703151348.png)
 
 OR even better, use lambda functions, which do the exact same thing, they just make the code look better.
 
@@ -67,42 +67,42 @@ OR even better, use lambda functions, which do the exact same thing, they just m
 
 Such interfaces which have 1 function, are called **Functional Interfaces**.
 
-![[Pasted image 20260703151800.png]]
+![Pasted image 20260703151800](../assets/Pasted%20image%2020260703151800.png)
 
 
 ### Some rules of lambda expressions
 
 1. You don't need to pass in the types of parameters.
 
-![[Pasted image 20260703152235.png]]
+![Pasted image 20260703152235](../assets/Pasted%20image%2020260703152235.png)
 
 2. You can eliminate the () if you have only 1 parameter.
 3. If you have 1 statement in your body, you can eliminate the {} 
 
-![[Pasted image 20260703152626.png]]
+![Pasted image 20260703152626](../assets/Pasted%20image%2020260703152626.png)
 
 But you have the remove the `return` and well as the `;` 
 
-![[Pasted image 20260703152940.png]]
+![Pasted image 20260703152940](../assets/Pasted%20image%2020260703152940.png)
 
 This is how you store lambdas.
 
 
-![[Pasted image 20260703154210.png]]
+![Pasted image 20260703154210](../assets/Pasted%20image%2020260703154210.png)
 
 what does `this` refer to? the inner class? fuck no, it refers to the enclosing class Main.
 
-![[Pasted image 20260703154316.png]]
+![Pasted image 20260703154316](../assets/Pasted%20image%2020260703154316.png)
 
 Variables in lambdas must be final or effectively final. So this won't work lil bro.
 
 Even this wont work:
 
-![[Pasted image 20260703154403.png]]
+![Pasted image 20260703154403](../assets/Pasted%20image%2020260703154403.png)
 
 This is because the lambda captures the value of PRICE (2000) into the body.
 
-![[Pasted image 20260703155011.png]]
+![Pasted image 20260703155011](../assets/Pasted%20image%2020260703155011.png)
 
 This is allowed. So basically you see that the reference used in the body of a lambda has to keep pointing to the same object.
 

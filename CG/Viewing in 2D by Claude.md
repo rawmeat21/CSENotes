@@ -230,9 +230,9 @@ Most implementations simply pick a **fixed order** (e.g. always test top → bot
 
 ### 2. The Boundary-Point Inconsistency
 
-![[Pasted image 20260906160910.png]]
+![Pasted image 20260906160910](../assets/Pasted%20image%2020260906160910.png)
 
-![[Pasted image 20260906160919.png]]
+![Pasted image 20260906160919](../assets/Pasted%20image%2020260906160919.png)
 
 Comparing how the two reference images treat a point that lands **exactly on** a boundary after clipping:
 

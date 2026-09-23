@@ -11,7 +11,7 @@ If the table has no indexes at all, its called a heap. This causes:
 
 Indexing in DBMS is the process of creating a data structure, known as an **index**, which allows for quick access to specific data records within a database table.
 
-![[Pasted image 20260623141903.png]]
+![Pasted image 20260623141903](../assets/Pasted%20image%2020260623141903.png)
 
 **Index** holds a sorted copy of selected columns from the table. 
 
@@ -38,12 +38,12 @@ So, when we say "Index File," it refers to the physical file on disk that stores
 **_B-Tree Index_**: This is the most commonly used index type, suitable for balanced searching and range queries.
 
 
-![[Pasted image 20260623142152.png]]
+![Pasted image 20260623142152](../assets/Pasted%20image%2020260623142152.png)
 
 
 **_Hash Index_**: Ideal for equality-based searches, hash indexes use a hash function to generate a direct link between the search key and the corresponding data.
 
-![[Pasted image 20260623142217.png]]
+![Pasted image 20260623142217](../assets/Pasted%20image%2020260623142217.png)
 
 1. **Create a Hash Index**:
 
@@ -69,20 +69,20 @@ Read more: https://medium.com/@rohmatmret/understanding-hash-indexing-in-databas
 
 **_Bitmap Index_**: Suited for columns with low cardinality, bitmap (binary arrays) indexes represent data as a bitmap, where each bit corresponds to a specific value.
 
-![[Pasted image 20260623142440.png]]
+![Pasted image 20260623142440](../assets/Pasted%20image%2020260623142440.png)
 
-![[Pasted image 20260624113958.png]]
-![[Pasted image 20260624114016.png]]
-![[Pasted image 20260624114037.png]]
-![[Pasted image 20260624114055.png]]
-![[Pasted image 20260624114110.png]]
-![[Pasted image 20260624114121.png]]
+![Pasted image 20260624113958](../assets/Pasted%20image%2020260624113958.png)
+![Pasted image 20260624114016](../assets/Pasted%20image%2020260624114016.png)
+![Pasted image 20260624114037](../assets/Pasted%20image%2020260624114037.png)
+![Pasted image 20260624114055](../assets/Pasted%20image%2020260624114055.png)
+![Pasted image 20260624114110](../assets/Pasted%20image%2020260624114110.png)
+![Pasted image 20260624114121](../assets/Pasted%20image%2020260624114121.png)
 
 
 
 ***Clustered Index:*** In this type of index, the physical order of the data on disk matches the index’s order, leading to improved query performance.
 
-![[Pasted image 20260623142542.png]]
+![Pasted image 20260623142542](../assets/Pasted%20image%2020260623142542.png)
 
 -> The data file (has the records) is ordered (sorted). The data rows are physically stored and ordered on disk to match the logical order of the index key.
 
@@ -145,7 +145,7 @@ Can we change the clustering index? Yes, use `ALTER TABLE`
 
 When you execute an `ORDER BY` query on a column that is _not_ the clustering key, the database engine cannot rely on the physical layout of the table. To tackle this, one of the methods is a non-clustered index.
 
-![[Pasted image 20260623142619.png]]
+![Pasted image 20260623142619](../assets/Pasted%20image%2020260623142619.png)
 
 
 The database creates a secondary B+ Tree structure for the alternate column. The logical layout of this index matches the sort order of that specific column.
@@ -154,12 +154,12 @@ The database creates a secondary B+ Tree structure for the alternate column. The
 
 - **Execution:** The engine scans the secondary index in its sorted order, extracts the primary key pointers, and then performs a **Key Lookup** (or RID lookup) on the clustered index to fetch the remaining data columns.
 
-![[Pasted image 20260624110037.png]]
+![Pasted image 20260624110037](../assets/Pasted%20image%2020260624110037.png)
 
 Source: https://www.youtube.com/watch?v=ITcOiLSfVJQ&t=139s
 
 
-![[Pasted image 20260624110405.png]]
+![Pasted image 20260624110405](../assets/Pasted%20image%2020260624110405.png)
 
 
 #### But how will a non-clustered index work with multiple columns?

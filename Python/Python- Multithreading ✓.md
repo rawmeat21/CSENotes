@@ -91,39 +91,39 @@ import threading
 ```
 
 ---
-![[Pasted image 20260502114325.png]]
+![Pasted image 20260502114325](../assets/Pasted%20image%2020260502114325.png)
 
 (There are actually 2 do_something() functions here, the other one was written but I couldn't include it in the screenshot)
 
 A **performance counter** is ==a high-resolution, internal timer or a system-level metric used to measure how long a process takes to execute or to track system health==
 
 
-![[Pasted image 20260502114344.png]]
+![Pasted image 20260502114344](../assets/Pasted%20image%2020260502114344.png)
 
 (Without threading, no concurrency, 2s to run)
 
-![[Pasted image 20260502114524.png]]
+![Pasted image 20260502114524](../assets/Pasted%20image%2020260502114524.png)
 
 (With threading, IO concurrency acheived, 1.2s to run)
 
 Some IO bound tasks- Read/ Write files, Download files from internet
 
-![[Pasted image 20260502114926.png]]
+![Pasted image 20260502114926](../assets/Pasted%20image%2020260502114926.png)
 
-![[Pasted image 20260502114939.png]]
+![Pasted image 20260502114939](../assets/Pasted%20image%2020260502114939.png)
 (Notice that main thread is finished before t1 and t2)
 
-![[Pasted image 20260502115056.png]]
+![Pasted image 20260502115056](../assets/Pasted%20image%2020260502115056.png)
 
-![[Pasted image 20260502115106.png]]
+![Pasted image 20260502115106](../assets/Pasted%20image%2020260502115106.png)
 
 (Added .join() so parent thread waits until t1 and t2 are finished)
 
-![[Pasted image 20260502115341.png]]
+![Pasted image 20260502115341](../assets/Pasted%20image%2020260502115341.png)
 
 What if you add t.join() after t.start()? After the first t.start(), main thread calls t.join(), and main waits for the first thread to finish, so it creates the second thread just after first thread finishes! Then again 3rd thread would start after 2nd one finishes, so your code would never acheive concurrency and the runtime would be 10s.
 
-![[Pasted image 20260502115704.png]]
+![Pasted image 20260502115704](../assets/Pasted%20image%2020260502115704.png)
 
 join them one by one after starting all of them
 ### Creating and Starting Threads
@@ -211,7 +211,7 @@ A **daemon thread** is a background thread that is automatically killed when all
 python
 
 ```python
-t = threading.Thread(target=background_t[[Python- OOPs ✓]]ask)
+t = threading.Thread(target=background_t[Python- OOPs ✓](Python-%20OOPs%20✓.md)ask)
 t.daemon = True    # must be set before t.start()
 t.start()
 # when main thread ends, t is killed automatically

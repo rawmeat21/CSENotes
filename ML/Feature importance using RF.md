@@ -1,4 +1,4 @@
-![[Pasted image 20260720115924.png]]
+![Pasted image 20260720115924](../assets/Pasted%20image%2020260720115924.png)
 
 Here, in this dataset (MNIST), we can get an idea that the outer black regions will not be important to decision making. These are not important.
 

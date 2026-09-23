@@ -1,4 +1,4 @@
-![[Pasted image 20260912102839.png]]
+![Pasted image 20260912102839](../assets/Pasted%20image%2020260912102839.png)
 
 https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker-spring-2026/chapter-2/in-depth-dive-into-images
 

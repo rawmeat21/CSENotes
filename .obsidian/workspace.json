@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HLD/DS - Replication (or Redundancy).md",
+                "file": "Untitled 1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DS - Replication (or Redundancy)"
+              "title": "Untitled 1"
             }
           },
           {
@@ -275,7 +275,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 413.54296875
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -290,8 +290,14 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "39424640fc8a9ddc",
+  "active": "04c09b981dedc9df",
   "lastOpenFiles": [
+    "OSNotes/Segmentation.md",
+    "OSNotes/Kernel.md",
+    "OSNotes/Dead.md",
+    "CG/Viewing in 2D by Claude.md",
+    "CG/2D Transformations.md",
+    "HLD/DS - Replication (or Redundancy).md",
     "assets/Pasted image 20260923104248.png",
     "assets/Pasted image 20260923103151.png",
     "assets/Pasted image 20260923102912.png",
@@ -308,10 +314,8 @@
     "Git/3 states.md",
     "SB/SB-4 (Handling status codes).md",
     "SB/SB-4 (Lombok).md",
-    "HLD/DS - Replication (or Redundancy).md",
     "assets/Pasted image 20260922113220.png",
     "assets/Pasted image 20260922111738.png",
-    "assets/Pasted image 20260922111207.png",
     "Linux/How to fix bluetooth failed to connect.md",
     "Linux/How passwd works using setuid.md",
     "README.md",
@@ -324,11 +328,7 @@
     "Linux/shutdown, halt, reboot.md",
     "Linux/shell, terminal, terminal emulator, and how the universe works.md",
     "Linux/Shell and Terminal emulator.md",
-    "Linux/File descriptors.md",
-    "2026-09-18.md",
     "Untitled 5.base",
-    "Linux/File stuff.md",
-    "Linux/file.md",
     "HLD",
     "Kubernetes",
     "CG",

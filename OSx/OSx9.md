@@ -1,6 +1,6 @@
 ## Segmentation
 
-![[Pasted image 20260615185629.png]]
+![Pasted image 20260615185629](../assets/Pasted%20image%2020260615185629.png)
 
 The process is not using the free space between the stack and heap, so its being wasted.
 
@@ -12,11 +12,11 @@ There are 3 logical segments here: code, stack, heap.
 
 Segmentation approach - 
 
-![[Pasted image 20260615190304.png]]
+![Pasted image 20260615190304](../assets/Pasted%20image%2020260615190304.png)
 
 3 base and bounds register pairs are used to track the address space for each segment.
 
-![[Pasted image 20260615190347.png]]
+![Pasted image 20260615190347](../assets/Pasted%20image%2020260615190347.png)
 
 (Look at the first picture to understand the sizes)
 
@@ -70,7 +70,7 @@ The hardware determines the segment by noticing how the address was formed.
 
 #### Also, if you notice, we NEED to know whether a segment grows up or down. 
 
-![[Pasted image 20260615193233.png]]
+![Pasted image 20260615193233](../assets/Pasted%20image%2020260615193233.png)
 
 
 ### Coarse Grained vs Fine grained
@@ -101,7 +101,7 @@ to the calling program.
 
 **External fragmentation**- Physical memory quickly becomes full of little holes of free space, making it difﬁcult to allocate new segments, or to grow existing ones. We call this problem external fragmentation
 
-![[Pasted image 20260615195125.png]]
+![Pasted image 20260615195125](../assets/Pasted%20image%2020260615195125.png)
 
 
 In this example, a process comes along and wishes to allocate a 20KB segment. There is 24KB free, but not in one **contiguous** segment (rather, in three non-contiguous chunks). 

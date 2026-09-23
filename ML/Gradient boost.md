@@ -1,4 +1,4 @@
-![[Pasted image 20260720134617.png]]
+![Pasted image 20260720134617](../assets/Pasted%20image%2020260720134617.png)
 
 Gradient boost is a boosting algo, so it works sequentially. 
 
@@ -17,22 +17,22 @@ In this stage, the input cols are same.
 BUT, the output col is the res1 column!
 So this DT predicts the errors made by M1.
 
-![[Pasted image 20260720135223.png]]
+![Pasted image 20260720135223](../assets/Pasted%20image%2020260720135223.png)
 
-![[Pasted image 20260720135334.png]]
+![Pasted image 20260720135334](../assets/Pasted%20image%2020260720135334.png)
 
 Now, if we wanted a prediction of salary by using M2, the method is:
 
-![[Pasted image 20260720135418.png]]
+![Pasted image 20260720135418](../assets/Pasted%20image%2020260720135418.png)
 
 Yep. Though, we want to use learning rate to prevent overfitting.
 
-![[Pasted image 20260720135524.png]]
+![Pasted image 20260720135524](../assets/Pasted%20image%2020260720135524.png)
 
 
 Now, at this stage, we also need to find the errors:
 
-![[Pasted image 20260720135825.png]]
+![Pasted image 20260720135825](../assets/Pasted%20image%2020260720135825.png)
 
 Remember, the loss function is = actual - predicted
 
@@ -46,9 +46,9 @@ Step 3:
 
 Same thing, our output column is res2. We use decision tree for prediction.
 
-![[Pasted image 20260720140118.png]]
+![Pasted image 20260720140118](../assets/Pasted%20image%2020260720140118.png)
 
-![[Pasted image 20260720140232.png]]
+![Pasted image 20260720140232](../assets/Pasted%20image%2020260720140232.png)
 
 This is the prediction formula. Learning rate is kept same for all.
 

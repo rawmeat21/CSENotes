@@ -17,5 +17,5 @@ To switch from user mode to kernel mode, there is no means but _interrupts_.
 In general, an interrupt can be a hardware interrupt such as a timer interrupt that makes the CPU switch to kernel mode and execute a process switch for example, or it can be a software interrupt which are caused by the program itself, such as a division by zero, a page fault or a system call.
 
 
-![[Pasted image 20260616213054.png]]
+![Pasted image 20260616213054](../assets/Pasted%20image%2020260616213054.png)
 

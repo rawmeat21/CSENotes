@@ -2,7 +2,7 @@
 
 A computer network is a system of interconnected devices, such as computers, servers, smartphones, and printers, that communicate to exchange data. They communicate using wired or wireless connections and can range from small home networks to the global Internet.
 
-![[Pasted image 20260615014142.png]]
+![Pasted image 20260615014142](../assets/Pasted%20image%2020260615014142.png)
 
 A network consists of nodes such as computers, servers, routers, and switches that send or receive data.
 
@@ -50,7 +50,7 @@ Acts as a basic device that connects multiple devices within a network.
 
 A bridge in a computer network is a device that connects multiple Local Area Networks (LANs) into a larger, single network. It manages traffic and improves performance by filtering and forwarding data frames based on their MAC (Media Access Control) addresses
 
-![[Pasted image 20260615101415.png]]
+![Pasted image 20260615101415](../assets/Pasted%20image%2020260615101415.png)
 
 ### 5. Gateway
 

@@ -5,7 +5,7 @@ The TCP/IP model is a layered networking framework that explains how data is com
 - Simpler and more practical than the seven-layer OSI model.
 - Serves as the core framework of the modern Internet and networking systems.
 
-![[Pasted image 20260615085504.png]]
+![Pasted image 20260615085504](../assets/Pasted%20image%2020260615085504.png)
 
 ## Layers of TCP/IP Model
 
@@ -29,7 +29,7 @@ Ensures reliable and efficient delivery of data between devices, managing segmen
 - Prevents the receiver from being overwhelmed by regulating data flow.
 - Uses port numbers to allow multiple applications to share the network simultaneously.
 
-![[Pasted image 20260615085556.png]]
+![Pasted image 20260615085556](../assets/Pasted%20image%2020260615085556.png)
 
 **TCP (Transmission Control Protocol):** TCP is used when reliability and accuracy are important. It ensures that data is delivered exactly as sent.
 
@@ -51,13 +51,13 @@ Ensures reliable and efficient delivery of data between devices, managing segmen
 
 Responsible for addressing, packaging, and routing data packets so they can travel across networks and reach the correct destination device. It ensures that data can move between different networks efficiently.
 
-![[Pasted image 20260615085631.png]]
+![Pasted image 20260615085631](../assets/Pasted%20image%2020260615085631.png)
 
 ### Network Access (Link Layer)
 
 Responsible for physically transmitting data over network hardware, including cables, switches, and wireless connections. It handles how data is formatted for the network medium and ensures it reaches the next device on the path.
 
-![[Pasted image 20260615090827.png]]
+![Pasted image 20260615090827](../assets/Pasted%20image%2020260615090827.png)
 
 - Sends and receives raw bits over physical media like Ethernet cables, fiber optics, or Wi-Fi.
 - Organizes data into frames for proper transmission and recognition by devices.
@@ -67,7 +67,7 @@ Responsible for physically transmitting data over network hardware, including ca
 
 ## Working
 
-![[Pasted image 20260615090856.png]]
+![Pasted image 20260615090856](../assets/Pasted%20image%2020260615090856.png)
 
 ### When Sending Data (From Sender to Receiver)
 

@@ -10,12 +10,12 @@ Also read: https://lfg.popovicu.com/series/the-shell-as-a-language/terminal-tty-
 - **Terminal** — historically, a physical device (a screen + keyboard, or even older, a teletype/printer) that let a human talk to a computer. In modern Linux, this role is played by a **TTY device** (a kernel abstraction — more below). A terminal emulator is a GUI application. 
 - **Terminal emulator** — a GUI application (xterm, GNOME Terminal, Konsole, Alacritty, kitty) that _pretends to be_ an old physical terminal. It draws characters on screen and provides input, but internally it talks to the kernel through the TTY layer. 
 
-![[Pasted image 20260918144951.png]]
+![Pasted image 20260918144951](../assets/Pasted%20image%2020260918144951.png)
 An IBM 2741 teletype and the IBM System/360 Mo. 40 mainframe computer. These were released in the late 60s, and were prevalent until the 70s. The purchase of one of these mainframes (>$200k at the time) included a teletype.
 
 
 
-![[Pasted image 20260918145317.png]]
+![Pasted image 20260918145317](../assets/Pasted%20image%2020260918145317.png)
 A VT100 (VT = video terminal), released in 1978 by DEC.[5](https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls#footnote-five) This model implemented and popularized the ANSI escape codes which are still used today
 
 ### What is a shell?
@@ -43,7 +43,7 @@ There is still a TTY driver in the kernel with a line discipline responsible for
 
 PTY _leader_ is the end of the PTY that interfaces with the _terminal emulator_, while the PTY _follower_ interfaces with the _shell_.
 
-![[Pasted image 20260918150058.png]]
+![Pasted image 20260918150058](../assets/Pasted%20image%2020260918150058.png)
 
 
 These file descriptors (fd) are not “normal files,” but virtual [character devices](https://unix.stackexchange.com/questions/37829/how-do-character-device-or-character-special-files-work). 
@@ -52,7 +52,7 @@ The fd for the leader just points to a buffer in memory, while the follower is a
 
 If you want to see what that path is, run the `tty` command from the terminal. You can write to this path from a different process and see the data you write appear in the other session!
 
-![[9_Gn_M8g_0d3b281ed5.gif]]
+![9_Gn_M8g_0d3b281ed5](../assets/9_Gn_M8g_0d3b281ed5.gif)
 
 
 #### Spawning the Shell
@@ -68,7 +68,7 @@ The shell is the first child process of the terminal session.
 
 The terminal will spawn it and set it to read and write from the PTY **follower**. It does this by setting the shell’s stdin, stderr and stdout (fd 0 through 2) to the PTY follower.
 
-![[Pasted image 20260918150805.png]]
+![Pasted image 20260918150805](../assets/Pasted%20image%2020260918150805.png)
 
 
 #### Shell initialisation
@@ -163,7 +163,7 @@ To visualize these different processes, you can think of the terminal emulator a
 
 In fact, you can visualize this tree with the `pstree` command. All you have to do is provide the process ID of the terminal:
 
-![[Pasted image 20260918152517.png]]
+![Pasted image 20260918152517](../assets/Pasted%20image%2020260918152517.png)
 
 In this example, the terminal emulator process (Warp) has PID 84860 and the tabs/shell processes have PIDs 84890, 85525 and 86041. In one of the tabs (PID 86041), we’re running `tmux` and hence, it’s a direct child of that shell process itself, as expected!
 
@@ -175,12 +175,12 @@ Since the child process inherits its parents’ file descriptors, the output pro
 
 Instead of processing these bytes, the line discipline will just forward them to the PTY leader. The terminal emulator app will then read the characters from the PTY leader and display them on the screen.
 
-![[Pasted image 20260918152757.png]]
+![Pasted image 20260918152757](../assets/Pasted%20image%2020260918152757.png)
 
 
 Oftentimes, output will have text decorations like colors and bolding. For example, in the following command/output pair, the output is intentionally colored (directories are a different color from simple files, which are a different color from executables):
 
-![[Pasted image 20260918152903.png]]
+![Pasted image 20260918152903](../assets/Pasted%20image%2020260918152903.png)
 
 So how did `ls` emit these colors? And how did the terminal emulator know what to do with them? The answer is escape sequences!
 
@@ -228,7 +228,7 @@ In modern operating systems: Each `/dev/ttyX` device represents an entire **keyb
 
 A TTY is an interactive communication channel between **you** and the **system**. When you open a terminal directly on your computer (without using remote access), you are interfacing with one of these TTYs.
 
-![[Pasted image 20260918140042.png]]
+![Pasted image 20260918140042](../assets/Pasted%20image%2020260918140042.png)
 
 There are a few different things under `/dev` with "tty" in the name:
 

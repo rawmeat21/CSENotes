@@ -17,7 +17,7 @@ fi
 (( result = count * 2 ))
 ```
 
-> **Note:** **This _only_ works for numbers**. String comparisons (like checking `'y'` or `'n'`) will fail or behave unpredictably inside `(( ... ))`. Use `[[]]` instead.
+> **Note:** **This _only_ works for numbers**. String comparisons (like checking `'y'` or `'n'`) will fail or behave unpredictably inside `(( ... ))`. Use `[When can I not use the dollar sign](.md)` instead.
 
 ### 2. Case Statements `case ... in` — **No `$` in Patterns**
 
@@ -39,6 +39,6 @@ esac
 |Bracket / Syntax|Purpose|Needs `$` for Variables?|Example|
 |---|---|---|---|
 |**`(( ... ))`**|Arithmetic & numeric tests|**No**|`(( age >= 18 ))`|
-|**`[[ ... ]]`**|Advanced logic & strings|**Yes**|`[[ $name == "Alice" ]]`|
+|**`[ ... ](%20...%20)`**|Advanced logic & strings|**Yes**|`[ $name == "Alice" ](%20$name%20==%20"Alice"%20)`|
 |**`[ ... ]`**|Legacy POSIX test|**Yes**|`[ "$age" -gt 18 ]`|
 |**`( ... )`**|Subshell execution|**Yes**|

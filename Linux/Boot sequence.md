@@ -1,4 +1,4 @@
-![[Pasted image 20260819102047.png]]
+![Pasted image 20260819102047](../assets/Pasted%20image%2020260819102047.png)
 
 Before the system is fully booted, filesystems must be checked and mounted and
 system daemons started. These procedures are managed by a series of shell scripts

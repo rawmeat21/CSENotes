@@ -6,13 +6,13 @@ There are two primary ways to undo changes in Git -- one is using `git reset` an
 
 `git reset` reverses changes by moving a branch reference backwards in time to an older commit. In this sense you can think of it as "rewriting history;" `git reset` will move a branch backwards as if the commit had never been made in the first place.
 
-![[Pasted image 20260813201147.png]]
+![Pasted image 20260813201147](../assets/Pasted%20image%2020260813201147.png)
 
 ```
 git reset HEAD~1
 ```
 
-![[Pasted image 20260813201217.png]]
+![Pasted image 20260813201217](../assets/Pasted%20image%2020260813201217.png)
 
 
 ## Git Revert
@@ -21,22 +21,22 @@ While resetting works great for local branches on your own machine, its method o
 
 In order to reverse changes and _share_ those reversed changes with others, we need to use `git revert`.
 
-![[Pasted image 20260813201436.png]]
+![Pasted image 20260813201436](../assets/Pasted%20image%2020260813201436.png)
 
 ```
 git revert HEAD^
 ```
 
-![[Pasted image 20260813201510.png]]
+![Pasted image 20260813201510](../assets/Pasted%20image%2020260813201510.png)
 
 Example usage:
 
-![[Pasted image 20260813201622.png]]
+![Pasted image 20260813201622](../assets/Pasted%20image%2020260813201622.png)
 
 pushed - remote branch
 local - local branch
 
-![[Pasted image 20260813202054.png]]
+![Pasted image 20260813202054](../assets/Pasted%20image%2020260813202054.png)
 
 How to achieve this?
 
@@ -56,18 +56,18 @@ It's a very straightforward way of saying that you would like to copy a series o
 
 Here's a repository where we have some work in branch `side` that we want to copy to `main`. This could be accomplished through a rebase (which we have already learned), but let's see how cherry-pick performs.
 
-![[Pasted image 20260813202819.png]]
+![Pasted image 20260813202819](../assets/Pasted%20image%2020260813202819.png)
 
 ```
 git cherry-pick C2 C4
 ```
 
-![[Pasted image 20260813202854.png]]
+![Pasted image 20260813202854](../assets/Pasted%20image%2020260813202854.png)
 
 
 Example: 
 
-![[Pasted image 20260813202937.png]]
+![Pasted image 20260813202937](../assets/Pasted%20image%2020260813202937.png)
 
 
 ```
@@ -75,7 +75,7 @@ git cherry-pick C3 C4 C7
 ```
 
 
-![[Pasted image 20260813203056.png]]
+![Pasted image 20260813203056](../assets/Pasted%20image%2020260813203056.png)
 
 
 ## Git Interactive Rebase
@@ -88,17 +88,17 @@ We can use interactive rebasing for this -- it's the best way to review a series
 
 Interactive rebase means is that Git is using the `rebase` command with the `-i` option.
 
-![[Pasted image 20260813203757.png]]
+![Pasted image 20260813203757](../assets/Pasted%20image%2020260813203757.png)
 
 ```
 git rebase HEAD~4
 ```
 
-![[Pasted image 20260813203814.png]]
+![Pasted image 20260813203814](../assets/Pasted%20image%2020260813203814.png)
 
 (new order)
 
-![[Pasted image 20260813203844.png]]
+![Pasted image 20260813203844](../assets/Pasted%20image%2020260813203844.png)
 
 
 ## Undoing with `git restore`
@@ -146,7 +146,7 @@ We need to tell git to copy only one of the commits over. This is just like the 
 - `git rebase -i`
 - `git cherry-pick`
 
-![[Pasted image 20260813205521.png]]
+![Pasted image 20260813205521](../assets/Pasted%20image%2020260813205521.png)
 
 what to do?
 
@@ -155,7 +155,7 @@ $ git checkout main (switch to main first)
 $ git cherry-pick C4
 ```
 
-![[Pasted image 20260813205836.png]]
+![Pasted image 20260813205836](../assets/Pasted%20image%2020260813205836.png)
 
 
 ## Juggling Commits

@@ -18,7 +18,7 @@ Each consecutive element pair is independent of the previous. This is exactly th
 
 ### The CRAY X-MP / Model 24 Architecture
 
-![[Pasted image 20260503123019.png]]
+![Pasted image 20260503123019](../assets/Pasted%20image%2020260503123019.png)
 
 
 #### Overall Structure
@@ -48,7 +48,7 @@ There are between 2 and 4 **I/O processors** in the system:
 
 ### The Control Section
 
-![[Pasted image 20260503123037.png]]
+![Pasted image 20260503123037](../assets/Pasted%20image%2020260503123037.png)
 
 
 The control section manages how instructions move from memory into execution. Think of it as the instruction fetch-and-issue front end.
@@ -99,7 +99,7 @@ When the first parcel moves from the NIP to the CIP, the second parcel is simult
 
 ### The Scalar Section
 
-![[Pasted image 20260503123056.png]]
+![Pasted image 20260503123056](../assets/Pasted%20image%2020260503123056.png)
 #### Registers
 
 The scalar section contains registers **S0–S7**: eight 64-bit scalar registers. These are the general-purpose registers for scalar (non-vector) computation.
@@ -121,7 +121,7 @@ Note: scalar floating-point operations are performed in the **vector functional 
 
 #### Output Operand Reservation
 
-![[Pasted image 20260503123157.png]]
+![Pasted image 20260503123157](../assets/Pasted%20image%2020260503123157.png)
 
 
 When a scalar instruction issues, its **output operand register is reserved**. No other instruction can write to that register until the first instruction completes. This prevents WAW hazards.
@@ -141,7 +141,7 @@ Line 1 issues in cycle 1, reserving S1. Line 2 cannot issue until line 1 complet
 
 #### Pipeline Delay Between Functional Units
 
-![[Pasted image 20260503123216.png]]
+![Pasted image 20260503123216](../assets/Pasted%20image%2020260503123216.png)
 
 
 If two instructions use the same functional unit and the second issues immediately after the first, their results could emerge in the same cycle — requiring extra hardware to handle multiple results at once. To avoid this, a **1-cycle hold** is inserted when a single-word shift immediately follows a double-word shift. Similarly for leading-zero count following pop/parity count in the scalar pop/parity unit.
@@ -150,7 +150,7 @@ If two instructions use the same functional unit and the second issues immediate
 
 ### The Address Section
 
-![[Pasted image 20260503123228.png]]
+![Pasted image 20260503123228](../assets/Pasted%20image%2020260503123228.png)
 
 #### Registers
 
@@ -173,7 +173,7 @@ All memory data is stored in 64-bit words. Word addresses are 22 bits wide. Parc
 
 ### The Vector Section
 
-![[Pasted image 20260503123244.png]]
+![Pasted image 20260503123244](../assets/Pasted%20image%2020260503123244.png)
 
 #### Registers
 

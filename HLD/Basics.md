@@ -1,6 +1,6 @@
 Data systems: databases, caches, search indexes, stream processing, batch processing.
 
-![[Pasted image 20260915102116.png]]
+![Pasted image 20260915102116](../assets/Pasted%20image%2020260915102116.png)
 
 When you combine several tools in order to provide a service, the service’s interface or application programming interface (API) usually hides those implementation details from clients.
 
@@ -23,7 +23,7 @@ How to handle? - Redundancy is a common approach. This approach cannot completel
 
 But it may not be enough:
 
-![[Pasted image 20260915103752.png]]
+![Pasted image 20260915103752](../assets/Pasted%20image%2020260915103752.png)
 
 ### Software errors
 
@@ -36,8 +36,8 @@ Errors within the system. Some examples:
 
 ### Human errors
 
-![[Pasted image 20260915104231.png]]
-![[Pasted image 20260915104239.png]]
+![Pasted image 20260915104231](../assets/Pasted%20image%2020260915104231.png)
+![Pasted image 20260915104239](../assets/Pasted%20image%2020260915104239.png)
 
 ### Scalability
 
@@ -54,12 +54,12 @@ It can be requests per second to a web server, the ratio of reads to writes in a
 
 ##### Twitter example
 
-![[Pasted image 20260915104953.png]]
-![[Pasted image 20260915105007.png]]
-![[Pasted image 20260915105016.png]]
+![Pasted image 20260915104953](../assets/Pasted%20image%2020260915104953.png)
+![Pasted image 20260915105007](../assets/Pasted%20image%2020260915105007.png)
+![Pasted image 20260915105016](../assets/Pasted%20image%2020260915105016.png)
 
-![[Pasted image 20260915105047.png]]
-![[Pasted image 20260915105244.png]]
+![Pasted image 20260915105047](../assets/Pasted%20image%2020260915105047.png)
+![Pasted image 20260915105244](../assets/Pasted%20image%2020260915105244.png)
 
 #### How to describe performance of system
 
@@ -77,7 +77,7 @@ Even if you only make the same request over and over again, you’ll get a sligh
 
 In practice, in a system handling a variety of requests, the response time can vary a lot. We therefore need to think of response time not as a single number, but as a **distribution of values** that you can measure.
 
-![[Pasted image 20260915110501.png]]
+![Pasted image 20260915110501](../assets/Pasted%20image%2020260915110501.png)
 
 **What causes high response time?** - expensive requests, random additional latency introduced by a context switch to a background process, the loss of a network packet and TCP retransmission, a garbage collection pause, a page fault forcing a read from disk, mechanical vibrations in the server rack, or many other causes.
 
@@ -111,7 +111,7 @@ Even if those subsequent requests are fast to process on the server, the client 
 
 
 
-![[Pasted image 20260915112328.png]]
+![Pasted image 20260915112328](../assets/Pasted%20image%2020260915112328.png)
 
 Even if you make the calls in parallel, the end-user request still needs to wait for the slowest of the parallel calls to complete.
 
@@ -157,7 +157,7 @@ Majority of the cost of software is not in its initial development, but in its o
 
 #### Principles of a good operations team
 
-![[Pasted image 20260915114008.png]]
-![[Pasted image 20260915114015.png]]
+![Pasted image 20260915114008](../assets/Pasted%20image%2020260915114008.png)
+![Pasted image 20260915114015](../assets/Pasted%20image%2020260915114015.png)
 
 

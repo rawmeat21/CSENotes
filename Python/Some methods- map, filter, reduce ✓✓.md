@@ -201,7 +201,7 @@ reduce(lambda acc, x: acc * x, [1, 2, 3, 4])   # 24
 reduce(lambda acc, x: acc if acc > x else x, [3, 1, 4, 1, 5, 9])   # 9
 
 # flatten
-reduce(lambda acc, x: acc + x, [[1,2],[3,4],[5,6]])   # [1, 2, 3, 4, 5, 6]
+reduce(lambda acc, x: acc + x, [1,2](1,2))   # [1, 2, 3, 4, 5, 6]
 ```
 
 #### `reduce` vs built-ins

@@ -13,7 +13,7 @@ There are two main types of topology:
 
 Point-to-point topology is a type of topology that works on the functionality of the sender and receiver. It is the simplest communication between two nodes, in which one is the sender and the other one is the receiver. Point-to-Point provides high bandwidth.
 
-![[Pasted image 20260615091718.png]]
+![Pasted image 20260615091718](../assets/Pasted%20image%2020260615091718.png)
 
 
 Read this from Claude
@@ -30,7 +30,7 @@ Simplex Mode is a transmission mode in which communication occurs in only one di
 - The other device acts only as receiver
 - No feedback or acknowledgment is supported
 
-![[Pasted image 20260615091838.png]]
+![Pasted image 20260615091838](../assets/Pasted%20image%2020260615091838.png)
 
 ### **Advantages**
 
@@ -54,7 +54,7 @@ Half-Duplex Mode is a transmission mode in which communication can occur in both
 - Uses a single shared communication channel
 - Transmission occurs alternately between devices
 
-![[Pasted image 20260615091931.png]]
+![Pasted image 20260615091931](../assets/Pasted%20image%2020260615091931.png)
 
 ### **Advantages**
 
@@ -78,7 +78,7 @@ Full-Duplex Mode is a transmission mode in which communication takes place in bo
 - Uses separate channels or divided bandwidth
 - Common in real-time communication systems
 
-![[Pasted image 20260615092014.png]]
+![Pasted image 20260615092014](../assets/Pasted%20image%2020260615092014.png)
 
 ### **Advantages**
 

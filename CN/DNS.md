@@ -17,7 +17,7 @@ Why name resolution exists? There are 2 reasons:
 - **IPs can change:** Servers move or scale, but the name (**google.com**) stays the same.
 - **Flexibility + Human Readability:** We need a system that humans can actually remember.
 
-![[Pasted image 20260615123748.png]]
+![Pasted image 20260615123748](../assets/Pasted%20image%2020260615123748.png)
 
 ### So, let’s say you type your favorite domain into the browser...
 

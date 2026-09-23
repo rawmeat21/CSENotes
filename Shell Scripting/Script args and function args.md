@@ -43,7 +43,7 @@ Bash
 
 ```
 # Ensure at least 2 arguments are provided
-if [[ $# -lt 2 ]]; then
+if [](%20$#%20-lt%202%20); then
     echo "Error: Expected at least 2 arguments, got $#." >&2
     echo "Usage: $0 <input_file> <output_file>" >&2
     exit 1
@@ -146,7 +146,7 @@ Bash
 verbose=false
 output_file="default.out"
 
-while [[ $# -gt 0 ]]; do
+while [](%20$#%20-gt%200%20); do
     case "$1" in
         -v|--verbose)
             verbose=true

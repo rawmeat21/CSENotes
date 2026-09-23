@@ -39,11 +39,11 @@ rawmeat     1346  0.0  0.1 324972  7724 ?        Sl   Sep10   0:00 /usr/lib/gvfs
 ```
 You can also use `ps lax` (long output).
 
-![[Pasted image 20260911231915.png]]
+![Pasted image 20260911231915](../assets/Pasted%20image%2020260911231915.png)
 
 `ps lax` includes fields such as the parent process ID (PPID), niceness (NI), and the type of resource on which the process is waiting (WCHAN, short for “wait channel”).
 
-![[Pasted image 20260911232043.png]]
+![Pasted image 20260911232043](../assets/Pasted%20image%2020260911232043.png)
 
 Get PID of process:
 

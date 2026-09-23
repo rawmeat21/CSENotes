@@ -2,7 +2,7 @@
 
 ### The Problem
 
-![[Pasted image 20260503120106.png]]
+![Pasted image 20260503120106](../assets/Pasted%20image%2020260503120106.png)
 
 In a shared memory multiprocessor, each processor has its own local cache. When multiple processors maintain locally cached copies of a unique shared-memory location, any local modification of that location can result in a globally inconsistent view of memory. Cache coherence schemes prevent this problem by maintaining a uniform state for each cached block of data.
 
@@ -17,7 +17,7 @@ In both cases, P2 is reading incorrect data. This is the cache coherence problem
 
 ### Snoopy Protocols
 
-![[Pasted image 20260503120130.png]]
+![Pasted image 20260503120130](../assets/Pasted%20image%2020260503120130.png)
 
 
 Snoopy protocols achieve data consistency among caches and shared memory through a **bus-watching mechanism**. Every cache controller monitors (snoops) all bus transactions. Since all caches see every bus transaction, each controller can update its own state accordingly — either invalidating or updating its local copy.
@@ -83,7 +83,7 @@ Replacements and the write-backs they may cause are not shown in the diagram.
        (I)<---------
 ```
 
-![[Pasted image 20260503120150.png]]
+![Pasted image 20260503120150](../assets/Pasted%20image%2020260503120150.png)
 
 Note that S is always a good copy. That means its up to date.
 More precisely, the complete transitions are:
@@ -159,7 +159,7 @@ MESI places a new requirement on the physical interconnect of the bus. An additi
 
 #### MESI State Transitions
 
-![[Pasted image 20260503120224.png]]
+![Pasted image 20260503120224](../assets/Pasted%20image%2020260503120224.png)
 
 
 |Current State|Event|New State|Action|
@@ -216,7 +216,7 @@ MESI places a new requirement on the physical interconnect of the bus. An additi
 
 ### Directory-Based Cache Coherence
 
-![[Pasted image 20260503120240.png]]
+![Pasted image 20260503120240](../assets/Pasted%20image%2020260503120240.png)
 
 
 Snoopy protocols rely on a shared bus — every cache sees every bus transaction. This does not scale to large multiprocessors because the bus becomes a bottleneck. **Directory-based cache coherence** is used in scalable multiprocessors. Instead of broadcasting transactions to all caches, a **directory** tracks which caches hold copies of each block, and transactions are sent only to the relevant caches using point-to-point network messages.
@@ -243,7 +243,7 @@ When the dirty bit is ON, only one presence bit is ON (the dirty/owner node). Wh
 
 #### Node Terminology
 
-![[Pasted image 20260503120333.png]]
+![Pasted image 20260503120333](../assets/Pasted%20image%2020260503120333.png)
 
 |Term|Meaning|
 |---|---|
@@ -292,4 +292,4 @@ When node ii incurs a cache miss (read or write), it first **communicates with t
 
 > **PYQ (2022 Q25):** When a dirty node provides data to a requestor node on a read miss, the state of the block **(a) changes to "shared"** at both the dirty node and the requestor.
 
-![[Pasted image 20260503120415.png]]
+![Pasted image 20260503120415](../assets/Pasted%20image%2020260503120415.png)

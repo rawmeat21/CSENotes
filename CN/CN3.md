@@ -32,7 +32,7 @@ A CAN connects multiple LANs within a campus or a group of nearby buildings.
 - ****Real-World Example:**** College or corporate campus network
 - ****When It Is Used:**** To interconnect LANs across a campus under one organization
 
-![[Pasted image 20260615015426.png]]
+![Pasted image 20260615015426](../assets/Pasted%20image%2020260615015426.png)
 
 ### 4. Metropolitan Area Network (MAN) 
 
@@ -43,7 +43,7 @@ A MAN connects multiple networks within a city or metropolitan region.
 - ****Real-World Example:**** City-wide ISP network
 - ****When It Is Used:**** To provide high-speed connectivity across a city
 
-![[Pasted image 20260615015415.png]]
+![Pasted image 20260615015415](../assets/Pasted%20image%2020260615015415.png)
 
 ### 5. Wide Area Network (WAN)
 
@@ -54,7 +54,7 @@ A WAN connects networks over large geographical areas such as countries or conti
 - ****Real-World Example:**** The Internet
 - ****When It Is Used:**** To enable long-distance and global communication
 
-![[Pasted image 20260615015359.png]]
+![Pasted image 20260615015359](../assets/Pasted%20image%2020260615015359.png)
 
 
 ## Classification Based on Transmission Medium
@@ -149,7 +149,7 @@ An internetwork is a collection of two or more independent networks connected to
 - Consists of multiple networks, not just individual computers.
 - Uses networking devices to interconnect networks
 
-![[Pasted image 20260615015516.png]]
+![Pasted image 20260615015516](../assets/Pasted%20image%2020260615015516.png)
 
 ### 1. Intranet
 

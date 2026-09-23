@@ -1,7 +1,7 @@
 | Bracket Syntax              | Name                   | Primary Purpose                                 | Output / Return                 |
 | --------------------------- | ---------------------- | ----------------------------------------------- | ------------------------------- |
 | **`[ ... ]`**               | Single Test Command    | Basic POSIX conditional testing                 | Exit status (`0` or `1`)        |
-| **`[[ ... ]]`**             | Double Test Expression | Advanced Bash conditional testing               | Exit status (`0` or `1`)        |
+| **`[ ... ](%20...%20)`**             | Double Test Expression | Advanced Bash conditional testing               | Exit status (`0` or `1`)        |
 | **`(( ... ))`**             | Arithmetic Evaluation  | Math calculations & C-style math tests          | Exit status (`0` if non-zero)   |
 | **`$(( ... ))`**            | Arithmetic Expansion   | Math calculations                               | Returns the evaluated number    |
 | **`( ... )`**               | Subshell               | Run commands in an isolated child process       | Exit status of last command     |
@@ -38,31 +38,31 @@ This is an alias for the standard POSIX `test` command.
 - **When to Use:** Only when writing portable scripts intended to run on plain POSIX shells (`/bin/sh`, `dash`, BusyBox).
     
 
-### `[[ ... ]]` (Double Square Brackets)
+### `[ ... ](%20...%20)` (Double Square Brackets)
 
 This is an extended Bash/Zsh keyword that completely upgrades `[ ... ]`.
 
 - **What's Allowed:**
     
-    - Safely using unquoted variables (`[[ $var == "foo" ]]` works even if `$var` is empty).
+    - Safely using unquoted variables (`[ $var == "foo" ](%20$var%20==%20"foo"%20)` works even if `$var` is empty).
         
     - Native `&&` and `||` logical operators.
         
     - Direct string comparison with `<` and `>` without escaping.
         
-    - Pattern matching with wildcard globs (`[[ $str == file* ]]`).
+    - Pattern matching with wildcard globs (`[ $str == file* ](%20$str%20==%20file*%20)`).
         
-    - Regular expressions using `=~` (`[[ $email =~ ^[A-Z] ]]`).
+    - Regular expressions using `=~` (`[ $email =~ ^[A-Z](%20$email%20=~%20^[A-Z)`).
         
 - **What's NOT Allowed / Pitfalls:**
     
     - **Not portable:** Will cause a syntax error in standard `/bin/sh`.
         
-    - **Not for C-style math:** Don't do addition inside it (`[[ $x + 1 -eq 5 ]]` won't work automatically; use `$((x + 1))` or `(( ... ))`).
+    - **Not for C-style math:** Don't do addition inside it (`[ $x + 1 -eq 5 ](%20$x%20+%201%20-eq%205%20)` won't work automatically; use `$((x + 1))` or `(( ... ))`).
     
     - **Cannot run commands inside it
         
-- **When to Use:** Always use `[[ ... ]]` over `[ ... ]` for conditional tests in Bash scripts.
+- **When to Use:** Always use `[ ... ](%20...%20)` over `[ ... ]` for conditional tests in Bash scripts.
     
 In general, use this to check conditions. For complex math conditions, prefer `(())`.
 

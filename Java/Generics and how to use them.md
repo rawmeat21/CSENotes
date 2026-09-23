@@ -259,9 +259,9 @@ class IntegerContainer implements NumberContainer<Integer> {
 }
 ```
 
-![[Pasted image 20260703131311.png]]
+![Pasted image 20260703131311](../assets/Pasted%20image%2020260703131311.png)
 
-![[Pasted image 20260703131336.png]]
+![Pasted image 20260703131336](../assets/Pasted%20image%2020260703131336.png)
 
 How to add restriction where a class extends one class and implements some other classes?
 
@@ -289,7 +289,7 @@ class Box<T implements Printable>
 
 A generic constructor can be defined in a generic class. However, the generic type parameter for the constructor may be different from the generic type parameter of the class:
 
-![[Pasted image 20260703132404.png]]
+![Pasted image 20260703132404](../assets/Pasted%20image%2020260703132404.png)
 
 simply add `<T>` before class name
 
@@ -473,31 +473,31 @@ public class Main {
 
 ## Wildcards
 
-![[Pasted image 20260703135034.png]]
+![Pasted image 20260703135034](../assets/Pasted%20image%2020260703135034.png)
 
 Notice that we're just getting the list here and printing things from it. We don't really care about the type T.
 
-![[Pasted image 20260703135232.png]]
+![Pasted image 20260703135232](../assets/Pasted%20image%2020260703135232.png)
 
 So we can actually replace the type `T` by `?`
 
 
-![[Pasted image 20260703135355.png]]
+![Pasted image 20260703135355](../assets/Pasted%20image%2020260703135355.png)
 
 What if we do this? 
 
 Its okay but as we return Object, we run into those 3 problems again.
 
-![[Pasted image 20260703135510.png]]
+![Pasted image 20260703135510](../assets/Pasted%20image%2020260703135510.png)
 
 Here its actually better to use `T`.
 
 
-![[Pasted image 20260703135628.png]]
+![Pasted image 20260703135628](../assets/Pasted%20image%2020260703135628.png)
 
 We cannot use `?` here. Why? because `?` means any type is allowed, we could pass in an `ArrayList<Integer>` as source and `ArrayList<String>` as destination. But that wouldn't work, we can't push items from source to destination.
 
-![[Pasted image 20260703135854.png]]
+![Pasted image 20260703135854](../assets/Pasted%20image%2020260703135854.png)
 
 This is absolutely doable. BUT! you cannot add stuff. Even if you try adding a `String`, you will get error. That's because `?` cannot verify what the type of the object you're adding is.
 
@@ -506,20 +506,20 @@ So, **only use `?` for read only purposes.**
 
 **Bounds to `<?>`**
 
-![[Pasted image 20260703140254.png]]
+![Pasted image 20260703140254](../assets/Pasted%20image%2020260703140254.png)
 
 Pretty much same as before. This is called upper bound.
 
-![[Pasted image 20260703140412.png]]
+![Pasted image 20260703140412](../assets/Pasted%20image%2020260703140412.png)
 
 This is lower bound. `<?>` must be a super class of Integer.
 
 
-![[Pasted image 20260703140610.png]]
+![Pasted image 20260703140610](../assets/Pasted%20image%2020260703140610.png)
 
 This doesn't work
 
-![[Pasted image 20260703140651.png]]
+![Pasted image 20260703140651](../assets/Pasted%20image%2020260703140651.png)
 
 But this does.
 
@@ -604,9 +604,9 @@ Even though type erasure replaces `T` with `Object`, the cast back to `String` e
 
 ## Generic exceptions
 
-![[Pasted image 20260703141934.png]]
+![Pasted image 20260703141934](../assets/Pasted%20image%2020260703141934.png)
 
-![[Pasted image 20260703142109.png]]
+![Pasted image 20260703142109](../assets/Pasted%20image%2020260703142109.png)
 
 
 **The reason is type erasure interacting with `catch`.**
@@ -633,11 +633,11 @@ try {
 
 After erasure, both `catch` clauses become `catch (MyException e)` — completely indistinguishable at runtime. The JVM would have no way to tell which one should catch a given thrown exception, since the type parameter that would disambiguate them doesn't exist anymore at runtime. 
 
-![[Pasted image 20260703142623.png]]
+![Pasted image 20260703142623](../assets/Pasted%20image%2020260703142623.png)
 
 You can create a generic constructor tho, that will work.
 
-![[Pasted image 20260703142819.png]]
+![Pasted image 20260703142819](../assets/Pasted%20image%2020260703142819.png)
 
 
 

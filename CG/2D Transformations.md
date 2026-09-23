@@ -1,4 +1,4 @@
-![[Pasted image 20260906140433.png]]
+![Pasted image 20260906140433](../assets/Pasted%20image%2020260906140433.png)
 
 ## Linear Transformations
 
@@ -88,7 +88,7 @@ $$
 Both sides equal $\begin{bmatrix} 16 \\ 6 \end{bmatrix}$, confirming the matrix transformation satisfies superposition.
 
 
-![[Pasted image 20260906141833.png]]
+![Pasted image 20260906141833](../assets/Pasted%20image%2020260906141833.png)
 
 ## Affine Transformations
 

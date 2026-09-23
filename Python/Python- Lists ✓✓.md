@@ -284,11 +284,11 @@ For a list of **mutable objects** (like nested lists), shallow copy is not enoug
 python
 
 ```python
-a = [[1, 2], [3, 4]]
+a = [1, 2](1,%202)
 b = a.copy()
 
 b[0].append(99)
-print(a)   # [[1, 2, 99], [3, 4]] — a[0] was also modified
+print(a)   # [1, 2, 99](1,%202,%2099) — a[0] was also modified
 ```
 
 ```
@@ -307,11 +307,11 @@ python
 ```python
 import copy
 
-a = [[1, 2], [3, 4]]
+a = [1, 2](1,%202)
 b = copy.deepcopy(a)
 
 b[0].append(99)
-print(a)   # [[1, 2], [3, 4]] — unaffected
+print(a)   # [1, 2](1,%202) — unaffected
 ```
 
 ---
@@ -325,7 +325,7 @@ python
 ```python
 grid = [[0] * 3] * 3
 grid[0][0] = 99
-print(grid)  # [[99, 0, 0], [99, 0, 0], [99, 0, 0]]
+print(grid)  # [99, 0, 0](99,%200,%200)
 ```
 
 `* 3` repeats the **same inner list reference** three times — same problem as shallow copy.
@@ -337,7 +337,7 @@ python
 ```python
 grid = [[0] * 3 for _ in range(3)]
 grid[0][0] = 99
-print(grid)  # [[99, 0, 0], [0, 0, 0], [0, 0, 0]]
+print(grid)  # [99, 0, 0](99,%200,%200)
 ```
 
 Each iteration of the comprehension creates a **new** inner list.
@@ -450,7 +450,7 @@ for x in reversed([1, 2, 3]):
 python
 
 ```python
-nested = [[1, 2], [3, 4], [5, 6]]
+nested = [1, 2](1,%202)
 flat = [x for sublist in nested for x in sublist]
 # [1, 2, 3, 4, 5, 6]
 ```

@@ -4,7 +4,7 @@ This command displays every system call that a process makes and every signal it
 
 Not only does strace show you the name of every system call made by the process, but it also decodes the arguments and shows the result code that the kernel returns.
 
-![[Pasted image 20260911234332.png]]
+![Pasted image 20260911234332](../assets/Pasted%20image%2020260911234332.png)
 
 A glimpse of strace output on my reciever file for CN assignment 2. 
 

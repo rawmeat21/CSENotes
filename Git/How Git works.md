@@ -4,14 +4,14 @@ https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
 Other systems store information as a list of file-based changes. These other systems (CVS, Subversion, Perforce, and so on) think of the information they store as a set of files and the changes made to each file over time (this is commonly described as _delta-based_ version control).
 
-![[Pasted image 20260812100642.png]]
+![Pasted image 20260812100642](../assets/Pasted%20image%2020260812100642.png)
 
 
 
 
 Git thinks of its data more like a series of snapshots of a miniature filesystem. With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot.
 
-![[Pasted image 20260812101157.png]]
+![Pasted image 20260812101157](../assets/Pasted%20image%2020260812101157.png)
 
 
 Git thinks about its data more like a **stream of snapshots**.

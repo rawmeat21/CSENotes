@@ -3,7 +3,7 @@ Docker Compose is designed to simplify running multi-container applications usin
 `docker compose [-f <arg>...] [options] [COMMAND] [ARGS...]`
 
 
-![[Pasted image 20260913130345.png]]
+![Pasted image 20260913130345](../assets/Pasted%20image%2020260913130345.png)
 
 
 It is basically used to provide options to docker commands.
@@ -47,7 +47,7 @@ $ docker-compose up -d
 
 ### What about multiple containers?
 
-![[Pasted image 20260913132111.png]]
+![Pasted image 20260913132111](../assets/Pasted%20image%2020260913132111.png)
 
 You should first refer a bit to `Communication to and from containers.md`. Glance over the whole thing to get an idea of what is being worked on.
 
@@ -87,7 +87,7 @@ Now, we are first building our python app.
 
 But doing `docker_compose up` doesn't work (input is not taken).
 
-![[Pasted image 20260913134010.png]]
+![Pasted image 20260913134010](../assets/Pasted%20image%2020260913134010.png)
 
 
 Well you can start the services one by one:
@@ -102,7 +102,7 @@ Even better, you can just start `mypy`, and it will start `mysqldb` as a depende
 ```bash
 $ docker-compose run mypy
 ```
-![[Pasted image 20260913134335.png]]
+![Pasted image 20260913134335](../assets/Pasted%20image%2020260913134335.png)
 
 
 But, the question comes, **how does this even work? Where's the network?**

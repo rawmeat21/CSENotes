@@ -12,12 +12,12 @@ Each of the CPU, memory, and disk is a resource  of the system; it is thus the o
 
 To run programs, and stop them, and otherwise tell the OS which programs to run, there need to be some interfaces (APIs) that you can use to communicate your desires to the OS
 
-![[Pasted image 20260603230836.png]]
+![Pasted image 20260603230836](../assets/Pasted%20image%2020260603230836.png)
 
-![[Pasted image 20260603230900.png]]
+![Pasted image 20260603230900](../assets/Pasted%20image%2020260603230900.png)
 Single instance
 
-![[Pasted image 20260603230913.png]]
+![Pasted image 20260603230913](../assets/Pasted%20image%2020260603230913.png)
 Multiple instances
 
 OS is virtualizing memory. Each process accesses its own private virtual address space

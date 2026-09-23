@@ -11,10 +11,10 @@ In C++, you call methods like `s.substr()` or `s.length()`. In Bash, you use **P
 | **`s.substr(pos, count)`**       | `${s:pos:count}`            | Extracts `count` characters starting from `pos`. |
 | **`s.substr(pos)`**              | `${s:pos}`                  | Extracts substring from `pos` to the end.        |
 | **`s.append("x")` / `s += "x"`** | `s+="x"`                    | Appends text to string.                          |
-| **`s.empty()`**                  | `[[ -z "$s" ]]`             | Returns true if string length is zero.           |
-| **`!s.empty()`**                 | `[[ -n "$s" ]]`             | Returns true if string is non-empty.             |
-| **`s1 == s2`**                   | `[[ "$s1" == "$s2" ]]`      | String equality check.                           |
-| **`s1 < s2`**                    | `[[ "$s1" < "$s2" ]]`       | Lexicographical ordering comparison.             |
+| **`s.empty()`**                  | `[ -z "$s" ](%20-z%20"$s"%20)`             | Returns true if string length is zero.           |
+| **`!s.empty()`**                 | `[ -n "$s" ](%20-n%20"$s"%20)`             | Returns true if string is non-empty.             |
+| **`s1 == s2`**                   | `[ "$s1" == "$s2" ](%20"$s1"%20==%20"$s2"%20)`      | String equality check.                           |
+| **`s1 < s2`**                    | `[ "$s1" < "$s2" ](%20"$s1"%20<%20"$s2"%20)`       | Lexicographical ordering comparison.             |
 | **`std::toupper` (All)**         | `${s^^}`                    | Converts entire string to uppercase.             |
 | **`std::tolower` (All)**         | `${s,,}`                    | Converts entire string to lowercase.             |
 | **First char to upper**          | `${s^}`                     | Capitalizes only the first character.            |
@@ -25,7 +25,7 @@ In C++, you call methods like `s.substr()` or `s.length()`. In Bash, you use **P
 | **`s.erase()`** (Long Prefix)    | `${s##pattern}`             | Removes longest matching prefix pattern.         |
 | **`s.pop_back()`** (Suffix)      | `${s%pattern}`              | Removes shortest matching suffix pattern.        |
 | **`s.erase()`** (Long Suffix)    | `${s%%pattern}`             | Removes longest matching suffix pattern.         |
-| **`s.find("sub")`**              | `[[ "$s" == *"sub"* ]]`     | Checks if substring exists in string.            |
+| **`s.find("sub")`**              | `[ "$s" == *"sub"* ](%20"$s"%20==%20*"sub"*%20)`     | Checks if substring exists in string.            |
 | **`std::getline(cin, s)`**       | `read -r s`                 | Reads a full line of text into variable `s`.     |
 |                                  |                             |                                                  |
 

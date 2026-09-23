@@ -6,15 +6,15 @@ With address translation, the hardware transforms each memory access (e.g., an i
 
 Thus, on each and every memory  reference, an address translation is performed by the hardware to redirect application memory references to their actual locations in memory.
 
-![[Pasted image 20260615180753.png]]
+![Pasted image 20260615180753](../assets/Pasted%20image%2020260615180753.png)
 
-![[Pasted image 20260615180815.png]]
+![Pasted image 20260615180815](../assets/Pasted%20image%2020260615180815.png)
 
-![[Pasted image 20260615180833.png]]
+![Pasted image 20260615180833](../assets/Pasted%20image%2020260615180833.png)
 
 (what the process thinks its address space is)
 
-![[Pasted image 20260615180845.png]]
+![Pasted image 20260615180845](../assets/Pasted%20image%2020260615180845.png)
 
 (what it actually is, process is at address 32kb, not 0kb)
 
@@ -30,7 +30,7 @@ In this setup, each program is written and compiled as if it is loaded at addres
 
 **physical address = virtual address + base**
 
-![[Pasted image 20260615182501.png]]
+![Pasted image 20260615182501](../assets/Pasted%20image%2020260615182501.png)
 
 128 is the address on the process' address space. 
 
@@ -58,7 +58,7 @@ Given our assumptions that each address space is
 this is quite easy for the OS; it can simply view physical memory as an array of slots, and track whether each one is free or in use. When a new process is created, the OS will have to search a data  structure (often called a **free list**) to ﬁnd room for the new address space  
 and then mark it used.
 
-![[Pasted image 20260615183657.png]]
+![Pasted image 20260615183657](../assets/Pasted%20image%2020260615183657.png)
 
 -> the OS must do some work when a process is terminated (i.e., when it exits gracefully, or is forcefully killed because it misbehaved), reclaiming all of its memory for use in other processes or the OS. Upon termination of a process, the OS thus puts its memory back on the free list, and cleans up any associated data structures as need be.
 

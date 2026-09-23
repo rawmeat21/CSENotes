@@ -265,7 +265,7 @@ To run a stream in parallel, the underlying data source has to be **split (decom
 
 ## Fork/Join
 
-![[Pasted image 20260905235013.png]]
+![Pasted image 20260905235013](../assets/Pasted%20image%2020260905235013.png)
 
 ### Explanation
 

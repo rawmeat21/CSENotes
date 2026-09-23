@@ -2,7 +2,7 @@ https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
 
 You are a SDE working on a project. Right now the project history looks like:
 
-![[Pasted image 20260913194434.png]]
+![Pasted image 20260913194434](../assets/Pasted%20image%2020260913194434.png)
 
 
 You want to work on issue 53. So you create a new branch:
@@ -11,11 +11,11 @@ You want to work on issue 53. So you create a new branch:
 $ git checkout -b iss53
 ```
 
-![[Pasted image 20260913194525.png]]
+![Pasted image 20260913194525](../assets/Pasted%20image%2020260913194525.png)
 
 You work on your website and do some commits. Doing so moves the `iss53` branch forward, because you have it checked out (that is, your `HEAD` is pointing to it).
 
-![[Pasted image 20260913194611.png]]
+![Pasted image 20260913194611](../assets/Pasted%20image%2020260913194611.png)
 
 
 Now you get the call that there is an issue with the website, and you need to fix it immediately.
@@ -45,7 +45,7 @@ $ git commit -a -m 'Fix broken email address'
 ```
 
 
-![[Pasted image 20260913195001.png]]
+![Pasted image 20260913195001](../assets/Pasted%20image%2020260913195001.png)
 
 
 Now, you merge your changes to `master` branch to deploy to prod.
@@ -65,7 +65,7 @@ Because the commit `C4` pointed to by the branch `hotfix` you merged in was dire
 
 When you try to merge one commit x with a commit y that can be reached by following the first commit’s (x) history, Git simplifies things by moving the pointer forward because there is no divergent work to merge together — this is called a “fast-forward.”
 
-![[Pasted image 20260913195443.png]]
+![Pasted image 20260913195443](../assets/Pasted%20image%2020260913195443.png)
 
 Now you can delete the `hotfix`branch:
 
@@ -86,7 +86,7 @@ $ git commit -a -m 'Finish the new footer [issue 53]'
 1 file changed, 1 insertion(+)
 ```
 
-![[Pasted image 20260913195550.png]]
+![Pasted image 20260913195550](../assets/Pasted%20image%2020260913195550.png)
 
 
 Suppose you’ve decided that your issue #53 work is complete and ready to be merged into your `master` branch. 
@@ -104,11 +104,11 @@ index.html |    1 +
 
 Before:
 
-![[Pasted image 20260913195833.png]]
+![Pasted image 20260913195833](../assets/Pasted%20image%2020260913195833.png)
 
 After:
 
-![[Pasted image 20260913195841.png]]
+![Pasted image 20260913195841](../assets/Pasted%20image%2020260913195841.png)
 
 
 Instead of just moving the branch pointer forward, Git creates a new snapshot that results from this three-way merge and automatically creates a new commit that points to it. This is referred to as a **merge commit**, and is special in that it has more than one parent.

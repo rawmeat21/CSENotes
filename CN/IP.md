@@ -7,7 +7,7 @@ These blocks are called datagrams. The internet protocol provides for the fragme
 
 The IP address is a property of the Network Layer in the OSI Model. 
 
-![[Pasted image 20260615142337.png]]
+![Pasted image 20260615142337](../assets/Pasted%20image%2020260615142337.png)
 
 An IP address is divided into 2 parts: a network portion and a host portion. 
 
@@ -29,7 +29,7 @@ _Subnet mask = 255.255.255.240 = 11111111.11111111.11111111.11110000_
 
 Bits in the subnet mask which are 1 denote the network address. The bits that are 0 denote the host address.
 
-![[Pasted image 20260615142644.png]]
+![Pasted image 20260615142644](../assets/Pasted%20image%2020260615142644.png)
 
 Perform a bitwise AND operation to find the network address. Thus, the network address for this example is _11000000.10101000.00000010.00000000_ to decimal is _192.168.2.0_
 
@@ -39,11 +39,11 @@ We can see that the last 4 bits of the subnet mask are 0. This means we can have
 
 Most networks consist of hosts and default gateway because those hosts want to talk somewhere outside their subnet (the network).
 
-![[Pasted image 20260615142940.png]]
+![Pasted image 20260615142940](../assets/Pasted%20image%2020260615142940.png)
 
 E.g: 192.168.1.3 want to talk to 192.168.2.2
 
-![[Pasted image 20260615143001.png]]
+![Pasted image 20260615143001](../assets/Pasted%20image%2020260615143001.png)
 
 
 ## What is an IP packet?

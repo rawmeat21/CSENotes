@@ -22,7 +22,7 @@ Dockerfile is the instruction set for building an image.
 
 #### Where do the images come from?
 
-![[Pasted image 20260912103009.png]]
+![Pasted image 20260912103009](../assets/Pasted%20image%2020260912103009.png)
 
 When running a command such as `docker run hello-world`, Docker will automatically search [Docker Hub](https://hub.docker.com/) for the image if it is not found locally.
 

@@ -4,7 +4,7 @@
 
 -> execute one at a time
 
-![[Pasted image 20260620112508.png]]
+![Pasted image 20260620112508](../assets/Pasted%20image%2020260620112508.png)
 
 ### Features
 

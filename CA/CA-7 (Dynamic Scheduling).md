@@ -18,8 +18,8 @@ This is **out-of-order execution**.
 
 #### Slide 9.6 — Tomasulo's Algorithm: The Big Picture
 
-![[Pasted image 20260503122845.png]]
-![[Pasted image 20260503122929.png]]
+![Pasted image 20260503122845](../assets/Pasted%20image%2020260503122845.png)
+![Pasted image 20260503122929](../assets/Pasted%20image%2020260503122929.png)
 
 
 Invented by Robert Tomasulo for the IBM 360/91 floating-point unit (1967). It solves three problems simultaneously:

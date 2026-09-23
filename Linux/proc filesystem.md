@@ -8,7 +8,7 @@ Note: Because the kernel creates the contents of `/proc` files on the fly (as th
 most appear to be empty, 0-byte files when listed with `ls -l`. You’ll have to `cat` or `less`
 the contents to see what they actually contain.
 
-![[Pasted image 20260911233227.png]]
+![Pasted image 20260911233227](../assets/Pasted%20image%2020260911233227.png)
 
 **The individual components contained within the cmdline and environ files are
 separated by null characters rather than newlines. You can filter their contents

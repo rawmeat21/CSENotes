@@ -6,7 +6,7 @@ Some rules:
 -  The special user account called “root” can act as the owner of any object.
 -  Only root can perform certain sensitive administrative operations.
 
-![[Pasted image 20260827140912.png]]
+![Pasted image 20260827140912](../assets/Pasted%20image%2020260827140912.png)
 
  -> Groups are traditionally defined in the `/etc/group` file, but these days group information is often stored in a network database system such as LDAP.
 
@@ -64,12 +64,12 @@ If the proposed command is permitted, sudo prompts for the user’s own password
 
 `sudo` keeps a log of the command lines that were executed, the hosts on which they were run, the people who ran them, the directories from which they were run, and the times at which they were invoked. This information can be logged by `syslog` or placed in the file of your choice.
 
-![[Pasted image 20260827145902.png]]
+![Pasted image 20260827145902](../assets/Pasted%20image%2020260827145902.png)
 
 
 **`sudoers` file:**
 
-![[Pasted image 20260827145942.png]]
+![Pasted image 20260827145942](../assets/Pasted%20image%2020260827145942.png)
 
 To manually modify the sudoers file, use the visudo command, which checks to be sure no one else is editing the file, invokes an editor on it (vi, or whichever editor you specify in your EDITOR environment variable), and then verifies the syntax of the edited file before installing it. **This last step is particularly important because an invalid sudoers file might prevent you from sudoing again to fix it.**
 
@@ -145,5 +145,5 @@ For example, databases often implement elaborate access control systems of their
 -> The Network File System (NFS) uses an account called “nobody” to represent root users on other systems.
 
 
-![[Pasted image 20260829002740.png]]
+![Pasted image 20260829002740](../assets/Pasted%20image%2020260829002740.png)
 

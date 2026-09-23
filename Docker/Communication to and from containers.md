@@ -1,9 +1,9 @@
-![[Pasted image 20260913122545.png]]
+![Pasted image 20260913122545](../assets/Pasted%20image%2020260913122545.png)
 
 Container talks to a remote server / API.
 
-![[Pasted image 20260913122937.png]]
-![[Pasted image 20260913122923.png]]
+![Pasted image 20260913122937](../assets/Pasted%20image%2020260913122937.png)
+![Pasted image 20260913122923](../assets/Pasted%20image%2020260913122923.png)
 
 You have this python program which performs a GET request to a remote server.
 
@@ -28,14 +28,14 @@ $ docker run 7342fd2
 We get a random cat fact. Nice!
 
 
-![[Pasted image 20260913122622.png]]
+![Pasted image 20260913122622](../assets/Pasted%20image%2020260913122622.png)
 
 Container talks to a software on local machine.
 
 
-![[Pasted image 20260913123618.png]]
-![[Pasted image 20260913123651.png]]
-![[Pasted image 20260913123700.png]]
+![Pasted image 20260913123618](../assets/Pasted%20image%2020260913123618.png)
+![Pasted image 20260913123651](../assets/Pasted%20image%2020260913123651.png)
+![Pasted image 20260913123700](../assets/Pasted%20image%2020260913123700.png)
 
 Build and run:
 
@@ -46,18 +46,18 @@ $ docker run -it 248gfw7t
 
 You get an error like:
 
-![[Pasted image 20260913123949.png]]
+![Pasted image 20260913123949](../assets/Pasted%20image%2020260913123949.png)
 
 What's the problem? The file in your container cannot talk to the MySQL software on your local machine. It interprets `localhost` as it's own localhost, which gives error.
 
 To fix:
 
-![[Pasted image 20260913124133.png]]
+![Pasted image 20260913124133](../assets/Pasted%20image%2020260913124133.png)
 
 Change host to `host.docker.internal`. (Target the machine where docker is installed)
 
 
-![[Pasted image 20260913124419.png]]
+![Pasted image 20260913124419](../assets/Pasted%20image%2020260913124419.png)
 
 Container talks to another container.
 
@@ -76,18 +76,18 @@ $ docker inspect mysqldb
 
 You will see a json output. Look at the Networks part:
 
-![[Pasted image 20260913124912.png]]
+![Pasted image 20260913124912](../assets/Pasted%20image%2020260913124912.png)
 
 Just copy that IP address.
 
 Make changes:
 
-![[Pasted image 20260913124953.png]]
+![Pasted image 20260913124953](../assets/Pasted%20image%2020260913124953.png)
 
 
 ### Docker network
 
-![[Pasted image 20260913125725.png]]
+![Pasted image 20260913125725](../assets/Pasted%20image%2020260913125725.png)
 
 The containers run in the same network, making communication between them a lot easier.
 
@@ -99,7 +99,7 @@ $ docker network create my-net
 
 You can check using `docker network ls`. Example:
 
-![[Pasted image 20260913125922.png]]
+![Pasted image 20260913125922](../assets/Pasted%20image%2020260913125922.png)
 
 
 Now start your mysql container:
@@ -110,7 +110,7 @@ $ docker run -d --env MY_SQL_ROOT_PASSWORD="root" --env MY-SQL_DATABASE="userinf
 
 Make changes to python program:
 
-![[Pasted image 20260913130110.png]]
+![Pasted image 20260913130110](../assets/Pasted%20image%2020260913130110.png)
 
 You just need the **name of the container**.
 

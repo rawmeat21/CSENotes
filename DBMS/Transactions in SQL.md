@@ -120,7 +120,7 @@ COMMIT;
 
 `SELECT 1/0;` gives error: `ERROR: division by zero` and the program crashes, so it will also rollback the first successfully executed SQL and the DB behave that this transaction never happened.
 
-![[Pasted image 20260623125407.png]]
+![Pasted image 20260623125407](../assets/Pasted%20image%2020260623125407.png)
 
 
 ### Isolation
@@ -140,7 +140,7 @@ If the concurrent transaction (T2) eventually commits, the data read is valid.
 
 **However**, if it rolls back, the reading transaction (T1) would have accessed data that never actually existed, and this is called a dirty read.
 
-![[Pasted image 20260623130459.png]]
+![Pasted image 20260623130459](../assets/Pasted%20image%2020260623130459.png)
 
 ##### **Nonrepeatable Read  
 
@@ -154,7 +154,7 @@ For example:
 
 This can be confusing because it looks like the data “changed by itself” while Transaction A was running.
 
-![[Pasted image 20260623130708.png]]
+![Pasted image 20260623130708](../assets/Pasted%20image%2020260623130708.png)
 
 
 
@@ -170,7 +170,7 @@ For example:
 
 Phantom reads are different from nonrepeatable reads because the **number of rows changes**, not just the values in existing rows.
 
-![[Pasted image 20260623130825.png]]
+![Pasted image 20260623130825](../assets/Pasted%20image%2020260623130825.png)
 
 
 
@@ -186,7 +186,7 @@ Phantom reads are different from nonrepeatable reads because the **number of row
 
 Stricter isolation levels provide greater data consistency, but they can negatively impact performance.
 
-![[Pasted image 20260623131014.png]]
+![Pasted image 20260623131014](../assets/Pasted%20image%2020260623131014.png)
 
 (Which isolation protects which anomaly, this is for PSQL)
 
@@ -302,7 +302,7 @@ The choice of isolation level depends on your specific requirements:
 **Use Serializable** when data integrity is absolutely critical and you can accept lower performance (like in banking or medical systems).
 
 
-![[Pasted image 20260623134737.png]]
+![Pasted image 20260623134737](../assets/Pasted%20image%2020260623134737.png)
 
 
 ### Durability

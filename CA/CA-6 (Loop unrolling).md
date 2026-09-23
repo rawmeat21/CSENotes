@@ -1,6 +1,6 @@
 ### Loop Unrolling
 
-![[Pasted image 20260503122758.png]]
+![Pasted image 20260503122758](../assets/Pasted%20image%2020260503122758.png)
 
 #### The Problem: Loop Overhead
 
@@ -43,7 +43,7 @@ The note says: "can be improved by scheduling." That's the next step.
 
 #### Slide 9.2 — Scheduling the Unrolled Loop
 
-![[Pasted image 20260503122738.png]]
+![Pasted image 20260503122738](../assets/Pasted%20image%2020260503122738.png)
 
 
 After unrolling, you have 4 independent L.D instructions loading into F0, F6, F10, F14. These are independent of each other. So you can **reorder instructions** to fill the stall slots.

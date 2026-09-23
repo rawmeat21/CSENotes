@@ -1,12 +1,12 @@
-![[Pasted image 20260916113121.png]]
-![[Pasted image 20260916113131.png]]
-![[Pasted image 20260916113211.png]]
+![Pasted image 20260916113121](../assets/Pasted%20image%2020260916113121.png)
+![Pasted image 20260916113131](../assets/Pasted%20image%2020260916113131.png)
+![Pasted image 20260916113211](../assets/Pasted%20image%2020260916113211.png)
 
-![[Pasted image 20260916113308.png]]
+![Pasted image 20260916113308](../assets/Pasted%20image%2020260916113308.png)
 
-![[Pasted image 20260916113457.png]]
+![Pasted image 20260916113457](../assets/Pasted%20image%2020260916113457.png)
 
-![[Pasted image 20260916113522.png]]
+![Pasted image 20260916113522](../assets/Pasted%20image%2020260916113522.png)
 
 Execute a task at 2:30pm **everyday**:
 
@@ -36,32 +36,32 @@ Example script:
 echo "Cronning" >> $HOME/myfile.txt
 ```
 
-![[Pasted image 20260916114537.png]]
+![Pasted image 20260916114537](../assets/Pasted%20image%2020260916114537.png)
 
-![[Pasted image 20260916114609.png]]
+![Pasted image 20260916114609](../assets/Pasted%20image%2020260916114609.png)
 
-![[Pasted image 20260916114722.png]]
+![Pasted image 20260916114722](../assets/Pasted%20image%2020260916114722.png)
 
-![[Pasted image 20260916114754.png]]
+![Pasted image 20260916114754](../assets/Pasted%20image%2020260916114754.png)
 
-![[Pasted image 20260916114828.png]]
+![Pasted image 20260916114828](../assets/Pasted%20image%2020260916114828.png)
 
 
 ### Anacron - What is this?
 
-![[Pasted image 20260916115042.png]]
+![Pasted image 20260916115042](../assets/Pasted%20image%2020260916115042.png)
 
 Suppose you have a backup script that runs every week and takes a backup (wow).
 
-![[Pasted image 20260916115110.png]]
+![Pasted image 20260916115110](../assets/Pasted%20image%2020260916115110.png)
 
 What if server is down? - Then you miss the schedule, no backup taken.
 
-![[Pasted image 20260916115200.png]]
+![Pasted image 20260916115200](../assets/Pasted%20image%2020260916115200.png)
 
 So how does it work? Suppose the script runs at day 1, then its scheduled to run on day 8, but server is down, so the task doesn't run. Say the server becomes actie again at day 9. Then, anacron would see that a task was scheduled but not completed, so it would run this task then. 
 
-![[Pasted image 20260916115411.png]]
+![Pasted image 20260916115411](../assets/Pasted%20image%2020260916115411.png)
 
 
 This is how the file should look like without edits:
@@ -123,7 +123,7 @@ To trigger now:
 $ sudo anacron -fdn
 ```
 
-![[Pasted image 20260916120758.png]]
+![Pasted image 20260916120758](../assets/Pasted%20image%2020260916120758.png)
 
 How to see logs?
 
@@ -132,6 +132,6 @@ $ sudo less /var/log/cron
 ```
 
 
-![[Pasted image 20260916120929.png]]
+![Pasted image 20260916120929](../assets/Pasted%20image%2020260916120929.png)
 
 

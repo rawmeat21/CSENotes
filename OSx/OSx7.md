@@ -9,13 +9,13 @@ code of program
 the program's stack
 the heap
 
-![[Pasted image 20260615154625.png]]
+![Pasted image 20260615154625](../assets/Pasted%20image%2020260615154625.png)
 
 This placement of stack and heap is just a convention; you could arrange the address space in a different way if you’d like.
 
 When we describe the address space, what we are describing is the abstraction that the OS is providing to the running program. The program really isn’t in memory at physical addresses 0 through 16KB; rather it is loaded at some arbitrary physical address(es).
 
-![[Pasted image 20260615154916.png]]
+![Pasted image 20260615154916](../assets/Pasted%20image%2020260615154916.png)
 
 When the OS does this, we say the OS is virtualizing memory, because the running program thinks it is loaded into memory at a particular address (say 0) and has a potentially very large address space (say 32-bits or 64-bits), but the reality is quite different.
 

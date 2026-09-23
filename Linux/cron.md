@@ -22,7 +22,7 @@ for individual users are stored under /var/spool/cron (Linux) or /var/cron/tabs 
 minute hour dom month weekday command <- entry for a cron job 'command'
 ```
 
-![[Pasted image 20260911235941.png]]
+![Pasted image 20260911235941](../assets/Pasted%20image%2020260911235941.png)
 
 
 The `command` is the `sh` command line to be executed. It can be **any valid shell command**and should not be quoted.

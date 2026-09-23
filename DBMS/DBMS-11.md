@@ -1,8 +1,8 @@
-![[Pasted image 20260614145705.png]]
+![Pasted image 20260614145705](../assets/Pasted%20image%2020260614145705.png)
 
 NoSQL models are required when we want data *fast*, ex- modern apps.
 
-![[Pasted image 20260614150612.png]]
+![Pasted image 20260614150612](../assets/Pasted%20image%2020260614150612.png)
 
 We store it like this. 
 
@@ -19,7 +19,7 @@ There are 2 types of scaling:
 
 Horizontal (scale out)- add multiple nodes.
 
-![[Pasted image 20260614151158.png]]
+![Pasted image 20260614151158](../assets/Pasted%20image%2020260614151158.png)
 
 say each is 1TB. When 1st runs out you store in 2nd, when 2nd runs out u store in 3rd, ...
 
@@ -29,7 +29,7 @@ Vertical (scale up)- Just upgrade the hardware (buy more RAM, CPU). SQL only sup
 
 We can do horizontal scaling, but its not efficient.
 
-![[Pasted image 20260614151639.png]]
+![Pasted image 20260614151639](../assets/Pasted%20image%2020260614151639.png)
 
 SQL is a collection of tables.
 
@@ -44,10 +44,10 @@ Fetching a table from servers is very slow! Not only that, after you do a join o
 
 Types of NoSQL
 
-![[Pasted image 20260614201225.png]]
+![Pasted image 20260614201225](../assets/Pasted%20image%2020260614201225.png)
 
 Why column wise store? - fast aggregration (notice the entries for age are all consecutive)
 
-![[Pasted image 20260614201622.png]]
+![Pasted image 20260614201622](../assets/Pasted%20image%2020260614201622.png)
 
 

@@ -77,18 +77,18 @@ if (( a > b )); then echo "a bigger"; fi
 ## 3. Conditionals (`if / else if / else`, `switch`)
 
 ```bash
-if [[ $a -gt $b ]]; then
+if [ $a -gt $b ](%20$a%20-gt%20$b%20); then
     echo "a > b"
-elif [[ $a -eq $b ]]; then
+elif [ $a -eq $b ](%20$a%20-eq%20$b%20); then
     echo "equal"
 else
     echo "a < b"
 fi
 ```
 
-`[[ ]]` (preferred, bash-only, supports `&&` `||` `=~`) vs `[ ]` (POSIX `test`, use `-a -o`):
+`[ ](%20)` (preferred, bash-only, supports `&&` `||` `=~`) vs `[ ]` (POSIX `test`, use `-a -o`):
 
-Numeric operators (inside `[[ ]]` or `[ ]`):
+Numeric operators (inside `[ ](%20)` or `[ ]`):
 | C++ | Bash test |
 |---|---|
 | `==` | `-eq` |
@@ -101,22 +101,22 @@ Numeric operators (inside `[[ ]]` or `[ ]`):
 String operators:
 | Meaning | Bash |
 |---|---|
-| equal | `[[ "$a" == "$b" ]]` |
-| not equal | `[[ "$a" != "$b" ]]` |
-| empty | `[[ -z "$a" ]]` |
-| non-empty | `[[ -n "$a" ]]` |
-| regex match | `[[ "$a" =~ ^[0-9]+$ ]]` |
-| glob match | `[[ "$a" == foo* ]]` |
+| equal | `[ "$a" == "$b" ](%20"$a"%20==%20"$b"%20)` |
+| not equal | `[ "$a" != "$b" ](%20"$a"%20!=%20"$b"%20)` |
+| empty | `[ -z "$a" ](%20-z%20"$a"%20)` |
+| non-empty | `[ -n "$a" ](%20-n%20"$a"%20)` |
+| regex match | `[ "$a" =~ ^[0-9](%20"$a"%20=~%20^[0-9)` |
+| glob match | `[ "$a" == foo* ](%20"$a"%20==%20foo*%20)` |
 
 Logical: `&&` (and), `||` (or), `!` (not)
 ```bash
-if [[ $a -gt 0 && $b -gt 0 ]]; then echo "both positive"; fi
+if [ $a -gt 0 && $b -gt 0 ](%20$a%20-gt%200%20&&%20$b%20-gt%200%20); then echo "both positive"; fi
 ```
 
 Ternary-like (no real ternary in bash):
 ```bash
 result=$(( a > b ? a : b ))     # works ONLY inside arithmetic context
-msg=$([[ $a -gt $b ]] && echo "yes" || echo "no")
+msg=$([ $a -gt $b ](%20$a%20-gt%20$b%20) && echo "yes" || echo "no")
 ```
 
 `switch` -> `case`:
@@ -297,7 +297,7 @@ for k in "${!m[@]}"; do
     echo "$k -> ${m[$k]}"
 done
 
-if [[ -v m[apple] ]]; then echo "key exists"; fi
+if [ -v m[apple](%20-v%20m[apple); then echo "key exists"; fi
 unset 'm[apple]'
 ```
 
@@ -344,7 +344,7 @@ sub="world"
 index=$(expr index "$str" "$sub")   # approximate, char-class based, careful
 
 # check contains
-if [[ "$str" == *"world"* ]]; then echo "contains"; fi
+if [ "$str" == *"world"* ](%20"$str"%20==%20*"world"*%20); then echo "contains"; fi
 
 # reverse a string
 echo "$s" | rev
@@ -361,7 +361,7 @@ echo $((n + 1))    # 43
 
 Compare strings lexically:
 ```bash
-if [[ "abc" < "abd" ]]; then echo "less"; fi   # inside [[ ]], < and > do lexical compare
+if [ "abc" < "abd" ](%20"abc"%20<%20"abd"%20); then echo "less"; fi   # inside [ ](%20), < and > do lexical compare
 ```
 
 ---
@@ -459,7 +459,7 @@ trap 'echo "error on line $LINENO"' ERR   # crude try/catch: runs on any error
 trap 'echo "cleanup"; rm -f tmp.txt' EXIT  # destructor-like cleanup, always runs on exit
 
 # assert-like pattern
-[[ -f "config.txt" ]] || { echo "config missing"; exit 1; }
+[ -f "config.txt" ](%20-f%20"config.txt"%20) || { echo "config missing"; exit 1; }
 ```
 
 ---
@@ -516,7 +516,7 @@ for v in "${arr[@]}"; do (( sum += v )); done
 target=9
 found=false
 for v in "${arr[@]}"; do
-    if [[ "$v" == "$target" ]]; then found=true; break; fi
+    if [ "$v" == "$target" ](%20"$v"%20==%20"$target"%20); then found=true; break; fi
 done
 
 # unique elements
@@ -656,10 +656,10 @@ main "$@"
 | `std::string s = "hi";` | `s="hi"` |
 | `std::vector<int> v;` | `declare -a v=()` |
 | `std::map<string,int> m;` | `declare -A m=()` |
-| `if (a > b)` | `if [[ $a -gt $b ]]; then` |
+| `if (a > b)` | `if [ $a -gt $b ](%20$a%20-gt%20$b%20); then` |
 | `for (int i=0;i<n;i++)` | `for ((i=0;i<n;i++))` |
 | `for (auto x : v)` | `for x in "${v[@]}"` |
-| `while (cond)` | `while [[ cond ]]` |
+| `while (cond)` | `while [ cond ](%20cond%20)` |
 | `switch/case` | `case ... in ... esac` |
 | `void f(int x)` | `f() { local x=$1; }` |
 | `return val;` | `echo "$val"` (capture with `$(f)`), or `return N` for exit codes only |
@@ -668,14 +668,14 @@ main "$@"
 | `cerr << x;` | `echo "$x" >&2` |
 | `argc, argv` | `$#`, `$@`, `$1 $2 ...` |
 | `try/catch` | `set -e` + `trap ... ERR` + `\|\| { }` |
-| `assert(cond)` | `[[ cond ]] \|\| exit 1` |
-| `nullptr` check | `[[ -z "$x" ]]` |
+| `assert(cond)` | `[ cond ](%20cond%20) \|\| exit 1` |
+| `nullptr` check | `[ -z "$x" ](%20-z%20"$x"%20)` |
 | `std::sort(v)` | `sort` / `sort -n` |
 | `v.push_back(x)` | `v+=("$x")` |
 | `v.size()` | `${#v[@]}` |
 | `s.substr(a,b)` | `${s:a:b}` |
 | `s.length()` | `${#s}` |
-| `s.find(x)` | `[[ $s == *"$x"* ]]` |
+| `s.find(x)` | `[ $s == *"$x"* ](%20$s%20==%20*"$x"*%20)` |
 | `s + t` | `"$s$t"` |
 | `system("cmd")` | `cmd` (just run it directly) |
 

@@ -1,5 +1,5 @@
-![[Pasted image 20260718144511.png]]
-![[Pasted image 20260718145958.png]]
-![[Pasted image 20260718150034.png]]
-![[Pasted image 20260718150057.png]]
-![[Pasted image 20260718150446.png]]
+![Pasted image 20260718144511](../assets/Pasted%20image%2020260718144511.png)
+![Pasted image 20260718145958](../assets/Pasted%20image%2020260718145958.png)
+![Pasted image 20260718150034](../assets/Pasted%20image%2020260718150034.png)
+![Pasted image 20260718150057](../assets/Pasted%20image%2020260718150057.png)
+![Pasted image 20260718150446](../assets/Pasted%20image%2020260718150446.png)

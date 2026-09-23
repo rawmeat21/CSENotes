@@ -38,19 +38,19 @@ Many programs take input from a facility called standard input (stdin), which is
 
 
 
-![[Pasted image 20260625020015.png]]
+![Pasted image 20260625020015](../assets/Pasted%20image%2020260625020015.png)
 
 Redirect standard error
 
-![[Pasted image 20260625020058.png]]
+![Pasted image 20260625020058](../assets/Pasted%20image%2020260625020058.png)
 
 Redirect both standard output and error
 
-![[Pasted image 20260625020119.png]]
+![Pasted image 20260625020119](../assets/Pasted%20image%2020260625020119.png)
 
 (Same thing)
 
-![[Pasted image 20260625020158.png]]
+![Pasted image 20260625020158](../assets/Pasted%20image%2020260625020158.png)
 
 
 ### Pipelines
@@ -62,12 +62,12 @@ Some filtering:
 sort - sort the data
 uniq - uniq accepts a sorted list of data from either standard input or a single filename argument  and, by default, removes any duplicates from the list
 
-![[Pasted image 20260625020555.png]]
+![Pasted image 20260625020555](../assets/Pasted%20image%2020260625020555.png)
 
 
 #### Tee 
 
-![[Pasted image 20260625021008.png]]
+![Pasted image 20260625021008](../assets/Pasted%20image%2020260625021008.png)
 
 Allows us to direct the flow of data to a file in the middle.
 

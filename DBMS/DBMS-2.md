@@ -2,22 +2,22 @@
 
 ## Entity
 
-![[Pasted image 20260531150318.png]]
+![Pasted image 20260531150318](../assets/Pasted%20image%2020260531150318.png)
 
-![[Pasted image 20260531150332.png]]
+![Pasted image 20260531150332](../assets/Pasted%20image%2020260531150332.png)
 
-![[Pasted image 20260531150400.png]]
+![Pasted image 20260531150400](../assets/Pasted%20image%2020260531150400.png)
 
-![[Pasted image 20260531150625.png]]
+![Pasted image 20260531150625](../assets/Pasted%20image%2020260531150625.png)
 
 The actual students are the enitites (objects)
 
-![[Pasted image 20260531150722.png]]
+![Pasted image 20260531150722](../assets/Pasted%20image%2020260531150722.png)
 
-![[Pasted image 20260531150745.png]]
+![Pasted image 20260531150745](../assets/Pasted%20image%2020260531150745.png)
 
 Remember this!
-![[Pasted image 20260531151811.png]]
+![Pasted image 20260531151811](../assets/Pasted%20image%2020260531151811.png)
 
 Customer- enitity
 Name, Addr- composite attr
@@ -27,11 +27,11 @@ PhoneNum- multivalued
 StudentID- single valued
 ## Relationships
 
-![[Pasted image 20260531151154.png]]
+![Pasted image 20260531151154](../assets/Pasted%20image%2020260531151154.png)
 
-![[Pasted image 20260531150943.png]]
+![Pasted image 20260531150943](../assets/Pasted%20image%2020260531150943.png)
 
-![[Pasted image 20260531151053.png]]
+![Pasted image 20260531151053](../assets/Pasted%20image%2020260531151053.png)
 
 Strong vs weak relationships
 
@@ -41,37 +41,37 @@ Strong relationship- b/w 2 strong entities. Ex- Student enrolls Course, Customer
 
 Weak enitity- Dependent existence, it exists because of some other strong enitity. No primary key can identify this enitity. Ex- Payment may be a dependent enitity that depends on Loan enitity for a bank system
 
-![[Pasted image 20260531152723.png]]
+![Pasted image 20260531152723](../assets/Pasted%20image%2020260531152723.png)
 
 Weak relationship- b/w weak entity and its owner
 
 
 Degree of relation- Number of enitites participating in a relationship
 
-![[Pasted image 20260531153207.png]]
+![Pasted image 20260531153207](../assets/Pasted%20image%2020260531153207.png)
 
 Binary- all that was shown
 
 Ternary
 
-![[Pasted image 20260531153247.png]]
+![Pasted image 20260531153247](../assets/Pasted%20image%2020260531153247.png)
 
 ### Relationship & participation constraints
 
-![[Pasted image 20260531153404.png]]
+![Pasted image 20260531153404](../assets/Pasted%20image%2020260531153404.png)
 
-![[Pasted image 20260531153540.png]]
+![Pasted image 20260531153540](../assets/Pasted%20image%2020260531153540.png)
 
-![[Pasted image 20260531153634.png]]
+![Pasted image 20260531153634](../assets/Pasted%20image%2020260531153634.png)
 
-![[Pasted image 20260531153715.png]]
+![Pasted image 20260531153715](../assets/Pasted%20image%2020260531153715.png)
 
-![[Pasted image 20260531153759.png]]
+![Pasted image 20260531153759](../assets/Pasted%20image%2020260531153759.png)
 
 
 Participation models:
 
-![[Pasted image 20260531153948.png]]
+![Pasted image 20260531153948](../assets/Pasted%20image%2020260531153948.png)
 
 -> It is not possible that a Loan enitity exists but its not related to some customer (each loan enitity has a preimage) (Total)
 
@@ -79,7 +79,7 @@ Participation models:
 
 **Weak enitity has total part. constraint, ex- Payment enitity in the above example is always related to a Loan!
 
-![[Pasted image 20260531154340.png]]
+![Pasted image 20260531154340](../assets/Pasted%20image%2020260531154340.png)
 
 
-![[Pasted image 20260531154414.png]]
+![Pasted image 20260531154414](../assets/Pasted%20image%2020260531154414.png)

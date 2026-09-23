@@ -13,12 +13,12 @@ https://chessman7.substack.com/p/fork-and-file-descriptors-the-unix
 https://tzimmermann.org/2017/07/28/data-structures-of-unix-file-io/
 https://jzhao.xyz/thoughts/file-descriptor
 
-![[Pasted image 20260919091151.png]]
+![Pasted image 20260919091151](../assets/Pasted%20image%2020260919091151.png)
 ## The Fork System Call and Process Creation
 
 The `fork()` system call creates a new process by duplicating the calling process. Unlike creating a process from scratch, fork produces an exact copy of the parent's address space, including all variables, heap data, and stack contents. The only immediate difference between parent and child is the return value of fork itself: the parent receives the child's process ID, while the child receives zero.
 
-![[Pasted image 20260918155144.png]]
+![Pasted image 20260918155144](../assets/Pasted%20image%2020260918155144.png)
 
 But process duplication goes beyond just memory. 
 
@@ -28,7 +28,7 @@ This table maps file descriptor numbers (like 0, 1, 2 for stdin, stdout, stderr)
 
 ## File Descriptors and the Kernel's File Management
 
-![[Pasted image 20260918155355.png]]
+![Pasted image 20260918155355](../assets/Pasted%20image%2020260918155355.png)
 
 
 **File Descriptor Table**: Each process has its own table mapping small integers (file descriptors) to entries in the system-wide open file table. When you call `open()`, you get back one of these integers.
@@ -46,7 +46,7 @@ int fd0 = open("/home/joe_user/my_file.txt", O_RDWR|O_CREAT, S_IRUSR|S_IWUSR|S_I
 
 If we assume that a process has no files open yet, calling `open()` on `/home/joe_user/my_file.txt` creates the following hierarchy of these data stuctures.
 
-![[Pasted image 20260919015435.png]]
+![Pasted image 20260919015435](../assets/Pasted%20image%2020260919015435.png)
 
 The file buffer is represented by _File buffer no. 0_ in our example. It’s the raw data stored in the regular file.
 
@@ -62,7 +62,7 @@ Open it a second time:
 int fd1 = open("/home/joe_user/my_file.txt", O_RDWR|O_CREAT, S_IRUSR|S_IWUSR|S_IRGRP);
 ```
 
-![[Pasted image 20260919015717.png]]
+![Pasted image 20260919015717](../assets/Pasted%20image%2020260919015717.png)
 
 A new entry in the file-descriptor table is allocated and its index is returned to the user-space application.
 
@@ -192,7 +192,7 @@ write(duplicated_fd, "Second write\n", 13);  // Starts where first ended
 int fd2 = dup(fd1);
 ```
 
-![[Pasted image 20260919020007.png]]
+![Pasted image 20260919020007](../assets/Pasted%20image%2020260919020007.png)
 
 Let’s write using both, `fd1` and `fd2`.
 
@@ -210,7 +210,7 @@ write(fd1, " va?", strlen(" va?")); // write another 4 byte
 close(fd1);
 ```
 
-![[Pasted image 20260919020230.png]]
+![Pasted image 20260919020230](../assets/Pasted%20image%2020260919020230.png)
 
 Also:
 
@@ -218,7 +218,7 @@ Also:
 close(fd0);
 ```
 
-![[Pasted image 20260919020310.png]]
+![Pasted image 20260919020310](../assets/Pasted%20image%2020260919020310.png)
 
 
 ## Standard File Descriptors and Redirection
@@ -298,7 +298,7 @@ It means that processes, devices, keyboards, hard drives are represented as file
 
 The Linux Kernel may differentiate those files by assigning them a **file type** (a file, a directory, [a soft link](https://devconnected.com/understanding-hard-and-soft-links-on-linux/) or a socket for example) but they are stored in the same data structure by the Kernel.
 
-![[Pasted image 20260919093630.png]]
+![Pasted image 20260919093630](../assets/Pasted%20image%2020260919093630.png)
 
 For every process created, a new **task_struct** is created on your Linux host.
 
@@ -319,7 +319,7 @@ On Linux, **the file descriptor 0 (or `fd[0]`)** is assigned to the **standard i
 
 Similarly **the file descriptor 1 (or `fd[1]`)** is assigned to the **standard output**, and the **file descriptor 2 (or `fd[2]`)** is assigned to **the standard error.**
 
-![[Pasted image 20260919093946.png]]
+![Pasted image 20260919093946](../assets/Pasted%20image%2020260919093946.png)
 
 On a Linux system, for every process, the first three file descriptors are reserved for standard inputs, outputs and errors.
 
@@ -327,11 +327,11 @@ On a Linux system, for every process, the first three file descriptors are reser
 
 Devices registered when the kernel was instantiated, they can be seen in the **/dev** directory of your host:
 
-![[Pasted image 20260919094123.png]]
+![Pasted image 20260919094123](../assets/Pasted%20image%2020260919094123.png)
 
 If you were to take a look at the file descriptors of a given process, let’s say a bash process for example, you can see that **file descriptors are essentially soft links to real hardware devices on your host:**
 
-![[Pasted image 20260919094150.png]]
+![Pasted image 20260919094150](../assets/Pasted%20image%2020260919094150.png)
 
 In this case, **/dev/pts/0** represents a terminal which is a virtual device (or tty) on my virtual filesystem. In simpler terms, it means that my bash instance (running in a Gnome terminal interface) waits for inputs from my keyboard, prints them to the screen, and executes them when asked to.
 
@@ -345,7 +345,7 @@ However, with output redirection, I could choose to store the output of my cat c
 
 **Output redirection is the act of redirecting the output of a process to a chosen place like files, databases, terminals or any devices (or virtual devices) that can be written to.**
 
-![[Pasted image 20260919094445.png]]
+![Pasted image 20260919094445](../assets/Pasted%20image%2020260919094445.png)
 
 As you know, the `>` operator must be used for this.
 
@@ -377,7 +377,7 @@ command … input_file > temp_file  &&  mv temp_file input_file
 **Input redirection is the act of redirecting the input of a process to a given device (or virtual device) so that it starts reading from this device and not from the default one assigned by the Kernel.**
 
 
-![[Pasted image 20260919094822.png]]
+![Pasted image 20260919094822](../assets/Pasted%20image%2020260919094822.png)
 
 As an example, when you are opening a terminal, you are interacting with it with your keyboard.
 
@@ -389,7 +389,7 @@ However, there are some cases where you might want to work with the content of a
 
 **Error redirection is redirecting errors returned by processes to a defined device on your host.**
 
-![[Pasted image 20260919095022.png]]
+![Pasted image 20260919095022](../assets/Pasted%20image%2020260919095022.png)
 
 To redirect error output on Linux, use the “**2>**” operator
 
@@ -405,11 +405,11 @@ Pipelines are used on Linux systems to connect processes together, linking stand
 
 Multiple processes can be linked together with **pipelines** (or **pipes**)
 
-![[Pasted image 20260919095143.png]]
+![Pasted image 20260919095143](../assets/Pasted%20image%2020260919095143.png)
 
 ```bash
 $ grep '.com' file | wc -l
 ```
 
-![[Pasted image 20260919095212.png]]
+![Pasted image 20260919095212](../assets/Pasted%20image%2020260919095212.png)
 

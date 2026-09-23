@@ -1,4 +1,4 @@
-![[Pasted image 20260815200446.png]]
+![Pasted image 20260815200446](../assets/Pasted%20image%2020260815200446.png)
 
 `[a-z]` - matches 1 character
 `[a-m]` - matches a to m
@@ -143,7 +143,7 @@ Negation of `\w` - `\W` (not `\w)
 
 
 
-![[Pasted image 20260815205007.png]]
+![Pasted image 20260815205007](../assets/Pasted%20image%2020260815205007.png)
 
 Match wavy text:
 

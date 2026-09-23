@@ -10,7 +10,7 @@ Git has three main states that your files can reside in: _modified_, _staged_, a
 This leads us to the three main sections of a Git project: the working tree, the staging area, and the Git directory.
 
 
-![[Pasted image 20260812102434.png]]
+![Pasted image 20260812102434](../assets/Pasted%20image%2020260812102434.png)
 
 
 ### The .git directory

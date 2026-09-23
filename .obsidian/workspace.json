@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled 1.md",
+                "file": "Linux/Linux directories.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled 1"
+              "title": "Linux directories"
             }
           },
           {
@@ -275,7 +275,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 413.54296875
+    "width": 327.80859375
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -290,8 +290,15 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "04c09b981dedc9df",
+  "active": "39424640fc8a9ddc",
   "lastOpenFiles": [
+    "Linux/File stuff.md",
+    "Linux/file.md",
+    "Linux/cron and systemd timers.md",
+    "Linux/systemd.md",
+    "Linux/Runaway process.md",
+    "Linux/proc filesystem.md",
+    "Untitled 1.md",
     "OSNotes/Segmentation.md",
     "OSNotes/Kernel.md",
     "OSNotes/Dead.md",
@@ -321,13 +328,6 @@
     "README.md",
     "Shell Scripting/Tutorial.md",
     "Linux/Permissions.md",
-    "Linux/Misacellaneous.md",
-    "Linux/Useful reads.md",
-    "Linux/What are virtual terminals.md",
-    "Linux/What does a shell like bash even do.md",
-    "Linux/shutdown, halt, reboot.md",
-    "Linux/shell, terminal, terminal emulator, and how the universe works.md",
-    "Linux/Shell and Terminal emulator.md",
     "Untitled 5.base",
     "HLD",
     "Kubernetes",

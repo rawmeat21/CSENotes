@@ -6,6 +6,10 @@ An entity that is managed by systemd is known generically as a unit.
 
 A unit can be a service, a socket, a device, a mount point, an automount point, a swap file or partition, a startup target, a watched filesystem path, a timer controlled and supervised by systemd, a resource management slice, a group of externally created processes.
 
+A **unit** is systemd's atomic concept of "a thing that can be started, stopped, and have dependencies."
+
+A `.service` is one _kind_ of unit (a long- or short-running process). A `.timer` is another kind (a scheduler that starts some other unit). There are also `.mount`, `.socket`, `.target`, `.device`, etc.
+
 Within systemd, the behavior of each unit is defined and configured by a **unit file**. In the case of a service, for example, the unit file specifies the location of the executable file for the daemon, tells systemd how to start and stop the service, and identifies any other units that the service depends on.
 
 #### Example: 
@@ -22,6 +26,14 @@ ExecStart=/usr/bin/rsync --daemon --no-detach
 WantedBy=multi-user.target
 ```
 
+Some other ones:
+
+`After=` controls _ordering only_, not dependency. If A has `After=B`, systemd guarantees A starts after B _if both are going to start anyway_.
+
+For hard dependency you need `Requires=` (strict — if B fails, A fails too) or `Wants=` (soft — A still tries to start even if B fails).
+
+**ordering and dependency are two separate, independently-specified concepts** in systemd.
+
 ### Where are my unit files?
 
 `/usr/lib/systemd/system` is the main place where packages deposit their unit files during installation; on some systems, the path is `/lib/systemd/system` instead.
@@ -29,8 +41,6 @@ WantedBy=multi-user.target
 Your local unit files and customizations can go in `/etc/systemd/system`. There’s also a unit directory in `/run/systemd/system` that’s a scratch area for transient units.
 
 **If there’s any conflict, the files in /etc have the highest priority.**
-
-
 
 **By convention, unit files are named with a suffix that varies according to the type
 of unit being configured. For example, service units have a .service suffix and tim-
@@ -44,6 +54,14 @@ sshd.socket      -> a network socket
 multi-user.target -> a "target"
 ```
 
+Always either create your own units in `/etc/systemd/system/`, or use `systemctl edit <unit>` which creates a proper override file for you without touching the original:
+
+bash
+
+```bash
+$ sudo systemctl edit sshd.service
+```
+
 ## systemctl
 
 Used for managing systemd (checking status, modifying config).
@@ -52,10 +70,22 @@ Used for managing systemd (checking status, modifying config).
 $ systemctl
 ```
 
-This invokes the default **list-units subcommand**, which shows all loaded and active services, sockets, targets, mounts, and devices. To show only loaded and active services, use the `--type=service` qualifier
+This invokes the default **list-units subcommand**, which shows all loaded and active services, sockets, targets, mounts, and devices. 
+
+To show only loaded and active services, use the `--type=service` qualifier:
 
 ```bash
 $ systemctl list-units --type=service
+```
+
+This shows every **loaded** service unit, running or not, with columns `LOAD`, `ACTIVE`, `SUB`, `DESCRIPTION`. "Loaded" means systemd has parsed the unit file into memory, which happens for anything that's currently active _or_ was activated at some point this boot.
+
+To narrow to only things actually **running right now**:
+
+bash
+
+```bash
+$ systemctl list-units --type=service --state=running
 ```
 
 To see all installed unit files:
@@ -64,11 +94,73 @@ To see all installed unit files:
 $ systemctl list-unit-files --type=service
 ```
 
+This lists every service unit systemd _knows about_ on disk, whether loaded or not.
+
+
 ![Pasted image 20260826150043](../assets/Pasted%20image%2020260826150043.png)
 
 What do I mean by subcommand? Well these are things you add after `systemctl`, like `systemctl status` or `systemctl reboot`. 
 
 Usually you shouldn't need the `.service` part when you mention _unit_, but you can add it to be safe.
+
+
+```bash
+$ systemctl status sshd              # is it running, recent logs, since when
+$ sudo systemctl start sshd          # start now, this session only
+$ sudo systemctl stop sshd           # stop now
+$ sudo systemctl restart sshd        # stop then start
+$ sudo systemctl reload sshd         # ask it to re-read config without restarting (SIGHUP-ish)
+$ sudo systemctl enable sshd         # make it start at every future boot
+$ sudo systemctl disable sshd        # stop it from auto-starting at boot
+$ sudo systemctl enable --now sshd   # both at once — the one you'll type most
+```
+
+```bash
+$ sudo systemctl daemon-reload         # tell systemd to notice the new file
+```
+
+##### How `enable` actually works
+
+`enable` doesn't do anything clever, it just creates a **symlink**.
+
+```bash
+$ sudo systemctl enable sshd.service
+Created symlink /etc/systemd/system/multi-user.target.wants/sshd.service → /usr/lib/systemd/system/sshd.service.
+```
+
+`sshd.service`'s own `[Install]` section says `WantedBy=multi-user.target`, meaning "when target `multi-user.target` is reached during boot, start me." `enable` just materializes that intent as a real symlink in that target's `.wants/` directory.
+
+
+How to write your own service unit:
+
+Create `/etc/systemd/system/my-notifier.service`:
+
+```
+[Unit]
+Description=My notification watcher
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/rawmeat/bin/notifier.sh
+Restart=on-failure
+RestartSec=5
+User=qing
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Then do:
+
+```bash
+$ sudo systemctl daemon-reload         # tell systemd to notice the new file
+$ sudo systemctl enable --now my-notifier.service
+$ systemctl status my-notifier.service
+$ journalctl -u my-notifier.service -f
+```
+
 
 #### More about `systemctl status`
 
@@ -149,6 +241,50 @@ Important targets:
 
 - **multi-user.target** — a fully working system: networking, services, ability to log in — but text-based, no graphical desktop. This is basically what a server runs.
 - **graphical.target** — everything in multi-user.target, _plus_ a graphical login/desktop on top. This is what a normal desktop Linux install boots into.
+
+Lets look at `multi-user.target`:
+
+```
+❯ cat /usr/lib/systemd/system/multi-user.target
+#  SPDX-License-Identifier: LGPL-2.1-or-later
+#
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+
+[Unit]
+Description=Multi-User System
+Documentation=man:systemd.special(7)
+Requires=basic.target
+Conflicts=rescue.service rescue.target
+After=basic.target rescue.service rescue.target
+AllowIsolate=yes
+```
+**Its entire purpose is to exist as a thing that other units can point at with `Requires=`, `Wants=`, or `WantedBy=`.**
+
+"Entering" a target means: systemd has started everything that wants to be started by the time this checkpoint is reached.
+
+For example: `enable` on `postgresql.service` creates a symlink in `/etc/systemd/system/multi-user.target.wants/postgresql.service`. That symlink is a `Wants=` relationship, expressed as a directory of symlinks instead of a config line (this is literally how `[Install] WantedBy=X` gets materialized.
+
+```
+                     multi-user.target  (the "checkpoint" — does nothing itself)
+                            ▲
+              ┌─────────────┼─────────────┬──────────────┐
+              │             │              │              │
+   postgresql.service  sshd.service  cronie.service  NetworkManager.service
+    (WantedBy=          (WantedBy=      (WantedBy=       (WantedBy=
+     multi-user.target)  multi-user...)  multi-user...)   multi-user...)
+
+    Each of these individually declared "I want to be running by the time
+    multi-user.target is reached." systemd's job at boot: figure out the
+    full set of things that want to reach this target (transitively,
+    including targets-of-targets), then start them all, respecting
+    each one's own After=/Requires= ordering constraints.
+```
+
 
 
 **Practical commands**
@@ -315,3 +451,108 @@ Examples:
 **A target** (unit files ending in `.target`) is **not a process at all**. It's a _grouping_ or _synchronization point_ — essentially a named collection of other units (services, mounts, sockets, other targets, etc.) that should be active together to reach a particular system "state."
 
 Think of a target as a checklist/label, not a running program. When systemd "reaches" a target, it means all the units that target depends on and pulls in have been started.
+
+
+Bonus- journalctl
+
+bash
+
+```bash
+$ journalctl -u sshd.service              # all logs for this unit, ever
+$ journalctl -u sshd.service -f           # follow live, like tail -f
+$ journalctl -u sshd.service --since today
+$ journalctl -u sshd.service -n 50        # last 50 lines
+$ journalctl -p err -b                    # errors only, current boot
+```
+
+
+A real example with PostgreSQL:
+
+```bash
+$ pacman -Ql postgresql | grep systemd
+postgresql /usr/lib/systemd/system/postgresql.service
+```
+
+This is the service that postgresql installs onto `/usr/lib/systemd/system`.
+
+A look at this file:
+
+
+```
+[Unit]
+Description=PostgreSQL database server
+Documentation=man:postgres(1)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+TimeoutSec=120
+User=postgres
+Group=postgres
+
+Environment=PGROOT=/var/lib/postgres
+
+SyslogIdentifier=postgres
+PIDFile=/var/lib/postgres/data/postmaster.pid
+RuntimeDirectory=postgresql
+RuntimeDirectoryMode=755
+
+ExecStartPre=/usr/bin/postgresql-check-db-dir ${PGROOT}/data
+ExecStart=/usr/bin/postgres -D ${PGROOT}/data
+ExecReload=/bin/kill -HUP ${MAINPID}
+KillMode=mixed
+KillSignal=SIGINT
+
+# Due to PostgreSQL's use of shared memory, OOM killer is often overzealous in
+# killing Postgres, so adjust it downward
+OOMScoreAdjust=-200
+
+# Additional security-related features
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+NoNewPrivileges=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+PrivateDevices=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target
+```
+
+As we can see, this shit is pretty complicated. 
+
+```
+pacman -S postgresql
+   │
+   ├─ copies binary to /usr/bin/postgres
+   ├─ copies config templates to /usr/share/postgresql/ or similar
+   └─ copies unit file to /usr/lib/systemd/system/postgresql.service
+                                          │
+                                          │  (file exists, but is INERT —
+                                          │   not loaded, not enabled, not running)
+                                          ▼
+        you run: systemctl enable --now postgresql.service
+                                          │
+                        ┌─────────────────┴─────────────────┐
+                        ▼                                     ▼
+        enable: creates symlink in              start: loads it into systemd's
+        multi-user.target.wants/                runtime and execs the process now
+        (persists across reboots)               (this session only, unless enabled too)
+```
+
+
+
+I have PostgreSQL installed as a startup service on my system, as we can see:
+
+```
+❯ ls -la /etc/systemd/system/multi-user.target.wants/ | grep postgres
+lrwxrwxrwx 1 root root   42 Mar  7  2026 postgresql.service -> /usr/lib/systemd/system/postgresql.service
+```
+

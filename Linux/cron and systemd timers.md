@@ -48,6 +48,74 @@ PATH=/bin:/usr/bin
 * * * * * echo $(date) - $(uptime) >> ~/uptime.log
 ```
 
+Note!
+
+cron jobs run via `sh`, with none of your interactive shell's environment, no `~/.bashrc`, no `PATH` additions from your dotfiles, none of your aliases or functions. This is _the_ number one cause of "it works when I run it manually but silently fails in cron." Always use full paths or set `PATH` explicitly.
+
+
+### systemd timers
+
+A timer is two files working together.
+
+**The service:**
+
+`/etc/systemd/system/home-backup.service`:
+
+```ini
+[Unit]
+Description=Nightly home directory backup
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rsync -a --delete /home/rawmeat/ /mnt/backup/home/
+```
+
+**The timer:**
+
+`/etc/systemd/system/home-backup.timer`:
+
+```ini
+[Unit]
+Description=Run home-backup nightly
+
+[Timer]
+OnCalendar=*-*-* 02:00:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
+```
+
+The `*-*-*` before the time is year-month-day, all wildcarded; so this fires at 2:00:00 AM every single day.
+
+**`Persistent=true`**: this is the systemd feature that has **no cron equivalent at all**, and it's genuinely important: if your laptop is asleep/off at 2:00 AM (very plausible for a personal Arch laptop, unlike an always-on server), the timer would normally just... not fire, and you'd silently skip a day's backup. `Persistent=true` tells systemd "remember the last time this fired (it stores this in `/var/lib/systemd/timers/`), and if we missed a scheduled run because the system was off, run it once as soon as we boot back up." 
+
+**`RandomizedDelaySec=300`** — adds a random delay up to 5 minutes before actually firing, to avoid thundering-herd effects if this same unit ran on many machines simultaneously
+
+**`[Install] WantedBy=timers.target`** — parallel to `multi-user.target` for regular services, but the specific target that "enabling a timer" hooks into.
+
+
+```bash
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable --now home-backup.timer
+$ systemctl list-timers                    # see it, and when it'll next fire
+$ systemctl status home-backup.timer
+```
+
+
+You can also trigger the service directly:
+
+```bash
+$ sudo systemctl start home-backup.service   # runs it RIGHT NOW, timer untouched
+$ journalctl -u home-backup.service -n 50    # see exactly what happened
+```
+
+This cannot really be done with  cron I think, you'd have to wait or set `* * * * *`.
+
+
+
+
 
 
 

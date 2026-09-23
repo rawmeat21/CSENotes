@@ -15,3 +15,64 @@ separated by null characters rather than newlines. You can filter their contents
 through `tr "\000" "\n"` to make them more readable.
 
 
+```bash
+$ echo $$ # get terminal emulator's PID
+
+$ ls /proc/$(echo $$)
+cmdline  cwd  environ  exe  fd  fdinfo  maps  ns  root  stat  statm  status  ...
+
+```
+
+**`cmdline`** — the exact invocation, null-separated:
+
+```bash
+❯ cat /proc/$(echo $$)/cmdline
+/usr/bin/zsh% 
+```
+
+**`environ`** — every environment variable the process was started with, also null-separated:
+
+```
+$ cat /proc/54321/environ | tr '\0' '\n' | head -5
+SHELL=/bin/bash
+PWD=/home/qing
+LOGNAME=qing
+```
+
+**`exe`** — a symlink to the actual binary being executed
+
+**`fd`** — every open file descriptor, as symlinks. This is _the_ tool for answering "what files does this process have open right now":
+
+bash
+
+```bash
+$ ls -l /proc/54321/fd
+lrwx------ 1 qing qing 64 ... 0 -> /dev/pts/3
+lrwx------ 1 qing qing 64 ... 1 -> /dev/pts/3
+lrwx------ 1 qing qing 64 ... 2 -> /dev/pts/3
+```
+
+**`maps`** — what libraries a process is linked against, live, without needing `ldd`:
+
+bash
+
+```bash
+$ cat /proc/54321/maps | grep '\.so' | awk '{print $6}' | sort -u | head
+/usr/lib/libc.so.6
+/usr/lib/libreadline.so.8
+/usr/lib/libtinfo.so.6
+```
+
+
+**`cgroup`** — systemd puts _every_ process into a cgroup (control group) as part of normal operation, not just containers:
+
+bash
+
+```bash
+$ cat /proc/54321/cgroup
+0::/user.slice/user-1000.slice/session-2.scope
+```
+
+
+
+

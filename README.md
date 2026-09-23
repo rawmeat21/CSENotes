@@ -19,7 +19,7 @@ To clone the repo:
 git clone https://github.com/rawmeat21/CSENotes.git
 ```
 
-All of the files use markdown format, so you use software like Notion or Obsidian for best experience. I personally like Obsidian. 
+All of the files use markdown format, so you should use software like Notion or Obsidian for best experience. I personally like Obsidian. 
 
 To see new updated notes, do a pull:
 

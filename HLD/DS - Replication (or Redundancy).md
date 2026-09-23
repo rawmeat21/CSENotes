@@ -380,5 +380,166 @@ If you want to guarantee that there will be no editing conflicts, the applicatio
 However, for faster collaboration, you may want to make the unit of change very small (e.g., a single keystroke) and avoid locking. This approach allows multiple users to edit simultaneously, but it also brings all the challenges of multi-leader replication, including requiring conflict resolution.
 
 
+### Problem with multi leader replication
 
+
+![[Pasted image 20260923095011.png]]
+
+
+ Consider a wiki page that is simultaneously being edited by two users. User 1 changes the title of the page from A to B, and user 2 changes the title from A to C at the same time. Each user’s change is successfully applied to their local leader. However, when the changes are asynchronously replicated, a conflict is detected.
+
+#### Synchronous vs asynchrounous
+
+![[Pasted image 20260923095254.png]]
+
+#### Conflict avoidance
+
+If there is 1 leader -> all writes go through it -> conflicts cannot occur.
+
+Better to avoid conflicts than handle them.
+
+In an application where a user can edit their own data, you can ensure that requests from a particular user are always routed to the same datacenter and use the leader in that datacenter for reading and writing. 
+
+Different users may have different “home” datacenters (perhaps picked based on geographic proximity to the user), but from any one user’s point of view the configuration is essentially single-leader.
+
+However, sometimes you might want to change the designated leader for a record - perhaps because one datacenter has failed and you need to reroute traffic to another datacenter, or perhaps because a user has moved to a different location and is now closer to a different datacenter. 
+
+In this situation, conflict avoidance breaks down, and you have to deal with the possibility of concurrent writes on different leaders.
+
+
+#### Converging toward a consistent state
+
+-> A single-leader database applies writes in a sequential order: if there are several updates to the same field, the last write determines the final value of the field.
+
+-> In a multi-leader configuration, there is no defined ordering of writes, so it’s not clear what the final value should be.
+
+In previous figure, at leader 1 the title is first updated to B and then to C; at leader 2 it is first updated to C and then to B. Neither order is “more correct” than the other.
+
+**If each replica simply applied writes in the order that it saw the writes, the database would end up in an inconsistent state**: the final value would be C at leader 1 and B at leader 2
+
+The conflict must be resolved in a convergent way. 
+
+Some ways to handle this conflict:
+
+- Give each write a unique ID (e.g., a timestamp, a long random number, a UUID, or a hash of the key and value), pick the write with the highest ID as the winner, and throw away the other writes. If a timestamp is used, this technique is known as **last write wins** **(LWW)**. Although this approach is popular, **it is dangerously prone to data loss.**
+
+- Give each replica a unique ID, and let writes that originated at a higher-numbered replica always take precedence over writes that originated at a lower-numbered replica. This approach also implies data loss.
+
+-  Somehow merge the values together, ex: order them alphabetically and then concatenate them (in previous figure, the merged title might be something like “B/C”).
+
+- Record the conflict in an explicit data structure that preserves all information, and write application code that resolves the conflict at some later time (perhaps by prompting the user).
+
+
+#### Custom conflict resolution
+
+Most multi-leader replication tools let you write conflict resolution logic using application code. That code may be executed on write or on read:
+
+**On write**
+
+As soon as the database system detects a conflict in the log of replicated changes, it calls the conflict handler.
+
+For example, Bucardo allows you to write a snippet of Perl for this purpose.
+
+ This handler typically cannot prompt a user—it runs in a background process and it must execute quickly.
+
+**On read**
+
+When a conflict is detected, all the conflicting writes are stored. The next time the data is read, these multiple versions of the data are returned to the application. 
+
+The application may prompt the user or automatically resolve the conflict, and write the result back to the database. 
+
+CouchDB works this way, for example.
+
+
+
+![[Pasted image 20260923101357.png]]
+
+
+#### What is a conflict?
+
+Consider a meeting room booking system: it tracks which room is booked by which group of people at which time.  This application needs to ensure that each room is only booked by one group of people at any one time.
+
+In this case, a conflict may arise if two different bookings are created for the same room at the same time. Even if the application checks availability before allowing a user to make a booking, there can be a conflict if the two bookings are made on two different leaders.
+
+
+### Topologies
+
+![[Pasted image 20260923101806.png]]
+
+The most general topology is all-to-all, in which every leader sends its writes to every other leader.
+
+MySQL by default supports only a circular topology, in which each node receives writes from one node and forwards those writes (plus any writes of its own) to one other node.
+
+In circular and star topologies, a write may need to pass through several nodes before it reaches all replicas. Therefore, nodes need to forward data changes they receive from other nodes.
+
+**How to prevent infinite replication loops?**
+
+Use something like a visited array concept.
+
+Each node is given a unique identifier, and in the replication log, each write is tagged with the identifiers of all the nodes it has passed through. When a node receives a data change that is tagged with its own identifier, that data change is ignored, because the node knows that it has already been processed.
+
+In circular and star topologies, a node can fail, and this may disrupt replication. 
+
+The fault tolerance of a more densely connected topology (such as all-to-all) is better because it allows messages to travel along different paths, avoiding a single point of failure.
+
+
+all-to-all topologies can have issues too. In particular, some network links may be faster than others (e.g., due to network congestion), with the result that some replication messages may “overtake” others.
+
+![[Pasted image 20260923102345.png]]
+
+You might think we should use a clock, but clocks cannot be trusted to be sufficiently in sync.
+
+To order these events correctly, a technique called **version vectors** can be used.
+
+
+## Leaderless replication
+
+![[Pasted image 20260923102912.png]]
+
+
+### Writing to the Database When a Node Is Down
+
+In leader based configuration, when leader is down, we need to do a failover. 
+
+Here, failover doesn't exist.
+
+![[Pasted image 20260923103151.png]]
+
+
+The client (user 1234) sends the write to all three replicas in parallel, and the two available replicas accept the write but the unavailable replica misses it.
+
+Let’s say that it’s sufficient for two out of three replicas to acknowledge the write: after user 1234 has received two ok responses, we consider the write to be successful.
+
+**The client simply ignores the fact that one of the replicas missed the write.**
+
+Now imagine that the unavailable node comes back online, and clients start reading from it. Any writes that happened while the node was down are missing from that node. Thus, if you read from that node, you may get stale (outdated) values as responses.
+
+So, when a client reads from the database, it doesn’t just send its request to one replica: **read requests are also sent to several nodes in parallel.** The client may get different responses from different nodes; i.e., the up-to-date value from one node and a stale value from another. 
+
+Version numbers are used to determine which value is newer.
+
+
+#### Read repair and anti-entropy
+
+After an unavailable node comes back online, how does it catch up on the writes that it missed?
+
+2 mechanisms are popular:
+
+- **Read repair**: When a client makes a read from several nodes in parallel, it can detect any stale responses. So, we basically update values in the stale node as we read them.
+- **Anti-entropy process**: Some datastores have a background process that constantly looks for differences in the data between replicas and copies any missing data from one replica to another. Unlike the replication log in leader-based replication, this anti-entropy process does not copy writes in any particular order, and there may be a significant delay before data is copied.
+
+
+#### Quorums for reading and writing
+
+In the previous example, what if instead of 2, only 1 recieved the new image?
+
+In general,
+
+If there are n replicas, every write must be confirmed by w nodes to
+be considered successful, and we must query at least r nodes for each read. (In our
+example, n = 3, w = 2, r = 2.) 
+
+As long as w + r > n, we expect to get an up-to-date value when reading, because at least one of the r nodes we’re reading from must be up to date. Reads and writes that obey these r and w values are called quorum reads and writes.
+
+![[Pasted image 20260923104248.png]]
 

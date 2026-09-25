@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Linux/Linux directories.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Linux directories"
             }
           },
           {
@@ -292,11 +292,16 @@
   },
   "active": "39424640fc8a9ddc",
   "lastOpenFiles": [
+    "assets/Pasted image 20260925120456.png",
+    "assets/Pasted image 20260925115759.png",
+    "assets/Pasted image 20260925115542.png",
+    "assets/Pasted image 20260925112926.png",
+    "Linux/systemd.md",
+    "README.md",
     "Linux/Linux directories.md",
     "Linux/File stuff.md",
     "Linux/file.md",
     "Linux/cron and systemd timers.md",
-    "Linux/systemd.md",
     "Linux/Runaway process.md",
     "Linux/proc filesystem.md",
     "Untitled 1.md",
@@ -313,7 +318,6 @@
     "assets/Pasted image 20260923101806.png",
     "assets/Pasted image 20260923101357.png",
     "assets/Pasted image 20260923095254.png",
-    "assets/Pasted image 20260923095011.png",
     "Git/Rebasing.md",
     "Git/How to setup your Git server - protocols.md",
     "Git/How to setup your Git server - doing it.md",
@@ -322,12 +326,8 @@
     "Git/3 states.md",
     "SB/SB-4 (Handling status codes).md",
     "SB/SB-4 (Lombok).md",
-    "assets/Pasted image 20260922113220.png",
-    "assets/Pasted image 20260922111738.png",
     "Linux/How to fix bluetooth failed to connect.md",
     "Linux/How passwd works using setuid.md",
-    "README.md",
-    "Shell Scripting/Tutorial.md",
     "Untitled 5.base",
     "HLD",
     "Kubernetes",

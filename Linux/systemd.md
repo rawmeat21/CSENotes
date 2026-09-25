@@ -96,6 +96,23 @@ $ systemctl list-unit-files --type=service
 
 This lists every service unit systemd _knows about_ on disk, whether loaded or not.
 
+```bash
+❯ systemctl list-unit-files --type=service --state=enabled
+UNIT FILE                          STATE   PRESET  
+bluetooth.service                  enabled disabled
+containerd.service                 enabled disabled
+docker.service                     enabled disabled
+getty@.service                     enabled enabled 
+kubelet.service                    enabled disabled
+mariadb.service                    enabled disabled
+NetworkManager-dispatcher.service  enabled disabled
+NetworkManager-wait-online.service enabled disabled
+NetworkManager.service             enabled disabled
+postgresql.service                 enabled disabled
+valkey.service                     enabled disabled
+```
+
+`PRESET` is the default state for that distro. Example, The preset for `docker.service` is `disabled`.
 
 ![Pasted image 20260826150043](../assets/Pasted%20image%2020260826150043.png)
 
@@ -129,6 +146,8 @@ Created symlink /etc/systemd/system/multi-user.target.wants/sshd.service → /us
 ```
 
 `sshd.service`'s own `[Install]` section says `WantedBy=multi-user.target`, meaning "when target `multi-user.target` is reached during boot, start me." `enable` just materializes that intent as a real symlink in that target's `.wants/` directory.
+
+A question comes, do all units which are in `/etc/systemd/system/multi-user.target.wants`, are startup units, assuming that `multi-user.target` is the startup target? - **Yes**.
 
 
 How to write your own service unit:
@@ -197,7 +216,6 @@ For example, running `systemctl disable` on a linked unit file deletes the link 
 The `masked` status means **administratively blocked**. `systemd` knows about the unit, but has been forbidden from activating it or acting on any of its configuration directives by `systemctl mask`. 
 
 **As a rule of thumb, turn off units whose status is enabled or linked with `systemctl disable`and reserve `systemctl mask` for static units.
-
 
 ### Targets
 
@@ -285,6 +303,43 @@ For example: `enable` on `postgresql.service` creates a symlink in `/etc/systemd
     each one's own After=/Requires= ordering constraints.
 ```
 
+**`multi-user.target` is... just a target, a unit. Then what makes it the startup target?**
+
+-> The system actually boots into it: 
+```bash
+$ ls -la /etc/systemd/system/default.target
+lrwxrwxrwx 1 root root 41 ... default.target -> /usr/lib/systemd/system/multi-user.target
+```
+In personal computers, `graphical.target` would be the default.
+
+
+```
+  systemd (PID 1) starts
+         │
+         ▼
+  "what does default.target point to?"
+         │
+         ▼
+  /etc/systemd/system/default.target -> multi-user.target
+         │
+         ▼
+  "OK, my job is to REACH multi-user.target"
+         │
+         ▼
+  resolve multi-user.target's full dependency graph
+  (Requires=, Wants=, and transitively every .wants/
+   symlink pointing AT multi-user.target)
+         │
+         ▼
+  start everything in that graph, respecting ordering
+```
+
+My PC uses `graphical.target`: 
+
+```
+❯ systemctl get-default
+graphical.target
+```
 
 
 **Practical commands**
@@ -328,6 +383,19 @@ sudo systemctl set-default multi-user.target
 
 ```bash
 $ systemctl list-units --type=target
+```
+
+To see what units get started for some target:
+
+```bash
+$ systemctl list-dependencies multi-user.target
+```
+The `●` markers indicate active units. By default it only expands one level deep for sub-targets (like `basic.target` above). Add `--all` to fully recurse into everything:
+
+bash
+
+```bash
+$ systemctl list-dependencies multi-user.target --all
 ```
 
 
@@ -551,7 +619,7 @@ pacman -S postgresql
 
 I have PostgreSQL installed as a startup service on my system, as we can see:
 
-```
+```bash
 ❯ ls -la /etc/systemd/system/multi-user.target.wants/ | grep postgres
 lrwxrwxrwx 1 root root   42 Mar  7  2026 postgresql.service -> /usr/lib/systemd/system/postgresql.service
 ```

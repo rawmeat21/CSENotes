@@ -535,11 +535,21 @@ In the previous example, what if instead of 2, only 1 recieved the new image?
 
 In general,
 
-If there are n replicas, every write must be confirmed by w nodes to
-be considered successful, and we must query at least r nodes for each read. (In our
-example, n = 3, w = 2, r = 2.) 
+If there are n replicas, every write must be confirmed by w nodes to be considered successful, and we must query at least r nodes for each read. (In our example, n = 3, w = 2, r = 2.) 
+
+- w = the number of replicas that must acknowledge a **write** before you consider it successful
+- r = the number of replicas you **query** on a read (and then decide the value from whatever they return)
 
 As long as w + r > n, we expect to get an up-to-date value when reading, because at least one of the r nodes we’re reading from must be up to date. Reads and writes that obey these r and w values are called quorum reads and writes.
+
+Simple, the rule is simply: "if you query some nodes, at least one of them must have an upto date value for you to get the latest value and write it to others".
+
+So, if you write to w nodes, there are max n-w nodes that didn't get written to. 
+
+When you query any random set of r nodes, at worst case, you may get all n-w nodes. But you need at least 1 latest node. So, you must query more than n-w nodes.
+
+=> r > n-w 
+=> w+r > n
 
 ![Pasted image 20260923104248](../assets/Pasted%20image%2020260923104248.png)
 

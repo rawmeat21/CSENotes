@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Go/strings.Builder.md",
+                "file": "Cryptography/KDF.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "strings.Builder"
+              "title": "KDF"
             }
           },
           {
@@ -292,10 +292,17 @@
   },
   "active": "39424640fc8a9ddc",
   "lastOpenFiles": [
-    "Go/what is a rune.md",
-    "Go/strings.Builder.md",
-    "Go/Go tips.md",
+    "Cryptography/Nonce.md",
+    "Cryptography/KDF.md",
+    "Cryptography/AEAD.md",
+    "assets/Pasted image 20261010200231.png",
+    "Git/Some tips.md",
+    "Cryptography",
     "Go/map in Go.md",
+    "Go/Go tips.md",
+    "Go/if with init statement.md",
+    "Go/strings.Builder.md",
+    "Go/what is a rune.md",
     "Go/byte arrays.md",
     "HLD/DS - Replication (or Redundancy).md",
     "Linux/Linux directories.md",
@@ -321,13 +328,7 @@
     "assets/Pasted image 20260923102912.png",
     "assets/Pasted image 20260923102345.png",
     "assets/Pasted image 20260923101806.png",
-    "assets/Pasted image 20260923101357.png",
     "Git/Rebasing.md",
-    "Git/How to setup your Git server - protocols.md",
-    "Git/How to setup your Git server - doing it.md",
-    "Git/How to maintain a project.md",
-    "Git/How Git works.md",
-    "Git/3 states.md",
     "Untitled 5.base",
     "HLD",
     "Kubernetes",
@@ -339,7 +340,6 @@
     "Untitled 2.canvas",
     "Untitled 2.base",
     "Untitled 1.canvas",
-    "Untitled 1.base",
     "Untitled.canvas"
   ]
 }

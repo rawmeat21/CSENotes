@@ -1,5 +1,8 @@
 https://medium.com/@rushikajayasinghe/what-is-aead-authenticated-encryption-with-associated-data-17a5b2f42404
 https://www.hexnode.com/blogs/explained/what-is-aead-authenticated-encryption-with-associated-data/
+https://pycryptodome.readthedocs.io/en/latest/src/cipher/chacha20_poly1305.html
+https://www.geralt.xyz/authenticated-encryption/xchacha20-poly1305
+https://docs.phase.dev/security/cryptography
 
 Authenticated Encryption with Associated Data (AEAD) is a technique used in cryptography which provides both the **encryption and authentication** and also associate additional data along with the encrypted message.
 
@@ -21,3 +24,18 @@ AEAD encrypts plaintext into ciphertext while generating an **authentication tag
 When the recipient receives the message, the AEAD algorithm verifies the authentication tag before accepting the data. If any part of the ciphertext or associated data has been modified, authentication fails and the message is rejected.
 
 Associated Data remains visible but is still protected against tampering. Common examples include network packet headers, protocol information, timestamps, and routing metadata that must remain readable while still requiring integrity protection.
+
+
+**ChaCha20-Poly1305** is an algorithm that implements AEAD. It works with a 32 byte secret key and a nonce which **must never** be reused across encryptions performed under the same key. The cipher produces a 16 byte tag that the receiver must use to validate the message.
+
+The associated data is useful for authenticating file headers, version numbers, timestamps, counters, and so on. It can be used to prevent [confused deputy attacks](https://cloud.google.com/kms/docs/additional-authenticated-data#confused_deputy_attack_example) and [replay attacks](https://en.wikipedia.org/wiki/Replay_attack). It is not encrypted nor part of the ciphertext. It must be reproduceable or stored somewhere for decryption to be possible.
+
+For encryption, the nonce **MUST NOT** be repeated or reused with the same key. You **MUST** [increment](https://www.geralt.xyz/constant-time#increment) or [randomly generate](https://www.geralt.xyz/random-data#fill) the nonce for **each plaintext** message encrypted using the same key.
+
+Unlike with [ChaCha20-Poly1305](https://www.geralt.xyz/authenticated-encryption/chacha20-poly1305), it is safe to [randomly generate](https://www.geralt.xyz/random-data#fill) nonces with the same key. Nonces can be public and are typically manually prepended to the ciphertext.
+
+![](../assets/Pasted%20image%2020261011100234.png)
+
+- `XChaCha20`: This is a variant of the ChaCha20 stream cipher, but it has a longer nonce size of 24 bytes. The original ChaCha20 uses a 64-bit nonce (8 bytes), which is a number that should only be used once per key. However, managing nonces can be difficult in practice and reusing a nonce can lead to serious vulnerabilities. XChaCha20 increases the nonce size to 192 bits, significantly reducing the risk of nonce reuse.
+
+- `Poly1305`: This is a message authentication code (MAC) that is used to ensure the integrity and authenticity of a message. It's secure and efficient, helping to ensure that an encrypted message hasn't been tampered with.

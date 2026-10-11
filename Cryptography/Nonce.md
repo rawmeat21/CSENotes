@@ -12,5 +12,5 @@ A nonce can be used in an authentication protocol as a method of preventing repl
 The nonce helps to prove that the message received was sent by the intended sender and was not intercepted and resent by a bad actor. To optimize a nonce, it should have both sequential parts and random parts.
 
 
-**ChaCha20-Poly1305** is an algorithm that implements AEAD.
+
 

@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "0520a17ebe016cf4",
+        "id": "b9f3dbc443d6f461",
         "type": "tabs",
         "children": [
           {
-            "id": "ea4bd594d20eb261",
+            "id": "9da4e76b46f8e559",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kubernetes/Basics.md",
+                "file": "OSNotes/How to think about RAM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basics"
-            }
-          },
-          {
-            "id": "8b1cd55e95041a57",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Kubernetes/How to actually use kubernetes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "How to actually use kubernetes"
+              "title": "How to think about RAM"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -220,17 +205,18 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "8b1cd55e95041a57",
+  "active": "9da4e76b46f8e559",
   "lastOpenFiles": [
+    "OSNotes/How to think about RAM.md",
+    "Kubernetes/Basics.md",
+    "Kubernetes/How to actually use kubernetes.md",
     "assets/Pasted image 20261013200745.png",
     "assets/Pasted image 20261013195358.png",
     "assets/Pasted image 20261013194838.png",
     "Kubernetes/How to create pods.md",
-    "Kubernetes/How to actually use kubernetes.md",
     "assets/Pasted image 20261013194823.png",
     "assets/Pasted image 20261013194605.png",
     "Kubernetes/How I installed k8s.md",
-    "Kubernetes/Basics.md",
     "Kubernetes/Untitled.md",
     "HLD/DS - Replication (or Redundancy).md",
     "HLD/Distributed systems - How to scale.md",
@@ -244,7 +230,6 @@
     "assets/Pasted image 20261011214925.png",
     "assets/Pasted image 20261011214838.png",
     "assets/Pasted image 20261011214807.png",
-    "assets/Pasted image 20261011214732.png",
     "Cryptography/Argon2id.md",
     "Cryptography/AEAD.md",
     "Cryptography/Nonce.md",

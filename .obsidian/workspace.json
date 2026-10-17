@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CN/Helpful diagrams.md",
+                "file": "CN/IP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Helpful diagrams"
+              "title": "IP"
             }
           }
         ]
@@ -207,6 +207,7 @@
   },
   "active": "89e5a89a6fa4639b",
   "lastOpenFiles": [
+    "CN/Helpful diagrams.md",
     "assets/Pasted image 20261016113246.png",
     "CN/IP.md",
     "assets/Pasted image 20261016113212.png",
@@ -214,7 +215,6 @@
     "assets/Pasted image 20261016112325.png",
     "assets/Pasted image 20261016112314.png",
     "assets/Pasted image 20261016112304.png",
-    "CN/Helpful diagrams.md",
     "assets/Pasted image 20261016112055.png",
     "CN/TCP and UDP.md",
     "CN/Addresses in TCP_IP.md",
@@ -222,7 +222,6 @@
     "assets/Pasted image 20261016105219.png",
     "assets/Pasted image 20261016104532.png",
     "assets/Pasted image 20261016104132.png",
-    "assets/Pasted image 20261016104117.png",
     "CN/Network layer.md",
     "LLD/What LLD focuses on.md",
     "LLD",

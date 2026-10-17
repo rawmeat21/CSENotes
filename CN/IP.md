@@ -172,6 +172,8 @@ The key differences between IPv4 and IPv6 are primarily related to the address f
 - IPv4 relies heavily on Network Address Translation (NAT) to handle address shortages.
 - IPv6 eliminates the need for NAT by providing ample address space, simplifying network configuration.
 
+
+
 ## Types of IP Addresses
 
 There are several types of IP addresses, each serving a specific purpose:

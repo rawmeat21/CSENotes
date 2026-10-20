@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASM/Assembler.md",
+                "file": "ASM/Assembler instruction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Assembler"
+              "title": "Assembler instruction"
             }
           },
           {
@@ -235,10 +235,16 @@
   },
   "active": "89e5a89a6fa4639b",
   "lastOpenFiles": [
+    "assets/Pasted image 20261020121613.png",
+    "ASM/Assembler.md",
+    "ASM/Assembler instruction.md",
+    "ASM/A more complicated example of assembly.md",
+    "ASM/A simple example of assembly.md",
+    "assets/Pasted image 20261020110953.png",
+    "assets/Pasted image 20261020110655.png",
     "assets/Pasted image 20261019153953.png",
     "assets/Pasted image 20261019152808.png",
     "ASM/COM vs EXE.md",
-    "ASM/Assembler.md",
     "assets/Pasted image 20261019150405.png",
     "ASM/Interrupts.md",
     "ASM/DEBUG program.md",
@@ -248,9 +254,6 @@
     "assets/Pasted image 20261019142350.png",
     "assets/Pasted image 20261019142338.png",
     "assets/Pasted image 20261019142327.png",
-    "assets/Pasted image 20261019142320.png",
-    "assets/Pasted image 20261019142203.png",
-    "assets/Pasted image 20261019142157.png",
     "ASM/8086 architecture.md",
     "ASM/Registers in 8086.md",
     "ASM/Systems programming basics.md",
@@ -269,9 +272,6 @@
     "Kubernetes/How I installed k8s.md",
     "Kubernetes/Untitled.md",
     "HLD/DS - Replication (or Redundancy).md",
-    "HLD/Distributed systems - How to scale.md",
-    "Cryptography/What is an OS keyring.md",
-    "Cryptography/What is hex dump.md",
     "OOP",
     "Cryptography",
     "Untitled 5.base",

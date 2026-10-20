@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASM/8086 addressing modes.md",
+                "file": "ASM/Assembler.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "8086 addressing modes"
+              "title": "Assembler"
             }
           },
           {
@@ -235,19 +235,23 @@
   },
   "active": "89e5a89a6fa4639b",
   "lastOpenFiles": [
+    "assets/Pasted image 20261019153953.png",
+    "assets/Pasted image 20261019152808.png",
+    "ASM/COM vs EXE.md",
+    "ASM/Assembler.md",
+    "assets/Pasted image 20261019150405.png",
+    "ASM/Interrupts.md",
+    "ASM/DEBUG program.md",
+    "assets/Pasted image 20261019143746.png",
+    "assets/Pasted image 20261019143736.png",
+    "ASM/8086 addressing modes.md",
     "assets/Pasted image 20261019142350.png",
     "assets/Pasted image 20261019142338.png",
     "assets/Pasted image 20261019142327.png",
     "assets/Pasted image 20261019142320.png",
     "assets/Pasted image 20261019142203.png",
     "assets/Pasted image 20261019142157.png",
-    "assets/Pasted image 20261019142147.png",
-    "assets/Pasted image 20261019142137.png",
-    "assets/Pasted image 20261019142110.png",
-    "assets/Pasted image 20261019141946.png",
-    "assets/Pasted image 20261019141937.png",
     "ASM/8086 architecture.md",
-    "ASM/8086 addressing modes.md",
     "ASM/Registers in 8086.md",
     "ASM/Systems programming basics.md",
     "LLD/What LLD focuses on.md",
@@ -268,11 +272,7 @@
     "HLD/Distributed systems - How to scale.md",
     "Cryptography/What is an OS keyring.md",
     "Cryptography/What is hex dump.md",
-    "Cryptography/What is password hashing.md",
-    "OOP/How to serialize a object.md",
     "OOP",
-    "Cryptography/Argon2id.md",
-    "Cryptography/AEAD.md",
     "Cryptography",
     "Untitled 5.base",
     "HLD",

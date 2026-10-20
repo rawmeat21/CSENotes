@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASM/SICXE.md",
+                "file": "Linux/pacman.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SICXE"
+              "title": "pacman"
             }
           },
           {
@@ -235,8 +235,10 @@
   },
   "active": "89e5a89a6fa4639b",
   "lastOpenFiles": [
-    "ASM/SIC.md",
+    "Shell Scripting/awk.md",
+    "Linux/pacman.md",
     "ASM/SICXE.md",
+    "ASM/SIC.md",
     "assets/Pasted image 20261020133202.png",
     "assets/Pasted image 20261020133139.png",
     "assets/Pasted image 20261020132909.png",
@@ -270,7 +272,6 @@
     "Kubernetes/Basics.md",
     "Kubernetes/How to actually use kubernetes.md",
     "Kubernetes/How to create pods.md",
-    "Kubernetes/How I installed k8s.md",
     "OOP",
     "Cryptography",
     "Untitled 5.base",

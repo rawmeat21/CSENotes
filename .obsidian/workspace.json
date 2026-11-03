@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CG/How are objects modelled in 3D.md",
+                "file": "CG/Splines.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "How are objects modelled in 3D"
+              "title": "Splines"
             }
           },
           {
@@ -235,6 +235,13 @@
   },
   "active": "89e5a89a6fa4639b",
   "lastOpenFiles": [
+    "assets/Pasted image 20261103204200.png",
+    "assets/Pasted image 20261103202832.png",
+    "assets/Pasted image 20261103202818.png",
+    "assets/Pasted image 20261103202704.png",
+    "Weird fucking interview questions/wdym I need to code my own malloc.md",
+    "CG/Splines.md",
+    "CG/How are objects modelled in 3D.md",
     "assets/Pasted image 20261101203043.png",
     "assets/Pasted image 20261101202846.png",
     "assets/Pasted image 20261101202730.png",
@@ -242,12 +249,7 @@
     "assets/Pasted image 20261101202531.png",
     "assets/Pasted image 20261101202224.png",
     "assets/Pasted image 20261101202015.png",
-    "assets/Pasted image 20261101201847.png",
-    "assets/Pasted image 20261101201827.png",
-    "assets/Pasted image 20261101201702.png",
-    "assets/Pasted image 20261101201600.png",
     "CG/3D clipping.md",
-    "CG/How are objects modelled in 3D.md",
     "CG/Clipping.md",
     "CG/3D modelling.md",
     "CG/3D viewing.md",
@@ -270,8 +272,6 @@
     "ASM/Interrupts.md",
     "ASM/DEBUG program.md",
     "ASM/8086 addressing modes.md",
-    "ASM/8086 architecture.md",
-    "ASM/Registers in 8086.md",
     "LLD",
     "OOP",
     "Cryptography",

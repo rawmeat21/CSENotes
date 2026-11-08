@@ -1,4 +1,12 @@
 
+| Comparison Type                           | Command                                             | What it Shows                                                                                  | Typical Use Case                                                 |
+| ----------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Working Tree vs. Index (Staging area)** | `git diff`                                          | All modifications in your local files that **have not been staged** (`git add`) yet.           | "What did I just type that isn't ready to be committed?"         |
+| **Index (Staging area) vs. Last Commit**  | `git diff --staged`  <br>_(or `git diff --cached`)_ | All modifications that **have been staged** and are locked in for the next commit.             | "What exactly am I about to commit when I run `git commit`?"     |
+| **Working Tree vs. Last Commit**          | `git diff HEAD`                                     | **All changes** made since the last commit, regardless of whether they are staged or unstaged. | "What has changed overall in my workspace since my last commit?" |
+
+
+
 `git diff --stat HEAD..origin/main`
 
 This command tells Git to **compare your current working state with the main branch on the remote server (`origin`)** and summarize the changes. Useful if you want to see the changes made in remote repo that are not in your local (maybe you can't push to the repo).
@@ -47,5 +55,6 @@ While it _often_ equals the last commit you made during normal daily workflow, i
         
 
 In short: `HEAD` is **where Git is currently pointing**, regardless of when or by whom that commit was created.
+
 
 

@@ -6,7 +6,7 @@ Assembler is the tool to convert an assembly language program into machine langu
 
  -> Translating mnemonic operation codes to their machine language equivalents
  -> Convert symbolic (e.g., jump labels, variable names) operands to their machine addresses.
- -> Use proper addressing modes and formats to build efficient machine instructions
+ -> Use proper addressing modes and formats to build (efficient) machine instructions
  -> Translate data constants into internal machine representations
  -> Output the object program and provide other information (e.g., for linker and loader)
 

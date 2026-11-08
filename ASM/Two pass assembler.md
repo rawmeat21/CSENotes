@@ -20,11 +20,33 @@ Data structures used: OPTAB, SYMTAB, LOCCTR
 
 ![](../assets/Pasted%20image%2020261108115003.png)
 
+Kinda looks like this:
+
+```
+Mnemonic   Format   Opcode (hex)
+--------   ------   ------------
+ADD        3/4      18
+ADDR       2        90
+CLEAR      2        B4
+COMP       3/4      28
+FIX        1        C4
+J          3/4      3C
+JEQ        3/4      30
+JSUB       3/4      48
+LDA        3/4      00
+LDB        3/4      68
+LDT        3/4      74
+RSUB       3/4      4C
+STA        3/4      0C
+STL        3/4      14
+TIXR       2        B8
+```
+
 ### SYMTAB (Symbol table)
 
 ![](../assets/Pasted%20image%2020261108115201.png)
 
-Example of SYMTAB (See 'A more complicated example of assembly'):
+Example of SYMTAB (See 'A more complicated example of assembly.md'):
 
 ![](../assets/Pasted%20image%2020261108115237.png)
 

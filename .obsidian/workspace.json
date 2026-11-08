@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASM/Features of an assembler.md",
+                "file": "ASM/Strings.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Features of an assembler"
+              "title": "Strings"
             }
           },
           {
@@ -221,6 +221,20 @@
   },
   "active": "bc30fb4a5d1e3868",
   "lastOpenFiles": [
+    "assets/Pasted image 20261108223534.png",
+    "assets/Pasted image 20261108223510.png",
+    "assets/Pasted image 20261108223441.png",
+    "assets/Pasted image 20261108223346.png",
+    "ASM/Macros.md",
+    "ASM/Strings.md",
+    "assets/Pasted image 20261108223242.png",
+    "assets/Pasted image 20261108223230.png",
+    "assets/Pasted image 20261108223210.png",
+    "assets/Pasted image 20261108223120.png",
+    "assets/Pasted image 20261108223106.png",
+    "assets/Pasted image 20261108223052.png",
+    "assets/Pasted image 20261108222931.png",
+    "ASM/Features of an assembler.md",
     "ASM/Interrupts.md",
     "ASM/Registers in 8086.md",
     "ASM/SICXE.md",
@@ -228,16 +242,7 @@
     "ASM/Systems programming basics.md",
     "ASM/Two pass assembler.md",
     "ASM/A more complicated example of assembly.md",
-    "ASM/Features of an assembler.md",
-    "assets/Pasted image 20261108124943.png",
     "ASM/Assembler.md",
-    "assets/Pasted image 20261108115304.png",
-    "assets/Pasted image 20261108115237.png",
-    "assets/Pasted image 20261108115201.png",
-    "assets/Pasted image 20261108115003.png",
-    "assets/Pasted image 20261108114827.png",
-    "assets/Pasted image 20261108114815.png",
-    "assets/Pasted image 20261108114745.png",
     "ASM/Assembler instruction.md",
     "ASM/SIC.md",
     "ASM/DEBUG program.md",
@@ -252,10 +257,6 @@
     "Git/Git commands.md",
     "Git/Some tips.md",
     "Git/One git workflow for them all.md",
-    "CG/Splines.md",
-    "assets/Pasted image 20261103204200.png",
-    "assets/Pasted image 20261103202832.png",
-    "Weird fucking interview questions/wdym I need to code my own malloc.md",
     "Ricing",
     "LLD",
     "OOP",

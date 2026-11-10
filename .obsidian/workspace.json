@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASM/Features of an assembler.md",
+                "file": "ASM/One pass assembler.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Features of an assembler"
+              "title": "One pass assembler"
             }
           },
           {
@@ -221,20 +221,21 @@
   },
   "active": "bc30fb4a5d1e3868",
   "lastOpenFiles": [
+    "assets/Pasted image 20261110132553.png",
+    "assets/Pasted image 20261110132533.png",
+    "assets/Pasted image 20261110132519.png",
+    "assets/Pasted image 20261110132353.png",
+    "assets/Pasted image 20261110132327.png",
+    "ASM/Features of an assembler.md",
+    "ASM/One pass assembler.md",
     "assets/Pasted image 20261110132012.png",
     "assets/Pasted image 20261110131900.png",
     "assets/Pasted image 20261110131845.png",
     "assets/Pasted image 20261110131805.png",
     "assets/Pasted image 20261110131329.png",
     "assets/Pasted image 20261110130936.png",
-    "assets/Pasted image 20261110124707.png",
-    "assets/Pasted image 20261110124304.png",
-    "assets/Pasted image 20261110122424.png",
-    "assets/Pasted image 20261110121041.png",
-    "assets/Pasted image 20261110120930.png",
     "ASM/Strings.md",
     "ASM/Macros.md",
-    "ASM/Features of an assembler.md",
     "ASM/Interrupts.md",
     "ASM/Registers in 8086.md",
     "ASM/SICXE.md",
@@ -256,7 +257,6 @@
     "Git/Workflow to contribute to a public project on a site like Github.md",
     "Git/Git commands.md",
     "Git/Some tips.md",
-    "Git/One git workflow for them all.md",
     "Ricing",
     "LLD",
     "OOP",

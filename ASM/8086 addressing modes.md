@@ -1,10 +1,16 @@
 ## Immediate addressing mode
 
-In Immediate Addressing mode the datafollows immediately after the opcode
+In Immediate Addressing mode the datafollows immediately after the opcode. Data operand is a part of the instruction itself.
+
+General form: opecode reg, value
 
 ex: `mov dx, 1234h`
 
 ## Register addressing mode
+
+It means that the register is the source of an operand for an instruction.
+
+General form is: opcode reg1 reg2
 
 ![](../assets/Pasted%20image%2020261019134128.png)
 
@@ -12,6 +18,8 @@ ex: `mov dx, 1234h`
 ## Memory addressing mode
 
 ### Direct addressing
+
+The addressing mode in which the effective address of the memory location is written directly in the instruction.
 
 ![](../assets/Pasted%20image%2020261019134354.png)
 
@@ -46,6 +54,8 @@ So the instruction copies the _contents_ of the memory location, not its address
 
 #### Register indirect addressing
 
+This addressing mode allows data to be addressed at any memory location through an offset address held in any of the following registers: BP, BX, DI & SI.
+
 ![](../assets/Pasted%20image%2020261019135711.png)
 
 It is kinda like: `CL = *SI`.
@@ -68,11 +78,11 @@ Each memory access uses a default segment register:
 - BX, SI, and DI default to **DS** (the data segment).
 - BP defaults to **SS** (the stack segment).
 
-So when the slide says “from memory addressing point of view”, it means ordinary _data_ access, the variables you declared in `.DATA`. For that, BX, SI, and DI are the registers, because they point into DS. BP is not used for that purpose.
+So when it says “from memory addressing point of view”, it means ordinary _data_ access, the variables you declared in `.DATA`. For that, BX, SI, and DI are the registers, because they point into DS. BP is not used for that purpose.
 
 **What “user point of view” means**
 
-This is loose wording on the slide, but I read it as “what you are allowed to write.” As a programmer, `[BP]` is valid syntax, so you can write `MOV AL, [BP]`. It just reads from the stack segment instead of the data segment. BP exists mainly for accessing stack contents, such as parameters and local variables inside a procedure.
+As a programmer, `[BP]` is valid syntax, so you can write `MOV AL, [BP]`. It just reads from the stack segment instead of the data segment. BP exists mainly for accessing stack contents, such as parameters and local variables inside a procedure.
 
 You can force a different segment with an override, for example `MOV AL, DS:[BP]`, but you rarely need that.
 
@@ -81,6 +91,8 @@ You can force a different segment with an override, for example `MOV AL, DS:[BP]
 IMP: **They are not restricted to holding offsets.** BX, SI, and DI are general-purpose in the sense that you can also use them for arithmetic or as plain values. They become an address only at the moment you put them inside brackets.
 
 #### Based address with displacement
+
+In this addressing mode, the offset address of the operand is given by the sum of contents of the BX/BP registers and 8-bit/16-bit displacement.
 
 **Base register can only be BX or BP**
 
@@ -91,6 +103,8 @@ IMP: **They are not restricted to holding offsets.** BX, SI, and DI are general-
 
 #### Indexed addressing with displacement
 
+In this addressing mode, the operands offset address is found by adding the contents of SI or DI register and 8-bit/16-bit displacements.
+
 **Index register can only be SI or DI**
 
 ![](../assets/Pasted%20image%2020261019141701.png)
@@ -99,6 +113,8 @@ IMP: **They are not restricted to holding offsets.** BX, SI, and DI are general-
 
 
 #### Based indexed addressing
+
+In this addressing mode, the offset address of the operand is computed by summing the base register to the contents of an Index register.
 
 **One Register must be a Base register and the other must be an Index register**
 
@@ -111,6 +127,8 @@ IMP: **They are not restricted to holding offsets.** BX, SI, and DI are general-
 
 
 #### Based indexed addressing with displacement
+
+In this addressing mode, the operands offset is computed by adding the base register contents to an Index register's contents and 8 or 16-bit displacement.
 
 ![](../assets/Pasted%20image%2020261019141937.png)
 

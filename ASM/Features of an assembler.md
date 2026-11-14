@@ -272,174 +272,86 @@ Two issues appear:
 
 Program blocks helps address these problems.
 
+
+![](../assets/Pasted%20image%2020261114144217.png)
+![](../assets/Pasted%20image%2020261114144240.png)
+![](../assets/Pasted%20image%2020261114144229.png)
+
+In main subroutine, you can see a `USE` instruction: `USE CDATA`. This means that all instructions after this directive and before the next `USE` directive belong to block CDATA. So, lines 95, 100 belong to CDATA. 
+
+In RDREC, at line 123, you see a single `USE` directive but no blockname. This refers to the default block.
+
+At line 252, we again have the CDATA block. This causes the lines 95, 100, 253, 255 to be grouped together.
+
 ```
 USE [blockname]
 ```
 
-`USE` is an assembler directive (no object code). It means “from here on, the following lines belong to this block.”
+`USE` is an assembler directive (no object code). 
 
 - `USE` with no name switches to the **default (unnamed) block**.
 - Everything before the first `USE` is also in the default block.
 - You can switch back and forth. Each block may appear in **several separate pieces** of the source.
 
-Example:
 
-```
-COPY    START  0
-        ...                  default block
-        LDA    LENGTH
-        COMP   #0
-        ...
-        USE    CDATA         switch to block CDATA
-LENGTH  RESW   1
-        ...
-        USE    CBLKS         switch to block CBLKS
-BUFFER  RESB   4096
-BUFEND  EQU    *
-        ...
-        USE                  back to default block
-        STA    LENGTH        (continues the default block)
-        RSUB
-        END
-```
+![](../assets/Pasted%20image%2020261114145058.png)
+![](../assets/Pasted%20image%2020261114145247.png)
+![](../assets/Pasted%20image%2020261114145351.png)
 
-Source order has three jumps (default, CDATA, CBLKS, default again). Memory order after assembly:
+Let's talk about pass 1:
 
-```
-Source order:                    Memory order:
+The assembler goes through each line and assigns a block number. Be mindful that the LC is not continuous. It resets to `0000` when it finds a new block and continues from there. 
 
- default (part 1)                +----------------------+ 0000
- CDATA   (LENGTH)                | default (part 1 + 2) |  all the code
- CBLKS   (BUFFER)                +----------------------+
- default (part 2)                | CDATA                |  small data
-                                 +----------------------+
-                                 | CBLKS                |  big buffer
-                                 +----------------------+
-```
+At line 123, note that LC=`0027`. This is because block 0 paused at `0024` at line 70 before.
+
+Now, note the following from the figure:
+
+- First instruction of default block (0) is at 0000. Last is at 0063.
+- After this the CDATA block starts at 0066. Now, last instruction of CDATA occurs at 000A. This gives the next block's (CBLKS) starting address, which is 0066+000A+1=0071 (the last object code is 1 byte long)
+
+![](../assets/Pasted%20image%2020261114150717.png)
+
 
 #### Program blocks implementation
 
 ![](../assets/Pasted%20image%2020261110130936.png)
 
-An example:
-
-**Without blocks:**
-
-```
-Addr
-0000  FIRST   LDA    LENGTH        <- needs LENGTH
-0003          ADD    #1
-0006          STA    LENGTH
-0009          J      DONE
-000C  BUFFER  RESB   4096          <- big buffer in the middle
-100C  LENGTH  RESW   1
-100F  DONE    LDA    #0
-1012          RSUB
-```
-
-`BUFFER` takes 4096 = 1000 hex bytes, so everything after it is pushed far away. Now try to assemble `LDA LENGTH` at 0000:
-
-```
-PC = 0003
-LENGTH = 100C
-disp = 100C - 0003 = 1009 hex = 4105 decimal
-
-PC-relative range is -2048..+2047  -> 4105 doesn't fit
-```
-
-Base-relative is the fallback, but only if you have set up `LDB` and `BASE`. Otherwise the assembler reports an error, and your only fix is writing `+LDA LENGTH`, which is 4 bytes and needs a modification record. The same thing happens to `STA LENGTH` and `J DONE`, so you’d end up converting several instructions to format 4 (or setting up base) just because one big buffer sat in the wrong place.
 
 
-**With blocks:**
+### Control sections and program linking
 
-The only change is that you put the buffer in its own block with `USE`. The source order stays almost the same:
-
-```
-FIRST   LDA    LENGTH
-        ADD    #1
-        STA    LENGTH
-        J      DONE
-        USE    CDATA
-LENGTH  RESW   1
-        USE    CBLKS
-BUFFER  RESB   4096
-        USE                    <- back to default block
-DONE    LDA    #0
-        RSUB
-```
-
-The default block holds all the code (even though `DONE` is written after the buffer), CDATA holds `LENGTH`, and CBLKS holds the buffer.
-
-**Pass 1** gives each block its own counter, so the block lengths come out as:
-
-```
-Block      Number   Length
-(default)  0        0012   (LDA, ADD, STA, J, LDA, RSUB = 3+3+3+3+3+3 = 18 = 0012 hex)
-CDATA      1        0003
-CBLKS      2        1000
-```
-
-Additionally the address field is also there. It looks more like the following table:
-
-![](../assets/Pasted%20image%2020261110131329.png)
-
-The blocks are then stacked in order:
-
-```
-Block      Start   Length   Occupies
-(default)  0000    0012     0000 - 0011
-CDATA      0012    0003     0012 - 0014
-CBLKS      0015    1000     0015 - 1014
-```
-
-**Final addresses** = block start + offset inside the block:
-
-```
-LENGTH = 0012 + 0 = 0012
-DONE   = 0000 + 0C = 000C   (it is the 5th instruction in the default block: offset 0C)
-BUFFER = 0015
-```
-
-Now redo `LDA LENGTH` at 0000:
-
-```
-PC = 0003
-disp = 0012 - 0003 = 000F      -> tiny, fits easily
-```
-
-Object code (simple, PC-relative, n=1 i=1, p=1):
-
-```
-000000 11 | 0010 | 0000 0000 1111   ->  03 20 0F
-```
-
-`STA LENGTH` and `J DONE` also come out as small displacements, and all of them are ordinary 3-byte instructions with no modification records.
-
-
-Now,
-```
-Without blocks:   [code][....4096-byte buffer....][data][code]
-                   LDA LENGTH needs to jump over the buffer -> disp 4105, too far
-
-With blocks:      [code, all together][data][....4096-byte buffer....]
-                   LDA LENGTH is just 15 bytes away -> disp 0F, fits
-```
-
-
-### Control sections
-
+-> refers to segments of code that are translated into independent object program units.
 -> Most often used for subroutines or other logical subdivisions of a program
 -> Programmers can assemble, load, and manipulate each of these control sections separately
 -> Instruction in one control section may need to refer to instructions or data in another section. Because of this, there should be some means for linking control sections together
 
+![](../assets/Pasted%20image%2020261114151903.png)
+![](../assets/Pasted%20image%2020261114151927.png)
+![](../assets/Pasted%20image%2020261114151938.png)
+
+CSECT is used to define a control section.
+
+For example:
+
+RDREC is one control section (defined at line 109). `EXTDEF` at 122 tells us about symbols defined outside RDREC which are used in RDREC.
+
+The main routine is also a control section. It has `EXTREF` and `EXTDEF`. `EXTDEF` tells us about the symbols defined in the main control section and usable elsewhere.
 #### External definitions and references
+
+These are used to provide the linking between control sections. There are two of these directives: `EXTDEF` and `EXTREF`.
 
 ![](../assets/Pasted%20image%2020261110131805.png)
 
 
 #### Implementation
 
+Two new records are used (D and R).
+
+D is for EXTDEF
+R is for EXTREF
+
 ![](../assets/Pasted%20image%2020261110131845.png)
+
 ![](../assets/Pasted%20image%2020261110131900.png)
 
 

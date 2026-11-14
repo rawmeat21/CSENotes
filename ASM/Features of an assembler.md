@@ -31,40 +31,37 @@ Already discussed for SIC/XE.
 
 ### Literals
 
+![](../assets/Pasted%20image%2020261114131701.png)
+
+On the left, you see the program without literals. At line 45, 3 bytes of data are loaded into the accumulator. The 3 bytes of data are placed at line 80.
+
+On the right, you see a program with literals. At line 45, however, we directly assign the value to LDA and don't write it again afterwards. How to make this work?
+
 ![](../assets/Pasted%20image%2020261108124943.png)
 
 
 The `=` is what marks it as a literal. `=C'EOF'` means “the 3 characters E, O, F”. `=X'05'` means “the hex byte 05”.
 
-Columns: line number, address, label, opcode, operand, object code:
-```
-45   001A   ENDFIL   LDA   =C'EOF'     032010
-93                   LTORG
-     002D   *        =C'EOF'            454F46
-```
+![](../assets/Pasted%20image%2020261114132150.png)
 
-At address 001A, `LDA =C'EOF'` is assembled. The assembler doesn’t know yet where the literal will live, so it just records the literal in a table called **LITTAB** (literal table).
+Difference between literal and immediate addressing:
 
-`LTORG` is a directive meaning “place all the pending literals here.” The assembler dumps the literal’s bytes at that point, at address 002D. The `*` in the label column just marks “this is a literal, not a labeled symbol”. The object code `454F46` is the ASCII for E, O, F (45 = E, 4F = O, 46 = F).
-
-Now the literal has an address, 002D, so `LDA` can be finished.
-
-```
-PC after LDA = 001A + 3 = 001D
-disp = 002D - 001D = 10 (hex)
-
-03 20 10  ->  opcode 00, n=1 i=1, p=1, disp=010
-```
-
-
-Difference between literal and immediate addressing: In immediate operands, the operand value is assembled as part of the machine instruction. Ex- `LDA #3`. For literals, the assembler generates the specified value as a constant at some other memory location. Ex- `LDA =C’EOF’`.
+![](../assets/Pasted%20image%2020261114132513.png)
 
 
 #### Literals implementation
 
 ##### Literal pools
 
--> Normally literals are placed into a pool at the end of the program. In some cases, it is desirable to place literals into a pool at some other location in the object program. For this, assembler directive `LTORG` is used. 
+-> Normally literals are placed into a pool at the end of the program. In some cases, it is desirable to place literals into a pool at some other location in the object program. For this, assembler directive `LTORG` is used. It creates a literal pool that contains all of the literal operands used since previous `LTORG`.
+
+![](../assets/Pasted%20image%2020261114132704.png)
+
+![](../assets/Pasted%20image%2020261114132851.png)
+
+Look at the left part. At line 45, the object code is `032010`, and the EOF label is at `002D`. This is basically PC relative addressing.
+
+On the right, note that the object code remained same. We placed `LTORG` at line 93. This dumped the label for the literal (`=C'EOF'`) after `LTORG`.
 
 ##### Duplicate pools
 
@@ -95,7 +92,7 @@ The assembler converts each literal to its actual bytes, then compares those. Th
 
 ##### LITTAB
 
-The literal table contains: literal name, the operand value and length, the address assigned to the operand. Ex- 
+The literal table contains: literal name, the operand value and length, the address assigned to the operand. It is organised as a hash table. Ex- 
 
 ```
 Literal name | Operand value | Length | Address
@@ -132,13 +129,13 @@ Normally, a label’s value is the LOCCTR at the line where we write it:
 TOTAL   RESW   1        TOTAL = address of this line (set by LOCCTR)
 ```
 
-With EQU, we can choose the value:
+EQU is used to define symbols. Syntax: `symbol EQU value`. A `value` can be a constant, expression or some other symbol.
 
-```
-MAXLEN  EQU    4096     MAXLEN = 4096
-```
+Example 1:
 
-EQU generates **no object code** and uses no memory. It only adds an entry to SYMTAB, with the value you specified.
+![](../assets/Pasted%20image%2020261114134501.png)
+
+EQU generates **no object code** and uses no memory. It only adds an entry to SYMTAB, with the value we specify.
 
 Example 2 (register naming):
 ```
@@ -155,12 +152,12 @@ MAXLEN  EQU    BUFEND-BUFFER
 
 The value is an **expression**: the distance between two labels. If BUFFER is at 1036 and BUFEND is at 2036, then MAXLEN = 1000 (hex 1000 - hex 36 etc., whatever the subtraction gives). So the buffer’s size is calculated automatically, and if you resize the buffer, MAXLEN updates by itself.
 
-This one has a catch: the assembler must already know BUFEND and BUFFER when it reaches the EQU line. That is the **forward reference rule**. For EQU, every symbol in the expression must be defined _earlier_ in the program, because Pass 1 needs the value immediately to store in SYMTAB.
-
 
 #### ORG (origin)
 
-**ORG** is an assembler directive that **resets the location counter (LOCCTR) to a value you choose**.
+**ORG** is an assembler directive that **resets the location counter (LOCCTR) to a value we choose**.
+
+Syntax: `ORG value` (Sets `LOCCTR = value)
 
 Suppose you want to build a symbol table. There are 100 entries. Each entry is 11 bytes (6+3+2). So, you need 1100 bytes in total.
 
@@ -187,6 +184,8 @@ FLAGS   RESB   2          FLAGS  = 1009, LOCCTR -> 100B
 
 ### Expressions 
 
+![](../assets/Pasted%20image%2020261114135204.png)
+
 ![](../assets/Pasted%20image%2020261110122424.png)
 
 The reason is that a relative term is really “program start address + some fixed offset”, and two such terms with opposite signs cancel the unknown part.
@@ -194,7 +193,7 @@ The reason is that a relative term is really “program start address + some fix
 - **Absolute**: a value that is the same no matter where the program is loaded (`4096`, a size, a count).
 - **Relative**: a value that depends on where the program is loaded. Every label is like this, because its address shifts if the whole program moves.
 
-#### SYMTAB
+#### SYMTAB modification for expressions
 
 A little bit of context:
 
@@ -272,8 +271,6 @@ Two issues appear:
 2. **Readability.** You’d like to put `LENGTH` and `BUFFER` next to the code that uses them for readability, but you’d also like them physically grouped at the end of the program.
 
 Program blocks helps address these problems.
-
-
 
 ```
 USE [blockname]

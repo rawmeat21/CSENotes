@@ -172,26 +172,33 @@ INPUT   BYTE X'F1'        the code for the input device
 
 ## Relocating loaders
 
+![](../assets/Pasted%20image%2020261114191411.png)
+
 Benifit of relocation loaders:
 
 -> efficient sharing of the machine with larger memory when several independent programs are to be run together
 -> support the use of subroutine libraries efficiently
 
+![](../assets/Pasted%20image%2020261114191551.png)
+
 
 There are 2 methods for specifying relocation:
 
--> Modification record
+-> Relocation bit (for SIC)
 
-- The assembler adds an extra record type, the **M record**, to the object program
-- Each M record says “the address field at this location needs to be adjusted”
-- The loader adds the program’s actual starting address to each field listed
-
--> Relocation bit
-
-- Each instruction gets **one relocation bit**
+- A relocation bit associated with each word of object code.
     - 1 = modification is necessary
     - 0 = no modification is needed
-- The relocation bits for a Text record are **gathered into a bit mask**, which is stored in that Text record
-- The loader reads the mask and relocates only the instructions whose bit is 1
+- Twelve-bit mask is used in each Text record, as each text record contains less than 12 words. 
+  -> Unused words are set to 0
+  -> Any value that is to be modified during relocation must coincide with one of these 3-byte segments
+- For SIC/XE, relocation only affects format 4 instructions. This is because all modes in format 3 are relative. Format 1 and 2 don't even use any address.
+
+
+-> Modification record (for SIC/XE)
+
+- To describe each part of the object code that must be changed when the program is relocated.
+- The extended format instructions in SIC/XE (format 4) are affected by relocation.
+- Not well suited for standard version of SIC, all the instructions except RSUB must be modified when the program is relocated. 
 
 

@@ -1,6 +1,18 @@
 ![](../assets/Pasted%20image%2020261114101958.png)
 
+![](../assets/Pasted%20image%2020261114153922.png)
 
+A loader basically does:
+
+![](../assets/Pasted%20image%2020261114153954.png)
+
+But the object code may consist of multiple object files. these need to be combined. For that, we need the linker:
+
+![](../assets/Pasted%20image%2020261114154317.png)
+
+Some functions of the linker:
+
+![](../assets/Pasted%20image%2020261114154514.png)
 
 To execute an object program, we need:
 
@@ -14,8 +26,7 @@ To execute an object program, we need:
 
 
 - **Loader**: brings an object program into memory and starts its execution
-- **Linker**: performs only the linking operations
-  - A separate loader handles relocation and loading
+- **Linker**: performs only the linking operations. A separate loader handles relocation and loading
 
 
 
@@ -40,11 +51,15 @@ To execute an object program, we need:
 
 An absolute loader loads the program at the **fixed address written in the object program**
 
--> Does not perform linking and program relocation.
+-> **Does not perform linking and program relocation.**
 -> The contents of memory locations for which there is no text record are shown as xxxx.
 -> Each byte of assembled code is given using its Hex representation in character form.
 
+![](../assets/Pasted%20image%2020261114154914.png)
+
 ![](../assets/Pasted%20image%2020261114103255.png)
+
+How to read the memory layout: Program starts at address 1000. Now in a line you can place 32 hex digits. 2 hex digits form 1 byte, so a line is 16 bytes. The line starting at 1000 is more like this: 1000->14, 1001->10, 1002->33, 1003->48, ..., 100F->48. This maps to the first object code: `141033`.
 
 ### Algorithm
 
@@ -155,8 +170,6 @@ INPUT   BYTE X'F1'        the code for the input device
 ![](../assets/Pasted%20image%2020261114111706.png)
 
 
-
-
 ## Relocating loaders
 
 Benifit of relocation loaders:
@@ -165,7 +178,7 @@ Benifit of relocation loaders:
 -> support the use of subroutine libraries efficiently
 
 
-There are 2methods for specifying relocation:
+There are 2 methods for specifying relocation:
 
 -> Modification record
 

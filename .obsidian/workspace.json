@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASM/Features of an assembler.md",
+                "file": "ASM/Loaders and Linkers.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Features of an assembler"
+              "title": "Loaders and Linkers"
             }
           },
           {
@@ -221,19 +221,19 @@
   },
   "active": "bc30fb4a5d1e3868",
   "lastOpenFiles": [
+    "assets/Pasted image 20261114154914.png",
+    "assets/Pasted image 20261114154514.png",
+    "assets/Pasted image 20261114154317.png",
+    "assets/Pasted image 20261114153954.png",
+    "assets/Pasted image 20261114153922.png",
+    "ASM/Features of an assembler.md",
     "assets/Pasted image 20261114151938.png",
     "assets/Pasted image 20261114151927.png",
     "assets/Pasted image 20261114151903.png",
     "assets/Pasted image 20261114150717.png",
     "assets/Pasted image 20261114145351.png",
     "assets/Pasted image 20261114145247.png",
-    "assets/Pasted image 20261114145058.png",
-    "assets/Pasted image 20261114144240.png",
-    "assets/Pasted image 20261114144229.png",
-    "assets/Pasted image 20261114144217.png",
     "ASM/Macros.md",
-    "ASM/Features of an assembler.md",
-    "assets/Pasted image 20261114135204.png",
     "ASM/SICXE.md",
     "ASM/Records in SIC AND SICXE.md",
     "ASM/Loaders and Linkers.md",

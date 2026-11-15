@@ -82,7 +82,7 @@ return address of main    <-- f1_bp + 2
 f1 arg1                   <-- f1_bp + 4
 ----------
 f1 arg2                   <-- f1_bp + 6
-
+----------
 ```
 
 Here, I have drawn the stack after `main` has called `f1` inside it, and `f1` has called `f2` inside it. Btw, `f1_bp` is what the `bp` register holds when `f1` is being executed. Same for `f2_bp`.

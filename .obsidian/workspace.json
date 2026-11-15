@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASM/Loaders and Linkers.md",
+                "file": "ASM/C to 8086 ASM (basic).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Loaders and Linkers"
+              "title": "C to 8086 ASM (basic)"
             }
           },
           {
@@ -221,6 +221,9 @@
   },
   "active": "bc30fb4a5d1e3868",
   "lastOpenFiles": [
+    "Shell Scripting/sed.md",
+    "ASM/C to 8086 ASM (basic).md",
+    "ASM/Loaders and Linkers.md",
     "assets/Pasted image 20261114191551.png",
     "assets/Pasted image 20261114191411.png",
     "assets/Pasted image 20261114154914.png",
@@ -232,11 +235,9 @@
     "assets/Pasted image 20261114151938.png",
     "assets/Pasted image 20261114151927.png",
     "assets/Pasted image 20261114151903.png",
-    "assets/Pasted image 20261114150717.png",
     "ASM/Macros.md",
     "ASM/SICXE.md",
     "ASM/Records in SIC AND SICXE.md",
-    "ASM/Loaders and Linkers.md",
     "ASM/Solved questions by Claude.md",
     "ASM/8086 asm by Gemini.md",
     "ASM/8086 asm by Claude.md",
@@ -257,7 +258,6 @@
     "ASM/SIC.md",
     "ASM/DEBUG program.md",
     "ASM/COM vs EXE.md",
-    "ASM/A simple example of assembly.md",
     "Ricing",
     "LLD",
     "OOP",

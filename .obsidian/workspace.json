@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ASM/Loaders and Linkers.md",
+                "file": "ASM/Loader design options.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Loaders and Linkers"
+              "title": "Loader design options"
             }
           },
           {
@@ -221,19 +221,21 @@
   },
   "active": "6db5736eebe3fa4a",
   "lastOpenFiles": [
-    "assets/Pasted image 20261117223022.png",
-    "assets/Pasted image 20261117222934.png",
-    "assets/Pasted image 20261117222916.png",
-    "assets/Pasted image 20261117222829.png",
-    "assets/Pasted image 20261117222815.png",
-    "assets/Pasted image 20261117222609.png",
-    "assets/Pasted image 20261117222545.png",
-    "assets/Pasted image 20261117222400.png",
-    "assets/Pasted image 20261117222331.png",
-    "assets/Pasted image 20261117222245.png",
-    "assets/Pasted image 20261117221726.png",
-    "ASM/Records in SIC AND SICXE.md",
+    "assets/Pasted image 20261117223654.png",
+    "assets/Pasted image 20261117223643.png",
+    "assets/Pasted image 20261117223622.png",
+    "assets/Pasted image 20261117223608.png",
+    "assets/Pasted image 20261117223559.png",
+    "assets/Pasted image 20261117223549.png",
+    "assets/Pasted image 20261117223436.png",
+    "assets/Pasted image 20261117223426.png",
+    "assets/Pasted image 20261117223411.png",
+    "ASM/Features of loader.md",
+    "ASM/Loader design options.md",
+    "assets/Pasted image 20261117223307.png",
+    "assets/Pasted image 20261117223243.png",
     "ASM/Loaders and Linkers.md",
+    "ASM/Records in SIC AND SICXE.md",
     "ASM/Features of an assembler.md",
     "ASM/SIC.md",
     "ASM/SICXE.md",
@@ -256,8 +258,6 @@
     "ASM/Two pass assembler.md",
     "ASM/A more complicated example of assembly.md",
     "ASM/Assembler.md",
-    "ASM/Assembler instruction.md",
-    "ASM/DEBUG program.md",
     "Ricing",
     "LLD",
     "OOP",

@@ -29,7 +29,6 @@ To execute an object program, we need:
 - **Linker**: performs only the linking operations. A separate loader handles relocation and loading
 
 
-
 ![](../assets/Pasted%20image%2020261114102809.png)
 
 
@@ -189,10 +188,19 @@ There are 2 methods for specifying relocation:
 - A relocation bit associated with each word of object code.
     - 1 = modification is necessary
     - 0 = no modification is needed
-- Twelve-bit mask is used in each Text record, as each text record contains less than 12 words. 
+- 12-bit mask is used in each Text record, as each text record contains less than 12 words. 
   -> Unused words are set to 0
   -> Any value that is to be modified during relocation must coincide with one of these 3-byte segments
 - For SIC/XE, relocation only affects format 4 instructions. This is because all modes in format 3 are relative. Format 1 and 2 don't even use any address.
+- It's better to use than modification records if too many object codes must be modified, which would create a lot of M records.
+
+![](../assets/Pasted%20image%2020261117214518.png)
+
+Look at line 10. RETADR=0033 (line 95). If program were to relocate, then RETADR would relocate too, which will cause the word (object code) to change. That's why is bit will be 1.
+
+![](../assets/Pasted%20image%2020261117214935.png)
+
+FFC contains the mask for that text record, FFC=1111 1111 1100 (12 bits).
 
 
 -> Modification record (for SIC/XE)
@@ -201,4 +209,65 @@ There are 2 methods for specifying relocation:
 - The extended format instructions in SIC/XE (format 4) are affected by relocation.
 - Not well suited for standard version of SIC, all the instructions except RSUB must be modified when the program is relocated. 
 
+![](../assets/Pasted%20image%2020261117214050.png)
+
+![](../assets/Pasted%20image%2020261117214152.png)
+
+
+
+## Program linking loader
+
+![](../assets/Pasted%20image%2020261117220629.png)
+
+![](../assets/Pasted%20image%2020261117220712.png)
+
+For this, object codes are calculated like this:
+
+![](../assets/Pasted%20image%2020261117221535.png)
+
+Rule: Write the value of the field and all consider referenced labels as 0. Defined labels should be considered as they are.
+
+Final object file:
+
+![](../assets/Pasted%20image%2020261117221726.png)
+
+
+
+![](../assets/Pasted%20image%2020261117220808.png)
+
+![](../assets/Pasted%20image%2020261117222245.png)
+
+![](../assets/Pasted%20image%2020261117222331.png)
+
+
+
+
+![](../assets/Pasted%20image%2020261117220818.png)
+
+![](../assets/Pasted%20image%2020261117222400.png)
+
+### Algorithms and data structures in linking loader
+
+![](../assets/Pasted%20image%2020261117222545.png)
+
+![](../assets/Pasted%20image%2020261117222609.png)
+
+PROGADDR is given by the OS.
+CSADDR is the start of the control section.
+
+Pass 1:
+
+![](../assets/Pasted%20image%2020261117222815.png)
+
+![](../assets/Pasted%20image%2020261117222916.png)
+
+Pass 2:
+
+![](../assets/Pasted%20image%2020261117222829.png)
+
+![](../assets/Pasted%20image%2020261117222934.png)
+
+
+
+![](../assets/Pasted%20image%2020261117223022.png)
 

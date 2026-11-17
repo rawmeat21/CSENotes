@@ -333,9 +333,73 @@ CSECT is used to define a control section.
 
 For example:
 
-RDREC is one control section (defined at line 109). `EXTDEF` at 122 tells us about symbols defined outside RDREC which are used in RDREC.
+RDREC is one control section (defined at line 109). `EXTREF` at 122 tells us about symbols defined outside RDREC which are used in RDREC.
 
 The main routine is also a control section. It has `EXTREF` and `EXTDEF`. `EXTDEF` tells us about the symbols defined in the main control section and usable elsewhere.
+
+![](../assets/Pasted%20image%2020261117204833.png)
+
+![](../assets/Pasted%20image%2020261117204845.png)
+
+![](../assets/Pasted%20image%2020261117204947.png)
+
+-> Starting address of every control section is 0000.
+-> `EXTREF` and `EXTDEF` are assembler directives so they do not have any object code.
+-> While assigning an address to external references, we cannot know the address, So, all 0s are assigned.
+-> If you have k control sections, you'll get k object codes.
+
+
+
+#### Program linking
+
+For main:
+
+![](../assets/Pasted%20image%2020261117211601.png)
+
+Define record: BUFFER is at 0033. BUFEND is at 1033.
+Refer record: Pretty self explanatory
+
+Modification record: There should be a modification record for each field which needs to be modified. All refer record must be modified. Same for address which need to be relocated.
+
+We see a modification record for `+JSUB RDREC` at line 15:
+
+```
+M 000004 05 +RDREC
+```
+
+The object code is `4B100000`. Basically the last 5 hex digits represent the address, which is all 0s as we don't know where `RDREC` is located. 
+
+```
+0003 4B
+0004 10
+0005 00
+0006 00
+```
+
+We see that the address field of the instruction starts at `0004`. That's why `000004` is the starting address of the field in modification record. 
+
+Also, we need to specify length of field, which is 5 hex digits.
+
+`+RDREC` tells the loader to add the address of RDREC to this field.
+
+
+For RDREC control section:
+
+![](../assets/Pasted%20image%2020261117212507.png)
+
+Other parts look the same. Interesting part is `MAXLEN WORD BUFEND-BUFFER`:
+
+1. It's a word, the field starts at 0028.
+2. It has length 6 hex digits. This is because a word is 6 hex digits long.
+
+
+For WRREC:
+
+![](../assets/Pasted%20image%2020261117213002.png)
+
+
+The program generated at the end will be a single program.
+
 #### External definitions and references
 
 These are used to provide the linking between control sections. There are two of these directives: `EXTDEF` and `EXTREF`.

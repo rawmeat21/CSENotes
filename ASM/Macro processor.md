@@ -90,7 +90,7 @@ ARGTAB stores arguments to a macro
 
 ![](../assets/Pasted%20image%2020261119113102.png)
 
-
+Notice that each parameter is replaced by a positional value preceeded by a `?` in NAMTAB.
 #### Algorithm
 
 MAIN program:

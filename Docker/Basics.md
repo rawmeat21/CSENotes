@@ -99,7 +99,10 @@ When you run a command, e.g. `docker container run`, behind the scenes the CLI c
 You cannot remove an image directly. You need to delete all of the containers first. 
 
 1. `docker container rm <container ID>...`. For deleting a lot of containers, use `docker container prune`. Delete ALL containers for the image.
-2. Then, run  `docker image rm <name of image>`.
+
+   Note that you can also use `docker container rm -f` to force remove it (-f forces the removal of a running container by sending a `SIGKILL` signal to terminate its processes immediately before deleting it).
+
+3. Then, run  `docker image rm <name of image>`.
 
 
 ### Download image without running: 

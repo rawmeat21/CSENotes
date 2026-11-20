@@ -100,6 +100,7 @@ Literal name | Operand value | Length | Address
 =C'EOF'      | 454F46        | 3      | 002D
 =X'05'       | 05            | 1      | 1B50
 ```
+![](../assets/Pasted%20image%2020261120215542.png)
 
 **Pass 1**
 

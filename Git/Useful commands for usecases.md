@@ -42,4 +42,32 @@ git diff -- src/app.js
 | **Index (Staging area) vs. Last Commit**  | `git diff --staged`  <br>_(or `git diff --cached`)_ | All modifications that **have been staged** and are locked in for the next commit.             | "What exactly am I about to commit when I run `git commit`?"     |
 | **Working Tree vs. Last Commit**          | `git diff HEAD`                                     | **All changes** made since the last commit, regardless of whether they are staged or unstaged. | "What has changed overall in my workspace since my last commit?" |
 
-7. 
+7. How to know what **commit** HEAD points to?
+
+```
+❯ git rev-parse HEAD           
+9fc33757b0c0fefa6afdb8fe6bf4e565f9ff4e06
+```
+This works for both attached and detached HEAD.
+
+8. How to know what HEAD points to?
+
+```
+cat .git/HEAD
+```
+
+9. You want to move branch `my-work` to point to another commit. What to do?
+
+```
+git switch my-work (or git checkout my-work)
+git reset <commit-hash> (use --hard option if you had uncommitted changes on that commit)
+```
+10. You want to compare the working directory with the branch you're trying to switch to. What do you do?
+
+```
+git diff <branch-name>
+```
+
+If it shows no differences, that means the working directory is same as the branch.
+
+If it does show differences, that means the contents of working directory are different. Remember to commit uncommitted changes in the working directory if this is the case.

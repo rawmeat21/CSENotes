@@ -29,3 +29,7 @@ How to produce object code:
 
 ![](../assets/Pasted%20image%2020261110132553.png)
 
+
+![](../assets/Pasted%20image%2020261120215751.png)
+![](../assets/Pasted%20image%2020261120215806.png)
+![](../assets/Pasted%20image%2020261120215827.png)

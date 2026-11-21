@@ -16,7 +16,7 @@
 
 Data structures used: OPTAB, SYMTAB, LOCCTR
 
-### OPTAB (Operation code table)
+### OPTAB (Operation code table) / MOT (Mnemonics table)
 
 ![](../assets/Pasted%20image%2020261108115003.png)
 
